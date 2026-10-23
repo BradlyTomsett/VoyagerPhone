@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {formatCoins,formatAccount,minorUnits} from '../browser/money.js';
+assert.equal(formatCoins('12593192705.828','gold'),'12,593,192,705 金币 82 银币 80 铜币');
+assert.equal(formatCoins(15560892),'1,556 金币 8 银币 92 铜币');
+assert.equal(formatCoins('30404'),'3 金币 4 银币 4 铜币');
+assert.equal(formatCoins('0.0001','gold'),'0 金币 0 银币 1 铜币');
+assert.equal(formatCoins('1.99995','gold'),'2 金币 0 银币 0 铜币');
+assert.equal(formatCoins('-10001'),'−1 金币 0 银币 1 铜币');
+assert.equal(formatCoins('90071992547409930000'),'9,007,199,254,740,993 金币 0 银币 0 铜币');
+assert.equal(minorUnits('1e-4',4),1n);
+assert.equal(formatAccount('99131161896.42','main_grey'),'约 99,131,161,896 灰币');
+assert.equal(formatCoins('not money'),'金额待核实');
+console.log('PASS: exact gold/silver/copper display, large balances, copper precision, rounding and separate grey currency');

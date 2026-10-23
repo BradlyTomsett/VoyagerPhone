@@ -1,4 +1,4 @@
-# VoyagerPhone · 远航浏览器版 0.5
+# VoyagerPhone · 远航浏览器版 0.6
 
 [打开游戏](https://bradlytomsett.github.io/VoyagerPhone/)
 
@@ -20,6 +20,12 @@ VOYAGER V14.66 的单人星际沙盒。网页、Python 引擎和运行资源全�
 
 22 份原始冷归档可勾选“包含历史归档”后按需解码搜索。旧状态、未确认草案与经营模拟保留原始性质，不当作已发生的交易。AI 每轮根据问题检索相关原文，同时遵守现有视角与知情限制；指挥官资料不会自动成为 NPC 的记忆。检索受上下文大小限制，没有命中不等于原始存档不存在该信息。
 
+## 舰队档案与金额
+
+点击任一舰队卡片，可展开具名舰船名册、舰级数量、每舰固定设计/武器防护/战力封板与现行武备审计、设备数量与分布、型号性能目录，以及人员和完整原档。三舰队的现役数、持有数和具名单舰记录分开显示；旧计划与当前实装不混算。所有资料按需读取，不调用模型或改写存档。
+
+金币与铜币账户按 1 金币＝100 银币＝10,000 铜币拆分显示，不再用金币小数或巨额铜币数字代替。换算使用整数运算，保留到 1 铜币；灰币保持独立币种，概览显示约数，悬停可查原始精确余额。账户实际余额不变。
+
 ## 进度、密钥与备份
 
 - 进度自动保存在当前浏览器的 IndexedDB，包含网页回合航志和校验值；存储事务完成后才报告保存成功。
@@ -40,6 +46,9 @@ VOYAGER V14.66 的单人星际沙盒。网页、Python 引擎和运行资源全�
 python scripts/build_browser.py
 node tests/browser_model.mjs
 node tests/browser_storage.mjs
+node tests/browser_money.mjs
+python -m unittest tests.test_fleet_archive -v
+node tests/browser_fleet.mjs
 python -m unittest tests.test_source_library -v
 node tests/browser_sources.mjs
 node tests/browser_commander.mjs

@@ -24,6 +24,7 @@ from backend.app import GameService, ACTIVE, safe_error
 from backend.engine import EngineBridge, canonical, digest, module
 from backend.model import CRITERIA, WRAPPER, REVIEW, matches_output
 from backend.source_library import SourceLibrary
+from backend.fleet_archive import FleetArchive
 
 COMMANDER_ID = 'PER-COMMANDER-01'
 
@@ -278,6 +279,13 @@ class BrowserHost:
         if method=='library_search':return self.game.bridge.source_library().search(
             data.get('query',''),data.get('offset',0),data.get('limit',16),
             data.get('history') is True,data.get('category','all'))
+        if method in ('fleet_overview','fleet_ship','fleet_inventory','fleet_records','fleet_equipment'):
+            archive=FleetArchive(self.game.bridge.source_library())
+            if method=='fleet_overview':return archive.overview(data.get('fleet'))
+            if method=='fleet_ship':return archive.ship(data.get('fleet'),data.get('vessel'))
+            if method=='fleet_inventory':return archive.inventory(data.get('fleet'))
+            if method=='fleet_records':return archive.records(data.get('fleet'))
+            return archive.equipment(data.get('query',''),data.get('offset',0))
         if method=='begin':return self.begin(data)
         if method=='plan':return self.accept_plan(data['id'],data['plan'],data.get('usage',{}))
         if method=='review':return self.accept_review(data['id'],data['verdict'],data.get('usage',{}))
