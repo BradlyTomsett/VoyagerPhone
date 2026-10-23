@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "passed": 2,
+  "failed": 0,
+  "rows": [
+    {
+      "name": "setup_explicit_control_and_complete_profiles",
+      "status": "PASS",
+      "detail": {
+        "control": true
+      },
+      "seconds": 14.428
+    },
+    {
+      "name": "13_barrier_rolls_back_whole_combined_transaction",
+      "status": "PASS",
+      "detail": {
+        "mechanical_money_narrative_visit_and_clock_rollback_together": true,
+        "barrier_not_covered_by_ordinary_background_policy": true
+      },
+      "seconds": 23.639
+    }
+  ]
+}

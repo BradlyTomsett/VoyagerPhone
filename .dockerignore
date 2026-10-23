@@ -1,0 +1,9 @@
+.git
+.openai
+.qa
+data
+.env
+tests
+__pycache__
+*.zip
+.voyager-runtime

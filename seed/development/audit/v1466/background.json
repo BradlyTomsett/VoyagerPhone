@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "passed": 7,
+  "total": 7,
+  "checks": [
+    {
+      "name": "Incomplete biographies remain incomplete",
+      "status": "PASS"
+    },
+    {
+      "name": "Routine review is present in the shared event queue",
+      "status": "PASS"
+    },
+    {
+      "name": "Routine background planning does not ask for full private biographies",
+      "status": "PASS"
+    },
+    {
+      "name": "Major NPC review remains a barrier",
+      "status": "PASS"
+    },
+    {
+      "name": "Routine events cannot be silently skipped",
+      "status": "PASS"
+    },
+    {
+      "name": "Routine review changes no profiles positions or accounts",
+      "status": "PASS"
+    },
+    {
+      "name": "Repeated NPC routine review is idempotent",
+      "status": "PASS"
+    }
+  ]
+}

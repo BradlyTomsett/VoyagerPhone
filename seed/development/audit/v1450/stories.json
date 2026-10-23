@@ -1,0 +1,109 @@
+{
+  "suite": "stories",
+  "status": "PASS",
+  "returncode": 0,
+  "seconds": 258.418,
+  "upstream_script_sha256": "22409a9fcc5b5cf003d3b5ee30e7b67b26beff4ffc66f1906f81a869cfa40e02",
+  "adapted_script_sha256": "22409a9fcc5b5cf003d3b5ee30e7b67b26beff4ffc66f1906f81a869cfa40e02",
+  "result": {
+    "schema": "BATCH_C_ACCEPTANCE_V1",
+    "status": "PASS",
+    "engine_sha256": "3e5071ced725caef8ef10e1cbcfbe6b157cd3629b2d543b345bbfaaae27828c9",
+    "source_save_set_id": "SAVESET-V14.50-3ce082aeb6ea6366",
+    "tests": [
+      {
+        "name": "every_gameplay_fact_and_old_event_byte_preserved",
+        "status": "PASS",
+        "detail": {
+          "unchanged_files": 15,
+          "logical_events": 2540,
+          "logical_bytes_exact": true,
+          "new_game_events": 0,
+          "step17": "NOT_AUTHORIZED_UNCHANGED",
+          "input_save_set_id": "SAVESET-V14.49-cdf55a13d2da9684"
+        },
+        "seconds": 1.854
+      },
+      {
+        "name": "historical_disclosures_and_central_visibility_filter",
+        "status": "PASS",
+        "detail": "legacy known hypothesis remains uncertain; null preserved; private metadata filtered across dedicated outputs",
+        "seconds": 6.81
+      },
+      {
+        "name": "authorized_parallel_scenes_entities_and_separate_knowledge",
+        "status": "PASS",
+        "detail": {
+          "parallel_scenes": 3,
+          "duplicate_command_replay_no_effect": true,
+          "no_automatic_focus": true,
+          "different_npc_knows_nothing": true
+        },
+        "seconds": 56.75
+      },
+      {
+        "name": "narrative_authority_knowledge_and_hard_effect_negative_matrix",
+        "status": "PASS",
+        "detail": {
+          "hidden_fact_hard_cash_combat_mechanical_fact_unknown_npc_forged_effect_and_time_rejected": true,
+          "director_switch_does_not_disable_engine": true
+        },
+        "seconds": 0.298
+      },
+      {
+        "name": "three_story_families_freeform_choice_causal_consequences",
+        "status": "PASS",
+        "detail": {
+          "end_to_end_families": [
+            "rescue",
+            "ordinary_life",
+            "discovery"
+          ],
+          "freeform_choice": true,
+          "hard_effects_reused_not_executed": true,
+          "soft_quality_is_separate_fixture_review": true
+        },
+        "seconds": 46.986
+      },
+      {
+        "name": "knowledge_correction_story_rewrite_and_reversible_experience",
+        "status": "PASS",
+        "detail": {
+          "old_rumor_retained_correction_learned": true,
+          "rewrite_no_cash_rng_effect": true,
+          "alias_before": "unclassified",
+          "alias_after": "exact_current_balance",
+          "repetition_feedback_changes_context_rank_not_randomness": true,
+          "cache_deletion_and_switch": true
+        },
+        "seconds": 62.725
+      },
+      {
+        "name": "terminal_scenes_evidence_identity_and_revoke_protection",
+        "status": "PASS",
+        "detail": {
+          "closed_not_reopened": true,
+          "history_disclosure_requires_real_evidence": true,
+          "names_not_duplicated": true,
+          "consequence_once_only": true,
+          "experience_revoke_rebuildable": true,
+          "all_original_mechanics_preserved": true,
+          "fullcheck": "PASS"
+        },
+        "seconds": 66.12
+      },
+      {
+        "name": "cold_reload_dev_release_views_and_authorization_boundary",
+        "status": "PASS",
+        "detail": {
+          "reload_character_and_consequence_continuity": true,
+          "development_release_equal": true,
+          "sceneindex_no_hidden_fact": true,
+          "forged_authorization_rejected": true,
+          "corrupt_learning_cache_rebuilt": true
+        },
+        "seconds": 15.301
+      }
+    ]
+  }
+}

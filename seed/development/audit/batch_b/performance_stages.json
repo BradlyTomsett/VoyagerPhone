@@ -1,0 +1,246 @@
+[
+  {
+    "version": "baseline",
+    "phase": "exact_cold",
+    "instrumented_wall_seconds": 12.31598614099994,
+    "function_calls": {
+      "readiness_report": 3,
+      "strict_json_load": 77,
+      "sha256_file": 227,
+      "sha_file": 396,
+      "dumps": 58,
+      "_decode_history_epoch_record": 126,
+      "component_source_check": 4,
+      "validate_authority_set": 1
+    },
+    "inclusive_function_seconds": {
+      "strict_json_load": 0.9486302979985339,
+      "sha256_file": 0.07416358999989825,
+      "sha_file": 0.0597143379973204,
+      "dumps": 0.04177637900102127,
+      "_decode_history_epoch_record": 4.734466123000402,
+      "component_source_check": 6.771495124000012,
+      "readiness_report": 10.33035847500014,
+      "validate_authority_set": 1.764918365000085
+    },
+    "actual_bytes_hashed_in_engine_and_guard": 168577575,
+    "fsync": {
+      "calls": 0,
+      "seconds": 0
+    },
+    "import_seconds": 0.5538828479998301,
+    "output_bytes": 2036
+  },
+  {
+    "version": "baseline",
+    "phase": "exact_warm",
+    "instrumented_wall_seconds": 11.838288636000016,
+    "function_calls": {
+      "readiness_report": 3,
+      "strict_json_load": 65,
+      "sha256_file": 199,
+      "sha_file": 396,
+      "dumps": 54,
+      "_decode_history_epoch_record": 108,
+      "component_source_check": 3,
+      "validate_authority_set": 1
+    },
+    "inclusive_function_seconds": {
+      "strict_json_load": 0.7870288209996943,
+      "sha256_file": 0.06677585200077374,
+      "sha_file": 0.06171981899524326,
+      "dumps": 0.0341014109990283,
+      "_decode_history_epoch_record": 4.481998584000394,
+      "component_source_check": 5.771080558999529,
+      "readiness_report": 11.61009984400016,
+      "validate_authority_set": 0.011214184999971621
+    },
+    "actual_bytes_hashed_in_engine_and_guard": 156539229,
+    "fsync": {
+      "calls": 0,
+      "seconds": 0
+    },
+    "import_seconds": 0.5538828479998301,
+    "output_bytes": 2036
+  },
+  {
+    "version": "baseline",
+    "phase": "historical_event_lookup",
+    "instrumented_wall_seconds": 0.8835714680003548,
+    "function_calls": {
+      "_decode_history_epoch_record": 18
+    },
+    "inclusive_function_seconds": {
+      "_decode_history_epoch_record": 0.7822879019986431
+    },
+    "actual_bytes_hashed_in_engine_and_guard": 0,
+    "fsync": {
+      "calls": 0,
+      "seconds": 0
+    },
+    "import_seconds": 0.5538828479998301,
+    "output_bytes": 1108
+  },
+  {
+    "version": "baseline",
+    "phase": "zero_time_typed_commit",
+    "instrumented_wall_seconds": 39.851551393000136,
+    "function_calls": {
+      "component_source_check": 8,
+      "dumps": 127,
+      "strict_json_load": 242,
+      "_decode_history_epoch_record": 396,
+      "validate_authority_set": 6,
+      "sha256_file": 481,
+      "readiness_report": 3,
+      "sha_file": 406,
+      "_native_atomic_save_unlocked": 1,
+      "_v1403_previous__native_atomic_save_unlocked": 1,
+      "_component_write_manifest_native": 1,
+      "run_checks": 1
+    },
+    "inclusive_function_seconds": {
+      "dumps": 0.13742277499977718,
+      "strict_json_load": 2.3202915159981785,
+      "_decode_history_epoch_record": 15.311295212998175,
+      "component_source_check": 12.778233927000201,
+      "sha256_file": 0.17666750800844966,
+      "validate_authority_set": 1.8756133239999144,
+      "sha_file": 0.06412454100109244,
+      "readiness_report": 10.215473014000054,
+      "_component_write_manifest_native": 0.025163007999708498,
+      "run_checks": 16.94350700899986,
+      "_v1403_previous__native_atomic_save_unlocked": 29.563567610000064,
+      "_native_atomic_save_unlocked": 29.564112354999907
+    },
+    "actual_bytes_hashed_in_engine_and_guard": 306871427,
+    "fsync": {
+      "calls": 557,
+      "seconds": 0.0005774519950136892
+    },
+    "import_seconds": 0.5538828479998301,
+    "output_bytes": 3311
+  },
+  {
+    "version": "candidate",
+    "phase": "exact_cold",
+    "instrumented_wall_seconds": 11.281923794999784,
+    "function_calls": {
+      "strict_json_load": 5,
+      "sha256_file": 355,
+      "_snapshot_readiness": 3,
+      "readiness_report": 1,
+      "sha_file": 153,
+      "dumps": 20,
+      "_decode_history_epoch_record": 19,
+      "component_source_check": 1
+    },
+    "inclusive_function_seconds": {
+      "strict_json_load": 0.027596950999850378,
+      "sha256_file": 0.04505431700272311,
+      "sha_file": 0.015924720000384696,
+      "dumps": 0.008028230001855263,
+      "_decode_history_epoch_record": 0.7772474989992588,
+      "component_source_check": 5.0458426590003,
+      "readiness_report": 11.011794119000115,
+      "_snapshot_readiness": 11.059400694000033
+    },
+    "actual_bytes_hashed_in_engine_and_guard": 59585061,
+    "fsync": {
+      "calls": 3,
+      "seconds": 7.580999863421312e-06
+    },
+    "import_seconds": 0.5286235009998563,
+    "output_bytes": 2206
+  },
+  {
+    "version": "candidate",
+    "phase": "exact_warm",
+    "instrumented_wall_seconds": 0.18989865599996847,
+    "function_calls": {
+      "strict_json_load": 2,
+      "sha256_file": 294,
+      "_snapshot_readiness": 3,
+      "dumps": 2
+    },
+    "inclusive_function_seconds": {
+      "strict_json_load": 0.02109122100046079,
+      "sha256_file": 0.03176298900098118,
+      "dumps": 0.0003685540000333276,
+      "_snapshot_readiness": 0.0018389110000498476
+    },
+    "actual_bytes_hashed_in_engine_and_guard": 24923090,
+    "fsync": {
+      "calls": 0,
+      "seconds": 0
+    },
+    "import_seconds": 0.5286235009998563,
+    "output_bytes": 2206
+  },
+  {
+    "version": "candidate",
+    "phase": "historical_event_lookup",
+    "instrumented_wall_seconds": 0.9303993429998627,
+    "function_calls": {
+      "strict_json_load": 1,
+      "sha256_file": 2,
+      "_decode_history_epoch_record": 19,
+      "dumps": 4
+    },
+    "inclusive_function_seconds": {
+      "strict_json_load": 0.00030873400010023033,
+      "sha256_file": 0.001238629999988916,
+      "_decode_history_epoch_record": 0.6750647930011837,
+      "dumps": 0.03224016800004392
+    },
+    "actual_bytes_hashed_in_engine_and_guard": 1620320,
+    "fsync": {
+      "calls": 4,
+      "seconds": 9.572999260853976e-06
+    },
+    "import_seconds": 0.5286235009998563,
+    "output_bytes": 1108
+  },
+  {
+    "version": "candidate",
+    "phase": "zero_time_typed_commit",
+    "instrumented_wall_seconds": 37.07177791699996,
+    "function_calls": {
+      "component_source_check": 10,
+      "dumps": 85,
+      "strict_json_load": 247,
+      "_decode_history_epoch_record": 380,
+      "validate_authority_set": 6,
+      "_snapshot_readiness": 3,
+      "sha256_file": 1073,
+      "_native_atomic_save_unlocked": 1,
+      "_v1403_previous__native_atomic_save_unlocked": 1,
+      "_component_write_manifest_native": 1,
+      "_services_run_checks": 1,
+      "run_checks": 1,
+      "sha_file": 10
+    },
+    "inclusive_function_seconds": {
+      "dumps": 0.1839888360036639,
+      "strict_json_load": 2.643894691001151,
+      "_decode_history_epoch_record": 15.514060219001294,
+      "component_source_check": 16.119448303000354,
+      "validate_authority_set": 9.415248849999898,
+      "sha256_file": 0.12051867500076696,
+      "_snapshot_readiness": 0.10819472899947868,
+      "_component_write_manifest_native": 0.021946545999981026,
+      "run_checks": 17.782821696000155,
+      "_services_run_checks": 17.844957636000345,
+      "sha_file": 0.004404156999953557,
+      "_v1403_previous__native_atomic_save_unlocked": 28.301409391000107,
+      "_native_atomic_save_unlocked": 28.302162838000186
+    },
+    "actual_bytes_hashed_in_engine_and_guard": 121310558,
+    "fsync": {
+      "calls": 643,
+      "seconds": 0.0010892169952967379
+    },
+    "import_seconds": 0.5286235009998563,
+    "output_bytes": 3347
+  }
+]

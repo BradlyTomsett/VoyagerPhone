@@ -1,0 +1,16 @@
+{
+  "schema": "BATCH2_FOLLOWUP_INPUT_V1",
+  "input_save_set_id": "SAVESET-V14.58-00f16348a31896bf",
+  "input_zip_sha256": "40ada983e4bbb86c359a70223bf0485ebbbc41ed230a5e5f600b12399c8c7390",
+  "files": {
+    "manifest.json": "70ffd1aac8b95c70f9ed6aedbef944e7d14337da4ac3b6fa9ae68792097949f0",
+    "state.json": "d70139d6c5be10bf8efd6f519a33d3b4acaaf30b5f28611ab735878a15fb85b9",
+    "tasks.json": "a9a7e3d49cc0395fa038c467a04b7372c98246bd1fd451edcc642620cc57e3d8",
+    "rules.json": "e72c64ed3edffd9194749bbeea8c9dc09d403ac80b1e3a10962a735480e8b043",
+    "catalog.json": "18bd2263a78e40fec2ddbe5aa638757aa115065f2d44c9a86950c29a58722174",
+    "events.jsonl": "d933df91c03adca6aecf3fadb1f72eefdf80e73e82f870c844b993c273ed8304",
+    "engine.py": "3322a64a51356823b0a7d2176d8ada742526b20bfbb2d51eff8e2925e5190acb",
+    "guard.py": "917db42bd54ef993a8a917a2c56d2252fbfe27f3a9d4d3899edbde520fb3cf08"
+  },
+  "scope": "V14.58 follow-up; V14.57 full source unavailable in this request"
+}

@@ -1,0 +1,18 @@
+import copy,importlib.util,json,os,pathlib,shutil,time
+P=pathlib.Path;BASE=P(os.environ['VOYAGER_TEST_SOURCE']).resolve();OUT=P(os.environ['VOYAGER_BATCH_B_OUTPUT']).resolve();OUT.mkdir(parents=True,exist_ok=True);r=OUT/'goods_world';shutil.copytree(BASE,r,ignore=shutil.ignore_patterns('.runtime','__pycache__','.game_engine.lock'));os.environ.update(VOYAGER_ROOT=str(r),VOYAGER_DEVELOPER_MODE='1',VOYAGER_DIAGNOSTIC_CONTEXT='gm');spec=importlib.util.spec_from_file_location('goods',r/'engine.py');a=importlib.util.module_from_spec(spec);spec.loader.exec_module(a)
+def rebind():
+ m=a.read_json(r/'manifest.json');a._component_write_manifest_native(r,m['save_version'],m.get('parent_save_set_id'),m.get('migration_lineage'))
+q=a.calculate_price_quote({'item_id':'SUPPLY-FOOD','unit':'包','quantity':10,'currency':'gold','transaction_type':'purchase'},r);assert q['status']=='VALID',q
+delivery={'inventory_ref':'state:inventories.supply_inventory.fleets.voyager.food.value','delta':10,'unit':'包'};confirmed={'settlement_id':'GOODS-TEST','quote_id':q['quote_id'],'binding_sha256':q['binding_sha256'],'direction':'debit','account':'fleet','status':'completed','cash_amount':q['total'],'asset_disposition_verified':True,'inventory_delivery':delivery}
+a._append_engine_history(r/'events.jsonl',{'event_id':'TEST-ONLY-DELIVERY','type':'system','game_time':a.read_json(r/'state.json')['game_time'],'summary':'Isolated synthetic completed delivery fixture, never a player-world fact','confirmed_price_settlement':confirmed});rebind();q=a.calculate_price_quote(q['request'],r);m=a.read_json(r/'manifest.json');before=a.read_json(r/'state.json');now=before['game_time']
+c={'schema':a.DOMAIN_COMMAND_SCHEMA,'command_id':'GOODS-COMMIT','base_save_set_id':m['save_set_id'],'kind':'settle_price','settlement_id':'GOODS-TEST','quote':q,'direction':'debit','account':'fleet','source_event_id':'TEST-ONLY-DELIVERY','delivery':delivery,'authorization':'host_intent','authorization_ref':'HOST:GOODS','actor_id':'PER-COMMANDER-01'}
+def env(command):return {'schema':'HOST_COMMAND_INTENT_V1','command':command,'subject_id':command['actor_id'],'parent_save_set_id':command['base_save_set_id'],'instruction_text':'Isolated explicit delivery test','evidence_ref':'test-authenticated-host','decision':'approved','targets':a._domain_command_targets(command),'valid_from':now,'valid_until':now,'limits':a._domain_authorization_cost(command)}
+def hashes():return {n:a.sha256_file(r/n) for n in a.COMPONENT_FILES}
+oldhash=hashes();bad=copy.deepcopy(c);bad.pop('delivery');denied=False
+try:a.host_intent_command(r,env(bad),'V14.47')
+except Exception as ex:assert 'DELIVERY_REQUIRED' in str(ex),ex;denied=True
+assert denied and hashes()==oldhash
+result=a.host_intent_command(r,env(c),'V14.47');assert result['status']=='SAVED',result;after=a.read_json(r/'state.json');assert a.get_by_path(after,delivery['inventory_ref'][6:])==a.get_by_path(before,delivery['inventory_ref'][6:])+10
+assert before['engine_runtime']['finance_runtime']['funds_units']['gold']-after['engine_runtime']['finance_runtime']['funds_units']['gold']==2000
+assert a.accounts_integrity_report(after)['status']=='PASS';h=hashes();assert a.host_intent_command(r,env(c),'V14.48')['status']=='ALREADY_APPLIED' and h==hashes();report=a.run_checks(r,full=True);assert report['status']=='PASS',report['errors']
+row={'status':'PASS','no_delivery_no_cash_change':True,'completed_goods_cash_and_inventory_atomic':True,'replay_has_no_effect':True,'cash_gold_units':2000,'delivered_food_packs':10,'fullcheck':'PASS'};(OUT/'results.json').write_text(json.dumps(row,indent=2)+'\n');print(json.dumps(row),flush=True)

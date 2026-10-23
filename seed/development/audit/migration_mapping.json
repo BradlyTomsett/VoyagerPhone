@@ -1,0 +1,2258 @@
+[
+  {
+    "original_authority_path": "rules:document_segments.order=38.markdown",
+    "price_id": "PRICE-SUPPLY-FOOD",
+    "conditions": {},
+    "coverage": "RULE-SUPPLY-INVENTORY-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=38.markdown",
+    "price_id": "PRICE-SUPPLY-WATER",
+    "conditions": {},
+    "coverage": "RULE-SUPPLY-INVENTORY-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=38.markdown",
+    "price_id": "PRICE-SUPPLY-PARTS",
+    "conditions": {},
+    "coverage": "RULE-SUPPLY-INVENTORY-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=38.markdown",
+    "price_id": "PRICE-SUPPLY-AIR",
+    "conditions": {},
+    "coverage": "RULE-SUPPLY-INVENTORY-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=38.markdown",
+    "price_id": "PRICE-SUPPLY-FUEL",
+    "conditions": {},
+    "coverage": "RULE-SUPPLY-INVENTORY-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=38.markdown",
+    "price_id": "PRICE-SUPPLY-MEDICAL",
+    "conditions": {},
+    "coverage": "RULE-SUPPLY-INVENTORY-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=43.markdown",
+    "price_id": "PRICE-STARCHART",
+    "conditions": {},
+    "coverage": "RULE-STAR-CHART-PRICE-01",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-HUMMINGBIRD",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-HUMMINGBIRD",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-XUANWU-L",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-XUANWU-L",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-XUANWU-H",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-XUANWU-H",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-RAINBOW1",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-RAINBOW1",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-THUNDER1",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-THUNDER1",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-NIGHTHAWK",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-NIGHTHAWK",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-HERCULES",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-HERCULES",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-BLUEWHALE",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-BLUEWHALE",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-DRAGONFLY",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-DRAGONFLY",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-RIFLE",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-RIFLE",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "formula"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-SHOTGUN",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-SHOTGUN",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "formula"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-PISTOL",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-PISTOL",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "formula"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-M2",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-M2",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "formula"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-GRENADE",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-GRENADE",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "formula"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-MISSILE",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-MISSILE",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "formula"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-ROCKET",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-ROCKET",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "formula"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-GUARD1",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-GUARD1",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "formula"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-SANDDUNE",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-SANDDUNE",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-SHIELD-L",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-SHIELD-L",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "formula"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-SHIELD-M",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-SHIELD-M",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "formula"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-SHIELD-H",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-SHIELD-H",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "formula"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-LASER-S",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-LASER-S",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "formula"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-LASER-M",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-LASER-M",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "formula"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-EM-S",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-EM-S",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "formula"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-PLASMA-M",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-PLASMA-M",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "formula"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-CIWS",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-CIWS",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "formula"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-EXT-LAUNCHER",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=53.markdown",
+    "price_id": "PRICE-OWN-LAUNCHER",
+    "conditions": {},
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "formula"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=54.markdown",
+    "price_id": "PRICE-CARGO-130",
+    "conditions": {},
+    "coverage": "RULE-SHIPMARKET-01",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=54.markdown",
+    "price_id": "PRICE-CARGO-150",
+    "conditions": {},
+    "coverage": "RULE-SHIPMARKET-01",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=54.markdown",
+    "price_id": "PRICE-CARGO-220",
+    "conditions": {},
+    "coverage": "RULE-SHIPMARKET-01",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=54.markdown",
+    "price_id": "PRICE-CARGO-266",
+    "conditions": {},
+    "coverage": "RULE-SHIPMARKET-01",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=54.markdown",
+    "price_id": "PRICE-CARGO-287",
+    "conditions": {},
+    "coverage": "RULE-SHIPMARKET-01",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=54.markdown",
+    "price_id": "PRICE-CARGO-350",
+    "conditions": {},
+    "coverage": "RULE-SHIPMARKET-01",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=54.markdown",
+    "price_id": "PRICE-CARGO-500",
+    "conditions": {},
+    "coverage": "RULE-SHIPMARKET-01",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=54.markdown",
+    "price_id": "PRICE-CARGO-650",
+    "conditions": {},
+    "coverage": "RULE-SHIPMARKET-01",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=54.markdown",
+    "price_id": "PRICE-CARGO-830",
+    "conditions": {},
+    "coverage": "RULE-SHIPMARKET-01",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:document_segments.order=82.markdown",
+    "price_id": "PRICE-TITANIUM46",
+    "conditions": {},
+    "coverage": "RULE-MARKET-ANCHOR-TITANIUM46-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:commander_runtime_rules.parameters.xilu9_economy_price_anchor_current.prices_copper.very_basic_food",
+    "price_id": "PRICE-XILU-VERY_BASIC_FOOD",
+    "conditions": {
+      "region": "熄炉-9"
+    },
+    "coverage": "RULE-UNSEALED-PRICE-REALISM-83630909",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "state:commander_runtime_rules.parameters.xilu9_economy_price_anchor_current.prices_copper.cheap_hot_meal",
+    "price_id": "PRICE-XILU-CHEAP_HOT_MEAL",
+    "conditions": {
+      "region": "熄炉-9"
+    },
+    "coverage": "RULE-UNSEALED-PRICE-REALISM-83630909",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "state:commander_runtime_rules.parameters.xilu9_economy_price_anchor_current.prices_copper.daily_food",
+    "price_id": "PRICE-XILU-DAILY_FOOD",
+    "conditions": {
+      "region": "熄炉-9"
+    },
+    "coverage": "RULE-UNSEALED-PRICE-REALISM-83630909",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "state:commander_runtime_rules.parameters.xilu9_economy_price_anchor_current.prices_copper.ordinary_drink",
+    "price_id": "PRICE-XILU-ORDINARY_DRINK",
+    "conditions": {
+      "region": "熄炉-9"
+    },
+    "coverage": "RULE-UNSEALED-PRICE-REALISM-83630909",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "state:commander_runtime_rules.parameters.xilu9_economy_price_anchor_current.prices_copper.small_snack",
+    "price_id": "PRICE-XILU-SMALL_SNACK",
+    "conditions": {
+      "region": "熄炉-9"
+    },
+    "coverage": "RULE-UNSEALED-PRICE-REALISM-83630909",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "state:commander_runtime_rules.parameters.xilu9_economy_price_anchor_current.prices_copper.bunk_night",
+    "price_id": "PRICE-XILU-BUNK_NIGHT",
+    "conditions": {
+      "region": "熄炉-9"
+    },
+    "coverage": "RULE-UNSEALED-PRICE-REALISM-83630909",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "state:commander_runtime_rules.parameters.xilu9_economy_price_anchor_current.prices_copper.ordinary_room_night",
+    "price_id": "PRICE-XILU-ORDINARY_ROOM_NIGHT",
+    "conditions": {
+      "region": "熄炉-9"
+    },
+    "coverage": "RULE-UNSEALED-PRICE-REALISM-83630909",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:commander_runtime_rules.parameters.xilu9_economy_price_anchor_current.prices_copper.private_air_hotwater_room_night",
+    "price_id": "PRICE-XILU-PRIVATE_AIR_HOTWATER_ROOM_NIGHT",
+    "conditions": {
+      "region": "熄炉-9"
+    },
+    "coverage": "RULE-UNSEALED-PRICE-REALISM-83630909",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "state:commander_runtime_rules.parameters.xilu9_economy_price_anchor_current.prices_copper.small_craft_berth",
+    "price_id": "PRICE-XILU-SMALL_CRAFT_BERTH",
+    "conditions": {
+      "region": "熄炉-9"
+    },
+    "coverage": "RULE-UNSEALED-PRICE-REALISM-83630909",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "state:commander_runtime_rules.parameters.xilu9_economy_price_anchor_current.shop_employee_wage_copper_per_day",
+    "price_id": "PRICE-XILU-WAGE",
+    "conditions": {
+      "region": "熄炉-9"
+    },
+    "coverage": "RULE-UNSEALED-PRICE-REALISM-83630909",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:commander_runtime_rules.parameters.xilu9_economy_price_anchor_current.income.ordinary_worker_gold_per_year",
+    "price_id": "PRICE-XILU-ORDINARY_WORKER_GOLD_PER_YEAR",
+    "conditions": {
+      "region": "熄炉-9"
+    },
+    "coverage": "RULE-UNSEALED-PRICE-REALISM-83630909",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "state:commander_runtime_rules.parameters.xilu9_economy_price_anchor_current.income.skilled_worker_gold_per_year",
+    "price_id": "PRICE-XILU-SKILLED_WORKER_GOLD_PER_YEAR",
+    "conditions": {
+      "region": "熄炉-9"
+    },
+    "coverage": "RULE-UNSEALED-PRICE-REALISM-83630909",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:runtime_rules.commander_sealed_runtime_policies.unsealed_price_generation_realism.lodging_anchor.remote_ordinary_lodging_general_copper_per_day",
+    "price_id": "PRICE-REMOTE-REMOTE_ORDINARY_LODGING_GENERAL_COPPER_PER_DAY",
+    "conditions": {
+      "context": "remote_lodging",
+      "channel": "legal"
+    },
+    "coverage": "RULE-UNSEALED-PRICE-REALISM-83630909",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:runtime_rules.commander_sealed_runtime_policies.unsealed_price_generation_realism.lodging_anchor.default_remote_ordinary_lodging_copper_per_day",
+    "price_id": "PRICE-REMOTE-DEFAULT_REMOTE_ORDINARY_LODGING_COPPER_PER_DAY",
+    "conditions": {
+      "context": "remote_lodging",
+      "channel": "legal"
+    },
+    "coverage": "RULE-UNSEALED-PRICE-REALISM-83630909",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "rules:runtime_rules.commander_sealed_runtime_policies.unsealed_price_generation_realism.lodging_anchor.very_basic_bunk_copper_per_day",
+    "price_id": "PRICE-REMOTE-VERY_BASIC_BUNK_COPPER_PER_DAY",
+    "conditions": {
+      "context": "remote_lodging",
+      "channel": "legal"
+    },
+    "coverage": "RULE-UNSEALED-PRICE-REALISM-83630909",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:runtime_rules.commander_sealed_runtime_policies.unsealed_price_generation_realism.lodging_anchor.ordinary_single_room_copper_per_day",
+    "price_id": "PRICE-REMOTE-ORDINARY_SINGLE_ROOM_COPPER_PER_DAY",
+    "conditions": {
+      "context": "remote_lodging",
+      "channel": "legal"
+    },
+    "coverage": "RULE-UNSEALED-PRICE-REALISM-83630909",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:runtime_rules.commander_sealed_runtime_policies.unsealed_price_generation_realism.lodging_anchor.standard_single_room_copper_per_day",
+    "price_id": "PRICE-REMOTE-STANDARD_SINGLE_ROOM_COPPER_PER_DAY",
+    "conditions": {
+      "context": "remote_lodging",
+      "channel": "legal"
+    },
+    "coverage": "RULE-UNSEALED-PRICE-REALISM-83630909",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:runtime_rules.commander_sealed_runtime_policies.unsealed_price_generation_realism.lodging_anchor.grey_black_anonymous_lodging_grey_per_day",
+    "price_id": "PRICE-REMOTE-GREY_BLACK_ANONYMOUS_LODGING_GREY_PER_DAY",
+    "conditions": {
+      "context": "remote_lodging",
+      "channel": "grey"
+    },
+    "coverage": "RULE-UNSEALED-PRICE-REALISM-83630909",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:runtime_rules.commander_sealed_runtime_policies.unsealed_price_generation_realism.lodging_anchor.optional_service_surcharge_copper_per_day",
+    "price_id": "PRICE-REMOTE-OPTIONAL_SERVICE_SURCHARGE_COPPER_PER_DAY",
+    "conditions": {
+      "context": "remote_lodging",
+      "channel": "legal"
+    },
+    "coverage": "RULE-UNSEALED-PRICE-REALISM-83630909",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:runtime_rules.commander_sealed_runtime_policies.uav_price_reference.猎隼-2查打一体无人机.bulk_purchase_gold_range",
+    "price_id": "PRICE-UAV-BULK-1",
+    "conditions": {
+      "channel": "bulk"
+    },
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:runtime_rules.commander_sealed_runtime_policies.uav_price_reference.猎隼-3查打一体无人机.bulk_purchase_gold_range",
+    "price_id": "PRICE-UAV-BULK-2",
+    "conditions": {
+      "channel": "bulk"
+    },
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:runtime_rules.commander_sealed_runtime_policies.uav_price_reference.猎隼-4查打一体无人机.bulk_purchase_gold_range",
+    "price_id": "PRICE-UAV-BULK-3",
+    "conditions": {
+      "channel": "bulk"
+    },
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "reference_range"
+  },
+  {
+    "original_authority_path": "rules:runtime_rules.commander_sealed_runtime_policies.uav_price_reference.鹞-3武装侦察无人机.bulk_purchase_gold",
+    "price_id": "PRICE-UAV-BULK-4",
+    "conditions": {
+      "channel": "bulk"
+    },
+    "coverage": "RULE-EQUIPMENT-MARKET-REFERENCE-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:commander_runtime_rules.parameters.research_data_uniform_price_gold",
+    "price_id": "PRICE-RESEARCH-POLICY",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BEASTRING11-PUBLIC.price_gold_per_copy",
+    "price_id": "PRICE-DATA-BEASTRING11-PUBLIC",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-MIRRORCOFFIN5-V03.price_gold_per_copy",
+    "price_id": "PRICE-DATA-MIRRORCOFFIN5-V03",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-SHELLMOON-ECOLOGY-V10.price_gold_per_copy",
+    "price_id": "PRICE-DATA-SHELLMOON-ECOLOGY-V10",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-FARVIEWC-CALIBRATION-V10.price_gold_per_copy",
+    "price_id": "PRICE-DATA-FARVIEWC-CALIBRATION-V10",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-COLDASH4-ENGINEERING-V10.price_gold_per_copy",
+    "price_id": "PRICE-DATA-COLDASH4-ENGINEERING-V10",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-PAPERKITE77-ENGINEERING-V10.price_gold_per_copy",
+    "price_id": "PRICE-DATA-PAPERKITE77-ENGINEERING-V10",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-DEEPWELL5-TELEMETRY-V10.price_gold_per_copy",
+    "price_id": "PRICE-DATA-DEEPWELL5-TELEMETRY-V10",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-TAIPRISON3-XENOBIO-V10.price_gold_per_copy",
+    "price_id": "PRICE-DATA-TAIPRISON3-XENOBIO-V10",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-HATCHTIDE4-XENOBIO-V10.price_gold_per_copy",
+    "price_id": "PRICE-DATA-HATCHTIDE4-XENOBIO-V10",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-HATCHTIDE4-STATIONFAILURE-V10.price_gold_per_copy",
+    "price_id": "PRICE-DATA-HATCHTIDE4-STATIONFAILURE-V10",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-SHELLMOON-BIOFILM-V10-PUBLIC.price_gold_per_copy",
+    "price_id": "PRICE-DATA-SHELLMOON-BIOFILM-V10-PUBLIC",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-TIANKENG5-PULSESTORAGE-V10.price_gold_per_copy",
+    "price_id": "PRICE-DATA-TIANKENG5-PULSESTORAGE-V10",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-TIANKENG5-PHASECHANGE-V10.price_gold_per_copy",
+    "price_id": "PRICE-DATA-TIANKENG5-PHASECHANGE-V10",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-TIANKENG5-SAFETYISOLATION-V10.price_gold_per_copy",
+    "price_id": "PRICE-DATA-TIANKENG5-SAFETYISOLATION-V10",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-TIANKENG5-DATACORE-RECOVERY-V10.price_gold_per_copy",
+    "price_id": "PRICE-DATA-TIANKENG5-DATACORE-RECOVERY-V10",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-TIANKENG5-FACILITYFAILURE-V10.price_gold_per_copy",
+    "price_id": "PRICE-DATA-TIANKENG5-FACILITYFAILURE-V10",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-TIANKENG5-CRYO-CURRENT-FIBER-V10.price_gold_per_copy",
+    "price_id": "PRICE-DATA-TIANKENG5-CRYO-CURRENT-FIBER-V10",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-TIANKENG5-EM-LATTICE-SELFREPAIR-V10.price_gold_per_copy",
+    "price_id": "PRICE-DATA-TIANKENG5-EM-LATTICE-SELFREPAIR-V10",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-REDSAND4-MORPH-KIN-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-REDSAND4-MORPH-KIN-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-REDSAND4-PHYS-TISSUE-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-REDSAND4-PHYS-TISSUE-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-REDSAND4-BEHAV-CONTAIN-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-REDSAND4-BEHAV-CONTAIN-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLACKMOSS9-MORPH-KIN-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-BLACKMOSS9-MORPH-KIN-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLACKMOSS9-BEHAV-ECO-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-BLACKMOSS9-BEHAV-ECO-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLACKMOSS9-CAPTURE-RECOVERY-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-BLACKMOSS9-CAPTURE-RECOVERY-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-GUSUI2-MORPH-BIOMECH-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-GUSUI2-MORPH-BIOMECH-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-GUSUI2-PHYS-METAB-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-GUSUI2-PHYS-METAB-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-GUSUI2-SENSE-NAV-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-GUSUI2-SENSE-NAV-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-GUSUI2-GROUP-BEHAV-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-GUSUI2-GROUP-BEHAV-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-GUSUI2-MIGRATION-ECO-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-GUSUI2-MIGRATION-ECO-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-GUSUI2-NONLETHAL-CAPTURE-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-GUSUI2-NONLETHAL-CAPTURE-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-GUSUI2-NONLETHAL-CONTROL-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-GUSUI2-NONLETHAL-CONTROL-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLACKDOME12-THERMAL-MATERIALS-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-BLACKDOME12-THERMAL-MATERIALS-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLACKDOME12-FAILURE-ISOLATION-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-BLACKDOME12-FAILURE-ISOLATION-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLACKDOME12-FINAL-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-BLACKDOME12-FINAL-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-REDVAULT7-CONTAINMENT-SAFETY-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-REDVAULT7-CONTAINMENT-SAFETY-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLUEASH9-NAV-GRAV-CAL-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-BLUEASH9-NAV-GRAV-CAL-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-YINMAI7-XENO-ECOLOGY-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-YINMAI7-XENO-ECOLOGY-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-YINMAI7-TERRITORIAL-BEHAVIOR-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-YINMAI7-TERRITORIAL-BEHAVIOR-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-YINMAI7-CAVITY-MINERALIZATION-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-YINMAI7-CAVITY-MINERALIZATION-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-YINMAI7-DRILL-COLLAPSE-SAFETY-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-YINMAI7-DRILL-COLLAPSE-SAFETY-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-01.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-01",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-02.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-02",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-03.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-03",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-04.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-04",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-05.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-05",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-06.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-06",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-07.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-07",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-08.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-08",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-09.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-09",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-10.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-10",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-11.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-11",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-12.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-12",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-13.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-13",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-14.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-14",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-15.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-15",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-16.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-16",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BX17-CRYO-METAB-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-BX17-CRYO-METAB-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BX17-CONTAIN-MONITOR-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-BX17-CONTAIN-MONITOR-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BX17-BIOPOLYMER-PERF-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-BX17-BIOPOLYMER-PERF-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BX17-LINEAGE-PHENOTYPE-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-BX17-LINEAGE-PHENOTYPE-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BX17-CRYO-STABILITY-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-BX17-CRYO-STABILITY-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLINDSPRING-WILDFILM-ADAPT-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-BLINDSPRING-WILDFILM-ADAPT-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLINDSPRING-LINEAGE-DRIFT-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-BLINDSPRING-LINEAGE-DRIFT-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLINDSPRING-SIXLEG-SYMBIOSIS-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-BLINDSPRING-SIXLEG-SYMBIOSIS-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLINDSPRING-SIXLEG-BIOMECH-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-BLINDSPRING-SIXLEG-BIOMECH-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLINDSPRING-SIXLEG-BEHAVIOR-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-BLINDSPRING-SIXLEG-BEHAVIOR-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-SAINTSONG-BX19-BIOLOGY-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-SAINTSONG-BX19-BIOLOGY-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-SAINTSONG-BX19-BEHAVIOR-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-SAINTSONG-BX19-BEHAVIOR-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-SAINTSONG-BX19-HUMAN-EXPOSURE-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-SAINTSONG-BX19-HUMAN-EXPOSURE-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-SAINTSONG-XENOBIO-CONTAINMENT-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-SAINTSONG-XENOBIO-CONTAINMENT-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-SAINTSONG-LONG-CRYO-MED-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-SAINTSONG-LONG-CRYO-MED-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-SAINTSONG-DERELICT-ENGINEERING-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-SAINTSONG-DERELICT-ENGINEERING-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-SAINTSONG-BX19-TISSUE-REPAIR-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-SAINTSONG-BX19-TISSUE-REPAIR-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-WHITEGLOVE-MICROGRAV-MFG-V10.price_gold_per_copy",
+    "price_id": "PRICE-DATA-WHITEGLOVE-MICROGRAV-MFG-V10",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-WHITEGLOVE-CRYO-MAGNETIC-V10.price_gold_per_copy",
+    "price_id": "PRICE-DATA-WHITEGLOVE-CRYO-MAGNETIC-V10",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-WHITEGLOVE-PHOTONIC-RADIATION-V10.price_gold_per_copy",
+    "price_id": "PRICE-DATA-WHITEGLOVE-PHOTONIC-RADIATION-V10",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ECHO13-MORPH-METAB-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ECHO13-MORPH-METAB-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ECHO13-SPORE-LIFECYCLE-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ECHO13-SPORE-LIFECYCLE-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ECHO13-PREDATION-BEHAVIOR-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ECHO13-PREDATION-BEHAVIOR-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ECHO13-CONTAINMENT-FAILURE-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ECHO13-CONTAINMENT-FAILURE-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ECHO13-DECON-ENGINEERING-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ECHO13-DECON-ENGINEERING-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ECHO13-UNMANNED-BOARDING-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-ECHO13-UNMANNED-BOARDING-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-FILAMENTRAY-MORPH-LOCOMOTION-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-FILAMENTRAY-MORPH-LOCOMOTION-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-FILAMENTRAY-EM-SENSE-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-FILAMENTRAY-EM-SENSE-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-FILAMENTRAY-ICE-HABITAT-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-FILAMENTRAY-ICE-HABITAT-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-FILAMENTRAY-HUMAN-CONTACT-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-FILAMENTRAY-HUMAN-CONTACT-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-GRAYRIDGE-CLIMBER-INDUSTRIAL-RISK-V1.price_gold_per_copy",
+    "price_id": "PRICE-DATA-GRAYRIDGE-CLIMBER-INDUSTRIAL-RISK-V1",
+    "conditions": {},
+    "coverage": "RULE-RESEARCH-DATA-UNIFORM-PRICE-45-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:jinchuan_fleet.deployed_mining_teams.LOC-P3-01.current_operating_baseline.sale_price_reference_gold_per_t",
+    "price_id": "PRICE-P3",
+    "conditions": {
+      "region": "LOC-P3-01"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:jinchuan_fleet.biofilm_process_commercialization.standard_price_gold_per_package",
+    "price_id": "PRICE-BIOFILM",
+    "conditions": {},
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "fixed_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.armored_vehicle_market_latest.listings[0].price_gold_each",
+    "price_id": "PRICE-OFFER-AV-83620918-01",
+    "conditions": {
+      "offer_id": "AV-83620918-01",
+      "channel": "legal"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.armored_vehicle_market_latest.listings[1].price_gold_each",
+    "price_id": "PRICE-OFFER-AV-83620918-02",
+    "conditions": {
+      "offer_id": "AV-83620918-02",
+      "channel": "legal"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.armored_vehicle_market_latest.listings[2].price_gold_each",
+    "price_id": "PRICE-OFFER-AV-83620918-03",
+    "conditions": {
+      "offer_id": "AV-83620918-03",
+      "channel": "legal"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.armored_vehicle_market_latest.listings[3].price_gold_each",
+    "price_id": "PRICE-OFFER-AV-83620918-04",
+    "conditions": {
+      "offer_id": "AV-83620918-04",
+      "channel": "legal"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.armored_vehicle_market_latest.listings[4].price_gold_each",
+    "price_id": "PRICE-OFFER-AV-83620918-05",
+    "conditions": {
+      "offer_id": "AV-83620918-05",
+      "channel": "legal"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.fortress4.current_listings[0].price_gold_each",
+    "price_id": "PRICE-OFFER-F4-83620904-01",
+    "conditions": {
+      "offer_id": "F4-83620904-01"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.fortress4.current_listings[1].price_gold_each",
+    "price_id": "PRICE-OFFER-F4-83620904-02",
+    "conditions": {
+      "offer_id": "F4-83620904-02"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.fortress4.current_listings[2].price_gold_each",
+    "price_id": "PRICE-OFFER-F4-83620904-03",
+    "conditions": {
+      "offer_id": "F4-83620904-03"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.armored_vehicles.listings[0].price_gold_each",
+    "price_id": "PRICE-OFFER-AV-83620904-01",
+    "conditions": {
+      "offer_id": "AV-83620904-01"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.armored_vehicles.listings[1].price_gold_each",
+    "price_id": "PRICE-OFFER-AV-83620904-02",
+    "conditions": {
+      "offer_id": "AV-83620904-02"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.armored_vehicles.listings[2].price_gold_each",
+    "price_id": "PRICE-OFFER-AV-83620904-03",
+    "conditions": {
+      "offer_id": "AV-83620904-03"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.armored_vehicles.listings[3].price_gold_each",
+    "price_id": "PRICE-OFFER-AV-83620904-04",
+    "conditions": {
+      "offer_id": "AV-83620904-04"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.armored_vehicles.listings[4].price_gold_each",
+    "price_id": "PRICE-OFFER-AV-83620904-05",
+    "conditions": {
+      "offer_id": "AV-83620904-05"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.purchases_83620905_1420.items[0].price_gold_each",
+    "price_id": "PRICE-OFFER-F4-83620904-02",
+    "conditions": {
+      "offer_id": "F4-83620904-02"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.purchases_83620905_1420.items[1].price_gold_each",
+    "price_id": "PRICE-OFFER-AV-83620904-04",
+    "conditions": {
+      "offer_id": "AV-83620904-04"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.combat_robot_uav_market_latest.combat_robots[0].price_gold_each",
+    "price_id": "PRICE-OFFER-CR-83620919-01",
+    "conditions": {
+      "offer_id": "CR-83620919-01"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.combat_robot_uav_market_latest.combat_robots[1].price_gold_each",
+    "price_id": "PRICE-OFFER-CR-83620919-02",
+    "conditions": {
+      "offer_id": "CR-83620919-02"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.combat_robot_uav_market_latest.combat_robots[2].price_gold_each",
+    "price_id": "PRICE-OFFER-CR-83620919-03",
+    "conditions": {
+      "offer_id": "CR-83620919-03"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.combat_robot_uav_market_latest.combat_robots[3].price_gold_each",
+    "price_id": "PRICE-OFFER-CR-83620919-04",
+    "conditions": {
+      "offer_id": "CR-83620919-04"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.combat_robot_uav_market_latest.uavs[0].price_gold_each",
+    "price_id": "PRICE-OFFER-UAV-83620919-01",
+    "conditions": {
+      "offer_id": "UAV-83620919-01"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.combat_robot_uav_market_latest.uavs[1].price_gold_each",
+    "price_id": "PRICE-OFFER-UAV-83620919-02",
+    "conditions": {
+      "offer_id": "UAV-83620919-02"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.combat_robot_uav_market_latest.uavs[2].price_gold_each",
+    "price_id": "PRICE-OFFER-UAV-83620919-03",
+    "conditions": {
+      "offer_id": "UAV-83620919-03"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.combat_robot_uav_market_latest.uavs[3].price_gold_each",
+    "price_id": "PRICE-OFFER-UAV-83620919-04",
+    "conditions": {
+      "offer_id": "UAV-83620919-04"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "seller_quote"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.purchased_star_charts_current.formal_completely_unvisited[3].price_grey",
+    "price_id": "PRICE-HIST-6e67f79587b1",
+    "conditions": {},
+    "coverage": "RULE-STAR-CHART-PRICE-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.purchased_star_charts_current.formal_completely_unvisited[4].price_grey",
+    "price_id": "PRICE-HIST-19856c57a3b8",
+    "conditions": {},
+    "coverage": "RULE-STAR-CHART-PRICE-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.purchased_star_charts_current.formal_completely_unvisited[5].price_grey",
+    "price_id": "PRICE-HIST-d6b719e22f8c",
+    "conditions": {},
+    "coverage": "RULE-STAR-CHART-PRICE-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.purchased_star_charts_current.formal_completely_unvisited[6].price_grey",
+    "price_id": "PRICE-HIST-f8c5adc96e0d",
+    "conditions": {},
+    "coverage": "RULE-STAR-CHART-PRICE-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.purchased_star_charts_current.formal_completely_unvisited[7].price_grey",
+    "price_id": "PRICE-HIST-8ce3b78ed262",
+    "conditions": {},
+    "coverage": "RULE-STAR-CHART-PRICE-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.treasure_maps_owned_current.maps[0].price_grey",
+    "price_id": "PRICE-HIST-835890b31f19",
+    "conditions": {},
+    "coverage": "RULE-STAR-CHART-PRICE-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.treasure_maps_owned_current.maps[1].price_grey",
+    "price_id": "PRICE-HIST-85b176639b4e",
+    "conditions": {},
+    "coverage": "RULE-STAR-CHART-PRICE-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.treasure_maps_owned_current.maps[2].price_grey",
+    "price_id": "PRICE-HIST-6bec0141e007",
+    "conditions": {},
+    "coverage": "RULE-STAR-CHART-PRICE-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.treasure_maps_owned_current.maps[3].price_grey",
+    "price_id": "PRICE-HIST-ef586098ffa8",
+    "conditions": {},
+    "coverage": "RULE-STAR-CHART-PRICE-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.manor_quotes_current.quotes[0].price_gold",
+    "price_id": "PRICE-MANOR-AURELIAN-ALBA-01",
+    "conditions": {
+      "region": "新罗马帝国｜奥勒良城郊｜阿尔巴丘陵",
+      "offer_id": "MANOR-AURELIAN-ALBA-01",
+      "seller_id": "PER-WANGJING-01"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "provisional_estimate"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.manor_quotes_current.quotes[1].price_gold",
+    "price_id": "PRICE-MANOR-FED-SILVERPINE-02",
+    "conditions": {
+      "region": "联邦合众国｜五湖州｜银松湖区",
+      "offer_id": "MANOR-FED-SILVERPINE-02",
+      "seller_id": "PER-WANGJING-01"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "provisional_estimate"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.manor_quotes_current.quotes[2].price_gold",
+    "price_id": "PRICE-MANOR-EAST-QINGLAN-03",
+    "conditions": {
+      "region": "东方联合体｜江南共同区｜青岚湖东岸",
+      "offer_id": "MANOR-EAST-QINGLAN-03",
+      "seller_id": "PER-WANGJING-01"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "provisional_estimate"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.manor_quotes_current.quotes[3].price_gold",
+    "price_id": "PRICE-MANOR-VESTA-REDWOOD-04",
+    "conditions": {
+      "region": "新罗马帝国｜维斯塔南部｜红杉谷",
+      "offer_id": "MANOR-VESTA-REDWOOD-04",
+      "seller_id": "PER-WANGJING-01"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "provisional_estimate"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.manor_quotes_current.quotes[4].price_gold",
+    "price_id": "PRICE-MANOR-WHITEGORGE-HIGHLAND-05",
+    "conditions": {
+      "region": "白峡共和国｜西部高地｜溪谷镇外缘",
+      "offer_id": "MANOR-WHITEGORGE-HIGHLAND-05",
+      "seller_id": "PER-WANGJING-01"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "provisional_estimate"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.manor_quotes_current.quotes[5].price_gold",
+    "price_id": "PRICE-MANOR-CALDER-VINEHILL-06",
+    "conditions": {
+      "region": "卡尔德地区｜北湾农业带｜葡萄丘陵",
+      "offer_id": "MANOR-CALDER-VINEHILL-06",
+      "seller_id": "PER-WANGJING-01"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "provisional_estimate"
+  },
+  {
+    "original_authority_path": "state:jinchuan_fleet.vessels.VES-SENTINEL9.purchase_price_gold",
+    "price_id": "PRICE-LEGACY-0cfe1279003d",
+    "conditions": {
+      "source_record": "state:jinchuan_fleet.vessels.VES-SENTINEL9.purchase_price_gold"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:inventories.current_voyager_weapon_inventory_net.pending_owned_rifle_batches.RIFLE-10000-GOLD-83620912.purchase_price_gold",
+    "price_id": "PRICE-LEGACY-bf0a9cbe4f36",
+    "conditions": {
+      "source_record": "state:inventories.current_voyager_weapon_inventory_net.pending_owned_rifle_batches.RIFLE-10000-GOLD-83620912.purchase_price_gold"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:inventories.current_voyager_weapon_inventory_net.pending_owned_rifle_batches.RIFLE-11000-GREY-83620913.purchase_price_grey",
+    "price_id": "PRICE-LEGACY-462823e5f93b",
+    "conditions": {
+      "source_record": "state:inventories.current_voyager_weapon_inventory_net.pending_owned_rifle_batches.RIFLE-11000-GREY-83620913.purchase_price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:inventories.current_voyager_weapon_inventory_net.pending_owned_rifle_batches.RIFLE-19000-GREYWEB-83620914.purchase_price_grey",
+    "price_id": "PRICE-LEGACY-0024f92610c5",
+    "conditions": {
+      "source_record": "state:inventories.current_voyager_weapon_inventory_net.pending_owned_rifle_batches.RIFLE-19000-GREYWEB-83620914.purchase_price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.civilian_ship_market_latest.浪脊-12.final_price_gold",
+    "price_id": "PRICE-LEGACY-843d74329c02",
+    "conditions": {
+      "source_record": "state:world_state_overrides.markets_and_procurement.civilian_ship_market_latest.浪脊-12.final_price_gold"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.fortress4.current_listings[1].last_negotiated_sale.price_gold_each",
+    "price_id": "PRICE-LEGACY-ec1f85c40a37",
+    "conditions": {
+      "source_record": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.fortress4.current_listings[1].last_negotiated_sale.price_gold_each"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.armored_vehicles.listings[3].last_negotiated_sale.price_gold_each",
+    "price_id": "PRICE-LEGACY-076d4d89016d",
+    "conditions": {
+      "source_record": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.armored_vehicles.listings[3].last_negotiated_sale.price_gold_each"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.markets_and_procurement.shadow_nanyan4_acquisition_current.lots[2].seller_previous_bundle_quote_gold",
+    "price_id": "PRICE-LEGACY-877944bee69e",
+    "conditions": {
+      "source_record": "state:world_state_overrides.markets_and_procurement.shadow_nanyan4_acquisition_current.lots[2].seller_previous_bundle_quote_gold"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[0].price_grey",
+    "price_id": "PRICE-LEGACY-56d4c7795f7c",
+    "conditions": {
+      "source_record": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[0].price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[1].price_grey",
+    "price_id": "PRICE-LEGACY-ac8bdc7024dc",
+    "conditions": {
+      "source_record": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[1].price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[2].price_grey",
+    "price_id": "PRICE-LEGACY-6d17b74c0d55",
+    "conditions": {
+      "source_record": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[2].price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[7].price_grey",
+    "price_id": "PRICE-LEGACY-ab274d5a0ee2",
+    "conditions": {
+      "source_record": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[7].price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[8].price_grey",
+    "price_id": "PRICE-LEGACY-9d21597b58db",
+    "conditions": {
+      "source_record": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[8].price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[9].price_grey",
+    "price_id": "PRICE-LEGACY-440d4b0cc5fc",
+    "conditions": {
+      "source_record": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[9].price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[10].price_grey",
+    "price_id": "PRICE-LEGACY-a3faa51d8d32",
+    "conditions": {
+      "source_record": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[10].price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[11].price_grey",
+    "price_id": "PRICE-LEGACY-1355e0a131bd",
+    "conditions": {
+      "source_record": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[11].price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[12].price_grey",
+    "price_id": "PRICE-LEGACY-e09d9c40d4ec",
+    "conditions": {
+      "source_record": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[12].price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[13].price_grey",
+    "price_id": "PRICE-LEGACY-8bddad7f2a22",
+    "conditions": {
+      "source_record": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[13].price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[14].price_grey",
+    "price_id": "PRICE-LEGACY-4a1eca73a9f5",
+    "conditions": {
+      "source_record": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[14].price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[15].price_grey",
+    "price_id": "PRICE-LEGACY-7a661eace230",
+    "conditions": {
+      "source_record": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[15].price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[16].price_grey",
+    "price_id": "PRICE-LEGACY-73c6612d01c3",
+    "conditions": {
+      "source_record": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[16].price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[17].price_grey",
+    "price_id": "PRICE-LEGACY-c2b615b8b92d",
+    "conditions": {
+      "source_record": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[17].price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[18].price_grey",
+    "price_id": "PRICE-LEGACY-10d575519086",
+    "conditions": {
+      "source_record": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[18].price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[19].price_grey",
+    "price_id": "PRICE-LEGACY-771a27fffe58",
+    "conditions": {
+      "source_record": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[19].price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.exploration_and_science.blackflower_canister_research_current.purchase_price_grey",
+    "price_id": "PRICE-LEGACY-f5990e742ca1",
+    "conditions": {
+      "source_record": "state:world_state_overrides.exploration_and_science.blackflower_canister_research_current.purchase_price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.greychain_and_legal.greychain_two_site_quote_request.commander_contract_orders.K-8.reference_quote_gold",
+    "price_id": "PRICE-LEGACY-a2c01147b8ac",
+    "conditions": {
+      "source_record": "state:world_state_overrides.greychain_and_legal.greychain_two_site_quote_request.commander_contract_orders.K-8.reference_quote_gold"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.greychain_and_legal.greychain_two_site_quote_request.commander_contract_orders.红岩中继.reference_quote_gold",
+    "price_id": "PRICE-LEGACY-8612628a734f",
+    "conditions": {
+      "source_record": "state:world_state_overrides.greychain_and_legal.greychain_two_site_quote_request.commander_contract_orders.红岩中继.reference_quote_gold"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.greychain_and_legal.greychain_blackanvil4_current.contract.price_gold",
+    "price_id": "PRICE-LEGACY-506b3d9a38d1",
+    "conditions": {
+      "source_record": "state:world_state_overrides.greychain_and_legal.greychain_blackanvil4_current.contract.price_gold"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.intelligence_and_security.kovacs_trafficking_intel_current.last_valid_lead.price_grey",
+    "price_id": "PRICE-LEGACY-b217c0b67e06",
+    "conditions": {
+      "source_record": "state:world_state_overrides.intelligence_and_security.kovacs_trafficking_intel_current.last_valid_lead.price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.intelligence_and_security.white_needle_network_current.mara_search_current.grayweb_tip.price_grey",
+    "price_id": "PRICE-LEGACY-f8a449b4e18a",
+    "conditions": {
+      "source_record": "state:world_state_overrides.intelligence_and_security.white_needle_network_current.mara_search_current.grayweb_tip.price_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.organizations_current.blind_spring6_case_organizations.砾盾保全.blind_spring_debt_settlement.waived_fees_grey",
+    "price_id": "PRICE-LEGACY-ae5161a5364e",
+    "conditions": {
+      "source_record": "state:world_state_overrides.organizations_current.blind_spring6_case_organizations.砾盾保全.blind_spring_debt_settlement.waived_fees_grey"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.freeport_seedship17_case_current.salvage_settlement.fees_gold",
+    "price_id": "PRICE-LEGACY-4f92b7b76036",
+    "conditions": {
+      "source_record": "state:world_state_overrides.freeport_seedship17_case_current.salvage_settlement.fees_gold"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.freeport_graylamp4_current.scrap_recovery.fees_gold",
+    "price_id": "PRICE-LEGACY-1f5c98bf8c21",
+    "conditions": {
+      "source_record": "state:world_state_overrides.freeport_graylamp4_current.scrap_recovery.fees_gold"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.freeport_xilu9_current.hawke_commercial_cover.operations_current.air_filter_emergency_sales.price_copper_each",
+    "price_id": "PRICE-LEGACY-9e9bdd92b5f3",
+    "conditions": {
+      "source_record": "state:world_state_overrides.freeport_xilu9_current.hawke_commercial_cover.operations_current.air_filter_emergency_sales.price_copper_each"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  },
+  {
+    "original_authority_path": "state:world_state_overrides.freeport_xilu9_current.hawke_commercial_cover.property.purchase_price_gold",
+    "price_id": "PRICE-LEGACY-00ce7380c3b3",
+    "conditions": {
+      "source_record": "state:world_state_overrides.freeport_xilu9_current.hawke_commercial_cover.property.purchase_price_gold"
+    },
+    "coverage": "RULE-ECONOMY-01",
+    "source_version": "V14.20",
+    "nature": "historical_price"
+  }
+]

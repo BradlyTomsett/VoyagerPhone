@@ -1,0 +1,29 @@
+{
+  "suite": "concurrency",
+  "status": "PASS",
+  "returncode": 0,
+  "seconds": 85.832,
+  "upstream_script_sha256": "1bf53fe995f3e6abb8db1eff43029d019ad1187715cb76342e768b77faa0a38e",
+  "adapted_script_sha256": "3de51dfd3be85dbe97ce81909cee18df9ec019773f6d3c002ab991a87a40eae1",
+  "result": {
+    "status": "PASS",
+    "tests": [
+      {
+        "name": "two_concurrent_writers_once_only",
+        "status": "PASS",
+        "detail": [
+          "ALREADY_APPLIED",
+          "SAVED"
+        ]
+      },
+      {
+        "name": "human_gateway_end_to_end",
+        "status": "PASS",
+        "detail": "TTY review -> signed inherited pipe -> exact command -> committed task"
+      }
+    ],
+    "source_save_set_id": "SAVESET-V14.50-3ce082aeb6ea6366",
+    "engine_sha256": "3e5071ced725caef8ef10e1cbcfbe6b157cd3629b2d543b345bbfaaae27828c9",
+    "guard_sha256": "917db42bd54ef993a8a917a2c56d2252fbfe27f3a9d4d3899edbde520fb3cf08"
+  }
+}

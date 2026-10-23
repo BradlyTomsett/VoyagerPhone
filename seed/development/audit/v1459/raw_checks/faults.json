@@ -1,0 +1,81 @@
+{
+  "schema": "STAGE3_STORY_FAULTS_V1",
+  "status": "PASS",
+  "manifest_sha256": "149adea27913431a572241d1e6be2ca6a56d45465c0f20fb30b37fd6294837e7",
+  "engine_sha256": "4a5f72d6cd19ec238f178ad5f221015742aa03a9a8ed0497baa618fa91ea0ef2",
+  "tests": [
+    {
+      "name": "after_journal",
+      "status": "PASS",
+      "detail": {
+        "recovered_to": "parent",
+        "money_memory_turn_all_atomic": true,
+        "original_retry_exactly_once": true,
+        "old_journal_reappearance_checked": false,
+        "fail_closed_source_stability_refusals": 0,
+        "fresh_retry_requires_independent_complete_Guard_validation": true
+      },
+      "seconds": 63.51385443799995
+    },
+    {
+      "name": "after_component",
+      "status": "PASS",
+      "detail": {
+        "recovered_to": "parent",
+        "money_memory_turn_all_atomic": true,
+        "original_retry_exactly_once": true,
+        "old_journal_reappearance_checked": false,
+        "fail_closed_source_stability_refusals": 1,
+        "fresh_retry_requires_independent_complete_Guard_validation": true
+      },
+      "seconds": 69.42553010300003
+    },
+    {
+      "name": "after_manifest",
+      "status": "PASS",
+      "detail": {
+        "recovered_to": "target",
+        "money_memory_turn_all_atomic": true,
+        "original_retry_exactly_once": true,
+        "old_journal_reappearance_checked": true,
+        "fail_closed_source_stability_refusals": 0,
+        "fresh_retry_requires_independent_complete_Guard_validation": true
+      },
+      "seconds": 44.77331525500017
+    },
+    {
+      "name": "after_receipt",
+      "status": "PASS",
+      "detail": {
+        "recovered_to": "target",
+        "money_memory_turn_all_atomic": true,
+        "original_retry_exactly_once": true,
+        "old_journal_reappearance_checked": true,
+        "fail_closed_source_stability_refusals": 0,
+        "fresh_retry_requires_independent_complete_Guard_validation": true
+      },
+      "seconds": 47.745116951
+    },
+    {
+      "name": "after_cleanup",
+      "status": "PASS",
+      "detail": {
+        "recovered_to": "target",
+        "money_memory_turn_all_atomic": true,
+        "original_retry_exactly_once": true,
+        "old_journal_reappearance_checked": false,
+        "fail_closed_source_stability_refusals": 0,
+        "fresh_retry_requires_independent_complete_Guard_validation": true
+      },
+      "seconds": 36.61968830900014
+    },
+    {
+      "name": "after_component_unknown",
+      "status": "PASS",
+      "detail": {
+        "unknown_bytes_preserved": true
+      },
+      "seconds": 29.45213513700014
+    }
+  ]
+}

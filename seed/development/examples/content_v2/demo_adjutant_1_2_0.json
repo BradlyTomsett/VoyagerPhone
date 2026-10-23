@@ -1,0 +1,78 @@
+{
+  "schema": "VOYAGER_CONTENT_PACKAGE_V2",
+  "schema_version": 2,
+  "package_id": "demo.adjutant",
+  "namespace": "demo.adjutant",
+  "version": "1.2.0",
+  "dependencies": {},
+  "compatibility": {
+    "engine": ">=2.67.0,<3.0.0",
+    "schema_versions": [
+      2
+    ]
+  },
+  "migration_notes": "纯数据演示；保留历史版本和旧实例绑定。",
+  "migrations": [],
+  "definitions": [
+    {
+      "id": "demo.adjutant:conversation",
+      "kind": "scene_family",
+      "title": "demo.adjutant:conversation",
+      "data": {
+        "family": "conversation",
+        "description": "在已授权场景中讨论当前可见资料；安装此定义不触发剧情。 定义修订2"
+      },
+      "tags": [
+        "conversation"
+      ],
+      "priority": 25,
+      "visibility": "player",
+      "status": "active",
+      "conflict_key": null
+    },
+    {
+      "id": "demo.adjutant:lamp",
+      "kind": "equipment",
+      "title": "demo.adjutant:lamp",
+      "data": {
+        "unit": "台",
+        "ownership_effect": "definition_only",
+        "description": "演示器具定义，不授予资产，不构成价格。"
+      },
+      "tags": [
+        "conversation"
+      ],
+      "priority": 25,
+      "visibility": "player",
+      "status": "deprecated",
+      "conflict_key": null
+    },
+    {
+      "id": "demo.adjutant:style",
+      "kind": "semantic_rule",
+      "title": "demo.adjutant:style",
+      "data": {
+        "implementation": "semantic_only",
+        "text": "保留不确定性的来源标记。这里的资料不能覆盖宿主、授权或机械规则。",
+        "subjects": [
+          "*"
+        ],
+        "scene_types": [
+          "conversation"
+        ],
+        "valid_from": null,
+        "valid_until": null
+      },
+      "tags": [
+        "conversation"
+      ],
+      "priority": 25,
+      "visibility": "player",
+      "status": "active",
+      "conflict_key": null
+    }
+  ],
+  "source": "bundled synthetic developer example; never production installation",
+  "visibility": "player",
+  "content_sha256": "a33110dba750556d77bd43b4c1772c1eca6a29e26efec7ffdee5855e668c6c85"
+}

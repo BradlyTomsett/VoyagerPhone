@@ -1,0 +1,53 @@
+{
+  "suite": "story_integration",
+  "status": "PASS",
+  "returncode": 0,
+  "seconds": 197.852,
+  "script_sha256": "5b2f56dca53f8010c53f7c91f33c267583865c0739e95cd2c25fd9d63c1a974e",
+  "result": {
+    "status": "PASS",
+    "engine_sha256": "ac63c11ce36d993a93c7a789b956778740d3e7e7826815ba2a11bd63119d8c80",
+    "tests": [
+      {
+        "name": "portable_input_contract_and_history_byte_protection",
+        "status": "PASS",
+        "detail": {
+          "unchanged_files": 35,
+          "new_game_events": 0,
+          "step17": "NOT_AUTHORIZED_UNCHANGED",
+          "input_save_set_id": "SAVESET-V14.48-cdf55a13d2da9684"
+        }
+      },
+      {
+        "name": "final_authorized_parallel_focus_alias_and_pattern_strategy",
+        "status": "PASS",
+        "detail": {
+          "current_and_batch_focus_required": true,
+          "alias_exact": true,
+          "NPC_isolation": true,
+          "temporary_repetition_rank_improves_without_permanent_preference": true,
+          "switch_rollback": true
+        }
+      },
+      {
+        "name": "dedicated_endpoints_and_learning_negative_matrix",
+        "status": "PASS",
+        "detail": "strict mechanical schema, cross-viewer access and wrong learned source rejected with no authority changes"
+      },
+      {
+        "name": "revoke_ID_protection_and_development_real_write_equivalence",
+        "status": "PASS",
+        "detail": {
+          "revoke_is_permanent_per_entry_id": true,
+          "development_real_commit_matches_release_routes": true,
+          "all_mechanics_and_cash_preserved": true
+        }
+      }
+    ]
+  },
+  "groups": 4,
+  "tested_save_set_id": "SAVESET-V14.49-cdf55a13d2da9684",
+  "tested_manifest_sha256": "072d15a555565100d274bd02109bbb5210909fdcdbd83c0f95974a6f443bbf8e",
+  "tested_engine_sha256": "ac63c11ce36d993a93c7a789b956778740d3e7e7826815ba2a11bd63119d8c80",
+  "tested_guard_sha256": "8feec5f087aba1c386d2bddf6ad23e8b15c74c6770fed6c1c92d61f800ee52fb"
+}

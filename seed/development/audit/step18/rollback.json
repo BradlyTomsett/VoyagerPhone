@@ -1,0 +1,30 @@
+{
+  "suite": "rollback",
+  "groups": 2,
+  "status": "PASS",
+  "script_sha256": "a54180ecf80c54b33d9db61446382b2772a1f3e6e715b581ce9134d06a273d90",
+  "tested_save_set_id": "SAVESET-V14.48-cdf55a13d2da9684",
+  "tested_engine_sha256": "28678d32b60d671cae0247badba5e4d73600dbfb101811aa1d39c57d83cc81da",
+  "tested_guard_sha256": "e780ae0f45b082f5624be925f92ad04d1e21e3ab3a76c1655f571af222cc1dad",
+  "tested_manifest_sha256": "72cbe2df3db54a5ad5b824f82e4972bc40486a8b393dc7b3316a203046cfffc4",
+  "seconds": 10.003,
+  "result": {
+    "status": "PASS",
+    "tests": [
+      {
+        "name": "previous_complete_source_restored_without_old_zip",
+        "status": "PASS",
+        "detail": {
+          "previous_complete_declared_source_restored": true,
+          "previous_guard_cold_resume": "READY_WITH_LIMITATIONS",
+          "old_zip_required": false
+        }
+      },
+      {
+        "name": "new_authority_bytes_and_inplace_rollback_refused",
+        "status": "PASS",
+        "detail": "changed authority and in-place rollback refused before writing"
+      }
+    ]
+  }
+}

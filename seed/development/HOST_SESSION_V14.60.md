@@ -1,0 +1,10 @@
+# V14.60宿主接入
+
+HostSession.prepare/submit沿用原真实用户授权边界；新增HostSession.setup用于同一核验边界内的精确story_setup，让资料/地点/人生规划补齐有实际宿主入口。ChatGPT专用接线仍为NOT_CONNECTED。
+prepare现在返回V2提案说明与lived_experience；player回合需experience正文锚点。资料缺项先通过授权story_setup完成，不替玩家决定。重要NPC的普通生活已由长期规则授权，不要求玩家逐条设定或逐个确认。
+
+调用模板、身份核验与错误处理仍可参考HOST_SESSION_V14.59.md；其中V14.59合成示例保留为历史版本范例，不再冒充本版可运行样例。本版可运行的完整原生事务与正文示例为tests/living_world_v1460.py，会把所有游戏行为放在SYNTHETIC副本中。
+
+关闭聊天不产生持续进程；prepare与查询不推进游戏时间。耗时行动通过共享受界限时间推进器运行，人生节点与30日AI生活复核独立于玩家当前场景。原有机械屏障及24小时分段上限保留。
+
+setup与submit均调用真实authorize回调，缺失或拒绝回调时不提交。长期普通NPC生活的授权可由宿主验证用户采用的规则，但不能由模型伪造批准。HostSession.setup不是常驻服务。

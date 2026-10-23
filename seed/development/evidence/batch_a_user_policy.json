@@ -1,0 +1,9 @@
+{
+  "schema": "USER_MIGRATION_DECISION_V1",
+  "selected_policy": "preserve_no_replay_resume_at_end",
+  "user_choice": "保留缺口，从22:45继续",
+  "source": "current conversation request_user_input response risk_gap_policy",
+  "game_time": "8363-12-02T22:45:00",
+  "no_retroactive_events": true,
+  "preserve_seed_cycle_accumulators": true
+}

@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "checks": {
+    "time_2245": true,
+    "voyage_day": true,
+    "ships": true,
+    "fleet_people": true,
+    "funds_precise": true,
+    "grey_unchanged": true,
+    "tasks_five": true,
+    "closed_task": true,
+    "closed_case": true,
+    "explosives_distinct": true,
+    "explosives_split": true,
+    "industry_paid_once": true,
+    "medical": true,
+    "medical_other_view": true,
+    "grenades": true,
+    "grenades_modes": true,
+    "kits_not_spent": true,
+    "family_paid_once": true,
+    "no_due_early": true,
+    "civilians_no_shadow_prisoners": true,
+    "return_ivo_tools": true,
+    "no_parent_rewrite": true,
+    "handoff_current": true
+  },
+  "passed": 23,
+  "total": 23
+}

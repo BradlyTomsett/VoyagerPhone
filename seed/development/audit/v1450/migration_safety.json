@@ -1,0 +1,43 @@
+{
+  "schema": "V1450_MIGRATION_SAFETY_V1",
+  "status": "PASS",
+  "engine_sha256": "3e5071ced725caef8ef10e1cbcfbe6b157cd3629b2d543b345bbfaaae27828c9",
+  "guard_sha256": "917db42bd54ef993a8a917a2c56d2252fbfe27f3a9d4d3899edbde520fb3cf08",
+  "tool_sha256": "9796252c31f56f6f6d36d2e6487c4d189b8f4ffdbe87058abb13230678e64ebf",
+  "test_sha256": "e55ed7f10fa555a57a429fea5a3befee81186ce1503d1b2a5c85996df39039bb",
+  "source_components_unchanged": true,
+  "tests": [
+    {
+      "name": "actual_legacy_to_xz_copy_contains_only_declared_archives",
+      "status": "PASS",
+      "detail": {
+        "status": "PASS",
+        "converted_segments": 19,
+        "cold_archives": 22,
+        "no_unbound_archive_files": true,
+        "logical_bytes_exact": true,
+        "cold_history_bytes_before": 3860980,
+        "cold_history_bytes_after": 1828830
+      },
+      "seconds": 18.776
+    },
+    {
+      "name": "closing_barrier_rejects_source_change_without_publishing",
+      "status": "PASS",
+      "detail": "late uncooperative source manifest change rejected before target directory publication",
+      "seconds": 7.38
+    },
+    {
+      "name": "active_recovery_source_refused",
+      "status": "PASS",
+      "detail": "source with pending recovery refused without copying game facts",
+      "seconds": 0.041
+    },
+    {
+      "name": "newer_version_and_external_target_required",
+      "status": "PASS",
+      "detail": "same/older version and in-place target refused",
+      "seconds": 1.801
+    }
+  ]
+}

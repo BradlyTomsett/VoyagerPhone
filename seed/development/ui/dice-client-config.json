@@ -1,0 +1,6 @@
+{
+  "status": "historical_closed_not_replayable",
+  "session_id": "DICE-83631127-2246-HW-01",
+  "original_evidence": "development/evidence/legacy_gambling/dice-client-config.json.txt",
+  "new_protocol": "DOMAIN_COMMAND_V2/game_session"
+}

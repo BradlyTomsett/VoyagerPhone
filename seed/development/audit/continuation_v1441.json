@@ -1,0 +1,133 @@
+{
+  "schema": "VOYAGER_CONTINUATION_AUDIT_V14_41",
+  "from": "8363-11-24T10:25:00",
+  "to": "8363-11-27T18:00:00",
+  "source_save_set_id": "SAVESET-V14.40-0e952a2b1221af7f",
+  "accepted_chat_not_native_engine": true,
+  "gold_before": "36572966952.5637",
+  "gold_after": "42706088778.8988",
+  "grey_before": "2003606622.60",
+  "grey_after": "3205770596.16",
+  "income_industry_gold": "6130123940.4366",
+  "income_industry_grey": "1200321139.56",
+  "income_jinchuan_gold": "2791605.8985",
+  "income_jinchuan_grey": "1842834",
+  "research_rounds": [
+    {
+      "at": "8363-11-24T11:20:00",
+      "copies": 1173,
+      "gold": 52785,
+      "package_count": 97,
+      "provenance": "engine_v2.59.2_SHA256_97_packages_dialogue_accepted"
+    },
+    {
+      "at": "8363-11-25T11:20:00",
+      "copies": 1109,
+      "gold": 49905,
+      "package_count": 97,
+      "provenance": "engine_v2.59.2_SHA256_97_packages_dialogue_accepted"
+    },
+    {
+      "at": "8363-11-26T11:20:00",
+      "copies": 1142,
+      "gold": 51390,
+      "package_count": 97,
+      "provenance": "engine_v2.59.2_SHA256_97_packages_dialogue_accepted"
+    },
+    {
+      "at": "8363-11-27T11:20:00",
+      "copies": 1160,
+      "gold": 52200,
+      "package_count": 97,
+      "provenance": "engine_v2.59.2_SHA256_97_packages_dialogue_accepted"
+    }
+  ],
+  "shop_start_copper": 33049,
+  "shop_entries": [
+    {
+      "period": "8363-11-24T20:26:00/8363-11-24T23:20:00",
+      "date": "8363-11-24",
+      "receipts_copper": 190,
+      "procurement_paid_copper": 0,
+      "employee_paid_copper": 624,
+      "other_paid_copper": 18,
+      "settled_at": "8363-11-24T23:20:00",
+      "opening_cash_copper": 33049,
+      "cash_net_copper": -452,
+      "closing_cash_copper_before_works_tail": 32597
+    },
+    {
+      "period": "8363-11-25",
+      "date": "8363-11-25",
+      "receipts_copper": 2670,
+      "procurement_paid_copper": 1900,
+      "employee_paid_copper": 624,
+      "other_paid_copper": 37,
+      "settled_at": "8363-11-25T23:20:00",
+      "opening_cash_copper": 32597,
+      "cash_net_copper": 109,
+      "closing_cash_copper_before_works_tail": 32706
+    },
+    {
+      "period": "8363-11-26",
+      "date": "8363-11-26",
+      "receipts_copper": 2910,
+      "procurement_paid_copper": 2100,
+      "employee_paid_copper": 624,
+      "other_paid_copper": 44,
+      "settled_at": "8363-11-26T23:20:00",
+      "opening_cash_copper": 32706,
+      "cash_net_copper": 142,
+      "closing_cash_copper_before_works_tail": 32848
+    },
+    {
+      "period": "8363-11-27T00:00:00/8363-11-27T18:00:00",
+      "date": "8363-11-27",
+      "receipts_copper": 1960,
+      "procurement_paid_copper": 1350,
+      "employee_paid_copper": 0,
+      "other_paid_copper": 29,
+      "settled_at": null,
+      "opening_cash_copper": 32848,
+      "cash_net_copper": 581,
+      "closing_cash_copper_before_works_tail": 33429
+    }
+  ],
+  "shop_before_tail_copper": 33429,
+  "construction_tail_copper": 19160,
+  "shop_end_copper": 14269,
+  "covert_unchanged_copper": 830045,
+  "active_tasks": [
+    "TSK-MIN-OPERATIONS",
+    "TSK-CALDER-INDUSTRIES-302",
+    "TSK-MKT-RESEARCH-DATA-SALES",
+    "TSK-INT-GLOBAL-TERROR-KOVACS",
+    "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+    "TSK-YUHUO-OPERATIONS"
+  ],
+  "task_count": 6,
+  "queued_count": 0,
+  "ship_count": 78,
+  "crew_count": 23946,
+  "archive_file_hashes_unchanged": true,
+  "asset_ledger_unchanged": true,
+  "no_duplicate_settlements": true,
+  "known_source_errors_fixed": [
+    "history_metadata_next_seq_2222_to_sequenced",
+    "patrol_closed_phase_mirror"
+  ],
+  "history_new_event_count": 26,
+  "source_components_unchanged": {
+    "rules.json": "830349837b8b9141aa6f6d2511f7cc9cb560bb626920619d0fdf1e4c384f9a1e",
+    "catalog.json": "939111883fbe6bc642981b0ef4354fe8074af5cc82991b9c00e903df67e8e920",
+    "engine.py": "0c2b628943209566ac7904971037cef9e539d437d08a671b664ad63ed12057b3",
+    "guard.py": "938fcfabc03b1e9e037f76f40e7b92f27cc7e01f160f7fc2ea0f574bd270b570"
+  },
+  "limitations": [
+    "shop_SKU_not_recounted",
+    "previous_history_gaps_not_auto_repaired",
+    "Miya_home_arrival_unverified",
+    "older_public_facility_case_resolutions_only_where_confirmed",
+    "Sigma4_history_retained_no_new_research"
+  ]
+}

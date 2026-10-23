@@ -1,0 +1,80 @@
+{
+  "status": "FAIL",
+  "engine_sha256": "4a5f72d6cd19ec238f178ad5f221015742aa03a9a8ed0497baa618fa91ea0ef2",
+  "model_generation": "NOT_RUN",
+  "tests": [
+    {
+      "name": "conservation",
+      "status": "PASS",
+      "detail": {
+        "four_JSON_and_Guard_byte_exact": true,
+        "old_raw_events": 2616
+      },
+      "seconds": 2.8248333680000997
+    },
+    {
+      "name": "immutable_ownership_growth_and_unknown_correction",
+      "status": "FAIL",
+      "error": "FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES",
+      "trace": "Traceback (most recent call last):\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_runtime.py\", line 14, in case\n    try:v={'name':name,'status':'PASS','detail':fn()}\n                                                ^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_runtime.py\", line 47, in ownership_growth\n    with a.SnapshotContext(source) as ctx:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 19384, in __exit__\n    if any(_active_runtime_journal(self.base,n) for n in (NATIVE_COMMIT_JOURNAL_FILENAME,CONSISTENCY_REPAIR_JOURNAL)):raise EngineError('RECOVERY_INTENT_DURING_READ')\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 19384, in <genexpr>\n    if any(_active_runtime_journal(self.base,n) for n in (NATIVE_COMMIT_JOURNAL_FILENAME,CONSISTENCY_REPAIR_JOURNAL)):raise EngineError('RECOVERY_INTENT_DURING_READ')\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 18793, in _active_runtime_journal\n    return _repair_guard_module(Path(base)).active_journal(Path(base),name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 313, in active_journal\n    return not finalized_journal_state(base,j)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 298, in finalized_journal_state\n    if matching is None:raise ValueError('FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES')\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES\n",
+      "seconds": 7.906207218999953
+    },
+    {
+      "name": "host_two_calls_roles_and_retry",
+      "status": "FAIL",
+      "error": "FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES",
+      "trace": "Traceback (most recent call last):\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_runtime.py\", line 14, in case\n    try:v={'name':name,'status':'PASS','detail':fn()}\n                                                ^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_runtime.py\", line 56, in host\n    assert host.HostSession(source,'OTHER').prepare()['status']=='NO_OPEN_SCENE';prior=ss.root;ss.root=source;h.reject(ss.prepare,'IMMUTABLE');ss.root=prior\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/host_session.py\", line 33, in prepare\n    try:return a.RoundService.prepare(self.root,viewer=self.viewer,**request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 21266, in prepare_turn\n    ensure_source_ready(base);state=read_json_view(Path(base)/'state.json');rt=_s3_runtime(state);sid=scene_id or _story_current_summary(state,viewer).get('scene_id');identity=_s3_identity(base)\n    ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 18869, in _reliable_ensure_source_ready\n    report=readiness_report(base)\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 19469, in _snapshot_readiness\n    if ctx and Path(base).resolve()==ctx.base:return ctx.validated_report()\n                                                     ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 19418, in validated_report\n    if _active_runtime_journal(self.base,name):\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 18793, in _active_runtime_journal\n    return _repair_guard_module(Path(base)).active_journal(Path(base),name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 313, in active_journal\n    return not finalized_journal_state(base,j)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 298, in finalized_journal_state\n    if matching is None:raise ValueError('FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES')\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES\n",
+      "seconds": 37.914578998000025
+    },
+    {
+      "name": "memory_dependencies_and_cache_faults",
+      "status": "PASS",
+      "detail": {
+        "unrelated_balance_reuses_content": true,
+        "identity_current": true,
+        "bad_cache_rebuilds": true
+      },
+      "seconds": 20.55712097100013
+    },
+    {
+      "name": "experience_prefix_and_actual_time_expiry",
+      "status": "PASS",
+      "detail": {
+        "tail_events": 2,
+        "no_extra_full_decode_on_proven_prefix": true,
+        "actual_clock_expiry": true
+      },
+      "seconds": 56.07029176900005
+    },
+    {
+      "name": "immutable_development_pool_and_fallback",
+      "status": "PASS",
+      "detail": {
+        "pool_objects": 359,
+        "independent_working_inodes": true,
+        "inplace_working_change_does_not_pollute_snapshots": true,
+        "unsupported_link_full_copy_fallback": true,
+        "Guard_original_format": true
+      },
+      "seconds": 21.603001694999875
+    },
+    {
+      "name": "historical_snapshot_export_independent_cold_boot",
+      "status": "PASS",
+      "detail": {
+        "status": "READY",
+        "committed": true,
+        "save_set_id": "SAVESET-V14.95-a84600df9993dc3e",
+        "export_status": "VERIFIED",
+        "package_generated": true,
+        "package_verified": true,
+        "external_persistence_confirmed": false,
+        "path": "/workspace/scratch/8da8f6aaa549/work/validation/runtime/exports/VOYAGER_SOURCE_V14.95_22e2b8472cd02703.zip",
+        "sha256": "bf6057f69ca8afcead5a66a25ee0dabf37adf04e6a3f46b963ac80b16ccfd1c0",
+        "cold_boot": "PASS",
+        "retry_action": null
+      },
+      "seconds": 19.81871048500011
+    }
+  ]
+}

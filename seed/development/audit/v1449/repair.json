@@ -1,0 +1,30 @@
+{
+  "suite": "repair",
+  "status": "PASS",
+  "returncode": 0,
+  "seconds": 77.614,
+  "script_sha256": "fa56530970d8f949329cc0b27cbb82f21aedc823fb81f31c2f64d3a905a80621",
+  "result": {
+    "status": "PASS",
+    "engine_sha256": "ac63c11ce36d993a93c7a789b956778740d3e7e7826815ba2a11bd63119d8c80",
+    "guard_sha256": "8feec5f087aba1c386d2bddf6ad23e8b15c74c6770fed6c1c92d61f800ee52fb",
+    "source_save_set_id": "SAVESET-V14.49-cdf55a13d2da9684",
+    "tests": [
+      {
+        "name": "repair_after_events.jsonl",
+        "status": "PASS",
+        "outcome": "parent"
+      },
+      {
+        "name": "repair_after_manifest",
+        "status": "PASS",
+        "outcome": "target"
+      }
+    ]
+  },
+  "groups": 2,
+  "tested_save_set_id": "SAVESET-V14.49-cdf55a13d2da9684",
+  "tested_manifest_sha256": "072d15a555565100d274bd02109bbb5210909fdcdbd83c0f95974a6f443bbf8e",
+  "tested_engine_sha256": "ac63c11ce36d993a93c7a789b956778740d3e7e7826815ba2a11bd63119d8c80",
+  "tested_guard_sha256": "8feec5f087aba1c386d2bddf6ad23e8b15c74c6770fed6c1c92d61f800ee52fb"
+}

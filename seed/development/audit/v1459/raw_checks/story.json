@@ -1,0 +1,135 @@
+{
+  "schema": "STAGE4_FORWARD_STORY_REGRESSION_V1",
+  "status": "FAIL",
+  "engine_sha256": "4a5f72d6cd19ec238f178ad5f221015742aa03a9a8ed0497baa618fa91ea0ef2",
+  "manifest_sha256": "149adea27913431a572241d1e6be2ca6a56d45465c0f20fb30b37fd6294837e7",
+  "save_set_id": "SAVESET-V14.59-707b38f6542b6ffc",
+  "tests": [
+    {
+      "name": "equivalent_zero_time_migration",
+      "status": "PASS",
+      "detail": {
+        "baseline": "actual V14.58 parent",
+        "four_JSON_and_Guard_byte_exact": true,
+        "zero_time_maintenance_only": true
+      },
+      "seconds": 1.1711974510001255
+    },
+    {
+      "name": "ordinary_conversation_and_numeric_quotes",
+      "status": "PASS",
+      "detail": {
+        "rounds": 3,
+        "numeric_quote_rumor_accepted": true,
+        "no_mechanical_change": true,
+        "generation_quality": "NOT_RUN"
+      },
+      "seconds": 68.61675243899981
+    },
+    {
+      "name": "atomic_trade_learning_receipt_retry_and_rewrite",
+      "status": "PASS",
+      "detail": {
+        "one_cash_effect": true,
+        "reaction_and_learning_same_event": true,
+        "same_retry_same_receipt": true,
+        "different_payload_rejected": true,
+        "rewrite_does_not_replay": true
+      },
+      "seconds": 48.98075234199996
+    },
+    {
+      "name": "failed_story_cannot_leave_half_trade",
+      "status": "PASS",
+      "detail": {
+        "mechanical_success_then_story_failure_rolls_back_everything": true
+      },
+      "seconds": 4.909603928000024
+    },
+    {
+      "name": "fabricated_results_stale_proposals_and_real_authorization",
+      "status": "PASS",
+      "detail": {
+        "fabricated_outcome_refused": true,
+        "stale_refused": true,
+        "unsupported_explicit": true,
+        "prose_cannot_self_authorize": true
+      },
+      "seconds": 33.393118291000064
+    },
+    {
+      "name": "multi_role_context_cache_report_and_error_isolation",
+      "status": "PASS",
+      "detail": {
+        "actor_A_secret_absent_from_B_player_and_wrong_report": true,
+        "return_alias_isolated": true
+      },
+      "seconds": 48.13237553900012
+    },
+    {
+      "name": "belief_evolution_with_committed_evidence",
+      "status": "PASS",
+      "detail": {
+        "rumor_not_promoted": true,
+        "new_time_fact_does_not_rewrite_old_fact": true,
+        "rounds": 3,
+        "generation_quality": "NOT_RUN"
+      },
+      "seconds": 84.09438914899988
+    },
+    {
+      "name": "priced_transaction_inventory_and_story_same_commit",
+      "status": "PASS",
+      "detail": {
+        "price_source_units_asset_delivery_and_native_full_audit": true,
+        "aggregate_receipt_not_a_temporary_receipt": true
+      },
+      "seconds": 49.79207996100013
+    },
+    {
+      "name": "finite_autonomy_uses_existing_authorization_ledger",
+      "status": "PASS",
+      "detail": {
+        "real_host_registered_finite_policy": true,
+        "actual_CLI_allowed_NPC_turn_committed": true,
+        "NPC_write_summary_has_no_commander_diagnostics": true,
+        "wrong_target_refused": true,
+        "grey_budget_refused": true,
+        "autonomous_privilege_escalation_refused": true
+      },
+      "seconds": 48.78742079200015
+    },
+    {
+      "name": "unified_consequence_timeline_real_advance_and_expiry",
+      "status": "PASS",
+      "detail": {
+        "same_time_stable_order": true,
+        "real_session_stops_for_AI": true,
+        "pure_authorized_effect_once": true,
+        "conditional_wait_no_busy_loop": true,
+        "expiry_strictly_after_inclusive_end": true,
+        "cancelled_not_delivered": true
+      },
+      "seconds": 89.69485954099991
+    },
+    {
+      "name": "independent_scenes_focus_and_existing_patrol_policy",
+      "status": "PASS",
+      "detail": {
+        "two_independent_scenes_run": true,
+        "focus_explicit": true,
+        "existing_hidden_standby_byte_values_unchanged": true,
+        "old_case_cannot_reopen": true,
+        "negotiation_rounds": 3
+      },
+      "seconds": 109.46967488600012
+    },
+    {
+      "name": "budget_full_content_cli_and_development_release_parity",
+      "status": "FAIL",
+      "error": "FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES",
+      "trace": "Traceback (most recent call last):\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_story.py\", line 17, in case\n    try:row={'name':name,'status':'PASS','detail':fn()}\n                                                  ^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_story.py\", line 150, in budget_parity\n    dev=h.load_api(source,'stage3_dev',True);x=a.prepare_turn(source);y=dev.prepare_turn(source);assert x==y\n                                               ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 21266, in prepare_turn\n    ensure_source_ready(base);state=read_json_view(Path(base)/'state.json');rt=_s3_runtime(state);sid=scene_id or _story_current_summary(state,viewer).get('scene_id');identity=_s3_identity(base)\n    ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 18869, in _reliable_ensure_source_ready\n    report=readiness_report(base)\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 19469, in _snapshot_readiness\n    if ctx and Path(base).resolve()==ctx.base:return ctx.validated_report()\n                                                     ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 19418, in validated_report\n    if _active_runtime_journal(self.base,name):\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 18793, in _active_runtime_journal\n    return _repair_guard_module(Path(base)).active_journal(Path(base),name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 313, in active_journal\n    return not finalized_journal_state(base,j)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 298, in finalized_journal_state\n    if matching is None:raise ValueError('FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES')\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES\n",
+      "seconds": 1.0653277890000936
+    }
+  ]
+}

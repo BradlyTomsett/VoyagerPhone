@@ -1,0 +1,726 @@
+{
+  "schema": "VOYAGER_CHAT_ACCEPTED_CONTINUATION_V14_52",
+  "base_source_save_set_id": "SAVESET-V14.51-480662ee75171f91",
+  "as_of": "8363-12-10T17:20:00",
+  "voyage_day": 691,
+  "provenance": "COMMANDER_ACCEPTED_DIALOGUE_83631205_0910_TO_83631210_1720",
+  "completeness": "CHAT_CONTINUATION_NOT_NATIVE_ENGINE_FULL_SIMULATION",
+  "time_origin": "8363-12-05T09:10:00",
+  "fleet_counts": {
+    "voyager_ships": 51,
+    "voyager_personnel": 17203,
+    "jinchuan_ships": 9,
+    "jinchuan_personnel": 709,
+    "shadow_ships_active": 18,
+    "shadow_ships_owned_nonactive": 3,
+    "shadow_personnel": 6034,
+    "total_active_ships": 78,
+    "total_personnel": 23946
+  },
+  "accounting": {
+    "schema": "CHAT_ACCEPTED_ACCOUNTS_V1",
+    "as_of": "8363-12-10T17:20:00",
+    "main": {
+      "gold_1e4_units": 105498180590158,
+      "grey_1e4_units": 793855646444400
+    },
+    "separate_accounts": {
+      "hawk_covert_gold_copper": 15560892,
+      "hawk_covert_grey_1e2": 312132,
+      "yuhuo_shop_cash_copper": 29398
+    },
+    "ownership": "main fleet and covert and Yuhuo all distinct; internal transfers are not income; source original gold major finance stored in state.engine_runtime.finance_runtime.funds_units.",
+    "ransom_recovery": {
+      "ransom_paid_grey": "40.00",
+      "recovered_into_main_before_transfer_grey": "28.60",
+      "other_main_confiscation_grey": "6.75",
+      "original_main_confiscation_transfer_to_covert_grey": "35.35",
+      "more_recovered_to_covert_grey": "4.75",
+      "final_recovered_to_covert_grey": "6.65",
+      "total_ransom_recovered_grey": "40.00",
+      "unrecovered_grey": "0.00",
+      "note": "28.60 originally returned to main is part of later 35.35 transfer, do not double count."
+    },
+    "covert_transfer": {
+      "date": "8363-12-06T21:12:00",
+      "from_main_grey": "2500.00",
+      "to_hawk_covert_grey": "2500.00",
+      "description": "internal balance transfer, 0 cash-equivalent conversion"
+    },
+    "historical_reclass": {
+      "gold_copper": 109420,
+      "grey_1e2": 3535,
+      "from_main_to_covert": true,
+      "only_once": true
+    },
+    "covert_personal_confiscation": {
+      "prisoners": 24,
+      "new_private_gold_copper": 936590,
+      "new_private_grey_1e2": 10872,
+      "joint_escrow_gold_copper": 162600,
+      "personal_property_sale_gold_copper": 73650,
+      "ship_sale_gold_copper": 2864000,
+      "ship": "锈鹭-8旧式42m民用货船，枢湾-3唯一确认遗留，售出，已不拥有",
+      "no_double_count": true,
+      "contested_claims": "俘虏私人及劳工托管、第三方共管可划款按用户指令转至潜伏，存在民事追索风险，不得宣称合法产权经司法最终确认"
+    },
+    "consolidated_shop": [
+      {
+        "date": "8363-12-05",
+        "status": "closure_partial_no_POS_audit",
+        "cash_basis_before_copper": 24313,
+        "routine_employee_pay_copper": 624,
+        "closing_cash_provisional_copper": 23689,
+        "note": "10:29停业前销售流水未复核, 2金币36银89铜仅为旧现金基准减已付工资福利的暂记"
+      },
+      {
+        "date": "8363-12-06",
+        "status": "chat_accepted_aggregate",
+        "revenue_copper": 1824,
+        "cogs_copper": 1072,
+        "wages_benefits_copper": 624,
+        "closing_cash_copper": 24889,
+        "accounting_profit_copper": 128
+      },
+      {
+        "date": "8363-12-07",
+        "status": "chat_accepted_aggregate",
+        "revenue_copper": 2156,
+        "cogs_copper": 1267,
+        "wages_benefits_copper": 624,
+        "closing_cash_copper": 26421,
+        "accounting_profit_copper": 265
+      },
+      {
+        "date": "8363-12-08",
+        "status": "chat_accepted_aggregate",
+        "revenue_copper": 1945,
+        "cogs_copper": 1130,
+        "wages_benefits_copper": 624,
+        "closing_cash_copper": 27742,
+        "accounting_profit_copper": 191
+      },
+      {
+        "date": "8363-12-09",
+        "status": "chat_accepted_aggregate",
+        "revenue_copper": 2280,
+        "cogs_copper": 1360,
+        "wages_benefits_copper": 624,
+        "closing_cash_copper": 29398,
+        "accounting_profit_copper": 296
+      }
+    ],
+    "shop_closing_basis_time": "8363-12-09T23:20:00",
+    "shop_pending_POS_12_05": "unreconciled",
+    "shop_COGS": "booked inventory expense, not another cash payment; SKU-level current precise balances unverified after last real inventory snapshot",
+    "research_daily_accepted": [
+      {
+        "at": "8363-12-05T11:20:00",
+        "copies": 1156,
+        "unit_price_gold": 45,
+        "booked_gold": 52020,
+        "source": "accepted_chat_simulated"
+      },
+      {
+        "at": "8363-12-06T11:20:00",
+        "copies": 1145,
+        "unit_price_gold": 45,
+        "booked_gold": 51525,
+        "source": "accepted_chat_simulated"
+      },
+      {
+        "at": "8363-12-07T11:20:00",
+        "copies": 1169,
+        "unit_price_gold": 45,
+        "booked_gold": 52605,
+        "source": "accepted_chat_simulated"
+      },
+      {
+        "at": "8363-12-08T11:20:00",
+        "copies": 1161,
+        "unit_price_gold": 45,
+        "booked_gold": 52245,
+        "source": "accepted_chat_simulated"
+      },
+      {
+        "at": "8363-12-09T11:20:00",
+        "copies": 1157,
+        "unit_price_gold": 45,
+        "booked_gold": 52065,
+        "source": "accepted_chat_simulated"
+      },
+      {
+        "at": "8363-12-10T11:20:00",
+        "copies": 1163,
+        "unit_price_gold": 45,
+        "booked_gold": 52335,
+        "source": "accepted_chat_simulated"
+      }
+    ],
+    "research_last_at": "8363-12-10T11:20:00",
+    "research_next_at": "8363-12-11T11:20:00",
+    "multinational_daily": {
+      "gold": "2043374646.8122",
+      "grey": "19745597251.98",
+      "last_accepted_at": "8363-12-10T00:20:00",
+      "next_at": "8363-12-11T00:20:00",
+      "assets": 1628
+    },
+    "jinchuan_daily": {
+      "gold": "930535.2995",
+      "grey": "614278.00",
+      "last_accepted_at": "8363-12-10T08:20:00",
+      "next_at": "8363-12-11T08:20:00",
+      "mining_bases": 14,
+      "salvage_bases": 9
+    },
+    "gaps_must_not_replay": [
+      "12月6/7/8主账多国产业与金川日结在早前对话中没有逐日入账，即使按日薪算术推导与已接受主账不一致，也不要在新对话自动补登",
+      "12月5日前停业POS流水未完全审计，不重建精确销售",
+      "源档尚有更早历史时钟GAP，保持原READY_WITH_LIMITATIONS"
+    ],
+    "recognized_main_balance_priority": "exact final commander-accepted main balances at 12/10 17:20 override naive sum across gap periods; do not fabricate reconciled transactions",
+    "later_duties": "Next shop 12/10 23:20, multinational 12/11 00:20, jinchuan 12/11 08:20, research 12/11 11:20; never book earlier."
+  },
+  "shop": {
+    "daily": [
+      {
+        "date": "8363-12-05",
+        "status": "closure_partial_no_POS_audit",
+        "cash_basis_before_copper": 24313,
+        "routine_employee_pay_copper": 624,
+        "closing_cash_provisional_copper": 23689,
+        "note": "10:29停业前销售流水未复核, 2金币36银89铜仅为旧现金基准减已付工资福利的暂记"
+      },
+      {
+        "date": "8363-12-06",
+        "status": "chat_accepted_aggregate",
+        "revenue_copper": 1824,
+        "cogs_copper": 1072,
+        "wages_benefits_copper": 624,
+        "closing_cash_copper": 24889,
+        "accounting_profit_copper": 128
+      },
+      {
+        "date": "8363-12-07",
+        "status": "chat_accepted_aggregate",
+        "revenue_copper": 2156,
+        "cogs_copper": 1267,
+        "wages_benefits_copper": 624,
+        "closing_cash_copper": 26421,
+        "accounting_profit_copper": 265
+      },
+      {
+        "date": "8363-12-08",
+        "status": "chat_accepted_aggregate",
+        "revenue_copper": 1945,
+        "cogs_copper": 1130,
+        "wages_benefits_copper": 624,
+        "closing_cash_copper": 27742,
+        "accounting_profit_copper": 191
+      },
+      {
+        "date": "8363-12-09",
+        "status": "chat_accepted_aggregate",
+        "revenue_copper": 2280,
+        "cogs_copper": 1360,
+        "wages_benefits_copper": 624,
+        "closing_cash_copper": 29398,
+        "accounting_profit_copper": 296
+      }
+    ],
+    "cash_balance_copper": 29398,
+    "shop_state": "normal_open",
+    "as_of": "8363-12-09T23:20:00",
+    "next_close": "8363-12-10T23:20:00"
+  },
+  "assets": {
+    "schema": "CHAT_ACCEPTED_ASSET_DELTA_V1",
+    "as_of": "8363-12-10T17:20:00",
+    "shadow_deployment": {
+      "active": 18,
+      "nonactive_owned": 3,
+      "near_xilu9_hidden": 7,
+      "s_b5": 11,
+      "hidden_vessels": [
+        "暗鸦2号",
+        "暗鸦3号",
+        "暗鸦4号",
+        "暗鸦5号",
+        "暗鸦6号",
+        "沉箱1",
+        "沉箱-3"
+      ],
+      "near_group_ships_personnel": 507,
+      "near_group_qrf_total": 460,
+      "near_group_qrf_shipboard": 455,
+      "hawk_local": 5,
+      "group_commander": "青叶少校",
+      "overall_shadow_personnel": 6034
+    },
+    "qrf_mechanized": {
+      "fortress5_total_group": 657,
+      "fortress5_available": 657,
+      "falcon2_total_group": 118,
+      "falcon2_available": 118,
+      "chiyuan4_total_group": 80,
+      "gongfeng11_total_group": 80,
+      "nanyan4_total_group": 6,
+      "new_losses": 0,
+      "repair_rule": "repairable robots/UAV/armor/vehicles/shuttles automatic repair within 1h of return and no gold cost; no permanent battle losses this incident",
+      "higher_equipment_pref": "旧版本机器人无人机装甲车优先；人员尽量不承担高危险接触"
+    },
+    "Hawk5": {
+      "members": [
+        "霍克·马伦",
+        "Q2",
+        "Q3",
+        "Q4",
+        "Q5"
+      ],
+      "at": "熄炉-9旧熔炉酒店及余火附近，已休整并恢复民间走访",
+      "pioneer4": 5,
+      "rifles": 5,
+      "pistols": 5,
+      "electric_batons": 5,
+      "grenades_total_field": 13,
+      "prior_grenades_total": 15,
+      "new_grenades_consumed_in_case": 2,
+      "ammunition": "游戏不计算枪械弹药消耗；禁止写发数、库存余额",
+      "medkits": {
+        "林舟-4": {
+          "opened_advanced_kit_remaining_person_uses": 5
+        },
+        "岩途-5": {
+          "opened_advanced_kit_remaining_person_uses": 4
+        },
+        "public_full_kits_untouched": 3485,
+        "note": "先治阿尔森-1人份、钩疤-1人份、17号楼行动用3人份，林舟5、岩途4，均为已开封的人份"
+      },
+      "vehicles": [
+        "林舟-4",
+        "岩途-5",
+        "霍克组路狐-4独立民用摩托"
+      ],
+      "powder": "南燕-4封存30包 NB6-P01..NB6-P30，旧窄湾-6独立证物，不售不动"
+    },
+    "shop_personal_defense": {
+      "employees": [
+        "莉娅·莫恩",
+        "格伦·萨克",
+        "托马·里恩",
+        "妮卡·维尔"
+      ],
+      "each_permanently_gifted_military_pistol": 1,
+      "each_previously_gifted_electric_baton": 1,
+      "original_procurement_electric_batons": 400,
+      "S_B5_warehouse_after_staff_and_reto": 395,
+      "staff_total": 4,
+      "reto_gifted": 1,
+      "hawk_personal_stun_batons_separate_from_400_batch": 5,
+      "two_models_disambiguation": "never count Hawk five electric batons as part of 400 acquired 11/12"
+    },
+    "criminal_evidence": "28涉案枪械及主要原件12/10全部移交自由港联盟（在影子可用装备库存中不得计入）；已出售锈鹭-8单船与回收设备不可保留现物",
+    "shop_original_inventory": "last precise per-SKU source 10/03 snapshot remains historical only; subsequent aggregate revenue and cost cannot infer exact quantity; follow-up staff physical stocktake needed",
+    "retained_other_assets": "all original state/catalog asset ledger other material and org assets unchanged"
+  },
+  "npc": {
+    "schema": "CHAT_ACCEPTED_NPC_STATUS_V1",
+    "as_of": "8363-12-10T17:20:00",
+    "霍克": "退役游商公开掩护身份/暗反1组5人本地小队长；休息后恢复民间走访；潜伏身份不外泄",
+    "青叶少校": "暗反1组指挥官/近域七舰指挥；返回熄炉-9附近潜伏、停止主动追查；不另招募队伍",
+    "雷托": {
+      "age": 42,
+      "occupation": "余火民用安保",
+      "background": "从灰渠-3维修船坞社区失业后约9个月来到熄炉-9，曾护卫与装卸，妻阿宁及10岁女儿露朵住灰渠-3",
+      "family_economy": "普通劳工，一月住房约5银、希望寄家里约8银，工作不稳定，非大额富户",
+      "contract": {
+        "from": "8363-12-07",
+        "through": "8363-12-20",
+        "hours_local": "08:00-21:00",
+        "days": 14,
+        "daily_salary_copper": 130,
+        "daily_meals_copper": 24,
+        "salary_prepaid_copper": 1820,
+        "meals_prepaid_copper": 336,
+        "total_paid_copper": 2156,
+        "payer": "霍克潜伏本币",
+        "status": "working, 3 days completed at 12/09, 12/10 currently on duty",
+        "bookkeeping": "advance paid once, daily expense recognized over time, do not re-pay"
+      },
+      "gifts": {
+        "electric_baton": 1,
+        "clothes_shoes_cost_copper": 300,
+        "ownership": "permanent personal gift",
+        "shop_baton_warehouse_after_gift": 395
+      },
+      "psychology": "感激霍克个人尊重但非军人，有拒绝高风险战斗权，不知暗影"
+    },
+    "贝克": "最初8小时民用临时保卫任务结束，未签后续长期合同",
+    "鲍伦": "本地低级消息联络，前0.1灰咨询，后1灰中介费已付；灰尾4灰奖金由瓦克获，不属于暗影成员",
+    "瓦克": "本地运输消息联络，前0.1灰咨询，后1灰中介费以及4灰有效线索奖金均已支付；具有独立判断，知道霍克资信而不知身份",
+    "余火四员工": {
+      "莉娅·莫恩": "账目/进货",
+      "格伦·萨克": "货运和运输圈",
+      "托马·里恩": "搬货配送",
+      "妮卡·维尔": "柜台、已恢复工作，姐姐塞薇/外甥女菲娅/姐夫阿尔森安全"
+    },
+    "受害者": "共17人已护送返家/临时居住，不再滞留余火商铺，无新的紧急守护需求",
+    "自由港联盟": "接受24名嫌疑人和案卷并支付380金币，自行调查审判；不得被写成已全部判罪",
+    "living_local": "熄炉-9实际居民严格大于850、精确数未知；无正式警察仅4名兼职巡夜员和有限民间互助；维修、废品、运输仍是核心生计。"
+  },
+  "case": {
+    "schema": "CHAT_ACCEPTED_XILU9_CASE_V1",
+    "open_at": "8363-12-04T23:00:00",
+    "closed_at": "8363-12-09T09:00:00",
+    "judicial_handoff_complete_at": "8363-12-10T15:13:00",
+    "status": "closed_justice_handed_to_freeport_alliance",
+    "background": "妮卡姐姐塞薇在工业装卸区拍到绑架青年，黑钩帮报复绑走其丈夫阿尔森；随后危及余火员工及其家属。最初误生成的南井88银维修费故事已被用户取消替换，绝不再激活。",
+    "local_cell": "霍克/Q2/Q3/Q4/Q5, all 5 pioneer-4 and local weapons; public retired merchant cover remains safe; power armor familiar to locals",
+    "civilian_family": {
+      "妮卡": "余火员工",
+      "塞薇·维尔": "妮卡姐姐/视频拍摄者",
+      "菲娅": "塞薇7岁女儿",
+      "阿尔森·塔克": "塞薇丈夫，绑架获释后住院检查并与家人团聚"
+    },
+    "rescue_victims": {
+      "count_total": 17,
+      "details": "阿尔森1；17号楼尤安·科斯、米拉·费恩2；芦灰-2与风盘-7共5（瑞恩·索尔/雅特·米恩/塔芮·恩斯/卢钦·维洛/赛娜·洛尔）；碎环-4三人（哈汀·贝乌/芬雅·洛斯/伊温·盖德）；桥衡-8二人（达维·辛/艾琳·莫）；枢湾-3四人（贝森·凯/露亚·林/米修·塔恩/欧琳·弗）",
+      "resettlement": "15人回安全家庭或本人住所，2人自愿安全短住；12月10日已完成。并非17人都住回原址。"
+    },
+    "raids": [
+      "七号包装廊：三人抓获，灰尾逃脱；现场2多功能手雷使用",
+      "17号储藏楼：犯罪分子1死2俘，灰尾同一人逃脱，2人质获救",
+      "青叶率暗反1组外围行动：芦灰-2与风盘-7共6俘虏、2敌死、5人获救",
+      "碎环-4：3俘、2敌死、3救；",
+      "桥衡-8：4俘、1敌死、2救，赫德被抓",
+      "枢湾-3：5俘、2敌死、4救，费洛被抓",
+      "灰尾后于熄炉-9维修环路被霍克五人活捉"
+    ],
+    "captured_total_handed_over": 24,
+    "detention_location_now": "自由港联盟司法部门",
+    "chenxiang3_case_detained_now": 0,
+    "evidence": "全部现存涉案枪械28支、原视频、现场纪录、各资金终端及人员转运文件交联盟；另有封存初始窄湾-6粉末30包是另一独立线索，不在本案转移。",
+    "freeport_reward_gold": "380.0000",
+    "freeport_reward_paid_at": "8363-12-10T17:02:00",
+    "freeport_reward_account": "hawke_covert_local_gold",
+    "privacy": "仅青叶/霍克及获授权暗影人员知道暗影军事来源；余火员工、雷托、鲍伦、瓦克、家属不知真正身份",
+    "criminal_orgs": {
+      "黑钩帮": "熄炉-9本地暴力绑架团伙，核心窝点关闭，灰尾最终落网",
+      "旧岸劳务": "若干非法劳工转运/结算业务证实；并非全行业皆非法",
+      "北渡": "枢湾-3非法采购结算节点被清除；外围关联方未全部查清"
+    },
+    "provenance": "新增对话模拟，不属于V14.51原有历史",
+    "caveat": "案情结案不表示未确认的所有犯罪网络成员均已落网；联盟接收不代表全部已审判有罪。"
+  },
+  "rules": {
+    "schema": "CHAT_ACCEPTED_RUNTIME_RULES_V1",
+    "role": "舰队副官，称呼用户指挥官，沉稳专业具有小说质感，行动与NPC独立真实",
+    "report_first_line": "### 8363年XX月XX日 XX:XX｜远航第XXX天｜本次推进X小时X分钟；无推进写本次推进0分钟",
+    "report_second_header": "### 🚀 舰队核心 (only fleet counts, funds, tasks; no narration)",
+    "report_end": "### 🌌 当前态势 then ### 🕒 当前游戏时间; end 副官报告完毕，指挥官。",
+    "currency": "1金币=100银币=10000铜币; 1灰币=0.036金币=360铜币",
+    "separate_ledgers": true,
+    "no_rifle_pistol_ammo_consumption_tracking": true,
+    "permanent_consumable_tracking": "granades, medkits, paid purchases, wear & permanent losses",
+    "one_hour_auto_repair_free": "1h from return to maintenance facility, robots/drones/powerarmor/armored vehicles/shuttles if recoverable; original rule exceptions preserved",
+    "powerarmor_public_not_identity_risk": "Hawk 5 have used 先锋-4 publicly repeatedly in Xilu; simple appearance does not expose covert identities",
+    "cash": "separate main gold, main grey, Hawk covert gold, Hawk covert grey, Yuhuo shop, employees/private; income only after actual receipt; no premature settlements or double booking",
+    "case_rule": "all case related funds/asset sale and private confiscations actually taken recorded in covert account per commander; note possible third-party claims without rerouting money",
+    "images": "when images of vehicles/robots/drones/armored vehicles needed, prefer original source ZIP image assets via source index; never generate assets or ZIP routinely",
+    "provenance": "original V14.51 authority vs commander chat accepted continuation vs inferences must be clearly tagged; do not silently invent old data",
+    "save": "only upon explicit command; save action no game time advance",
+    "source_historical_gaps": "preserve and mark; no silent catch-up or reconstruct guessed details"
+  },
+  "task_state": {
+    "active_tasks": 5,
+    "queued_tasks": 0,
+    "closed_emergency_case": 1,
+    "shadow_hidden_patrol": "continue",
+    "other_original_tasks": "preserve source original five unchanged except time/settlement cursors"
+  },
+  "timeline": [
+    {
+      "game_time": "8363-12-05T10:07:00",
+      "summary": "黑钩帮三人进入余火威胁员工，枪击损坏室内装修；无死亡",
+      "kind": "blackhook_incident",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-05T10:29:00",
+      "summary": "余火暂时关店以保障员工和家庭安全；原有营业流水未完成POS复核",
+      "kind": "shop_close",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-05T11:15:00",
+      "summary": "塞薇和女儿菲娅被护送至余火；随后安保人员雷托、贝克临时受雇，早期8小时合同先行预付",
+      "kind": "rescue",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-05T11:20:00",
+      "summary": "科研数据1156份每份45金币，主账新增52020金币",
+      "kind": "research_settlement",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-05T12:11:00",
+      "summary": "霍克向绑匪支付40灰币赎金，随后阿尔森获释放并获初步治疗；余20灰币未付",
+      "kind": "ransom",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-05T13:38:00",
+      "summary": "七号包装廊霍克五人抓获3人，1逃；耗用2枚多功能手雷，缴获枪支和终端",
+      "kind": "capture",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-05T14:43:00",
+      "summary": "塞薇绑架录像脱敏公布，黑钩帮最高3.5灰币悬赏；没有兑现",
+      "kind": "public_notice",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-05T15:22:00",
+      "summary": "三嫌犯仍在包装廊；17号储藏楼进入重点调查；公共情报反应出现",
+      "kind": "checkpoint",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-05T16:46:00",
+      "summary": "包装廊三名在押嫌疑人接运到沉箱-3，分开看管",
+      "kind": "prisoner_transfer",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-05T17:06:00",
+      "summary": "霍克5人突袭17号储藏楼：1敌死亡、2俘虏、1逃；救出尤安与米拉；小组无伤亡",
+      "kind": "raid",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-05T17:52:00",
+      "summary": "储藏楼行动阶段结束，收集证据与缴获；武器弹药不统计消耗",
+      "kind": "checkpoint",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-05T19:02:00",
+      "summary": "新俘虏2人送至沉箱-3；原3加新2为5人",
+      "kind": "prisoner_transfer",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-05T21:46:00",
+      "summary": "阿尔森、尤安、米拉均送熄炉-9医院，霍克已付8银60铜首诊费",
+      "kind": "medical",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-06T07:20:00",
+      "summary": "发表当地黑钩帮核心瓦解通报，外围人口贩运网络仍未清楚",
+      "kind": "public_notice",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-06T08:30:00",
+      "summary": "余火恢复正常营业，四员工薪酬福利不变",
+      "kind": "shop_reopen",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-06T11:20:00",
+      "summary": "科研数据1145份，每份45金币，主账新增51525金币",
+      "kind": "research_settlement",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-06T17:06:00",
+      "summary": "青叶指挥暗反1组分别确认与打击芦灰-2、风盘-7，合计救出5名平民、俘虏6人、敌死亡2人",
+      "kind": "raids",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-06T20:16:00",
+      "summary": "两地6名嫌疑人送入沉箱-3，本案在押增至11人",
+      "kind": "prisoner_transfer",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-06T21:12:00",
+      "summary": "主灰币账内划拨2500灰币至霍克潜伏灰币账户，不涉及金币兑换",
+      "kind": "internal_transfer",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-06T23:20:00",
+      "summary": "余火结算收入1824铜、COGS1072铜、四人工资福利624铜，现金24889铜",
+      "kind": "shop_settlement",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-07T08:00:00",
+      "summary": "雷托14日正式合同开始，13小时/日，日薪130铜+三餐24铜，合计预付2156铜（前夜）",
+      "kind": "guard_contract",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-07T10:58:00",
+      "summary": "霍克永久赠雷托暗影批次电击棒1支，另以潜伏本币支付300铜购衣鞋赠予",
+      "kind": "personnel_welfare",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-07T11:20:00",
+      "summary": "科研数据1169份，每份45金币，主账新增52605金币",
+      "kind": "research_settlement",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-07T16:13:00",
+      "summary": "青叶确认并打击桥衡-8，上游赫德被俘；2人获救，敌1死，俘4人",
+      "kind": "raid",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-07T17:39:00",
+      "summary": "霍克与雷托谈话：42岁，原灰渠-3船坞民用保安/装卸，妻阿宁、女儿露朵10岁仍在灰渠-3；经济不宽裕",
+      "kind": "npc_profile",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-07T21:40:00",
+      "summary": "赫德等4人入沉箱-3，累计18人；10:??至晚间灰尾新4/10灰币悬赏，但尚未兑现",
+      "kind": "checkpoint",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-07T23:20:00",
+      "summary": "余火结算收入2156铜、COGS1267铜、工资福利624铜，现金26421铜",
+      "kind": "shop_settlement",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-08T04:19:00",
+      "summary": "青叶打击枢湾-3北渡非法采购据点，2敌死亡、5人抓获、1逃、4平民获救",
+      "kind": "raid",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-08T05:38:00",
+      "summary": "霍克5人经连续蹲守活捉灰尾，缴获其一支手枪；其为此前两次出逃记录中同一人",
+      "kind": "capture",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-08T06:04:00",
+      "summary": "向瓦克兑付有效线索4灰币，此前鲍伦和瓦克各付1灰币中介费，合计6灰币",
+      "kind": "bounty_payment",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-08T08:46:00",
+      "summary": "枢湾-3五人与灰尾合计六人到沉箱-3，本案在押24人",
+      "kind": "prisoner_transfer",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-08T11:20:00",
+      "summary": "科研数据1161份，每份45金币，主账新增52245金币",
+      "kind": "research_settlement",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-08T16:55:00",
+      "summary": "枢湾-3锈鹭-8，42米旧式民用货运船，完成出售286金币40银并入霍克潜伏本币",
+      "kind": "vessel_sale",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-08T17:30:00",
+      "summary": "24俘虏私人账户和可控共管、托管资金清缴；原首次错入主账的10金币94银20铜和35.35灰币转入潜伏账；装备维护规则修正",
+      "kind": "asset_reclassification",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-08T20:16:00",
+      "summary": "青叶全部外围战斗人员及暗鸦3、4号回熄炉-9近域七舰隐藏点；专项追击停用",
+      "kind": "redeploy",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-08T22:00:00",
+      "summary": "霍克五人回旧熔炉酒店开始休整，车辆装备待命",
+      "kind": "rest",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-08T23:20:00",
+      "summary": "余火结算收入1945铜、COGS1130铜、工资福利624铜，现金27742铜",
+      "kind": "shop_settlement",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-09T09:00:00",
+      "summary": "原黑钩帮/人口贩运紧急事件行动结束，原有五项持续任务继续",
+      "kind": "task_close",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-09T11:20:00",
+      "summary": "科研数据1157份每份45金币，主账新增52065金币",
+      "kind": "research_settlement",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-09T23:20:00",
+      "summary": "余火结算收入2280铜、COGS1360铜、工资福利624铜，现金29398铜",
+      "kind": "shop_settlement",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-10T09:30:00",
+      "summary": "暗反1组归隐，受威胁17人安全返回家中或本人选择的短住点；霍克五人休整后走街串巷听群众意见",
+      "kind": "social_continuation",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-10T11:20:00",
+      "summary": "科研数据1163份每份45金币，主账新增52335金币",
+      "kind": "research_settlement",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-10T15:13:00",
+      "summary": "沉箱-3原24名嫌疑人全部完成自由港联盟司法移交，医院医疗/物证随案；临时在押0",
+      "kind": "judicial_handoff",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-10T17:02:00",
+      "summary": "自由港联盟司法协查奖金380金币完整入霍克潜伏本币账户（新增对话模拟款）",
+      "kind": "reward",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    },
+    {
+      "game_time": "8363-12-10T17:20:00",
+      "summary": "正式保存检查点，无额外推进。现役78舰、23946人；原五项任务继续；无六号犯罪事件任务",
+      "kind": "save_checkpoint",
+      "source": "commander_accepted_chat_simulated_not_native_transaction"
+    }
+  ],
+  "unresolved": [
+    "原始V14.51 09:10前旧历史累计差异和源档认可缺口保持不变；新对话勿重放。",
+    "12/06—12/08多国产业与金川日结缺乏逐次对话封板，不得自动补造；采用12/10 17:20最新接受账面余额。",
+    "12/05 10:29停业前POS营收未完成审计；12/05日结现金属暂记。",
+    "12/06—12/09余火经营只有分类聚合收入和销售成本，缺少SKU逐件发货/剩余准确盘点；不要把10/03历史逐件库存当现在实盘。",
+    "此前24名嫌疑人单独列出的逐人金额与总账聚合数字需以最终期末余额及已接受总账为准；逐人详细记录若有算术误差，标为未再核验，不擅自补钱。",
+    "上一对话声称的部分设备单价、航行分钟数为新增模拟而非源档物理参数，后续不要把推测误当通用定值。",
+    "被没收劳工工资/第三方财产权仍可能引发民事或联盟司法争议：按指挥官已执行入潜伏账，记录争议，不宣称司法无争议。",
+    "捉捕后司法移交24人包括灰尾/赫德/费洛；其余不明犯罪同伙没有全部捕获，不应继续当作活动的已授权侦查任务。",
+    "不重新触发已删除的88银南井维修费情节。"
+  ],
+  "next_opening": "游戏当前8363年12月10日17:20，远航691天，保存不推进时间。先读取此文件/权威 state/tasks，再核验 Python 守卫。5项原任务持续，青叶暗反1组七舰熄炉外围隐蔽待命，霍克5人恢复日常走访，余火正常营业；沉箱-3本案在押0，联盟接收24。"
+}

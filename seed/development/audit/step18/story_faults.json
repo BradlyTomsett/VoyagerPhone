@@ -1,0 +1,45 @@
+{
+  "suite": "story_faults",
+  "groups": 3,
+  "status": "PASS",
+  "script_sha256": "4160b915e45c7516ddf74488a367386b25d7560e3cd542b0e9981f3293d9bb19",
+  "tested_save_set_id": "SAVESET-V14.48-cdf55a13d2da9684",
+  "tested_engine_sha256": "28678d32b60d671cae0247badba5e4d73600dbfb101811aa1d39c57d83cc81da",
+  "tested_guard_sha256": "e780ae0f45b082f5624be925f92ad04d1e21e3ab3a76c1655f571af222cc1dad",
+  "tested_manifest_sha256": "d3ae627c3227bf289b94a9bf9a32e8e3e46e26ab4d23383cdde1d06830b5b208",
+  "seconds": 119.472,
+  "result": {
+    "status": "PASS",
+    "engine_sha256": "28678d32b60d671cae0247badba5e4d73600dbfb101811aa1d39c57d83cc81da",
+    "tests": [
+      {
+        "phase": "after_component",
+        "unknown": false,
+        "status": "PASS",
+        "detail": {
+          "atomic_outcome": "parent",
+          "no_partial_people_or_scenes": true,
+          "readiness": "READY_WITH_LIMITATIONS"
+        }
+      },
+      {
+        "phase": "after_manifest",
+        "unknown": false,
+        "status": "PASS",
+        "detail": {
+          "atomic_outcome": "target",
+          "no_partial_people_or_scenes": true,
+          "readiness": "READY_WITH_LIMITATIONS"
+        }
+      },
+      {
+        "phase": "after_component",
+        "unknown": true,
+        "status": "PASS",
+        "detail": {
+          "unknown_bytes_protected": true
+        }
+      }
+    ]
+  }
+}

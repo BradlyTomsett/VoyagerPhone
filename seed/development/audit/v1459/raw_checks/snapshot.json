@@ -1,0 +1,112 @@
+{
+  "status": "FAIL",
+  "manifest_sha256": "149adea27913431a572241d1e6be2ca6a56d45465c0f20fb30b37fd6294837e7",
+  "engine_sha256": "4a5f72d6cd19ec238f178ad5f221015742aa03a9a8ed0497baa618fa91ea0ef2",
+  "tests": [
+    {
+      "name": "batch_viewer_and_alias_isolation",
+      "status": "FAIL",
+      "error": "FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES",
+      "trace": "Traceback (most recent call last):\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_snapshot.py\", line 9, in case\n    try:v=f();row={'name':name,'status':'PASS','detail':v}\n          ^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_snapshot.py\", line 19, in batch\n    r=a.round_context_packet(source);m=ctx.manifest\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 21022, in round_context_packet\n    packet=visible_query_batch_packet(base,topics,audience=audience,observer_id=observer_id,gm_context=gm_context)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 19692, in _services_visible_batch\n    report=snapshot.validated_report()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 19418, in validated_report\n    if _active_runtime_journal(self.base,name):\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 18793, in _active_runtime_journal\n    return _repair_guard_module(Path(base)).active_journal(Path(base),name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 313, in active_journal\n    return not finalized_journal_state(base,j)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 298, in finalized_journal_state\n    if matching is None:raise ValueError('FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES')\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES\n",
+      "seconds": 0.1397236839998186
+    },
+    {
+      "name": "frozen_game_facts_and_history",
+      "status": "PASS",
+      "detail": {
+        "baseline": "actual V14.58 parent",
+        "four_JSON_and_Guard_byte_exact": true,
+        "zero_time_maintenance_only": true
+      },
+      "seconds": 1.1576500169999235
+    },
+    {
+      "name": "compact_full_contract_and_budget",
+      "status": "FAIL",
+      "error": "{'status': 'FAIL', 'error': 'FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES'}",
+      "trace": "Traceback (most recent call last):\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_snapshot.py\", line 9, in case\n    try:v=f();row={'name':name,'status':'PASS','detail':v}\n          ^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_snapshot.py\", line 42, in schema\n    rc,small=invoke(a,cmd+['--base',str(source)]);assert rc==0,small\n                                                         ^^^^^\nAssertionError: {'status': 'FAIL', 'error': 'FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES'}\n",
+      "seconds": 0.2554274029998851
+    },
+    {
+      "name": "observer_diagnostics_do_not_leak_world_state",
+      "status": "FAIL",
+      "error": "FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES",
+      "trace": "Traceback (most recent call last):\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_snapshot.py\", line 9, in case\n    try:v=f();row={'name':name,'status':'PASS','detail':v}\n          ^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_snapshot.py\", line 61, in observer_diagnostics\n    packet=a.round_context_packet(source,['当前场景'],audience='observer',observer_id='HAWKE')\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 21022, in round_context_packet\n    packet=visible_query_batch_packet(base,topics,audience=audience,observer_id=observer_id,gm_context=gm_context)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 19692, in _services_visible_batch\n    report=snapshot.validated_report()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 19418, in validated_report\n    if _active_runtime_journal(self.base,name):\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 18793, in _active_runtime_journal\n    return _repair_guard_module(Path(base)).active_journal(Path(base),name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 313, in active_journal\n    return not finalized_journal_state(base,j)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 298, in finalized_journal_state\n    if matching is None:raise ValueError('FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES')\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES\n",
+      "seconds": 0.12859954500004278
+    },
+    {
+      "name": "actual_byte_cache_invalidation",
+      "status": "PASS",
+      "detail": [
+        "state_same_mtime",
+        "inode_replacement",
+        "cold_same_mtime",
+        "development",
+        "rules_permission"
+      ],
+      "seconds": 56.70909367200011
+    },
+    {
+      "name": "no_mixed_snapshot_output",
+      "status": "PASS",
+      "detail": {
+        "whole_result_buffered_and_discarded": true,
+        "recovery_intent_checked_at_exit": true
+      },
+      "seconds": 14.182534381000096
+    },
+    {
+      "name": "exact_parsed_bytes_match_the_proof",
+      "status": "PASS",
+      "detail": {
+        "transient_JSON_bytes_cannot_escape_snapshot_binding": true,
+        "history_cache_key_binds_exact_single_parse_input": true
+      },
+      "seconds": 10.236698751000176
+    },
+    {
+      "name": "optional_cache_faults",
+      "status": "PASS",
+      "detail": {
+        "deleted_corrupt_unwritable": true,
+        "first_creation_concurrent_readers": 4
+      },
+      "seconds": 25.63944823399993
+    },
+    {
+      "name": "transaction_validation_dependencies",
+      "status": "PASS",
+      "detail": {
+        "proof_hit_then_actual_change_revalidated": true,
+        "compile_digest_invalidated": true,
+        "scope_discarded": true
+      },
+      "seconds": 5.404363845000034
+    },
+    {
+      "name": "zero_interval_report_and_legacy_coverage",
+      "status": "FAIL",
+      "error": "FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES",
+      "trace": "Traceback (most recent call last):\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_snapshot.py\", line 9, in case\n    try:v=f();row={'name':name,'status':'PASS','detail':v}\n          ^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_snapshot.py\", line 142, in report\n    with b.SnapshotContext(source):r1=b.reportframe_packet(source,since='8363-12-10T17:20:00')\n                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 20920, in _stage2_report\n    with SnapshotContext(base):return _stage2_previous_report(base,*args,**kwargs)\n                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 6950, in reportframe_packet\n    ready=ensure_source_ready(base);state=read_json(base/\"state.json\");tasks=read_json(base/\"tasks.json\");events,history_summary=_stage2_report_history(base,since or state.get(\"last_report_game_time\") or state.get(\"game_time\"),since_seq)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 18869, in _reliable_ensure_source_ready\n    report=readiness_report(base)\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 19469, in _snapshot_readiness\n    if ctx and Path(base).resolve()==ctx.base:return ctx.validated_report()\n                                                     ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 19418, in validated_report\n    if _active_runtime_journal(self.base,name):\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 18793, in _active_runtime_journal\n    return _repair_guard_module(Path(base)).active_journal(Path(base),name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 313, in active_journal\n    return not finalized_journal_state(base,j)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 298, in finalized_journal_state\n    if matching is None:raise ValueError('FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES')\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES\n",
+      "seconds": 0.12742325699991852
+    },
+    {
+      "name": "development_release_parity",
+      "status": "FAIL",
+      "error": "FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES",
+      "trace": "Traceback (most recent call last):\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_snapshot.py\", line 9, in case\n    try:v=f();row={'name':name,'status':'PASS','detail':v}\n          ^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_snapshot.py\", line 150, in parity\n    assert d.routineplan_packet(source,'8363-12-11T12:00:00')==a.routineplan_packet(source,'8363-12-11T12:00:00')\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"36_performance_context.py\", line 287, in _stage2_plan\n  File \"12_scheduler.py\", line 4, in routineplan_packet\n  File \"26_reliable_runtime.py\", line 124, in _reliable_ensure_source_ready\n  File \"28_snapshot_service.py\", line 165, in _snapshot_readiness\n  File \"28_snapshot_service.py\", line 114, in validated_report\n  File \"26_reliable_runtime.py\", line 48, in _active_runtime_journal\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 313, in active_journal\n    return not finalized_journal_state(base,j)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 298, in finalized_journal_state\n    if matching is None:raise ValueError('FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES')\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES\n",
+      "seconds": 0.7095044010000038
+    },
+    {
+      "name": "committed_write_output_contract",
+      "status": "PASS",
+      "detail": {
+        "real_CLI_compact_full_same_state": true,
+        "compact_bytes": 8452,
+        "full_json_bytes": 66400,
+        "presentation_failure_never_invites_gameplay_retry": true
+      },
+      "seconds": 50.48689400199987
+    }
+  ]
+}

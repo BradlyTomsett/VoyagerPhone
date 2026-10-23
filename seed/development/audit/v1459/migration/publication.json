@@ -1,0 +1,17 @@
+{
+  "status": "COMMITTED",
+  "save_set_id": "SAVESET-V14.59-707b38f6542b6ffc",
+  "game_time": "8363-12-10T17:20:00",
+  "engine_sha256": "4a5f72d6cd19ec238f178ad5f221015742aa03a9a8ed0497baa618fa91ea0ef2",
+  "guard_sha256": "917db42bd54ef993a8a917a2c56d2252fbfe27f3a9d4d3899edbde520fb3cf08",
+  "manifest_sha256": "38e68bd17aa9641b3d07e27ff755cf9cd6ce9d32d1f0f23e5c551d04cbb2cb26",
+  "old_history_count": 2616,
+  "new_history_count": 2617,
+  "old_history_original_bytes_unchanged": true,
+  "unchanged_authority": [
+    "state.json",
+    "tasks.json",
+    "rules.json",
+    "catalog.json"
+  ]
+}

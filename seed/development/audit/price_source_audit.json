@@ -1,0 +1,1097 @@
+{
+  "scanned_numeric_fields": 182,
+  "entries": [
+    {
+      "source_ref": "state:jinchuan_fleet.vessels.VES-SENTINEL9.purchase_price_gold",
+      "value": 4880,
+      "price_id": "PRICE-LEGACY-0cfe1279003d",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:jinchuan_fleet.deployed_mining_teams.LOC-P3-01.current_operating_baseline.sale_price_reference_gold_per_t",
+      "value": 0.022,
+      "price_id": "PRICE-P3",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:jinchuan_fleet.deployed_mining_teams.LOC-M22-01.titanium_concentrate.price_anchor_copper_per_t",
+      "value": 188.7,
+      "price_id": "PRICE-TITANIUM46",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:jinchuan_fleet.biofilm_process_commercialization.standard_price_gold_per_package",
+      "value": 5.6,
+      "price_id": "PRICE-BIOFILM",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:inventories.current_voyager_weapon_inventory_net.pending_owned_rifle_batches.RIFLE-10000-GOLD-83620912.purchase_price_gold",
+      "value": 2460,
+      "price_id": "PRICE-LEGACY-bf0a9cbe4f36",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:inventories.current_voyager_weapon_inventory_net.pending_owned_rifle_batches.RIFLE-11000-GREY-83620913.purchase_price_grey",
+      "value": 39600,
+      "price_id": "PRICE-LEGACY-462823e5f93b",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:inventories.current_voyager_weapon_inventory_net.pending_owned_rifle_batches.RIFLE-19000-GREYWEB-83620914.purchase_price_grey",
+      "value": 63650,
+      "price_id": "PRICE-LEGACY-0024f92610c5",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:standing_authorizations.AUTH-KOVACS-TRAFFICKING-TIPS-20GREY.max_price_grey_per_tip_inclusive",
+      "value": 20,
+      "price_id": null,
+      "classification": "not_a_price_or_authorization_limit"
+    },
+    {
+      "source_ref": "state:world_state_overrides.organizations_and_politics.shadow_yanhuai4_contact_current.commander_orders_current.followup_83620904_1420.kovacs_grayweb_authority.max_price_grey_per_package_exclusive",
+      "value": 15,
+      "price_id": null,
+      "classification": "not_a_price_or_authorization_limit"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.civilian_ship_market_latest.浪脊-12.final_price_gold",
+      "value": 1680,
+      "price_id": "PRICE-LEGACY-843d74329c02",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.armored_vehicle_market_latest.listings[0].price_gold_each",
+      "value": 33.9,
+      "price_id": "PRICE-OFFER-AV-83620918-01",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.armored_vehicle_market_latest.listings[1].price_gold_each",
+      "value": 25.8,
+      "price_id": "PRICE-OFFER-AV-83620918-02",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.armored_vehicle_market_latest.listings[2].price_gold_each",
+      "value": 18.4,
+      "price_id": "PRICE-OFFER-AV-83620918-03",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.armored_vehicle_market_latest.listings[3].price_gold_each",
+      "value": 10.1,
+      "price_id": "PRICE-OFFER-AV-83620918-04",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.armored_vehicle_market_latest.listings[4].price_gold_each",
+      "value": 5.1,
+      "price_id": "PRICE-OFFER-AV-83620918-05",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-RESEARCH-POLICY",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BEASTRING11-PUBLIC.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-BEASTRING11-PUBLIC",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-MIRRORCOFFIN5-V03.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-MIRRORCOFFIN5-V03",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-SHELLMOON-ECOLOGY-V10.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-SHELLMOON-ECOLOGY-V10",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-FARVIEWC-CALIBRATION-V10.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-FARVIEWC-CALIBRATION-V10",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-COLDASH4-ENGINEERING-V10.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-COLDASH4-ENGINEERING-V10",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-PAPERKITE77-ENGINEERING-V10.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-PAPERKITE77-ENGINEERING-V10",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-DEEPWELL5-TELEMETRY-V10.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-DEEPWELL5-TELEMETRY-V10",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-TAIPRISON3-XENOBIO-V10.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-TAIPRISON3-XENOBIO-V10",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-HATCHTIDE4-XENOBIO-V10.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-HATCHTIDE4-XENOBIO-V10",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-HATCHTIDE4-STATIONFAILURE-V10.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-HATCHTIDE4-STATIONFAILURE-V10",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-SHELLMOON-BIOFILM-V10-PUBLIC.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-SHELLMOON-BIOFILM-V10-PUBLIC",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-TIANKENG5-PULSESTORAGE-V10.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-TIANKENG5-PULSESTORAGE-V10",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-TIANKENG5-PHASECHANGE-V10.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-TIANKENG5-PHASECHANGE-V10",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-TIANKENG5-SAFETYISOLATION-V10.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-TIANKENG5-SAFETYISOLATION-V10",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-TIANKENG5-DATACORE-RECOVERY-V10.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-TIANKENG5-DATACORE-RECOVERY-V10",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-TIANKENG5-FACILITYFAILURE-V10.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-TIANKENG5-FACILITYFAILURE-V10",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-TIANKENG5-CRYO-CURRENT-FIBER-V10.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-TIANKENG5-CRYO-CURRENT-FIBER-V10",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-TIANKENG5-EM-LATTICE-SELFREPAIR-V10.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-TIANKENG5-EM-LATTICE-SELFREPAIR-V10",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-REDSAND4-MORPH-KIN-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-REDSAND4-MORPH-KIN-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-REDSAND4-PHYS-TISSUE-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-REDSAND4-PHYS-TISSUE-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-REDSAND4-BEHAV-CONTAIN-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-REDSAND4-BEHAV-CONTAIN-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLACKMOSS9-MORPH-KIN-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-BLACKMOSS9-MORPH-KIN-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLACKMOSS9-BEHAV-ECO-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-BLACKMOSS9-BEHAV-ECO-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLACKMOSS9-CAPTURE-RECOVERY-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-BLACKMOSS9-CAPTURE-RECOVERY-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-GUSUI2-MORPH-BIOMECH-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-GUSUI2-MORPH-BIOMECH-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-GUSUI2-PHYS-METAB-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-GUSUI2-PHYS-METAB-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-GUSUI2-SENSE-NAV-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-GUSUI2-SENSE-NAV-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-GUSUI2-GROUP-BEHAV-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-GUSUI2-GROUP-BEHAV-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-GUSUI2-MIGRATION-ECO-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-GUSUI2-MIGRATION-ECO-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-GUSUI2-NONLETHAL-CAPTURE-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-GUSUI2-NONLETHAL-CAPTURE-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-GUSUI2-NONLETHAL-CONTROL-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-GUSUI2-NONLETHAL-CONTROL-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLACKDOME12-THERMAL-MATERIALS-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-BLACKDOME12-THERMAL-MATERIALS-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLACKDOME12-FAILURE-ISOLATION-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-BLACKDOME12-FAILURE-ISOLATION-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLACKDOME12-FINAL-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-BLACKDOME12-FINAL-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-REDVAULT7-CONTAINMENT-SAFETY-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-REDVAULT7-CONTAINMENT-SAFETY-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLUEASH9-NAV-GRAV-CAL-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-BLUEASH9-NAV-GRAV-CAL-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-YINMAI7-XENO-ECOLOGY-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-YINMAI7-XENO-ECOLOGY-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-YINMAI7-TERRITORIAL-BEHAVIOR-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-YINMAI7-TERRITORIAL-BEHAVIOR-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-YINMAI7-CAVITY-MINERALIZATION-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-YINMAI7-CAVITY-MINERALIZATION-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-YINMAI7-DRILL-COLLAPSE-SAFETY-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-YINMAI7-DRILL-COLLAPSE-SAFETY-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-01.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-01",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-02.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-02",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-03.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-03",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-04.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-04",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-05.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-05",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-06.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-06",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-07.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-07",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-08.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-08",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-09.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-09",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-10.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-10",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-11.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-11",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-12.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-12",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-13.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-13",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-14.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-14",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-15.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-15",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ZS08-BLACKFLOWER-16.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ZS08-BLACKFLOWER-16",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BX17-CRYO-METAB-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-BX17-CRYO-METAB-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BX17-CONTAIN-MONITOR-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-BX17-CONTAIN-MONITOR-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BX17-BIOPOLYMER-PERF-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-BX17-BIOPOLYMER-PERF-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BX17-LINEAGE-PHENOTYPE-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-BX17-LINEAGE-PHENOTYPE-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BX17-CRYO-STABILITY-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-BX17-CRYO-STABILITY-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLINDSPRING-WILDFILM-ADAPT-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-BLINDSPRING-WILDFILM-ADAPT-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLINDSPRING-LINEAGE-DRIFT-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-BLINDSPRING-LINEAGE-DRIFT-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLINDSPRING-SIXLEG-SYMBIOSIS-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-BLINDSPRING-SIXLEG-SYMBIOSIS-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLINDSPRING-SIXLEG-BIOMECH-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-BLINDSPRING-SIXLEG-BIOMECH-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-BLINDSPRING-SIXLEG-BEHAVIOR-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-BLINDSPRING-SIXLEG-BEHAVIOR-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-SAINTSONG-BX19-BIOLOGY-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-SAINTSONG-BX19-BIOLOGY-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-SAINTSONG-BX19-BEHAVIOR-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-SAINTSONG-BX19-BEHAVIOR-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-SAINTSONG-BX19-HUMAN-EXPOSURE-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-SAINTSONG-BX19-HUMAN-EXPOSURE-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-SAINTSONG-XENOBIO-CONTAINMENT-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-SAINTSONG-XENOBIO-CONTAINMENT-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-SAINTSONG-LONG-CRYO-MED-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-SAINTSONG-LONG-CRYO-MED-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-SAINTSONG-DERELICT-ENGINEERING-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-SAINTSONG-DERELICT-ENGINEERING-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-SAINTSONG-BX19-TISSUE-REPAIR-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-SAINTSONG-BX19-TISSUE-REPAIR-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-WHITEGLOVE-MICROGRAV-MFG-V10.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-WHITEGLOVE-MICROGRAV-MFG-V10",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-WHITEGLOVE-CRYO-MAGNETIC-V10.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-WHITEGLOVE-CRYO-MAGNETIC-V10",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-WHITEGLOVE-PHOTONIC-RADIATION-V10.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-WHITEGLOVE-PHOTONIC-RADIATION-V10",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ECHO13-MORPH-METAB-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ECHO13-MORPH-METAB-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ECHO13-SPORE-LIFECYCLE-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ECHO13-SPORE-LIFECYCLE-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ECHO13-PREDATION-BEHAVIOR-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ECHO13-PREDATION-BEHAVIOR-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ECHO13-CONTAINMENT-FAILURE-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ECHO13-CONTAINMENT-FAILURE-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ECHO13-DECON-ENGINEERING-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ECHO13-DECON-ENGINEERING-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-ECHO13-UNMANNED-BOARDING-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-ECHO13-UNMANNED-BOARDING-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-FILAMENTRAY-MORPH-LOCOMOTION-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-FILAMENTRAY-MORPH-LOCOMOTION-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-FILAMENTRAY-EM-SENSE-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-FILAMENTRAY-EM-SENSE-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-FILAMENTRAY-ICE-HABITAT-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-FILAMENTRAY-ICE-HABITAT-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-FILAMENTRAY-HUMAN-CONTACT-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-FILAMENTRAY-HUMAN-CONTACT-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.research_data_sales_program.packages.DATA-GRAYRIDGE-CLIMBER-INDUSTRIAL-RISK-V1.price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-DATA-GRAYRIDGE-CLIMBER-INDUSTRIAL-RISK-V1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.fortress4.current_listings[0].price_gold_each",
+      "value": 4.5,
+      "price_id": "PRICE-OFFER-F4-83620904-01",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.fortress4.current_listings[1].price_gold_each",
+      "value": 3.8,
+      "price_id": null,
+      "classification": "non_price_or_legacy"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.fortress4.current_listings[1].last_negotiated_sale.price_gold_each",
+      "value": 3.0,
+      "price_id": "PRICE-LEGACY-ec1f85c40a37",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.fortress4.current_listings[2].price_gold_each",
+      "value": 4.9,
+      "price_id": "PRICE-OFFER-F4-83620904-03",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.armored_vehicles.listings[0].price_gold_each",
+      "value": 34.8,
+      "price_id": "PRICE-OFFER-AV-83620904-01",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.armored_vehicles.listings[1].price_gold_each",
+      "value": 26.9,
+      "price_id": "PRICE-OFFER-AV-83620904-02",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.armored_vehicles.listings[2].price_gold_each",
+      "value": 19.1,
+      "price_id": "PRICE-OFFER-AV-83620904-03",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.armored_vehicles.listings[3].price_gold_each",
+      "value": 10.7,
+      "price_id": null,
+      "classification": "non_price_or_legacy"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.armored_vehicles.listings[3].last_negotiated_sale.price_gold_each",
+      "value": 10.0,
+      "price_id": "PRICE-LEGACY-076d4d89016d",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.armored_vehicles.listings[4].price_gold_each",
+      "value": 5.8,
+      "price_id": "PRICE-OFFER-AV-83620904-05",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.purchases_83620905_1420.items[0].price_gold_each",
+      "value": 3.0,
+      "price_id": "PRICE-OFFER-F4-83620904-02",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.secondhand_ground_equipment_market_latest.purchases_83620905_1420.items[1].price_gold_each",
+      "value": 10.0,
+      "price_id": "PRICE-OFFER-AV-83620904-04",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.combat_robot_uav_market_latest.combat_robots[0].price_gold_each",
+      "value": 6.1,
+      "price_id": "PRICE-OFFER-CR-83620919-01",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.combat_robot_uav_market_latest.combat_robots[1].price_gold_each",
+      "value": 8.4,
+      "price_id": "PRICE-OFFER-CR-83620919-02",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.combat_robot_uav_market_latest.combat_robots[2].price_gold_each",
+      "value": 4.8,
+      "price_id": "PRICE-OFFER-CR-83620919-03",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.combat_robot_uav_market_latest.combat_robots[3].price_gold_each",
+      "value": 3.2,
+      "price_id": "PRICE-OFFER-CR-83620919-04",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.combat_robot_uav_market_latest.uavs[0].price_gold_each",
+      "value": 168,
+      "price_id": "PRICE-OFFER-UAV-83620919-01",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.combat_robot_uav_market_latest.uavs[1].price_gold_each",
+      "value": 205,
+      "price_id": "PRICE-OFFER-UAV-83620919-02",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.combat_robot_uav_market_latest.uavs[2].price_gold_each",
+      "value": 119,
+      "price_id": "PRICE-OFFER-UAV-83620919-03",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.combat_robot_uav_market_latest.uavs[3].price_gold_each",
+      "value": 76,
+      "price_id": "PRICE-OFFER-UAV-83620919-04",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.manor_quotes_current.quotes[0].price_gold",
+      "value": 2400,
+      "price_id": "PRICE-MANOR-AURELIAN-ALBA-01",
+      "classification": "mapped_provisional_estimate"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.manor_quotes_current.quotes[1].price_gold",
+      "value": 1950,
+      "price_id": "PRICE-MANOR-FED-SILVERPINE-02",
+      "classification": "mapped_provisional_estimate"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.manor_quotes_current.quotes[2].price_gold",
+      "value": 3200,
+      "price_id": "PRICE-MANOR-EAST-QINGLAN-03",
+      "classification": "mapped_provisional_estimate"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.manor_quotes_current.quotes[3].price_gold",
+      "value": 2650,
+      "price_id": "PRICE-MANOR-VESTA-REDWOOD-04",
+      "classification": "mapped_provisional_estimate"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.manor_quotes_current.quotes[4].price_gold",
+      "value": 980,
+      "price_id": "PRICE-MANOR-WHITEGORGE-HIGHLAND-05",
+      "classification": "mapped_provisional_estimate"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.manor_quotes_current.quotes[5].price_gold",
+      "value": 1800,
+      "price_id": "PRICE-MANOR-CALDER-VINEHILL-06",
+      "classification": "mapped_provisional_estimate"
+    },
+    {
+      "source_ref": "state:world_state_overrides.markets_and_procurement.shadow_nanyan4_acquisition_current.lots[2].seller_previous_bundle_quote_gold",
+      "value": 340,
+      "price_id": "PRICE-LEGACY-877944bee69e",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[0].price_grey",
+      "value": 38,
+      "price_id": "PRICE-LEGACY-56d4c7795f7c",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[1].price_grey",
+      "value": 67,
+      "price_id": "PRICE-LEGACY-ac8bdc7024dc",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[2].price_grey",
+      "value": 52,
+      "price_id": "PRICE-LEGACY-6d17b74c0d55",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[7].price_grey",
+      "value": 34,
+      "price_id": "PRICE-LEGACY-ab274d5a0ee2",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[8].price_grey",
+      "value": 31,
+      "price_id": "PRICE-LEGACY-9d21597b58db",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[9].price_grey",
+      "value": 29,
+      "price_id": "PRICE-LEGACY-440d4b0cc5fc",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[10].price_grey",
+      "value": 28,
+      "price_id": "PRICE-LEGACY-a3faa51d8d32",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[11].price_grey",
+      "value": 27,
+      "price_id": "PRICE-LEGACY-1355e0a131bd",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[12].price_grey",
+      "value": 33,
+      "price_id": "PRICE-LEGACY-e09d9c40d4ec",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[13].price_grey",
+      "value": 31,
+      "price_id": "PRICE-LEGACY-8bddad7f2a22",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[14].price_grey",
+      "value": 29,
+      "price_id": "PRICE-LEGACY-4a1eca73a9f5",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[15].price_grey",
+      "value": 27,
+      "price_id": "PRICE-LEGACY-7a661eace230",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[16].price_grey",
+      "value": 29,
+      "price_id": "PRICE-LEGACY-73c6612d01c3",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[17].price_grey",
+      "value": 27,
+      "price_id": "PRICE-LEGACY-c2b615b8b92d",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[18].price_grey",
+      "value": 24,
+      "price_id": "PRICE-LEGACY-10d575519086",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.grey_market_exploration_maps.maps[19].price_grey",
+      "value": 20,
+      "price_id": "PRICE-LEGACY-771a27fffe58",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.beastring11_sample_research_current.sale_status.price_gold_per_copy",
+      "value": 25,
+      "price_id": "PRICE-DATA-BEASTRING11-PUBLIC",
+      "classification": "superseded_legacy_field_not_verified_transaction"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.hanjing11_current.data_package_price_gold_each",
+      "value": 25,
+      "price_id": "PRICE-RESEARCH-POLICY",
+      "classification": "superseded_legacy_field_not_verified_transaction"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.purchased_star_charts_current.formal_completely_unvisited[3].price_grey",
+      "value": 18,
+      "price_id": "PRICE-HIST-6e67f79587b1",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.purchased_star_charts_current.formal_completely_unvisited[4].price_grey",
+      "value": 27,
+      "price_id": "PRICE-HIST-19856c57a3b8",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.purchased_star_charts_current.formal_completely_unvisited[5].price_grey",
+      "value": 23,
+      "price_id": "PRICE-HIST-d6b719e22f8c",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.purchased_star_charts_current.formal_completely_unvisited[6].price_grey",
+      "value": 16,
+      "price_id": "PRICE-HIST-f8c5adc96e0d",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.purchased_star_charts_current.formal_completely_unvisited[7].price_grey",
+      "value": 21,
+      "price_id": "PRICE-HIST-8ce3b78ed262",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.blackdome12_current.data_package_price_gold_each",
+      "value": 25,
+      "price_id": "PRICE-RESEARCH-POLICY",
+      "classification": "superseded_legacy_field_not_verified_transaction"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.treasure_maps_owned_current.maps[0].price_grey",
+      "value": 22,
+      "price_id": "PRICE-HIST-835890b31f19",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.treasure_maps_owned_current.maps[1].price_grey",
+      "value": 36,
+      "price_id": "PRICE-HIST-85b176639b4e",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.treasure_maps_owned_current.maps[2].price_grey",
+      "value": 49,
+      "price_id": "PRICE-HIST-6bec0141e007",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.treasure_maps_owned_current.maps[3].price_grey",
+      "value": 17,
+      "price_id": "PRICE-HIST-ef586098ffa8",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.exploration_and_science.blackflower_canister_research_current.purchase_price_grey",
+      "value": 7700,
+      "price_id": "PRICE-LEGACY-f5990e742ca1",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.mining_and_industry.p3_current_operating_baseline.sale_price_reference_gold_per_t",
+      "value": 0.022,
+      "price_id": "PRICE-P3",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.mining_and_industry.jinchuan_biofilm_current.package_price_gold",
+      "value": 5.6,
+      "price_id": "PRICE-BIOFILM",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.greychain_and_legal.h7_people_shadow_handoff.redfox_response.extra_fee_gold",
+      "value": 0,
+      "price_id": null,
+      "classification": "pending_review"
+    },
+    {
+      "source_ref": "state:world_state_overrides.greychain_and_legal.greychain_two_site_quote_request.commander_contract_orders.K-8.reference_quote_gold",
+      "value": 620,
+      "price_id": "PRICE-LEGACY-a2c01147b8ac",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.greychain_and_legal.greychain_two_site_quote_request.commander_contract_orders.红岩中继.reference_quote_gold",
+      "value": 1250,
+      "price_id": "PRICE-LEGACY-8612628a734f",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.greychain_and_legal.greychain_blackanvil4_current.contract.price_gold",
+      "value": 190,
+      "price_id": "PRICE-LEGACY-506b3d9a38d1",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.intelligence_and_security.kovacs_trafficking_intel_current.budget.last_purchase_price",
+      "value": 18,
+      "price_id": null,
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.intelligence_and_security.kovacs_trafficking_intel_current.last_valid_lead.price_grey",
+      "value": 16,
+      "price_id": "PRICE-LEGACY-b217c0b67e06",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.intelligence_and_security.white_needle_network_current.mara_search_current.grayweb_tip.price_grey",
+      "value": 18,
+      "price_id": "PRICE-LEGACY-f8a449b4e18a",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.intelligence_and_security.grayweb_hidden_depot_lead_current.claim.price_grey",
+      "value": 180,
+      "price_id": null,
+      "classification": "pending_review"
+    },
+    {
+      "source_ref": "state:world_state_overrides.organizations_current.blind_spring6_case_organizations.砾盾保全.blind_spring_debt_settlement.waived_fees_grey",
+      "value": 154,
+      "price_id": "PRICE-LEGACY-ae5161a5364e",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.current_handoff_snapshot.economy.research_price_gold_per_copy",
+      "value": 45,
+      "price_id": "PRICE-RESEARCH-POLICY",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.current_handoff_snapshot.xilu9.shop.wage_copper_per_person_day",
+      "value": 130,
+      "price_id": "PRICE-XILU-WAGE",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.current_handoff_snapshot.xilu9.shop.wages_reserved_silver",
+      "value": 5.2,
+      "price_id": null,
+      "classification": "not_a_price_or_authorization_limit"
+    },
+    {
+      "source_ref": "state:world_state_overrides.freeport_seedship17_case_current.salvage_settlement.fees_gold",
+      "value": 96,
+      "price_id": "PRICE-LEGACY-4f92b7b76036",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.freeport_graylamp4_current.scrap_recovery.fees_gold",
+      "value": 4.75,
+      "price_id": "PRICE-LEGACY-1f5c98bf8c21",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.freeport_xilu9_current.hawke_commercial_cover.local_wage_copper_per_person_day",
+      "value": 130,
+      "price_id": "PRICE-XILU-WAGE",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:world_state_overrides.freeport_xilu9_current.hawke_commercial_cover.operations_current.air_filter_emergency_sales.price_copper_each",
+      "value": 70,
+      "price_id": "PRICE-LEGACY-9e9bdd92b5f3",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.freeport_xilu9_current.hawke_commercial_cover.property.purchase_price_gold",
+      "value": 10.85,
+      "price_id": "PRICE-LEGACY-00ce7380c3b3",
+      "classification": "historical_non_anchor"
+    },
+    {
+      "source_ref": "state:world_state_overrides.freeport_xilu9_current.hawke_commercial_cover.cash_account.current_day_wages_reserved_silver",
+      "value": 5.2,
+      "price_id": null,
+      "classification": "not_a_price_or_authorization_limit"
+    },
+    {
+      "source_ref": "state:world_state_overrides.freeport_xilu9_current.hawke_commercial_cover.inventory_current.last_exact_stocktake.life_consumables.coffee_packs",
+      "value": 54,
+      "price_id": null,
+      "classification": "not_a_price_or_authorization_limit"
+    },
+    {
+      "source_ref": "state:commander_runtime_rules.parameters.research_data_uniform_price_gold",
+      "value": 45,
+      "price_id": "PRICE-RESEARCH-POLICY",
+      "classification": "mapped_current_authority"
+    },
+    {
+      "source_ref": "state:commander_runtime_rules.parameters.xilu9_economy_price_anchor_current.shop_employee_wage_copper_per_day",
+      "value": 130,
+      "price_id": "PRICE-XILU-WAGE",
+      "classification": "mapped_current_authority"
+    }
+  ]
+}

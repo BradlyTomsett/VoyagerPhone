@@ -1,0 +1,26 @@
+{
+  "business_query": {
+    "samples_ms": [
+      2244.15,
+      1663.64,
+      1813.31
+    ],
+    "median_ms": 1813.31
+  },
+  "routineplan_24h": {
+    "samples_ms": [
+      199.43,
+      213.93,
+      192.5
+    ],
+    "median_ms": 199.43
+  },
+  "readiness": {
+    "samples_ms": [
+      134.81,
+      144.12,
+      116.73
+    ],
+    "median_ms": 134.81
+  }
+}

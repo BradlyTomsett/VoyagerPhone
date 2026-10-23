@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "two_concurrent_writers_once_only",
+      "status": "PASS",
+      "detail": [
+        "ALREADY_APPLIED",
+        "SAVED"
+      ]
+    },
+    {
+      "name": "human_gateway_end_to_end",
+      "status": "PASS",
+      "detail": "TTY review -> signed inherited pipe -> exact command -> committed task"
+    }
+  ],
+  "source_save_set_id": "SAVESET-V14.45-27b38347304e1566",
+  "engine_sha256": "71a51b29a869bcfa0e421af8b74ad7355c20f0995c9f8ab6eaadf050b5df5247",
+  "guard_sha256": "e780ae0f45b082f5624be925f92ad04d1e21e3ab3a76c1655f571af222cc1dad"
+}

@@ -1,0 +1,102 @@
+{
+  "status": "FAIL",
+  "engine_sha256": "4a5f72d6cd19ec238f178ad5f221015742aa03a9a8ed0497baa618fa91ea0ef2",
+  "manifest_sha256": "149adea27913431a572241d1e6be2ca6a56d45465c0f20fb30b37fd6294837e7",
+  "model_generation": "NOT_RUN",
+  "tests": [
+    {
+      "name": "actual_parent_conservation",
+      "status": "FAIL",
+      "error": "FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES",
+      "trace": "Traceback (most recent call last):\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_firstbatch.py\", line 13, in case\n    try:row={'name':name,'status':'PASS','detail':fn()}\n                                                  ^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_firstbatch.py\", line 24, in conservation\n    assert a.readiness_report(source)['status']=='READY_WITH_LIMITATIONS'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 19471, in _snapshot_readiness\n    with SnapshotContext(base) as snapshot:return snapshot.validated_report()\n                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 19418, in validated_report\n    if _active_runtime_journal(self.base,name):\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 18793, in _active_runtime_journal\n    return _repair_guard_module(Path(base)).active_journal(Path(base),name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 313, in active_journal\n    return not finalized_journal_state(base,j)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 298, in finalized_journal_state\n    if matching is None:raise ValueError('FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES')\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES\n",
+      "seconds": 3.038979571000027
+    },
+    {
+      "name": "history_ownership",
+      "status": "FAIL",
+      "error": "FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES",
+      "trace": "Traceback (most recent call last):\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_firstbatch.py\", line 13, in case\n    try:row={'name':name,'status':'PASS','detail':fn()}\n                                                  ^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_firstbatch.py\", line 29, in ownership\n    with scope:\n         ^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 19384, in __exit__\n    if any(_active_runtime_journal(self.base,n) for n in (NATIVE_COMMIT_JOURNAL_FILENAME,CONSISTENCY_REPAIR_JOURNAL)):raise EngineError('RECOVERY_INTENT_DURING_READ')\n       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 19384, in <genexpr>\n    if any(_active_runtime_journal(self.base,n) for n in (NATIVE_COMMIT_JOURNAL_FILENAME,CONSISTENCY_REPAIR_JOURNAL)):raise EngineError('RECOVERY_INTENT_DURING_READ')\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/engine.py\", line 18793, in _active_runtime_journal\n    return _repair_guard_module(Path(base)).active_journal(Path(base),name)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 313, in active_journal\n    return not finalized_journal_state(base,j)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 298, in finalized_journal_state\n    if matching is None:raise ValueError('FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES')\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES\n",
+      "seconds": 13.611007406999988
+    },
+    {
+      "name": "history_batch_faults",
+      "status": "PASS",
+      "detail": {
+        "append_duplicate_next_seq_nested_outer_rollback_concurrent_change": true,
+        "full_history_copies": 0
+      },
+      "seconds": 0.0157915640002102
+    },
+    {
+      "name": "archive_byte_binding",
+      "status": "PASS",
+      "detail": {
+        "same_size_mtime_corruption_rejected": true,
+        "escaped_JSON_dependency_bound": true,
+        "one_read_per_history_and_archive_input": true
+      },
+      "seconds": 7.8136272120000285
+    },
+    {
+      "name": "static_content_options_rules_corruption_repair",
+      "status": "PASS",
+      "detail": {
+        "sha_calls": 1,
+        "bytes_hashed": 67615,
+        "compile_executions": 5,
+        "compile_proof_hits": 1,
+        "ast_parse_executions": 6,
+        "ast_proof_hits": 1
+      },
+      "seconds": 0.007023566000043502
+    },
+    {
+      "name": "transaction_proof_boundaries_and_receipts",
+      "status": "PASS",
+      "detail": {
+        "metrics": {
+          "sha_calls": 19452,
+          "bytes_hashed": 967450585,
+          "component_check_executions": 6,
+          "compile_executions": 2,
+          "history_cache_misses": 6,
+          "epoch_cache_misses": 19,
+          "history_decodes": 19,
+          "component_proof_hits": 11,
+          "history_cache_hits": 23,
+          "epoch_cache_hits": 133,
+          "compile_proof_hits": 10,
+          "ast_parse_executions": 1,
+          "staged_readiness_executions": 1,
+          "run_checks_readiness_layer_hits": 1,
+          "development_objects_created": 359,
+          "development_snapshot_links": 738,
+          "published_readiness_proof_hits": 2
+        },
+        "full_report_equivalence": true,
+        "published_semantic_risk_calls": 0,
+        "missing_evidence_runs_full_check": true,
+        "stale_bytes_inode_development_and_journal_blocked": true,
+        "original_ID_after_display_failure_exactly_once": true,
+        "version_separation": true
+      },
+      "seconds": 56.60998009199989
+    },
+    {
+      "name": "real_signed_pipe_CLI_projects_once",
+      "status": "PASS",
+      "detail": {
+        "projection_count": 1,
+        "final_JSON_bytes": 8809
+      },
+      "seconds": 26.217544303000068
+    },
+    {
+      "name": "development_release_parity",
+      "status": "FAIL",
+      "error": "FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES",
+      "trace": "Traceback (most recent call last):\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_firstbatch.py\", line 13, in case\n    try:row={'name':name,'status':'PASS','detail':fn()}\n                                                  ^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/development/tests/batch2_followup_firstbatch.py\", line 138, in dev\n    d=h.load_api(source,'dev',True);assert d.round_context_packet(source)==a.round_context_packet(source);assert d.ENGINE_VERSION==a.ENGINE_VERSION=='2.69.0';return True\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"36_performance_context.py\", line 393, in round_context_packet\n  File \"30_runtime_services.py\", line 33, in _services_visible_batch\n  File \"28_snapshot_service.py\", line 114, in validated_report\n  File \"26_reliable_runtime.py\", line 48, in _active_runtime_journal\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 313, in active_journal\n    return not finalized_journal_state(base,j)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/release1459/guard.py\", line 298, in finalized_journal_state\n    if matching is None:raise ValueError('FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES')\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES\n",
+      "seconds": 0.7522420889999921
+    }
+  ]
+}

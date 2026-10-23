@@ -1,0 +1,1348 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voyager.local/schema/living-world-v1",
+  "title": "Living-world actions",
+  "description": "Exact story_setup actions. Runtime persists at state.engine_runtime.living_world_v1; no query mutates it. Unknown legacy profiles use nulls until explicitly completed.",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "entity_id",
+        "expected_revision",
+        "record"
+      ],
+      "properties": {
+        "type": {
+          "const": "life_profile"
+        },
+        "entity_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expected_revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "record": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "important",
+            "background",
+            "voice",
+            "public_fields",
+            "voice_visible_to",
+            "daily_routine",
+            "basis_refs",
+            "source_kind"
+          ],
+          "properties": {
+            "important": {
+              "type": "boolean"
+            },
+            "background": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "age",
+                "sex",
+                "species",
+                "occupation",
+                "income",
+                "housing",
+                "family",
+                "personality",
+                "habits",
+                "goals",
+                "troubles",
+                "experiences",
+                "relations",
+                "memories",
+                "social_identity",
+                "social_class",
+                "beliefs",
+                "interests",
+                "past",
+                "current_life",
+                "future_paths",
+                "education",
+                "professional_background"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "age": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sex": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "species": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "occupation": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "income": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "housing": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "family": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "personality": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "habits": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "goals": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "troubles": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "experiences": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "relations": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "memories": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "social_identity": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "social_class": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "beliefs": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "interests": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "past": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "current_life": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "future_paths": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "education": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "professional_background": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "voice": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "vocabulary",
+                "catchphrases",
+                "dialect",
+                "politeness",
+                "humor",
+                "pauses",
+                "repetition",
+                "metaphors",
+                "topic_gravity",
+                "angry",
+                "tired",
+                "relaxed",
+                "nervous"
+              ],
+              "properties": {
+                "vocabulary": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "catchphrases": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "dialect": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "politeness": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "humor": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "pauses": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "repetition": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "metaphors": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "topic_gravity": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "angry": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "tired": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "relaxed": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "nervous": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            },
+            "public_fields": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "name",
+                  "age",
+                  "sex",
+                  "species",
+                  "occupation",
+                  "income",
+                  "housing",
+                  "family",
+                  "personality",
+                  "habits",
+                  "goals",
+                  "troubles",
+                  "experiences",
+                  "relations",
+                  "memories",
+                  "social_identity",
+                  "social_class",
+                  "beliefs",
+                  "interests",
+                  "past",
+                  "current_life",
+                  "future_paths",
+                  "education",
+                  "professional_background"
+                ]
+              }
+            },
+            "voice_visible_to": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "daily_routine": {
+              "type": "array",
+              "maxItems": 24,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "start_minute",
+                  "end_minute",
+                  "activity"
+                ],
+                "properties": {
+                  "start_minute": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1439
+                  },
+                  "end_minute": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1440
+                  },
+                  "activity": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            },
+            "basis_refs": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "source_kind": {
+              "enum": [
+                "authored_consistent_extension",
+                "confirmed_evidence"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "location_ref",
+        "expected_revision",
+        "senses",
+        "conditions",
+        "visible_to",
+        "basis_refs"
+      ],
+      "properties": {
+        "type": {
+          "const": "life_place"
+        },
+        "location_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expected_revision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "senses": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "visual",
+            "auditory",
+            "olfactory",
+            "tactile",
+            "atmosphere"
+          ],
+          "properties": {
+            "visual": {
+              "type": "string",
+              "minLength": 1
+            },
+            "auditory": {
+              "type": "string",
+              "minLength": 1
+            },
+            "olfactory": {
+              "type": "string",
+              "minLength": 1
+            },
+            "tactile": {
+              "type": "string",
+              "minLength": 1
+            },
+            "atmosphere": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "conditions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "facilities",
+            "weather",
+            "society",
+            "perception"
+          ],
+          "properties": {
+            "facilities": {
+              "type": "string",
+              "minLength": 1
+            },
+            "weather": {
+              "type": "string",
+              "minLength": 1
+            },
+            "society": {
+              "type": "string",
+              "minLength": 1
+            },
+            "perception": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "visible_to": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "basis_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "entity_id",
+        "body",
+        "emotion",
+        "cognition",
+        "impulse",
+        "basis_refs"
+      ],
+      "properties": {
+        "type": {
+          "const": "life_inner"
+        },
+        "entity_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "body": {
+          "type": "string",
+          "minLength": 1
+        },
+        "emotion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cognition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "impulse": {
+          "type": "string",
+          "minLength": 1
+        },
+        "basis_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "node_id",
+        "entity_id",
+        "due_at",
+        "category",
+        "changes",
+        "expected",
+        "status_after",
+        "reason",
+        "visible_to"
+      ],
+      "properties": {
+        "type": {
+          "const": "life_schedule"
+        },
+        "node_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "entity_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "due_at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "enum": [
+            "work",
+            "marriage",
+            "birth",
+            "move",
+            "promotion",
+            "unemployment",
+            "bankruptcy",
+            "travel",
+            "study",
+            "training",
+            "military",
+            "business",
+            "illness",
+            "retirement",
+            "death",
+            "family",
+            "organization",
+            "belief",
+            "relationship",
+            "ordinary"
+          ]
+        },
+        "changes": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "expected": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "status_after": {
+          "enum": [
+            null,
+            "dead"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "visible_to": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "location_after": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "node_id",
+        "reason"
+      ],
+      "properties": {
+        "type": {
+          "const": "life_cancel"
+        },
+        "node_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "entity_id",
+        "next_review_at",
+        "reason"
+      ],
+      "properties": {
+        "type": {
+          "const": "life_review"
+        },
+        "entity_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "next_review_at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "entity_id",
+        "location_ref",
+        "basis_refs",
+        "reason"
+      ],
+      "properties": {
+        "type": {
+          "const": "life_position"
+        },
+        "entity_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "basis_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "entity_id",
+        "scene_id",
+        "fact_id",
+        "operation",
+        "reason"
+      ],
+      "properties": {
+        "type": {
+          "const": "life_memory"
+        },
+        "entity_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scene_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "operation": {
+          "enum": [
+            "forget",
+            "recall"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "important",
+        "background",
+        "voice",
+        "public_fields",
+        "voice_visible_to",
+        "daily_routine",
+        "basis_refs",
+        "source_kind"
+      ],
+      "properties": {
+        "important": {
+          "type": "boolean"
+        },
+        "background": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "age",
+            "sex",
+            "species",
+            "occupation",
+            "income",
+            "housing",
+            "family",
+            "personality",
+            "habits",
+            "goals",
+            "troubles",
+            "experiences",
+            "relations",
+            "memories",
+            "social_identity",
+            "social_class",
+            "beliefs",
+            "interests",
+            "past",
+            "current_life",
+            "future_paths",
+            "education",
+            "professional_background"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "age": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sex": {
+              "type": "string",
+              "minLength": 1
+            },
+            "species": {
+              "type": "string",
+              "minLength": 1
+            },
+            "occupation": {
+              "type": "string",
+              "minLength": 1
+            },
+            "income": {
+              "type": "string",
+              "minLength": 1
+            },
+            "housing": {
+              "type": "string",
+              "minLength": 1
+            },
+            "family": {
+              "type": "string",
+              "minLength": 1
+            },
+            "personality": {
+              "type": "string",
+              "minLength": 1
+            },
+            "habits": {
+              "type": "string",
+              "minLength": 1
+            },
+            "goals": {
+              "type": "string",
+              "minLength": 1
+            },
+            "troubles": {
+              "type": "string",
+              "minLength": 1
+            },
+            "experiences": {
+              "type": "string",
+              "minLength": 1
+            },
+            "relations": {
+              "type": "string",
+              "minLength": 1
+            },
+            "memories": {
+              "type": "string",
+              "minLength": 1
+            },
+            "social_identity": {
+              "type": "string",
+              "minLength": 1
+            },
+            "social_class": {
+              "type": "string",
+              "minLength": 1
+            },
+            "beliefs": {
+              "type": "string",
+              "minLength": 1
+            },
+            "interests": {
+              "type": "string",
+              "minLength": 1
+            },
+            "past": {
+              "type": "string",
+              "minLength": 1
+            },
+            "current_life": {
+              "type": "string",
+              "minLength": 1
+            },
+            "future_paths": {
+              "type": "string",
+              "minLength": 1
+            },
+            "education": {
+              "type": "string",
+              "minLength": 1
+            },
+            "professional_background": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "voice": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "vocabulary",
+            "catchphrases",
+            "dialect",
+            "politeness",
+            "humor",
+            "pauses",
+            "repetition",
+            "metaphors",
+            "topic_gravity",
+            "angry",
+            "tired",
+            "relaxed",
+            "nervous"
+          ],
+          "properties": {
+            "vocabulary": {
+              "type": "string",
+              "minLength": 1
+            },
+            "catchphrases": {
+              "type": "string",
+              "minLength": 1
+            },
+            "dialect": {
+              "type": "string",
+              "minLength": 1
+            },
+            "politeness": {
+              "type": "string",
+              "minLength": 1
+            },
+            "humor": {
+              "type": "string",
+              "minLength": 1
+            },
+            "pauses": {
+              "type": "string",
+              "minLength": 1
+            },
+            "repetition": {
+              "type": "string",
+              "minLength": 1
+            },
+            "metaphors": {
+              "type": "string",
+              "minLength": 1
+            },
+            "topic_gravity": {
+              "type": "string",
+              "minLength": 1
+            },
+            "angry": {
+              "type": "string",
+              "minLength": 1
+            },
+            "tired": {
+              "type": "string",
+              "minLength": 1
+            },
+            "relaxed": {
+              "type": "string",
+              "minLength": 1
+            },
+            "nervous": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "public_fields": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "name",
+              "age",
+              "sex",
+              "species",
+              "occupation",
+              "income",
+              "housing",
+              "family",
+              "personality",
+              "habits",
+              "goals",
+              "troubles",
+              "experiences",
+              "relations",
+              "memories",
+              "social_identity",
+              "social_class",
+              "beliefs",
+              "interests",
+              "past",
+              "current_life",
+              "future_paths",
+              "education",
+              "professional_background"
+            ]
+          }
+        },
+        "voice_visible_to": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "daily_routine": {
+          "type": "array",
+          "maxItems": 24,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "start_minute",
+              "end_minute",
+              "activity"
+            ],
+            "properties": {
+              "start_minute": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1439
+              },
+              "end_minute": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 1440
+              },
+              "activity": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "basis_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "source_kind": {
+          "enum": [
+            "authored_consistent_extension",
+            "confirmed_evidence"
+          ]
+        }
+      }
+    },
+    "experience": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "location_ref",
+        "visit_mode",
+        "frame",
+        "anchors",
+        "senses",
+        "dialogue_mode",
+        "voices",
+        "agency",
+        "player_speech"
+      ],
+      "properties": {
+        "schema": {
+          "const": "LIVED_EXPERIENCE_V1"
+        },
+        "location_ref": {
+          "type": "string"
+        },
+        "visit_mode": {
+          "enum": [
+            "first",
+            "return",
+            "continuing",
+            "remote"
+          ]
+        },
+        "frame": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "game_time",
+            "place_revision",
+            "facilities",
+            "weather",
+            "society",
+            "perception"
+          ],
+          "properties": {
+            "game_time": {
+              "type": "string"
+            },
+            "place_revision": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "facilities": {
+              "type": "string"
+            },
+            "weather": {
+              "type": "string"
+            },
+            "society": {
+              "type": "string"
+            },
+            "perception": {
+              "type": "string"
+            }
+          }
+        },
+        "anchors": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "action",
+            "environment",
+            "detail",
+            "response",
+            "inner"
+          ],
+          "properties": {
+            "action": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "segment",
+                "quote"
+              ],
+              "properties": {
+                "segment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 19
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 4,
+                  "maxLength": 4000
+                }
+              }
+            },
+            "environment": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "segment",
+                "quote"
+              ],
+              "properties": {
+                "segment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 19
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 4,
+                  "maxLength": 4000
+                }
+              }
+            },
+            "detail": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "segment",
+                "quote"
+              ],
+              "properties": {
+                "segment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 19
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 4,
+                  "maxLength": 4000
+                }
+              }
+            },
+            "response": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "segment",
+                "quote"
+              ],
+              "properties": {
+                "segment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 19
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 4,
+                  "maxLength": 4000
+                }
+              }
+            },
+            "inner": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "segment",
+                "quote"
+              ],
+              "properties": {
+                "segment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 19
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 4,
+                  "maxLength": 4000
+                }
+              }
+            }
+          }
+        },
+        "senses": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "visual": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "segment",
+                "quote"
+              ],
+              "properties": {
+                "segment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 19
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 4,
+                  "maxLength": 4000
+                }
+              }
+            },
+            "auditory": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "segment",
+                "quote"
+              ],
+              "properties": {
+                "segment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 19
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 4,
+                  "maxLength": 4000
+                }
+              }
+            },
+            "olfactory": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "segment",
+                "quote"
+              ],
+              "properties": {
+                "segment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 19
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 4,
+                  "maxLength": 4000
+                }
+              }
+            },
+            "tactile": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "segment",
+                "quote"
+              ],
+              "properties": {
+                "segment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 19
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 4,
+                  "maxLength": 4000
+                }
+              }
+            },
+            "atmosphere": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "segment",
+                "quote"
+              ],
+              "properties": {
+                "segment": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 19
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 4,
+                  "maxLength": 4000
+                }
+              }
+            }
+          }
+        },
+        "dialogue_mode": {
+          "enum": [
+            "exchange",
+            "alone",
+            "no_channel"
+          ]
+        },
+        "voices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "segment",
+              "entity_id",
+              "profile_revision",
+              "emotion",
+              "disclosure"
+            ],
+            "properties": {
+              "segment": {
+                "type": "integer"
+              },
+              "entity_id": {
+                "type": "string"
+              },
+              "profile_revision": {
+                "type": "integer"
+              },
+              "emotion": {
+                "enum": [
+                  "neutral",
+                  "angry",
+                  "tired",
+                  "relaxed",
+                  "nervous",
+                  "sad",
+                  "afraid",
+                  "happy"
+                ]
+              },
+              "disclosure": {
+                "enum": [
+                  "partial",
+                  "none"
+                ]
+              }
+            }
+          }
+        },
+        "agency": {
+          "const": {
+            "decisions_left_to_player": true,
+            "feelings_are_suggestions": true
+          }
+        },
+        "player_speech": {
+          "enum": [
+            "none",
+            "verbatim",
+            "intent_faithful"
+          ]
+        }
+      }
+    }
+  }
+}

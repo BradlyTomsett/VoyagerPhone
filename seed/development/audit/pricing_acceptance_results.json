@@ -1,0 +1,438 @@
+{
+  "status": "PASS",
+  "passed": 84,
+  "total": 84,
+  "tests": [
+    {
+      "name": "C08 alias path resolves current 45",
+      "status": "PASS",
+      "detail": [
+        "45",
+        "45"
+      ]
+    },
+    {
+      "name": "B16 standard ammunition not recharged",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "A17 fixed finance does not round through float",
+      "status": "PASS",
+      "detail": 100000000000000001
+    },
+    {
+      "name": "A18 large exact conversion keeps final copper",
+      "status": "PASS",
+      "detail": "10000000000000.0001"
+    },
+    {
+      "name": "A01 20 copper exact gold",
+      "status": "PASS",
+      "detail": "0.002"
+    },
+    {
+      "name": "A02 20 copper exact silver",
+      "status": "PASS",
+      "detail": "0.2"
+    },
+    {
+      "name": "A03 seven nights 140 copper",
+      "status": "PASS",
+      "detail": {
+        "amount": "140",
+        "currency": "copper"
+      }
+    },
+    {
+      "name": "A04 seven nights 1.4 silver",
+      "status": "PASS",
+      "detail": "1.4"
+    },
+    {
+      "name": "A05 seven nights .014 gold",
+      "status": "PASS",
+      "detail": "0.014"
+    },
+    {
+      "name": "A06 wrong 20 gold refused",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "A07 tonne cannot be crate",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "A08 missing currency refused",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "A09 bare numeric amount refused",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "A10 NaN refused",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "A11 indivisible item fractional refused",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "A12 rounded nonzero is not free",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "A13 exact grey source avoids inverse approximation",
+      "status": "PASS",
+      "detail": "1.00008"
+    },
+    {
+      "name": "A15 metric mass normalized exactly",
+      "status": "PASS",
+      "detail": "0.0189"
+    },
+    {
+      "name": "A16 converted ask unit cannot be ambiguous",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "A14 display change cannot alter amount",
+      "status": "PASS",
+      "detail": "0.014"
+    },
+    {
+      "name": "B01 sand dune fixed 100",
+      "status": "PASS",
+      "detail": "100"
+    },
+    {
+      "name": "B02 sand dune 105 refused",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "B03 star chart 51 grey refused",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "B04 star chart 2 gold equivalent refused",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "B05 star chart 30 lacks exception",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "B06 legal chart grey currency refused",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "B07 supply +20 percent valid",
+      "status": "PASS",
+      "detail": "0.024"
+    },
+    {
+      "name": "B08 supply +21 percent needs evidence",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "B09 supply modifier not world-wide",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "B10 ship length not charged twice",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "B11 native armament not charged twice",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "B12 owned reference no used discount",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "B13 combat strength not price ratio",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "B14 external used separate rule",
+      "status": "PASS",
+      "detail": "0.3"
+    },
+    {
+      "name": "B15 duplicate supply multiplier refused",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "C01 all 87 packages use current 45 policy",
+      "status": "PASS",
+      "detail": 87
+    },
+    {
+      "name": "C07 withdrawn package not an active offer",
+      "status": "PASS",
+      "detail": "NEEDS_EVIDENCE"
+    },
+    {
+      "name": "C02 research 4500 refused",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "C03 business sales input policy gate",
+      "status": "PASS",
+      "detail": "PRICE_RESEARCH_POLICY_CONFLICT:DATA-BEASTRING11-PUBLIC"
+    },
+    {
+      "name": "C04 all three old 25 current displays reference 45",
+      "status": "PASS",
+      "detail": 3
+    },
+    {
+      "name": "D01 readonly stable repeat no RNG or component write",
+      "status": "PASS",
+      "detail": "QUOTE-cf3c48f80502322133139dd8"
+    },
+    {
+      "name": "D02 unknown has no invented precise price",
+      "status": "PASS",
+      "detail": "NEEDS_EVIDENCE"
+    },
+    {
+      "name": "D03 range has no invented midpoint",
+      "status": "PASS",
+      "detail": "PROVISIONAL"
+    },
+    {
+      "name": "D04 narrative inflation not accepted",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "D05 caller verified claim refused",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "D06 range valid specified price",
+      "status": "PASS",
+      "detail": "0.0007"
+    },
+    {
+      "name": "E17 public renderer rejects status-only forgery",
+      "status": "PASS",
+      "detail": "PRICE_REVALIDATION_FAILED:['PRICE_REQUEST_OBJECT_REQUIRED']"
+    },
+    {
+      "name": "E01 invalid quote rejected",
+      "status": "PASS",
+      "detail": "PRICE_STALE_OR_TAMPERED:total"
+    },
+    {
+      "name": "E02 business market missing context rejected",
+      "status": "PASS",
+      "detail": "PRICE_VALID_QUOTE_REQUIRED"
+    },
+    {
+      "name": "E03 mathematical negotiation kept",
+      "status": "PASS",
+      "detail": "ACCEPT"
+    },
+    {
+      "name": "E04 real preview commit and idempotent retry",
+      "status": "PASS",
+      "detail": {
+        "debit_units": 140,
+        "retry": "ALREADY_APPLIED"
+      }
+    },
+    {
+      "name": "E05 denied commander",
+      "status": "PASS",
+      "detail": "DOMAIN_COMMANDER_PROOF_UNAVAILABLE_USE_VERIFIED_GRANT"
+    },
+    {
+      "name": "E05 denied actor",
+      "status": "PASS",
+      "detail": "DOMAIN_AUTHORIZATION_SUBJECT_MISMATCH"
+    },
+    {
+      "name": "E05 denied budget",
+      "status": "PASS",
+      "detail": "DOMAIN_AUTHORIZATION_BUDGET_EXCEEDED:gold_units"
+    },
+    {
+      "name": "E05 denied estimate",
+      "status": "PASS",
+      "detail": "PRICE_ESTIMATE_IS_NOT_CASH"
+    },
+    {
+      "name": "E05 denied tamper",
+      "status": "PASS",
+      "detail": "PRICE_STALE_OR_TAMPERED:total"
+    },
+    {
+      "name": "E05 denied unconfirmed",
+      "status": "PASS",
+      "detail": "PRICE_CONFIRMED_TRANSACTION_NOT_FOUND"
+    },
+    {
+      "name": "E05 denied direction",
+      "status": "PASS",
+      "detail": "PRICE_TRANSACTION_DIRECTION_CONFLICT"
+    },
+    {
+      "name": "E06 independent silver stays separate",
+      "status": "PASS",
+      "detail": 84.58
+    },
+    {
+      "name": "E07 structured scene template and hidden quote",
+      "status": "PASS",
+      "detail": "QUOTE-cf3c48f80502322133139dd8"
+    },
+    {
+      "name": "E08 unstructured scene money refused",
+      "status": "PASS",
+      "detail": "PRICE_SCENE_STRUCTURED_QUOTE_REQUIRED"
+    },
+    {
+      "name": "E09 session protects cash and rolls back",
+      "status": "PASS",
+      "detail": "PRICE_AUTHORITY_OR_CASH_PATCH_FORBIDDEN:state:summary.funds.gold"
+    },
+    {
+      "name": "E10 session new unquoted price refused and rolls back",
+      "status": "PASS",
+      "detail": "PATCH_POSTCHECK_FAILED: PRICING:PRICE_NEW_ECONOMIC_FACT_REQUIRES_QUOTE:state:world_state_overrides.new_test_price_gold; STATE_CHANGE_REQUIRES_HISTORY: {'rules.json': False, 'catalog.json': False, 'state.json': True, 'tasks.json': False}"
+    },
+    {
+      "name": "E11 session blocks price authority direct edit",
+      "status": "PASS",
+      "detail": "PRICE_AUTHORITY_OR_CASH_PATCH_FORBIDDEN:state:commander_runtime_rules.parameters.research_data_uniform_price_gold"
+    },
+    {
+      "name": "E12 final transaction catches unquoted price",
+      "status": "PASS",
+      "detail": [
+        "PRICE_NEW_ECONOMIC_FACT_REQUIRES_QUOTE:state:world_state_overrides.unquoted_price_gold"
+      ]
+    },
+    {
+      "name": "D07 stale SAVESET quote explicitly stale",
+      "status": "PASS",
+      "detail": "STALE"
+    },
+    {
+      "name": "D08 scoped exception and duplicate event blocked",
+      "status": "PASS",
+      "detail": "scoped, no cross-item, no double event"
+    },
+    {
+      "name": "F01 development loader release parity",
+      "status": "PASS",
+      "detail": 26
+    },
+    {
+      "name": "F02 current full check",
+      "status": "PASS",
+      "detail": "PASS"
+    },
+    {
+      "name": "F03 reference integrity",
+      "status": "PASS",
+      "detail": "PASS"
+    },
+    {
+      "name": "F04 cold startup stays <=3500 bytes",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "F05 changed random clock cannot inherit warning",
+      "status": "PASS",
+      "detail": false
+    },
+    {
+      "name": "C05 authorized future policy works without hardcoded 45",
+      "status": "PASS",
+      "detail": "authorized current catalog 50, history and cash unchanged"
+    },
+    {
+      "name": "C06 policy mutation needs confirmed scoped authority",
+      "status": "PASS",
+      "detail": "rejected and unchanged"
+    },
+    {
+      "name": "D09 formal evidence registration actual commit",
+      "status": "PASS",
+      "detail": "formal evidence scope verified"
+    },
+    {
+      "name": "E13 session structured amount success actual commit",
+      "status": "PASS",
+      "detail": "session fact validated and committed"
+    },
+    {
+      "name": "D10 missing ordinary service reuses applicable anchor automatically",
+      "status": "PASS",
+      "detail": "automatic existing permission, no new player confirmation"
+    },
+    {
+      "name": "E14 actual reveal respects quote visibility",
+      "status": "PASS",
+      "detail": "disclosed quote visible to player only"
+    },
+    {
+      "name": "F06 altered random clock has no migration exemption",
+      "status": "PASS",
+      "detail": "fingerprint change rejected"
+    },
+    {
+      "name": "E15 existing adjust funds cannot bypass quote",
+      "status": "PASS",
+      "detail": "valid budget cannot bypass price validation"
+    },
+    {
+      "name": "E16 fixed integer finance refuses insufficient cash",
+      "status": "PASS",
+      "detail": "FINANCE_NEGATIVE_BALANCE:gold"
+    },
+    {
+      "name": "B17 mathematical accept cannot bypass star cap",
+      "status": "PASS",
+      "detail": "OUT_OF_POLICY"
+    },
+    {
+      "name": "E18 verified business offer preserves arithmetic",
+      "status": "PASS",
+      "detail": "valid proposal still not settlement authority"
+    },
+    {
+      "name": "E19 quantity budget uses exact decimal",
+      "status": "PASS",
+      "detail": "no floating-point quantity undercount"
+    }
+  ]
+}

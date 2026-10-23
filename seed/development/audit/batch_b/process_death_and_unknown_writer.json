@@ -1,0 +1,75 @@
+{
+  "schema": "RELEASE_TEST_EVIDENCE_V1",
+  "source_save_set_id": "SAVESET-V14.46-aac59e5c68893646",
+  "engine_sha256": "0b9f8e6362df829f00dc8e6a8d9eda2536f0ea48558033139b50670267738908",
+  "guard_sha256": "e780ae0f45b082f5624be925f92ad04d1e21e3ab3a76c1655f571af222cc1dad",
+  "test_sha256": "f85cc24299cec24a7a3591095196c13d8e5c63ea14681145869cbfc20a491ae2",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "group": "fault",
+  "tests": [
+    {
+      "name": "process_death_after_journal",
+      "status": "PASS",
+      "detail": {
+        "killed_at": "after_journal",
+        "outcome": "parent",
+        "journal_clean": true,
+        "late_journal_refused": true
+      },
+      "seconds": 38.951
+    },
+    {
+      "name": "process_death_after_component",
+      "status": "PASS",
+      "detail": {
+        "killed_at": "after_component",
+        "outcome": "parent",
+        "journal_clean": true,
+        "late_journal_refused": true
+      },
+      "seconds": 35.36
+    },
+    {
+      "name": "process_death_after_manifest",
+      "status": "PASS",
+      "detail": {
+        "killed_at": "after_manifest",
+        "outcome": "target",
+        "journal_clean": true,
+        "late_journal_refused": true
+      },
+      "seconds": 38.696
+    },
+    {
+      "name": "process_death_after_receipt",
+      "status": "PASS",
+      "detail": {
+        "killed_at": "after_receipt",
+        "outcome": "target",
+        "journal_clean": true,
+        "late_journal_refused": true
+      },
+      "seconds": 42.308
+    },
+    {
+      "name": "process_death_after_cleanup",
+      "status": "PASS",
+      "detail": {
+        "killed_at": "after_cleanup",
+        "outcome": "target",
+        "journal_clean": true,
+        "late_journal_refused": false
+      },
+      "seconds": 36.079
+    },
+    {
+      "name": "unknown_writer_bytes_protected",
+      "status": "PASS",
+      "detail": "unknown bytes and journal retained; no overwrite",
+      "seconds": 32.14
+    }
+  ],
+  "status": "PASS",
+  "passed": 6,
+  "total": 6
+}

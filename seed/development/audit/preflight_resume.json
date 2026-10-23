@@ -1,0 +1,166 @@
+{
+  "packet": "COLD_START_PACKET_V5",
+  "engine_version": "2.59.2",
+  "save_set_id": "SAVESET-V14.42-8e623b38b1eb54e4",
+  "game_time": "8363-12-02T12:00:00",
+  "authority_fingerprint": "34dd018c604e963eb97a9ab4",
+  "player_location": {
+    "as_of": "8363-07-08T21:46:00",
+    "base_ships": 51,
+    "transit_ships": 0,
+    "deployments": []
+  },
+  "fleet_core": {
+    "voyager": {
+      "ships": 51,
+      "personnel": 17203,
+      "display_name": "远航者舰队",
+      "source_paths": [
+        "state:summary.ships.voyager",
+        "state:voyager_fleet.current_personnel"
+      ],
+      "complete": true
+    },
+    "jinchuan": {
+      "ships": 9,
+      "personnel": 709,
+      "display_name": "金川舰队",
+      "source_paths": [
+        "state:summary.ships.jinchuan",
+        "state:jinchuan_fleet.personnel_total"
+      ],
+      "complete": true
+    },
+    "shadow": {
+      "ships": 18,
+      "personnel": 6034,
+      "display_name": "暗影舰队",
+      "source_paths": [
+        "state:summary.ships.shadow_active",
+        "state:shadow_fleet.personnel_total"
+      ],
+      "complete": true
+    },
+    "gold": 52927875014.4573,
+    "grey": 5209377218.76
+  },
+  "industry_current": {
+    "asset_count": 1619,
+    "daily_net_income_gold": 2043374646.8122,
+    "daily_net_income_grey": 400107046.52,
+    "next_settlement_at": "8363-12-03T00:20:00",
+    "authority_ref": "state:world_state_overrides.multinational_industry_current"
+  },
+  "next_deterministic_event": {
+    "task_id": "TSK-CALDER-INDUSTRIES-302",
+    "time": "8363-12-03T00:20:00",
+    "resolver": "settlement_rule_v1",
+    "title": "多国产业统一总账运营",
+    "source": "task"
+  },
+  "next_semantic_barrier": null,
+  "active_summary": {
+    "task_counts": {
+      "active": 6,
+      "queued": 0,
+      "deterministic_scheduled": 4,
+      "sleeping_semantic_watchers": 1
+    },
+    "ongoing_obligations": [],
+    "maintenance_runtime": {
+      "repair_active": 0,
+      "medical_active": 0,
+      "blocked": 0,
+      "pending_replenishment": 0
+    },
+    "pending_contact_count": 4
+  },
+  "pending_decisions": [],
+  "random_runtime": {
+    "pending_loot_count": 0
+  },
+  "pending_turn": null,
+  "source_layout": {
+    "core_save_files": 8,
+    "manifest_files": 1,
+    "hash_checked_components": 7,
+    "authority_file_count_semantics": "components excluding manifest.json"
+  },
+  "query_contract": "QUERY_CONTRACT_V4",
+  "source_refs": [
+    "manifest:save_set_id",
+    "state:game_time",
+    "state:fleet_core",
+    "state:world_state_overrides.multinational_industry_current",
+    "tasks:self",
+    "events:next_deterministic"
+  ],
+  "context_bytes": 3554,
+  "context_budget_bytes": 4096,
+  "resume_cursor": {
+    "status": "NO_FOCUS",
+    "task_id": null,
+    "event_id": null,
+    "phase": null,
+    "last_reported_seq": null,
+    "pending_gate": null,
+    "candidates": [
+      {
+        "task_id": "TSK-MIN-OPERATIONS",
+        "phase": "commercial_operations_14_mines_9_fixed_salvage_operational"
+      },
+      {
+        "task_id": "TSK-CALDER-INDUSTRIES-302",
+        "phase": "asset_1619_operational_unified_gold_grey"
+      },
+      {
+        "task_id": "TSK-MKT-RESEARCH-DATA-SALES",
+        "phase": "catalog_97_unified_open_recurring_nonexclusive_45g"
+      }
+    ]
+  },
+  "selected_source": {
+    "kind": "zip",
+    "path": "/workspace/scratch/9735e8b606a5/.runtime/save_v1442/preflight/VOYAGER_SOURCE_V14.42_83631202_1200.zip",
+    "local_sync": "cached_extraction"
+  },
+  "local_sync": "cached_extraction",
+  "project_upload_verified": false,
+  "command_contract": {
+    "invoke": "engine.py invoke --input <JSON>",
+    "catalog": "engine.py commandcatalog",
+    "legacy_alias": "domaincommand",
+    "verified_grant_required": true
+  },
+  "budget_exceeded": false,
+  "readiness": {
+    "status": "READY",
+    "checks": [
+      "binding",
+      "save_set",
+      "time",
+      "tasks",
+      "scene",
+      "recovery"
+    ]
+  },
+  "current_scene": {
+    "scene_id": "XILU9-WHITESLEEP-0317-83631202",
+    "phase": "investigating",
+    "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL"
+  },
+  "next_layers": [
+    "startup --layer navigation",
+    "startup --layer focus"
+  ],
+  "visibility": {
+    "audience": "player",
+    "policy": "explicit scene disclosure"
+  },
+  "economy": {
+    "currency": "1金币=100银币=10000铜币；精度金4灰2",
+    "grey_to_gold": "0.036",
+    "quotes": "pricequote 校验后展示、结算；现价优先历史",
+    "local": "pricequery --input {\"region\":\"熄炉-9\"}"
+  }
+}

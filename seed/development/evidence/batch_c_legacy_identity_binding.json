@@ -1,0 +1,8 @@
+{
+  "observer:HAWKE": {
+    "viewer_id": "npc:PER-HAWK-MALEN-01",
+    "source_ref": "state:entity_registry.entities.PER-HAWK-MALEN-01",
+    "source_save_set_id": "SAVESET-V14.46-aac59e5c68893646",
+    "basis": "Existing accepted HAWKE observer in Whitesleep; canonical entity 霍克·马伦 has alias 霍克. Identity route only; retain original disclosure times and epistemics."
+  }
+}

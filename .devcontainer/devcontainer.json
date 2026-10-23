@@ -1,0 +1,19 @@
+{
+  "name": "VoyagerPhone · VOYAGER",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+  "forwardPorts": [
+    8000
+  ],
+  "portsAttributes": {
+    "8000": {
+      "label": "远航游戏",
+      "onAutoForward": "notify"
+    }
+  },
+  "postCreateCommand": "python -m pip install -r requirements.txt",
+  "postStartCommand": "python scripts/start_codespaces.py",
+  "remoteUser": "vscode",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  }
+}

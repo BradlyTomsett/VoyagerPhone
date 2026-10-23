@@ -1,0 +1,41 @@
+[
+  {
+    "family": "rescue",
+    "hard_constraints": "PASS",
+    "soft_review": {
+      "environment": true,
+      "character_goal": true,
+      "player_response": true,
+      "causal_followup": true,
+      "forced_options": false,
+      "combat_required": false
+    },
+    "draft_text": "走廊灯光被薄雾揉开，安娜把手按在门边，想先确认家人平安。你停下听她说明后，她放慢语速，把担心的缘由讲清；等你作答，她愿意继续交流。"
+  },
+  {
+    "family": "ordinary_life",
+    "hard_constraints": "PASS",
+    "soft_review": {
+      "environment": true,
+      "character_goal": true,
+      "player_response": true,
+      "causal_followup": true,
+      "forced_options": false,
+      "combat_required": false
+    },
+    "draft_text": "门厅的纸张被风口轻轻掀起，贝拉希望交接班平稳结束。你选择先听值班者的困难，她把原本攥着的纸条摊开；这次回应让她愿意把误会留在谈话里解决。"
+  },
+  {
+    "family": "discovery",
+    "hard_constraints": "PASS",
+    "soft_review": {
+      "environment": true,
+      "character_goal": true,
+      "player_response": true,
+      "causal_followup": true,
+      "forced_options": false,
+      "combat_required": false
+    },
+    "draft_text": "旧观测窗映出柔暗的反光，希拉想核对一段观察记录的来历。你请她区分亲眼所见与猜测，她认真做了区分；接下来的讨论因此有了可以追问的线索。"
+  }
+]

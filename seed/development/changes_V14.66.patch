@@ -1,0 +1,634 @@
+--- a/development/devsrc/00_prelude.py
++++ b/development/devsrc/00_prelude.py
+@@ -41,7 +41,7 @@
+ from pathlib import Path
+ from typing import Any, Dict, Iterable, List, Optional, Tuple
+ 
+-ENGINE_VERSION = "2.73.0"
++ENGINE_VERSION = "2.74.0"
+ ENGINE_PROTOCOL = "4"
+ RUNTIME_SCHEMA = "VOYAGER_RUNTIME_V2"
+ TASK_RUNTIME_SCHEMA = "TASK_RUNTIME_V3"
+--- a/development/devsrc/11a_business_settlement.py
++++ b/development/devsrc/11a_business_settlement.py
+@@ -172,13 +172,15 @@
+ 
+ 
+ def scheduler_coverage_packet(base=ROOT):
+-    ensure_source_ready(base)
+-    return _scheduler_coverage(read_json(Path(base)/'state.json'),read_json(Path(base)/'tasks.json'),read_json(Path(base)/'manifest.json')['save_set_id'])
++    with SnapshotContext(base):
++        ensure_source_ready(base)
++        return _scheduler_coverage(read_json_view(Path(base)/'state.json'),read_json_view(Path(base)/'tasks.json'),read_json_view(Path(base)/'manifest.json')['save_set_id'])
+ 
+ 
+ def business_query_packet(base=ROOT,task_id='TSK-YUHUO-OPERATIONS'):
+-    ensure_source_ready(base);state=read_json(Path(base)/'state.json');tasks=read_json(Path(base)/'tasks.json');task=_task_by_id(tasks,task_id);rule=_business_rule(task);row=_business_runtime(state,rule['business_id']);iso=_task_monitor(tasks,task).get('next_review_at')
+-    return {'packet':'BUSINESS_QUERY_V1','save_set_id':read_json(Path(base)/'manifest.json')['save_set_id'],'game_time':state['game_time'],'task_id':task_id,'business_id':rule['business_id'],'cash_copper':_account_units(state,rule['account_id'],'copper'),'next_at':iso,'assessment':_business_assessment(state,task,iso),'last_settled_at':row.get('last_settled_at'),'latest_receipt':row['settlements'].get(row.get('last_settled_at')),'inventory_status':row['inventory_status'],'fixed_costs':rule['fixed_costs'],'prepaid_at_next_close':_business_prepaid_expense(state,rule,iso),'historical_gaps':row.get('historical_gaps',[]),'balance_evidence':_business_balance_evidence(state,rule['account_id']),'input_entry':'standing authorized simulation is registered automatically only when due; actual business_day_record still requires the existing trusted host gateway'}
++    with SnapshotContext(base):
++        ensure_source_ready(base);state=read_json_view(Path(base)/'state.json');tasks=read_json_view(Path(base)/'tasks.json');task=_task_by_id(tasks,task_id);rule=_business_rule(task);row=_business_runtime(state,rule['business_id']);iso=_task_monitor(tasks,task).get('next_review_at')
++        return {'packet':'BUSINESS_QUERY_V1','save_set_id':read_json_view(Path(base)/'manifest.json')['save_set_id'],'game_time':state['game_time'],'task_id':task_id,'business_id':rule['business_id'],'cash_copper':_account_units(state,rule['account_id'],'copper'),'next_at':iso,'assessment':_business_assessment(state,task,iso),'last_settled_at':row.get('last_settled_at'),'latest_receipt':row['settlements'].get(row.get('last_settled_at')),'inventory_status':row['inventory_status'],'fixed_costs':rule['fixed_costs'],'prepaid_at_next_close':_business_prepaid_expense(state,rule,iso),'historical_gaps':row.get('historical_gaps',[]),'balance_evidence':_business_balance_evidence(state,rule['account_id']),'input_entry':'standing authorized simulation is registered automatically only when due; actual business_day_record still requires the existing trusted host gateway'}
+ 
+ 
+ def _business_v1_integrity_report(state,tasks,base=None):
+--- a/development/devsrc/20_cli.py
++++ b/development/devsrc/20_cli.py
+@@ -787,7 +787,7 @@
+ 
+ 
+ def _native_current_protocol_integrity(base:Path)->dict:
+-    m=_component_manifest_read(base);st=read_json(base/'state.json');tk=read_json(base/'tasks.json');rr=read_json(base/'rules.json');cc=read_json(base/'catalog.json')
++    m=_component_manifest_read(base);st=read_json_view(base/'state.json');tk=read_json_view(base/'tasks.json');rr=read_json_view(base/'rules.json');cc=read_json_view(base/'catalog.json')
+     meta,events,_=read_history_view(base/'events.jsonl')
+     errs=[]
+     for name,d in [('state',st),('tasks',tk),('rules',rr),('catalog',cc),('events_metadata',meta)]:
+@@ -1524,7 +1524,7 @@
+ def _current_authority_consistency_report(root:Path)->dict:
+     root=Path(root).resolve();errors=[];facts={}
+     try:
+-        state=read_json(root/'state.json');tasks=read_json(root/'tasks.json');manifest=read_json(root/'manifest.json')
++        state=read_json_view(root/'state.json');tasks=read_json_view(root/'tasks.json');manifest=read_json_view(root/'manifest.json')
+         if parse_version(str(manifest.get('save_version'))) >= (14,2):
+             patrol=_shadow_patrol_single_event_report(state,tasks);facts['shadow_patrol_event']=patrol
+             errors.extend(patrol.get('errors') or [])
+--- a/development/devsrc/28_snapshot_service.py
++++ b/development/devsrc/28_snapshot_service.py
+@@ -79,13 +79,21 @@
+                 if any(_active_runtime_journal(self.base,n) for n in (NATIVE_COMMIT_JOURNAL_FILENAME,CONSISTENCY_REPAIR_JOURNAL)):raise EngineError('RECOVERY_INTENT_DURING_READ')
+         finally:_snapshot_scope.reset(self.token);self.lock.__exit__(*exc)
+     def boundary_layout(self):
+-        paths={self.base/n for n in self.fingerprint}
+-        for p in list(paths):paths.update(q for q in p.parents if q!=self.base and self.base in q.parents)
++        # Build lexical ancestors once. lstat and directory shape are still read
++        # at BOTH boundaries; no mtime/stat tuple substitutes for content hashes.
++        if not hasattr(self,'layout_paths'):
++            paths={}
++            for name in self.fingerprint:
++                parts=Path(name).parts
++                if not parts or Path(name).is_absolute() or '..' in parts:raise EngineError('SNAPSHOT_PATH_INVALID')
++                for i in range(1,len(parts)+1):
++                    rel=str(Path(*parts[:i]));paths[rel]=self.base/rel
++            self.layout_paths=sorted(paths.items())
+         rows=[]
+-        for p in sorted(paths):
+-            try:mode=p.lstat().st_mode
++        for rel,path in self.layout_paths:
++            try:mode=path.lstat().st_mode
+             except OSError:mode=None
+-            rows.append([str(p.relative_to(self.base)),mode,stat.S_ISLNK(mode) if mode is not None else False])
++            rows.append([rel,mode,stat.S_ISLNK(mode) if mode is not None else False])
+         shape=sorted([p.name,p.is_file(),p.is_dir(),p.is_symlink()] for p in self.base.iterdir() if not p.name.startswith('.'))
+         return {'paths':rows,'shape':shape}
+ 
+--- a/development/devsrc/30_runtime_services.py
++++ b/development/devsrc/30_runtime_services.py
+@@ -5,7 +5,7 @@
+ 
+ def _services_run_checks(base,full=False,expected_version=None,require_manifest=True,parent_snapshot=None,validation_cache=None):
+     out=_batch_b_run_checks(base,full,expected_version,require_manifest,parent_snapshot,validation_cache)
+-    for name,check in [('accounts',lambda:accounts_integrity_report(read_json(Path(base)/'state.json'))),('content',lambda:content_integrity_report(base)),('memory',lambda:memory_integrity_report(base)),('business',lambda:business_integrity_report(read_json(Path(base)/'state.json'),read_json(Path(base)/'tasks.json'),base))]:
++    for name,check in [('accounts',lambda:accounts_integrity_report(read_json_view(Path(base)/'state.json'))),('content',lambda:content_integrity_report(base)),('memory',lambda:memory_integrity_report(base)),('business',lambda:business_integrity_report(read_json_view(Path(base)/'state.json'),read_json_view(Path(base)/'tasks.json'),base))]:
+         try:
+             report=check();out[name]=report;out['errors'].extend(name.upper()+':'+e for e in report.get('errors',[]))
+         except Exception as ex:out['errors'].append(name.upper()+':'+str(ex))
+--- a/development/devsrc/35_story_services.py
++++ b/development/devsrc/35_story_services.py
+@@ -14,7 +14,7 @@
+ 
+ 
+ def _story_source_report(base):
+-    state=read_json(Path(base)/'state.json');tasks=read_json(Path(base)/'tasks.json');out=_story_integrity(state,tasks)
++    state=read_json_view(Path(base)/'state.json');tasks=read_json_view(Path(base)/'tasks.json');out=_story_integrity(state,tasks)
+     if out['status']=='LEGACY':return out
+     # All new knowledge/causal/experience evidence is committed in ordinary history.
+     _,events,_=read_history_view(Path(base)/'events.jsonl');ids={e['event_id'] for e in events};rt=_story_runtime(state);refs=[]
+--- a/development/devsrc/36_performance_context.py
++++ b/development/devsrc/36_performance_context.py
+@@ -60,6 +60,28 @@
+     if owner is not None:owner.metrics[name]=owner.metrics.get(name,0)+1
+ 
+ 
++_stage2_epoch_process_cache=collections.OrderedDict()
++_stage2_epoch_process_lock=threading.RLock()
++_STAGE2_EPOCH_PROCESS_BYTES=64*1024*1024
++_STAGE2_EPOCH_PROCESS_ENTRIES=32
++
++
++def _stage2_epoch_process_get(key):
++    with _stage2_epoch_process_lock:
++        row=_stage2_epoch_process_cache.get(key)
++        if row is not None:_stage2_epoch_process_cache.move_to_end(key);return row[1]
++    return None
++
++
++def _stage2_epoch_process_put(key,value):
++    size=sum(len(raw) for raw in value[1])
++    if size>_STAGE2_EPOCH_PROCESS_BYTES:return
++    with _stage2_epoch_process_lock:
++        _stage2_epoch_process_cache[key]=(size,value);_stage2_epoch_process_cache.move_to_end(key)
++        while len(_stage2_epoch_process_cache)>_STAGE2_EPOCH_PROCESS_ENTRIES or sum(row[0] for row in _stage2_epoch_process_cache.values())>_STAGE2_EPOCH_PROCESS_BYTES:
++            _stage2_epoch_process_cache.popitem(last=False)
++
++
+ def _stage2_epoch_value(rec,lineno=0,base=None,_archive_bytes=None):
+     memo=_stage2_memo()
+     if memo is None:return _batch_b_epoch_decode(rec,lineno,base,_archive_bytes=_archive_bytes)
+@@ -72,8 +94,12 @@
+         if snapshot and snapshot.base==Path(base).resolve() and snapshot.fingerprint.get(rel)!=archive:raise EngineError('SNAPSHOT_ARCHIVE_READ_NOT_BOUND')
+     key=('epoch-v2',ENGINE_VERSION,sys.version,sys.flags.optimize,_repair_digest(rec),archive)
+     if key in memo:_stage2_count('epoch_cache_hits');return memo[key]
++    value=_stage2_epoch_process_get(key)
++    if value is not None:
++        memo[key]=value;_stage2_count('epoch_process_hits');return value
+     _stage2_count('epoch_cache_misses');_stage2_count('history_decodes')
+     value=_stage2_freeze(_batch_b_epoch_decode(rec,lineno,base,_archive_bytes=_archive_bytes));memo[key]=value
++    _stage2_epoch_process_put(key,value)
+     return value
+ 
+ 
+@@ -143,10 +169,23 @@
+     names=['manifest.json',*m.get('components',{}),*_component_cold_archives(m)]
+     if (base/'development').exists():names+=list(m.get('development_sources',{}).get('files',{}))
+     names += ['.runtime/'+n for n in (NATIVE_COMMIT_JOURNAL_FILENAME,CONSISTENCY_REPAIR_JOURNAL)]
+-    # Actual directory shape matters to strict fileset and symlink checks, too.
+-    files=tuple((n,_snapshot_file_fingerprint(base/n),tuple(str(p.relative_to(base)) for p in [base/n,*(base/n).parents] if p!=base and base in p.parents and p.is_symlink()),(base/n).stat().st_mode if (base/n).exists() else None) for n in sorted(set(names)))
++    modes={};files=[]
++    for name in sorted(set(names)):
++        parts=Path(name).parts
++        if not parts or Path(name).is_absolute() or '..' in parts:raise EngineError('SNAPSHOT_PATH_INVALID')
++        links=[]
++        for i in range(len(parts),0,-1):
++            rel=str(Path(*parts[:i]))
++            if rel not in modes:
++                try:modes[rel]=(base/rel).lstat().st_mode
++                except OSError:modes[rel]=None
++            if modes[rel] is not None and stat.S_ISLNK(modes[rel]):links.append(rel)
++        path=base/name
++        try:mode=path.stat().st_mode
++        except FileNotFoundError:mode=None
++        files.append((name,_snapshot_file_fingerprint(path),tuple(links),mode))
+     shape=tuple(sorted((p.name,p.is_file(),p.is_dir(),p.is_symlink()) for p in base.iterdir() if not p.name.startswith('.')))
+-    return (ENGINE_VERSION,sys.version,str(base),files,shape)
++    return (ENGINE_VERSION,sys.version,str(base),tuple(files),shape)
+ 
+ 
+ class TransactionValidationContext:
+@@ -224,7 +263,7 @@
+ 
+ def _stage2_checks(base,full=False,expected_version=None,require_manifest=True,parent_snapshot=None,validation_cache=None):
+     ctx=_stage2_tx_scope.get()
+-    if ctx is None and _snapshot_scope.get() is None and (Path(base)/'manifest.json').is_file():
++    if (_snapshot_scope.get() is None or _snapshot_scope.get().base!=Path(base).resolve()) and (Path(base)/'manifest.json').is_file():
+         snapshot=SnapshotContext(base)
+         try:snapshot.__enter__()
+         except Exception:return _stage2_previous_checks(base,full,expected_version,require_manifest,parent_snapshot,validation_cache)
+--- a/development/devsrc/44_living_world.py
++++ b/development/devsrc/44_living_world.py
+@@ -527,7 +527,11 @@
+ 
+ def _lw_boot(base=ROOT):
+     out=_lw_boot_previous(base)
+-    out['current_guide']='development/CONTINUE_V14_65.md'
++    out['current_guide']=(read_json_view(Path(base)/'manifest.json').get('current_guide') or {}).get('path')
++    # Exact balances remain in five_balances; startupfull retains expanded views.
++    out.get('fleet_core',{}).pop('gold',None);out.get('fleet_core',{}).pop('grey',None)
++    out['next_layers']=['playcontext']
++    if 'command_contract' in out:out['command_contract']['authorization']='trusted host or verified grant'
+     # The full mandatory policy is supplied by prepare/livingworld. Boot keeps
+     # its guide and enforced schema, leaving room for authenticated diagnostics.
+     out['lived_experience_policy']={'enabled':True,'turn_schema':STORY_TURN_SCHEMA,'required_flow':'prepare/review/submit'}
+--- a/development/devsrc/46_fast_play.py
++++ b/development/devsrc/46_fast_play.py
+@@ -0,0 +1,54 @@
++# === VOYAGER_DEV_MODULE: fast_play ===
++_fast_play_previous_main=main
++FAST_PLAY_GUIDANCE={'mode':'fast','source':'explicit_user_request_for_faster_play',
++    'narration':'直接执行玩家已明确指令中的连续步骤；普通中间过程简写，交付有实际进展的场景。',
++    'clock':'按行动合理耗时调用共享时钟；不把长行动默认压成1秒，不跳过到期结算或真实屏障。',
++    'decisions':'新的重大选择、未授权交易或军事行动仍停下；不代替玩家承诺。',
++    'workflow':'每轮优先一次playcontext；只补取确实缺少的证据；提案及正式提交沿用原接口。'}
++
++
++def play_context_packet(base=ROOT,scene_id=None,actor_id=None,viewer='player',player_intent='',intent_tags=None,topics=None,until=None,budget_bytes=16384):
++    """One verified read boundary for a player's next turn. No world mutation.
++    NPC callers receive only the existing role-projected preparation, never the
++    player account/task batch or player-only routine forecast.
++    """
++    if type(budget_bytes) is not int or not 4096<=budget_bytes<=131072:raise EngineError('PLAY_CONTEXT_BUDGET_INVALID')
++    _s3_viewer(viewer)
++    if viewer!='player' and (topics is not None or until is not None):raise EngineError('PLAY_CONTEXT_PLAYER_TOPICS_DENIED')
++    base=Path(base).resolve()
++    with SnapshotContext(base) as snapshot:
++        ensure_source_ready(base)
++        prepared=prepare_turn(base,scene_id,actor_id,viewer,player_intent,intent_tags,budget_bytes)
++        result={'packet':'PLAY_CONTEXT_V1','status':prepared['status'],'viewer':viewer,
++                'save_set_id':snapshot.manifest['save_set_id'],'game_time':snapshot.manifest['game_time'],
++                'prepare':prepared,'pacing':copy.deepcopy(FAST_PLAY_GUIDANCE)}
++        if viewer=='player':
++            result['overview']=round_context_packet(base,topics,audience='player',budget_bytes=budget_bytes)
++            if until is not None:result['advance_plan']=routineplan_packet(base,until)
++        result=_stage2_finalize_size(result,budget_bytes)
++        if result.get('budget_exceeded') or prepared.get('budget_exceeded'):
++            result['generation_blocked']='INCREASE_CONTEXT_BUDGET_BEFORE_NARRATING'
++        return result
++
++
++class PlayService:
++    context=staticmethod(play_context_packet)
++
++
++def _fast_play_main(argv=None):
++    args=list(sys.argv[1:] if argv is None else argv)
++    if not args or args[0]!='playcontext':return _fast_play_previous_main(args)
++    try:
++        parser=argparse.ArgumentParser(description='One verified preparation, overview and optional time plan')
++        parser.add_argument('--base',default=str(ROOT));parser.add_argument('--scene-id');parser.add_argument('--actor-id')
++        parser.add_argument('--viewer',default='player');parser.add_argument('--intent',default='')
++        parser.add_argument('--intent-tags');parser.add_argument('--topics');parser.add_argument('--until')
++        parser.add_argument('--budget-bytes',type=int,default=16384);ns=parser.parse_args(args[1:])
++        out=play_context_packet(Path(ns.base),ns.scene_id,ns.actor_id,ns.viewer,ns.intent,
++            json.loads(ns.intent_tags) if ns.intent_tags else None,json.loads(ns.topics) if ns.topics else None,ns.until,ns.budget_bytes)
++        print(json.dumps(out,ensure_ascii=False,separators=(',',':'),default=str));return 0
++    except Exception as ex:
++        print(json.dumps({'status':'FAIL','code':str(ex).split(':')[0]},ensure_ascii=False));return 1
++
++
++main=_fast_play_main
+--- a/development/devsrc/SOURCE_MANIFEST.json
++++ b/development/devsrc/SOURCE_MANIFEST.json
+@@ -1,6 +1,6 @@
+ {
+   "schema": "VOYAGER_DEV_SOURCE_V2",
+-  "engine_version": "2.73.0",
++  "engine_version": "2.74.0",
+   "order": [
+     "00_prelude.py",
+     "01_text_policy_core.py",
+@@ -52,7 +52,8 @@
+     "42_memory_experience.py",
+     "43_extension_interface.py",
+     "44_living_world.py",
+-    "45_background_life.py"
++    "45_background_life.py",
++    "46_fast_play.py"
+   ],
+   "responsibilities": {
+     "00_prelude.py": {
+@@ -173,7 +174,7 @@
+         "NAME_FIELD_KEYS",
+         "WORLD_NAME_TABLE_HEADERS"
+       ],
+-      "sha256": "011b675d8b2c038cc5d6e73f5d6cc82d3667a343bfca421a2a03170aca95bd05",
++      "sha256": "dab1546a61d5944a299df9b13ae489f5591f65e5efe44071e256911433b00e0d",
+       "imports": []
+     },
+     "01_text_policy_core.py": {
+@@ -2360,7 +2361,7 @@
+         "_native_component_selftest_phase4_base",
+         "native_component_selftest"
+       ],
+-      "sha256": "082d00144ea9c11b5c2a91e85a68cfcb25e94a155ff1c883eb4e8260c21b4a8a",
++      "sha256": "ac9995ab173304e43764cfd2d27b7cc33acffdeeba04a5533bf15bc46cc2f71d",
+       "imports": [
+         "ASSET_SEMANTIC_MAP_SCHEMA",
+         "Any",
+@@ -2520,6 +2521,7 @@
+         "re",
+         "read_history_view",
+         "read_json",
++        "read_json_view",
+         "rebuild_runtime_cache_db",
+         "reference_integrity_packet",
+         "resolve_rule_registry",
+@@ -3227,6 +3229,7 @@
+         "Optional",
+         "Path",
+         "ROOT",
++        "_business_balance_evidence",
+         "_business_day_record",
+         "_business_integer",
+         "_content_install",
+@@ -3305,7 +3308,7 @@
+         "tempfile"
+       ],
+       "captures": [],
+-      "sha256": "a88eadc33d0b7e595c3fa08268fff11f948f0c8f8f82f94ccbab8141cf292091"
++      "sha256": "0de5bbd6f590ca301c968ea46c134697ca08b8cb053b740bf4b69fc28572ea9e"
+     },
+     "29_memory_content.py": {
+       "name": "memory_content",
+@@ -3445,12 +3448,13 @@
+         "memory_integrity_report",
+         "os",
+         "price_query_packet",
++        "read_json_view",
+         "scene_query_packet",
+         "sys",
+         "visible_query_packet"
+       ],
+       "captures": [],
+-      "sha256": "1d12d955cbde1923310f2b332ba36d3844cc889995aa0379a68ca3cb09f8cb6f"
++      "sha256": "b80ada6f5b7bc6e2f00b9498dab512c128a552e8b260c38accdf02a07a1a85a0"
+     },
+     "31_story_scenes.py": {
+       "name": "story_scenes",
+@@ -3716,14 +3720,13 @@
+         "narrative_report_packet",
+         "player_output_policy",
+         "read_history_view",
+-        "read_json",
+         "read_json_view",
+         "scheduler_coverage_packet",
+         "sys",
+         "validate_narrative_proposal"
+       ],
+       "captures": [],
+-      "sha256": "eb6d2c6e4ce2f5c06bbb96fd5500f103e5fc07152d28e66a0b85bed95db9e79f"
++      "sha256": "cf40f291b3daddb6aae265ab8cb79f23b682e6d1ee292245de109a3e7ce1623c"
+     },
+     "11a_business_settlement.py": {
+       "name": "business_settlement",
+@@ -3734,17 +3737,17 @@
+         "_business_runtime",
+         "_business_day_key",
+         "_business_integer",
+-        "_business_validate_day",
++        "_business_v1_validate_day",
+         "_business_prepaid_expense",
+-        "_business_assessment",
++        "_business_v1_assessment",
+         "_business_day_record",
+-        "_resolver_business_daily",
++        "_business_v1_resolver_daily",
+         "_task_execution_coverage",
+         "_scheduler_coverage",
+         "scheduler_coverage_packet",
+         "business_query_packet",
+-        "business_integrity_report",
+-        "_business_settlement_proofs"
++        "_business_v1_integrity_report",
++        "_business_v1_settlement_proofs"
+       ],
+       "imports": [
+         "DETERMINISTIC_RESOLVERS",
+@@ -3752,6 +3755,7 @@
+         "Path",
+         "RESOLVER_FUNCTIONS",
+         "ROOT",
++        "SnapshotContext",
+         "TASK_AI_BARRIER_KINDS",
+         "_account_command_scope",
+         "_account_post",
+@@ -3760,11 +3764,16 @@
+         "_account_reserved",
+         "_account_units",
+         "_append_engine_history",
++        "_business_assessment",
++        "_business_balance_evidence",
++        "_business_journal",
++        "_business_validate_day",
+         "_host_intent_scope",
+         "_repair_digest",
+         "_roll_daily",
+         "_task_by_id",
+         "_task_monitor",
++        "business_stocktake_comparison",
+         "copy",
+         "dt",
+         "ensure_source_ready",
+@@ -3773,9 +3782,10 @@
+         "parse_iso",
+         "re",
+         "read_json",
++        "read_json_view",
+         "sha256_bytes"
+       ],
+-      "sha256": "b97448b61d0a4666d39f4a0653007a1a737d9628694b318b3678976a7ea67419"
++      "sha256": "053c898de56dac41e3180cb7b9e1140946df25fbad797ebcf93fd88e74b27538"
+     },
+     "36_performance_context.py": {
+       "name": "performance_context",
+@@ -3799,6 +3809,12 @@
+         "_stage2_cache_owner",
+         "_stage2_memo",
+         "_stage2_count",
++        "_stage2_epoch_process_cache",
++        "_stage2_epoch_process_lock",
++        "_STAGE2_EPOCH_PROCESS_BYTES",
++        "_STAGE2_EPOCH_PROCESS_ENTRIES",
++        "_stage2_epoch_process_get",
++        "_stage2_epoch_process_put",
+         "_stage2_epoch_value",
+         "_stage2_history_value",
+         "read_history_view",
+@@ -3869,6 +3885,7 @@
+         "_snapshot_scope",
+         "_snapshot_sha_file",
+         "argparse",
++        "collections",
+         "contextvars",
+         "copy",
+         "engine_lock",
+@@ -3877,8 +3894,10 @@
+         "parse_iso",
+         "read_json",
+         "sha256_bytes",
++        "stat",
+         "strict_json_loads",
+         "sys",
++        "threading",
+         "visible_query_batch_packet"
+       ],
+       "captures": [
+@@ -3893,7 +3912,7 @@
+         "run_checks",
+         "_event_v3_field_changes"
+       ],
+-      "sha256": "68b8a497b470ea8ffc0bed224a4f1e43d6855c51eec1c80e98f98a7d031af2bd"
++      "sha256": "5e735d29871395e5e6d34d91a57b99948b55349da7716a33bae441bf7a9be721"
+     },
+     "37_npc_context.py": {
+       "name": "npc_context",
+@@ -4456,6 +4475,8 @@
+         "_knowledge_facts",
+         "_knowledge_key",
+         "_knowledge_viewer",
++        "_lw_background_check_time",
++        "_lw_background_eligible",
+         "_mechanical_multi_event_limit",
+         "_phase2_domain_post_mutation_validate",
+         "_record_mechanical_hazards",
+@@ -4594,15 +4615,153 @@
+         "_lw_public_clock",
+         "_lw_clock_projection"
+       ],
+-      "sha256": "49d2202915590f27c07c44d1d7bd40e638c133adb17d535b79001f5f75a1b9ee"
++      "sha256": "1f651aa18fac7c1042071b575da2d759d44cb27c79edd87fd0c7f3f6e441a055"
+     },
+     "11b_autonomous_business.py": {
+       "responsibility": "Bounded autonomous business simulation, inventory, exact journals, parent replay proofs and scheduler idempotency",
+-      "sha256": "9cc2292eb92682e2e97eb664f60a2201fbeede9fc46959e4fa890a141f8dfe30"
++      "sha256": "9cc2292eb92682e2e97eb664f60a2201fbeede9fc46959e4fa890a141f8dfe30",
++      "name": "autonomous_business",
++      "captures": [
++        "_resolver_jinchuan",
++        "_resolver_settlement_rule"
++      ],
++      "exports": [
++        "_BUSINESS_V1_VALIDATE",
++        "_BUSINESS_V1_ASSESS",
++        "_BUSINESS_V1_RESOLVE",
++        "_BUSINESS_V1_INTEGRITY",
++        "_BUSINESS_V1_PROOFS",
++        "AUTONOMOUS_BUSINESS_SCHEMA",
++        "_business_validate_day",
++        "_business_policy",
++        "_business_autonomous_input",
++        "_business_model_check",
++        "_business_simulation_assessment",
++        "_business_assessment",
++        "_business_journal",
++        "_business_autonomous_resolve",
++        "_resolver_business_daily",
++        "_business_confirmed_input_history",
++        "business_stocktake_comparison",
++        "_business_policy_source_copy_proof",
++        "_business_settlement_proofs",
++        "business_integrity_report",
++        "_scheduled_finance_once",
++        "_RESOLVE_MINING_V1",
++        "_RESOLVE_RULE_V1",
++        "_resolver_jinchuan",
++        "_resolver_settlement_rule",
++        "_business_balance_evidence"
++      ],
++      "imports": [
++        "EngineError",
++        "Path",
++        "RESOLVER_FUNCTIONS",
++        "_account_post",
++        "_account_record",
++        "_account_registry",
++        "_account_reserved",
++        "_account_units",
++        "_append_engine_history",
++        "_business_integer",
++        "_business_prepaid_expense",
++        "_business_rule",
++        "_business_runtime",
++        "_business_v1_assessment",
++        "_business_v1_integrity_report",
++        "_business_v1_resolver_daily",
++        "_business_v1_settlement_proofs",
++        "_business_v1_validate_day",
++        "_deterministic_range",
++        "_history_append_batch",
++        "_repair_digest",
++        "_roll_daily",
++        "_task_by_id",
++        "_task_monitor",
++        "copy",
++        "get_by_path",
++        "history_lookup",
++        "parse_iso",
++        "re",
++        "read_json",
++        "sha256_bytes"
++      ]
+     },
+     "45_background_life.py": {
+       "responsibility": "Audited background routine review with partial NPC evidence; major life and narrative gates retained",
+-      "sha256": "c4c2d3797fa43639ea78eda666d694c2214aaf2daa780c651c7e9ea354d17234"
++      "sha256": "c4c2d3797fa43639ea78eda666d694c2214aaf2daa780c651c7e9ea354d17234",
++      "name": "background_life",
++      "captures": [
++        "deterministic_event_queue",
++        "_resolve_deterministic_event",
++        "_story_source_report",
++        "_story_integrity"
++      ],
++      "exports": [
++        "_BG_QUEUE_PREVIOUS",
++        "_BG_RESOLVE_PREVIOUS",
++        "_BG_STORY_SOURCE_PREVIOUS",
++        "_BG_STORY_INTEGRITY_PREVIOUS",
++        "_lw_background_policy",
++        "_lw_background_eligible",
++        "_lw_background_due",
++        "_lw_background_check_time",
++        "_bg_queue",
++        "_bg_resolve",
++        "_bg_story_integrity",
++        "_bg_story_source",
++        "deterministic_event_queue",
++        "_resolve_deterministic_event",
++        "_story_integrity",
++        "_story_source_report"
++      ],
++      "imports": [
++        "EngineError",
++        "Path",
++        "_append_engine_history",
++        "_lw_complete",
++        "_lw_routine",
++        "_lw_runtime",
++        "_repair_digest",
++        "_roll_daily",
++        "_s3_entity",
++        "copy",
++        "history_lookup",
++        "parse_iso",
++        "read_json_view"
++      ]
++    },
++    "46_fast_play.py": {
++      "name": "fast_play",
++      "responsibility": "Single snapshot turn preparation, overview and bounded time plan; no write authorization",
++      "captures": [
++        "main"
++      ],
++      "exports": [
++        "_fast_play_previous_main",
++        "FAST_PLAY_GUIDANCE",
++        "play_context_packet",
++        "PlayService",
++        "_fast_play_main",
++        "main"
++      ],
++      "sha256": "1aca863392267a545481bc1c66e48d0f421d842f2922362370f877b32c71ca05",
++      "imports": [
++        "EngineError",
++        "Path",
++        "ROOT",
++        "SnapshotContext",
++        "_s3_viewer",
++        "_stage2_finalize_size",
++        "argparse",
++        "copy",
++        "ensure_source_ready",
++        "json",
++        "prepare_turn",
++        "round_context_packet",
++        "routineplan_packet",
++        "sys"
++      ]
+     }
+   },
+   "service_dependencies": {
+--- a/development/host_session.py
++++ b/development/host_session.py
+@@ -31,6 +31,14 @@
+             if request.pop('viewer',self.viewer)!=self.viewer:raise ValueError('HOST_VIEWER_MISMATCH')
+             a=self._engine();self.metrics['prepare_requests']+=1;token=a._s3_view_scope.set(self.viewer)
+             try:return a.RoundService.prepare(self.root,viewer=self.viewer,**request)
++            finally:a._s3_view_scope.reset(token)
++    def context(self,**request):
++        """One read-only turn preparation plus overview/optional advance plan."""
++        with self._lock:
++            if not self._allowed():return {'status':'NEEDS_AUTHORIZATION','viewer':self.viewer}
++            if request.pop('viewer',self.viewer)!=self.viewer:raise ValueError('HOST_VIEWER_MISMATCH')
++            a=self._engine();self.metrics['prepare_requests']+=1;token=a._s3_view_scope.set(self.viewer)
++            try:return a.PlayService.context(self.root,viewer=self.viewer,**request)
+             finally:a._s3_view_scope.reset(token)
+     def submit(self,envelope,version,dry_run=False):
+         with self._lock:

@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "manifest_sha256": "f1adb27d2dbc049ed9deaaf11e8ed1716547aab867f2487083ee65ebccf8f036",
+  "engine_sha256": "863e8e448088f29668447b9fe3476df322142f317e168771349d3181b55bbbec",
+  "tests": [
+    {
+      "name": "after_journal",
+      "status": "PASS",
+      "detail": {
+        "outcome": "parent",
+        "whole_account_transfer": true,
+        "completed_old_journal_no_replay": false,
+        "retry_same_receipt": false
+      },
+      "seconds": 22.567163162000043
+    },
+    {
+      "name": "after_component",
+      "status": "PASS",
+      "detail": {
+        "outcome": "parent",
+        "whole_account_transfer": true,
+        "completed_old_journal_no_replay": false,
+        "retry_same_receipt": false
+      },
+      "seconds": 24.948388618999843
+    },
+    {
+      "name": "after_manifest",
+      "status": "PASS",
+      "detail": {
+        "outcome": "target",
+        "whole_account_transfer": true,
+        "completed_old_journal_no_replay": true,
+        "retry_same_receipt": true
+      },
+      "seconds": 28.700858313999788
+    },
+    {
+      "name": "after_receipt",
+      "status": "PASS",
+      "detail": {
+        "outcome": "target",
+        "whole_account_transfer": true,
+        "completed_old_journal_no_replay": true,
+        "retry_same_receipt": true
+      },
+      "seconds": 29.933756356999993
+    },
+    {
+      "name": "after_cleanup",
+      "status": "PASS",
+      "detail": {
+        "outcome": "target",
+        "whole_account_transfer": true,
+        "completed_old_journal_no_replay": false,
+        "retry_same_receipt": true
+      },
+      "seconds": 22.996902068000054
+    },
+    {
+      "name": "after_component_unknown",
+      "status": "PASS",
+      "detail": {
+        "unknown_bytes_preserved": true
+      },
+      "seconds": 20.916526621999992
+    }
+  ]
+}

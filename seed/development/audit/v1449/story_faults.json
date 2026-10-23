@@ -1,0 +1,46 @@
+{
+  "suite": "story_faults",
+  "status": "PASS",
+  "returncode": 0,
+  "seconds": 125.505,
+  "script_sha256": "8e3503fb8a5b75421a58eee76c37c46917c07a7cdf5a17a0a41c5e3b692b0f1c",
+  "result": {
+    "status": "PASS",
+    "engine_sha256": "ac63c11ce36d993a93c7a789b956778740d3e7e7826815ba2a11bd63119d8c80",
+    "tests": [
+      {
+        "phase": "after_component",
+        "unknown": false,
+        "status": "PASS",
+        "detail": {
+          "atomic_outcome": "parent",
+          "no_partial_people_or_scenes": true,
+          "readiness": "READY_WITH_LIMITATIONS"
+        }
+      },
+      {
+        "phase": "after_manifest",
+        "unknown": false,
+        "status": "PASS",
+        "detail": {
+          "atomic_outcome": "target",
+          "no_partial_people_or_scenes": true,
+          "readiness": "READY_WITH_LIMITATIONS"
+        }
+      },
+      {
+        "phase": "after_component",
+        "unknown": true,
+        "status": "PASS",
+        "detail": {
+          "unknown_bytes_protected": true
+        }
+      }
+    ]
+  },
+  "groups": 3,
+  "tested_save_set_id": "SAVESET-V14.49-cdf55a13d2da9684",
+  "tested_manifest_sha256": "072d15a555565100d274bd02109bbb5210909fdcdbd83c0f95974a6f443bbf8e",
+  "tested_engine_sha256": "ac63c11ce36d993a93c7a789b956778740d3e7e7826815ba2a11bd63119d8c80",
+  "tested_guard_sha256": "8feec5f087aba1c386d2bddf6ad23e8b15c74c6770fed6c1c92d61f800ee52fb"
+}

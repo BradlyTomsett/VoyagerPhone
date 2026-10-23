@@ -1,0 +1,164 @@
+{
+  "suite": "core",
+  "status": "PASS",
+  "returncode": 0,
+  "seconds": 453.799,
+  "script_sha256": "1f46dd81097c280c6ce049285aa6b4829bf43d9df241276ae6ccf627a8d3ec4e",
+  "result": {
+    "schema": "RELEASE_TEST_EVIDENCE_V1",
+    "source_save_set_id": "SAVESET-V14.49-cdf55a13d2da9684",
+    "engine_sha256": "ac63c11ce36d993a93c7a789b956778740d3e7e7826815ba2a11bd63119d8c80",
+    "guard_sha256": "8feec5f087aba1c386d2bddf6ad23e8b15c74c6770fed6c1c92d61f800ee52fb",
+    "test_sha256": "1f46dd81097c280c6ce049285aa6b4829bf43d9df241276ae6ccf627a8d3ec4e",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "group": "all",
+    "tests": [
+      {
+        "name": "guard_startup_query_same_readiness_and_no_writes",
+        "status": "PASS",
+        "detail": {
+          "status": "READY_WITH_LIMITATIONS",
+          "authority_unchanged": true
+        },
+        "seconds": 9.506
+      },
+      {
+        "name": "bad_history_never_fake_ready",
+        "status": "PASS",
+        "detail": "bad metadata blocked all ordinary entrypoints, restricted plan still available",
+        "seconds": 22.644
+      },
+      {
+        "name": "sequence_gap_not_metadata_repair",
+        "status": "PASS",
+        "detail": "HISTORY seq discontinuity expected=2540 actual=2541",
+        "seconds": 1.753
+      },
+      {
+        "name": "closed_scene_survives_task_archive",
+        "status": "PASS",
+        "detail": "terminal task is valid for closed scene only",
+        "seconds": 0.019
+      },
+      {
+        "name": "risk_gap_truth_determinism_and_future_windows",
+        "status": "PASS",
+        "detail": {
+          "deterministic": true,
+          "actual_evaluation_timestamp_preserved": true,
+          "future_two_windows": true
+        },
+        "seconds": 0.076
+      },
+      {
+        "name": "location_time_semantics",
+        "status": "PASS",
+        "detail": "observation and validated-through timestamps have distinct contracts",
+        "seconds": 0.023
+      },
+      {
+        "name": "authorization_negative_matrix",
+        "status": "PASS",
+        "detail": "self-approval, wrong subject, parent, expiry, targets, budget and stale base rejected without writes",
+        "seconds": 52.163
+      },
+      {
+        "name": "manifest_policy_roundtrip_and_required_extension_gate",
+        "status": "PASS",
+        "detail": "MANIFEST_UNKNOWN_REQUIRED_EXTENSION",
+        "seconds": 0.077
+      },
+      {
+        "name": "development_release_equivalence",
+        "status": "PASS",
+        "detail": "development and bundled release contracts equivalent",
+        "seconds": 3.862
+      },
+      {
+        "name": "legal_task_action_commit_replay_and_cold_boot",
+        "status": "PASS",
+        "detail": {
+          "committed": true,
+          "replay_once": true,
+          "cold_boot": true
+        },
+        "seconds": 53.078
+      },
+      {
+        "name": "confirmed_purchase_full_transaction",
+        "status": "PASS",
+        "detail": "completed service purchase: trusted scope + quote + delivery evidence + exact cash + permanent once-only receipt",
+        "seconds": 51.451
+      },
+      {
+        "name": "process_death_after_journal",
+        "status": "PASS",
+        "detail": {
+          "killed_at": "after_journal",
+          "outcome": "parent",
+          "journal_clean": true,
+          "late_journal_refused": true
+        },
+        "seconds": 42.223
+      },
+      {
+        "name": "process_death_after_component",
+        "status": "PASS",
+        "detail": {
+          "killed_at": "after_component",
+          "outcome": "parent",
+          "journal_clean": true,
+          "late_journal_refused": true
+        },
+        "seconds": 42.072
+      },
+      {
+        "name": "process_death_after_manifest",
+        "status": "PASS",
+        "detail": {
+          "killed_at": "after_manifest",
+          "outcome": "target",
+          "journal_clean": true,
+          "late_journal_refused": true
+        },
+        "seconds": 46.197
+      },
+      {
+        "name": "process_death_after_receipt",
+        "status": "PASS",
+        "detail": {
+          "killed_at": "after_receipt",
+          "outcome": "target",
+          "journal_clean": true,
+          "late_journal_refused": true
+        },
+        "seconds": 48.492
+      },
+      {
+        "name": "process_death_after_cleanup",
+        "status": "PASS",
+        "detail": {
+          "killed_at": "after_cleanup",
+          "outcome": "target",
+          "journal_clean": true,
+          "late_journal_refused": false
+        },
+        "seconds": 41.289
+      },
+      {
+        "name": "unknown_writer_bytes_protected",
+        "status": "PASS",
+        "detail": "unknown bytes and journal retained; no overwrite",
+        "seconds": 38.082
+      }
+    ],
+    "status": "PASS",
+    "passed": 17,
+    "total": 17
+  },
+  "groups": 17,
+  "tested_save_set_id": "SAVESET-V14.49-cdf55a13d2da9684",
+  "tested_manifest_sha256": "072d15a555565100d274bd02109bbb5210909fdcdbd83c0f95974a6f443bbf8e",
+  "tested_engine_sha256": "ac63c11ce36d993a93c7a789b956778740d3e7e7826815ba2a11bd63119d8c80",
+  "tested_guard_sha256": "8feec5f087aba1c386d2bddf6ad23e8b15c74c6770fed6c1c92d61f800ee52fb"
+}

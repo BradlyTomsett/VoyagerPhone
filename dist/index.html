@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#101717"><meta name="description" content="远航 VOYAGER 星际沙盒指挥台">
+  <link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css"><script src="app.js" defer></script>
+  <title>远航 · 星际指挥台</title>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="brand" href="#" aria-label="远航指挥台"><img src="icon.svg" alt=""><span>远航<small>VOYAGER</small></span></a>
+    <div class="sidebar-caption">舰队作战终端 / 01</div>
+    <nav class="navigation" aria-label="主导航">
+      <button class="nav active" data-tab="command"><span class="nav-symbol">⌘</span><span>指挥台</span><small>01</small></button>
+      <button class="nav" data-tab="fleet"><span class="nav-symbol">◇</span><span>舰队</span><small>02</small></button>
+      <button class="nav" data-tab="tasks"><span class="nav-symbol">☷</span><span>任务</span><small id="task-badge">—</small></button>
+      <button class="nav" data-tab="log"><span class="nav-symbol">◷</span><span>航志</span><small>04</small></button>
+    </nav>
+    <div class="sidebar-bottom"><div class="vertical-rule"></div><p>群星之外，<br>故事仍在继续。</p><button class="text-button settings-open">连接设置 <span>↗</span></button><span class="version">VOYAGER / WEB 0.2</span></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div class="mobile-brand"><img src="icon.svg" alt="">远航</div><div class="breadcrumbs">远航计划 <span>/</span> <b id="page-label">指挥台</b></div><div class="top-actions"><span id="connection" class="connection"><i></i>读取存档</span><button class="icon-button settings-open" aria-label="连接设置">⚙</button></div></header>
+    <main>
+      <div class="page-heading"><div><div class="eyebrow">THE VOYAGE CONTINUES</div><h1 id="page-title">指挥台<span>Command deck</span></h1></div><div class="clock"><span>舰队标准时间</span><time id="game-time">—</time></div></div>
+      <section id="command-view" class="view active-view">
+        <div class="hero">
+          <div class="hero-copy"><div class="hero-tag"><i></i> 你的星际沙盒</div><h2>每一次选择，<br>都让宇宙有所不同。</h2><p>下达指令，与人物交谈，或驶向下一段故事。</p><button id="start-scene" class="hero-link">建立新的游玩场景 <span>↗</span></button></div>
+          <div class="orbital-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="planet"></div><div class="satellite"></div><span class="star s1"></span><span class="star s2"></span><span class="star s3"></span><div class="orbital-caption">VOYAGER<br><small>深空航行 · 装饰示意</small></div></div>
+          <div class="hero-coordinates">EXPLORE. ENCOUNTER. DECIDE.</div>
+        </div>
+        <div class="metrics"><article><span class="metric-label">在役舰船 <small>ACTIVE VESSELS</small></span><div><strong id="ship-total">—</strong><span>艘</span></div><p>远航 · 金川 · 暗影</p></article><article><span class="metric-label">舰队人员 <small>PERSONNEL</small></span><div><strong id="people-total">—</strong><span>人</span></div><p>三支舰队在役总计</p></article><article><span class="metric-label">执行中任务 <small>OPERATIONS</small></span><div><strong id="task-total">—</strong><span>项</span></div><button class="metric-link" data-tab="tasks">查看任务进展 ↗</button></article></div>
+        <div class="play-grid">
+          <section class="story-panel panel"><div class="panel-heading"><h2>航行频道 <span>LIVE CHANNEL</span></h2><span class="channel-state" id="channel-state">等待连接</span></div>
+            <div id="preview-note" class="notice">正在读取 V14.66 存档。</div>
+            <div id="messages" class="messages" aria-live="polite"><article class="message welcome"><div class="message-label"><i></i>舰载终端</div><h3>欢迎回来，指挥官。</h3><p>你的舰队与历史已经就位。连接游戏服务器后，便可继续这一段远航。</p></article></div>
+            <div id="turn-controls"></div>
+            <div class="quick-actions"><button data-prompt="汇报当前舰队的状态与需要我处理的事项。" data-mode="query">舰队简报</button><button data-prompt="梳理当前任务和下一次需要处理的节点。" data-mode="query">任务进展</button><button data-prompt="我想开启一段新的探索。请先询问需要确定的视角人物和地点。" data-mode="action">开始探索 ↗</button></div>
+            <form id="composer" class="composer"><div class="composer-tools"><div class="mode-switch" role="group" aria-label="指令类型"><button type="button" class="mode active" data-mode="query">问询</button><button type="button" class="mode" data-mode="action">行动</button></div><span id="mode-hint">查询信息，不推进游戏时间</span></div><label class="sr-only" for="intent">输入游戏指令</label><textarea id="intent" maxlength="2000" rows="2" placeholder="指挥官，接下来做什么？"></textarea><div class="composer-footer"><span id="composer-status">连接服务器后启用 AI 回合</span><button id="send" class="primary" type="submit">发送指令 <span>↑</span></button></div></form>
+          </section>
+          <aside class="right-column"><section class="panel save-panel"><div class="panel-heading"><h2>当前存档</h2><span class="tiny-cross">＋</span></div><span class="save-orbit">◎</span><h3 id="save-version">V14.66</h3><p id="save-caption">来自你上传的正式存档</p><div class="save-line"><span>游戏时间</span><span>按行动推进</span></div><div class="save-line"><span>写入方式</span><span>引擎校验后提交</span></div><button id="export-save" class="secondary">导出当前存档 <span>↓</span></button></section><section class="panel task-preview"><div class="panel-heading"><h2>任务速览</h2><button class="small-link" data-tab="tasks">全部 ↗</button></div><div id="task-preview"></div></section><div class="quiet-note"><span>✦</span> 故事由 AI 拓展，世界由规则承载。</div></aside>
+        </div>
+      </section>
+      <section id="fleet-view" class="view"><div class="section-intro"><h2>舰队总览</h2><p>从当前存档读取的舰船、人员与独立账户。</p></div><div id="fleet-cards" class="fleet-cards"></div><section class="panel account-panel"><div class="panel-heading"><h2>独立账户</h2></div><div id="accounts"></div></section></section>
+      <section id="tasks-view" class="view"><div class="section-intro"><h2>执行中的计划</h2><p>查看任务状态与决策节点，或向 AI 询问更多信息。</p></div><div id="task-list" class="task-list"></div></section>
+      <section id="log-view" class="view"><div class="section-intro"><h2>每一步，都留下记录。</h2><p>这里保存网页回合的进展与提交状态。完整游戏历史包含在导出的存档中。</p></div><div id="log-list" class="log-list panel"></div></section>
+      <footer class="page-footer"><span>VOYAGER · 自由意志，无垠宇宙</span><span id="source-label">V14.66 / 存档预览</span></footer>
+    </main>
+  </div>
+</div>
+<dialog id="settings"><form id="settings-form"><div class="dialog-heading"><div><div class="eyebrow">ESTABLISH A CONNECTION</div><h2>设置你的远航</h2></div><button type="button" class="icon-button close-dialog" aria-label="关闭">×</button></div><p class="dialog-intro">在这里配置模型接口。密钥通过 HTTPS 发送到你的游戏后端，并保存在运行目录。</p><div id="connection-fields"><label for="server-url">游戏服务器地址</label><input id="server-url" type="url" placeholder="https://你的游戏服务器" autocomplete="url"><small>如果网页由游戏服务器直接提供，可留空使用当前地址。</small><label for="access-token">游戏访问口令</label><input id="access-token" type="password" placeholder="服务器 VOYAGER_ACCESS_TOKEN" autocomplete="off"><small>这是游戏访问口令，不是模型 API 密钥。仅在当前标签页会话保存。</small></div><div class="settings-split"><div><label for="actor-id">视角人物 ID</label><input id="actor-id" placeholder="例如 PER-HAWK-MALEN-01"></div><div><label for="scene-id">场景 ID（可选）</label><input id="scene-id" placeholder="留空使用当前场景"></div></div><section id="model-section" hidden><div class="model-heading">模型 API</div><label for="model-base">API 基础地址</label><input id="model-base" type="url" placeholder="https://api.openai.com/v1" autocomplete="off"><label for="model-key">API Key</label><input id="model-key" type="password" autocomplete="off" placeholder="填写提供商的 API Key"><small id="model-key-note">仅发送到你的游戏后端，不保存在浏览器或提交到 GitHub。</small><div class="settings-split"><div><label for="model-id">模型名称</label><input id="model-id" placeholder="提供商支持的 API 模型 ID" autocomplete="off"></div><div><label for="model-protocol">接口协议</label><select id="model-protocol"><option value="responses">Responses</option><option value="chat_completions">Chat Completions</option></select></div></div><label for="review-model">复核模型（可选）</label><input id="review-model" placeholder="留空使用同型号的独立请求"><small>保存配置不会发起模型调用；发出游戏指令后才消耗 API。</small></section><p id="settings-error" class="error" role="alert"></p><div class="dialog-actions"><button type="button" id="disconnect" class="text-button">断开连接</button><button type="submit" class="primary" id="connect-button">保存并继续 ↗</button></div></form></dialog>
+<div id="toast" role="status" class="toast" hidden></div>
+</body></html>

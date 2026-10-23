@@ -1,0 +1,83 @@
+{
+  "suite": "accounts",
+  "groups": 8,
+  "status": "PASS",
+  "script_sha256": "e281f85e9c7b9eadd9603ccb6fffe03fd758309f4eea63c938fd66163c339efc",
+  "tested_save_set_id": "SAVESET-V14.48-cdf55a13d2da9684",
+  "tested_engine_sha256": "28678d32b60d671cae0247badba5e4d73600dbfb101811aa1d39c57d83cc81da",
+  "tested_guard_sha256": "e780ae0f45b082f5624be925f92ad04d1e21e3ab3a76c1655f571af222cc1dad",
+  "tested_manifest_sha256": "d3ae627c3227bf289b94a9bf9a32e8e3e46e26ab4d23383cdde1d06830b5b208",
+  "seconds": 208.557,
+  "result": {
+    "status": "PASS",
+    "tests": [
+      {
+        "name": "preserve_every_current_fact_and_old_logical_event_byte",
+        "status": "PASS",
+        "detail": {
+          "unchanged_files": 78,
+          "new_game_events": 0,
+          "step17": "NOT_AUTHORIZED_UNCHANGED",
+          "input_save_set_id": "SAVESET-V14.47-cdf55a13d2da9684"
+        }
+      },
+      {
+        "name": "minigame_transitions_reservations_replay_and_precision",
+        "status": "PASS",
+        "detail": {
+          "final_balance": 6376863,
+          "exactly_one_cash_receipt": 1,
+          "cancel_refund": 0,
+          "invalid_amounts_rejected": 5
+        }
+      },
+      {
+        "name": "huge_money_exact_roundtrip",
+        "status": "PASS",
+        "detail": "integer/decimal roundtrip including values beyond binary-float precision"
+      },
+      {
+        "name": "data_only_content_contract",
+        "status": "PASS",
+        "detail": {
+          "valid_definitions": 5,
+          "invalid_packages_rejected": 5,
+          "random_table_rows_weights_order_unchanged": true
+        }
+      },
+      {
+        "name": "memory_exact_retrieval_and_visibility",
+        "status": "PASS",
+        "detail": {
+          "exact_objects": 11,
+          "player_disclosure": "summary/reference only"
+        }
+      },
+      {
+        "name": "verified_cache_invalidation_and_closing_barrier",
+        "status": "PASS",
+        "detail": "warm=zero history decompression; cache corruption/deletion rebuild; same-size cold tamper blocked; closing barrier detects in-flight mutation"
+      },
+      {
+        "name": "cold_hot_history_locators_and_incremental_append",
+        "status": "PASS",
+        "detail": {
+          "cold_and_hot_exact_matches": 4,
+          "corrupt_index_rebuilt": true,
+          "incremental_append": true
+        }
+      },
+      {
+        "name": "authorized_engine_commands_replay_and_data_install",
+        "status": "PASS",
+        "detail": {
+          "four_authorized_commits": true,
+          "three_command_replays_no_effect": true,
+          "one_cash_posting": true,
+          "content_install_no_code_or_assets": true
+        }
+      }
+    ],
+    "source_save_set_id": "SAVESET-V14.48-cdf55a13d2da9684"
+  }
+}

@@ -1,0 +1,566 @@
+{
+  "schema": "VOYAGER_DIALOGUE_CONTINUATION_V1443",
+  "source_save_set_id": "SAVESET-V14.42-8e623b38b1eb54e4",
+  "start": "8363-12-02T12:00:00",
+  "end": "8363-12-02T22:45:00",
+  "last_gameplay_advance_minutes": 177,
+  "source_policy": "accepted user dialogue is a new simulated continuation, not a fact inherited from V14.42; parent history and originals unchanged",
+  "timeline": [
+    {
+      "start": "12:00",
+      "end": "12:18",
+      "summary": "霍克、Q2、韩默检查检修口，借用短撬杆使卡滞盖板打开；救出自称费克的维修工，未爆破，未新增交火。",
+      "date": "8363-12-02"
+    },
+    {
+      "start": "12:18",
+      "end": "13:10",
+      "summary": "穆勒安全离开；瑟尔及枪伤加斯得到本地医疗/社区巡夜人临时看护；一线小组撤离；新增采购调拨完成。",
+      "date": "8363-12-02"
+    },
+    {
+      "start": "12:00",
+      "end": "12:00",
+      "summary": "指挥官明确重新分类并从远航者产权转暗影60吨军用炸药，80金币/吨，仅账面4,800金币，非工业炸药；现金0。",
+      "date": "8363-12-02"
+    },
+    {
+      "start": "12:22",
+      "end": "12:58",
+      "summary": "王静从采购渠道以4金币/吨购入工业炸药4吨，已付16金币、交割并验收；40kg内部划拨：南燕-4 30kg，林舟-4 5kg，岩途-5 5kg；公共余3960kg。",
+      "date": "8363-12-02"
+    },
+    {
+      "start": "12:58",
+      "end": "13:10",
+      "summary": "暗影公共库存3,487医疗包调2包：林舟-4与岩途-5各完整1包，每包8人份；公共余3485包。",
+      "date": "8363-12-02"
+    },
+    {
+      "start": "13:10",
+      "end": "14:38",
+      "summary": "韩默分别询问瑟尔、加斯：五人团伙、后区藏箱和更换门锁等线索，均保留证词可信度限制。",
+      "date": "8363-12-02"
+    },
+    {
+      "start": "14:42",
+      "end": "16:10",
+      "summary": "本地两名兼职巡夜人伊莎、达勒增援；霍克、Q2携各2手雷与各1kg工业炸药，韩默自驾旧货车，三车五人回白眠；16:10后区隔离门接触持枪人员，停表。",
+      "date": "8363-12-02"
+    },
+    {
+      "start": "16:10",
+      "end": "16:17",
+      "summary": "霍克公开告知尤恩死亡，要求开门说明；诺恩尝试开门，布雷克持枪阻止；门开缝，停表。",
+      "date": "8363-12-02"
+    },
+    {
+      "start": "16:17",
+      "end": "16:25",
+      "summary": "霍克投一枚催泪模式多功能手雷，诺恩主动出来；布雷克持枪，被Q2电击棒一次制伏；第三人利克在封闭储物间呼救，停表。",
+      "date": "8363-12-02"
+    },
+    {
+      "start": "16:25",
+      "end": "16:52",
+      "summary": "霍克Q2从林舟-4取两套先锋-4穿戴，三防开启；动力助力打开储物间门，未爆破；利克持枪威胁，Q2一次电击棒非致命制伏并救出；医疗接应。",
+      "date": "8363-12-02"
+    },
+    {
+      "start": "16:52",
+      "end": "19:21",
+      "summary": "利克送社区诊疗站；清理白眠后区7箱2软袋1工具箱约248kg待核赃物，三人独立访谈；布雷克承认向尤恩开枪，诺恩利克作佐证；加斯朝塔娅车辆开枪嫌疑尚未最终确认。",
+      "date": "8363-12-02"
+    },
+    {
+      "start": "19:23",
+      "end": "19:48",
+      "summary": "韩默和伊沃核查27秒语音接收时间03:17、创建时间约前夜23:12及延迟转发记录；高度支持死前录制延迟送达，尤恩原发件终端未独立检验；交易册记20:30旧病区取货约定。",
+      "date": "8363-12-02"
+    },
+    {
+      "start": "19:48",
+      "end": "21:55",
+      "summary": "依指挥官命令不追20:30取货人；将本轮新搬出的赃物出售，共回款1金币17银20铜，款项为本案临时过桥收入非舰队收入；前次从嫌疑人身上缴获的四支枪未出售。",
+      "date": "8363-12-02"
+    },
+    {
+      "start": "22:08",
+      "end": "22:32",
+      "summary": "向尤恩姐姐芮娜·贝克转付全额1金币17银20铜，到账，过桥余额清零；直接属于个人家属，不属于舰队。",
+      "date": "8363-12-02"
+    },
+    {
+      "start": "22:38",
+      "end": "22:45",
+      "summary": "白眠案正式结案归档、撤销继续追查与取货人线；归还伊沃借用气检器1与检修灯2，解除增援；霍克和Q2返回余火，动力甲复检藏回林舟-4；剩5项任务。",
+      "date": "8363-12-02"
+    }
+  ],
+  "case": {
+    "id": "XILU9-WHITESLEEP-0317-83631202",
+    "title": "白眠病区：凌晨三点十七分",
+    "source": "NEW_COMMANDER_REQUESTED_REPLACEMENT_SIMULATION；本轮新生成地点/人物/案情，不冒充原档事实。伊沃原有年龄身份沿用。",
+    "opened_at": "8363-12-02T09:15:00",
+    "as_of": "8363-12-02T22:45:00",
+    "phase": "closed_and_archived",
+    "location": "白眠病区外侧已测短走廊：霍克、Q2、韩默；林舟-4停在外侧",
+    "single_event_only": true,
+    "genre": [
+      "恐怖",
+      "侦探",
+      "冒险",
+      "枪战犯罪"
+    ],
+    "not_commercial_or_contract_dispute": true,
+    "Ivo": {
+      "name": "伊沃",
+      "age": 63,
+      "role": "原档民用维修工程师",
+      "arrival": "8363-12-02T09:15:00",
+      "reason": "多年熟识维修工尤恩死亡，死后手机却收到求救语音；还有失踪搭档与持枪者录像。",
+      "knowledge": "只知霍克五人退役游商掩护，不知暗影/舰队/指挥官。",
+      "emotion": "悲伤害怕，主动找熟人，不凭空获得战斗或侦查能力。"
+    },
+    "witness": {
+      "name": "塔娅·温",
+      "age": 26,
+      "role": "普通送水杂货配送员，本轮新增",
+      "arrival": "8363-12-02T09:15:00",
+      "armed": false,
+      "voluntary": true,
+      "statement": "昨夜给附近旧工作棚送水，受伤尤恩从白眠侧门逃到她的低位载货平台。她开本人配送车救人撤离，被远处持枪者射击，后送本地诊疗站；未进病区内、未见费克，不知凶手身份。",
+      "position": "愿作证但害怕凶手找来，不愿返回病区带路。"
+    },
+    "site": {
+      "name": "白眠病区",
+      "nature": "熄炉-9旧城区停用的民用住院区，连接旧消毒间、器材库、设备夹层，普通废弃建筑，无隐藏军团。",
+      "environment": "主体位于内部既有加压空间，局部照明/广播仍有电；支路空气、压力和门锁未经核实，旧图不保证安全。",
+      "access": "10:47离余火，11:11抵白眠，站内加压道路单程24分钟；车辆未驶入真空，三人已进外侧已测走廊。"
+    },
+    "people_reported": [
+      {
+        "name": "尤恩·贝克",
+        "age": 46,
+        "role": "维修工，伊沃多年旧识，本轮新增背景",
+        "status": "已死亡",
+        "facts": "昨夜23:40被塔娅送到诊疗站，23:50确认死亡；伊沃今晨辨认遗体。完整死因报告未取得，不预设复活。"
+      },
+      {
+        "name": "费克·罗恩",
+        "age": 34,
+        "role": "尤恩搭档，本轮新增",
+        "status": "去向未明",
+        "facts": "伊沃知其昨日与尤恩进旧病区；证人没有见到他，不认定已死/被囚/涉案。"
+      }
+    ],
+    "evidence_player_can_inspect": [
+      {
+        "id": "WS-VOICE-0317",
+        "kind": "尤恩原联系人发来的27秒语音",
+        "received_at": "8363-12-02T03:17:00",
+        "recorded_at": "未知；到达时间不是已确认录制时间",
+        "content": "“伊沃……别从大厅进。有枪。费克还在下面……门锁被他们换了。你听见没有？别一个人来。”后有金属拖动声，录音结束。",
+        "limits": "伊沃凭熟识认声音，未经音频鉴定，不直接判真/假或死人通话。"
+      },
+      {
+        "id": "WS-VIDEO-2318",
+        "kind": "塔娅本人配送车14秒低光录像",
+        "device_timestamp": "8363-12-01T23:18:00",
+        "observed": "旧转运门边带血男人踉跄到车旁，远处至少两个人影，一人举起长条物；两次枪口闪光和爆响，车侧金属护板受击。旧广播重复“请保持安静，病人正在休息。”深处横着病床，床上黑影不明。",
+        "limits": "认不清脸、确切枪型、全部人数和床上是什么；设备时钟未独立校准。"
+      },
+      {
+        "id": "WS-OLD-PLAN",
+        "kind": "伊沃个人旧维修平面图",
+        "observed": "大厅、消毒区、器材库、设备夹层",
+        "limits": "不知现有人手/安全条件/改装门禁。"
+      }
+    ],
+    "requested_help": "伊沃请霍克先听录音和看录像，决定是否调查尤恩之死及费克去向；没有自动突袭、雇佣店员、调用舰队。",
+    "known_criminal_risk": "枪击配送车辆有影像，重伤死亡与失踪线索明确；案件不以财务或合同纠纷驱动。",
+    "commander_commitments": {
+      "accepted": true,
+      "cash_paid": 0,
+      "personnel_dispatched": 3,
+      "ship_departed": false,
+      "new_shots_by_player": 2,
+      "accepted_scope": "霍克Q2韩默现场查看；非致命优先，对方拔枪才射击；未授权不分身份攻击、处决或向院内投破片雷。"
+    },
+    "decision_pending": "两名敌对者已控制，一人枪伤稳定；下层自称费克求助，后部活动未明，下一步核身份/开检修口/继续推进或撤出待指挥官。",
+    "gm_private_initial_conditions": {
+      "do_not_disclose_without_evidence": true,
+      "organisation": "5名以盗抢、销赃和非法武器流转牟利的平层小团伙藏身旧器材库，其中4人有民用枪，无军团/动力甲/机器人/舰载重武器。",
+      "crime": "尤恩费克来修电，意外看见抢劫赃物与武器，争执后遭阻拦。尤恩中弹逃出获救，团伙有人向配送车射击。不是合同或商业纠纷。",
+      "audio": "真实死前求救因金属夹层通信不稳排队迟发，03:17为到达时间；须查设备和元数据，不让NPC凭空知道。",
+      "broadcast": "老化住院广播随局部复电循环提示，不是超自然证据或万能诱饵。",
+      "Feke": "仍活着，在设备夹层自行藏避，无处决倒计时；会按声音/外部行动和自身判断移动，不固定等救。",
+      "bed_shadow": "一名在旧病区暂栖的普通成年流浪者，惊惧沉默，非怪物或必然共犯，目击有限可能记错。",
+      "NPC_variation": "团伙有人要灭口，有人想弃赃逃走，一人后悔愿换自保条件；不统一忠诚死战。",
+      "horror": "真实死亡、迟到录音、失踪、暗处活人和老化广播形成压迫。夹层与旧消毒支路有环境风险，不每过门新增敌人；侦查、冲突和枪战结果未预定。",
+      "continuity": "与窄湾、粉末、旧枪案和撤回砧湾无组织联系，不重启被取消专项。",
+      "first_two_captured": true,
+      "remaining_gang_members": 3,
+      "Feke_current": "真实费克在设备夹层听见交火和询问，挪到检修口请求帮助；门的机械卡滞待实查，不是预设枪口陷阱。",
+      "other_gang_current": "剩余三人听到短促交火，意见分歧，一人想撤一人想保赃一人害怕；尚未生成新队伍或从院外增援。"
+    },
+    "analysis_ref": "whitesleep_hanmer_analysis_current",
+    "testimony_current": [
+      {
+        "source": "瑟尔，自愿短答且处于被控制环境",
+        "at": "8363-12-02T11:53:00",
+        "content": "称自己只看门，否认昨夜开枪；称里面还有人，但不肯给准数。",
+        "status": "供述未独立核验，不据此宣告无罪或得知全部组织"
+      },
+      {
+        "source": "检修口下方未知男声",
+        "at": "8363-12-02T11:59:00",
+        "content": "“别开枪……我是费克。门从里面推不开。”",
+        "status": "自称，身份未核；没有把费克的GM真相公开给角色"
+      }
+    ],
+    "briefing_wording_history": {
+      "location": "余火内侧桌",
+      "access": "经站内旧城区货运通道到外侧转运门，霍克未出发，车程未封板；车辆不驶入真空。",
+      "note": "以上为09:15初始简报措辞；当前地点和已完成路程见当前字段及first_visit。原始证据未改。"
+    },
+    "status": "closed_commander_order",
+    "closed_at": "8363-12-02T22:45:00",
+    "closure_basis": "commander_explicit_instruction_83631202",
+    "no_followup_or_2030_customer_tracking": true,
+    "player_task_closed": true,
+    "all_previous_1200_scene_facts_are_historical_not_current": true,
+    "final_result": "费克获救，穆勒离开，团伙五人被找到；布雷克承认向尤恩开枪，其他证词支持；后区藏货全部清走售出并全额转付死者姐姐。延迟讯息高度支持死前录制后重传。事件正式结束，不再派遣追踪。",
+    "narrative_classification": "NEW_SIMULATED_ACCEPTED_GAMEPLAY_FROM_DIALOGUE_NOT_PARENT_SAVE_FACT",
+    "current_people_outcomes": {
+      "尤恩·贝克": {
+        "status": "deceased_confirmed_prior",
+        "died_at": "8363-12-01T23:50:00",
+        "sister": "芮娜·贝克",
+        "compensation_received_copper": 11720
+      },
+      "费克·罗恩": {
+        "age": 34,
+        "status": "rescued_survived",
+        "rescued_at": "8363-12-02T12:18:00",
+        "final": "经过诊疗站评估，后续常人自主恢复，不加入舰队"
+      },
+      "穆勒": {
+        "age": 58,
+        "status": "left_safely",
+        "not_in_gang": true
+      },
+      "瑟尔": {
+        "status": "under_local_community_care",
+        "role": "守门",
+        "confession": "否认亲自射击；描述后区团伙"
+      },
+      "加斯": {
+        "status": "receiving_local_medical_care",
+        "injuries": "既有枪伤需要继续治疗",
+        "confession": "未确认外侧朝塔娅车辆射击，主要嫌疑"
+      },
+      "诺恩·哈维": {
+        "status": "cooperated_controlled_locally",
+        "role": "搬运",
+        "statement": "见布雷克举枪，尤恩中枪逃离"
+      },
+      "布雷克·索恩": {
+        "status": "locally_supervised",
+        "role": "持枪人员",
+        "admission": "承认昨夜向尤恩开枪，完整死亡医学因果未由尸检封板"
+      },
+      "利克": {
+        "status": "receiving_local_medical_care_after_rescue",
+        "role": "后区团伙成员",
+        "rescued_at": "8363-12-02T16:45:00",
+        "statement": "称见布雷克朝尤恩开枪",
+        "health": "吸入刺激气体并被短暂电击，后续需自主医疗观察"
+      },
+      "伊沃": {
+        "age": 63,
+        "status": "borrowed_tools_returned",
+        "knows": "尤恩死亡/费克获救/语音延迟技术可能原因/白眠结案；不知道暗影舰队秘密"
+      },
+      "韩默": {
+        "age": 55,
+        "status": "independent_civilian_investigator_record_archived",
+        "knows": "亲自采访的陈述、物资清点、讯息技术记录；无暗影身份知情"
+      }
+    },
+    "post_1200_timeline": [
+      {
+        "start": "12:00",
+        "end": "12:18",
+        "summary": "霍克、Q2、韩默检查检修口，借用短撬杆使卡滞盖板打开；救出自称费克的维修工，未爆破，未新增交火。",
+        "date": "8363-12-02"
+      },
+      {
+        "start": "12:18",
+        "end": "13:10",
+        "summary": "穆勒安全离开；瑟尔及枪伤加斯得到本地医疗/社区巡夜人临时看护；一线小组撤离；新增采购调拨完成。",
+        "date": "8363-12-02"
+      },
+      {
+        "start": "12:00",
+        "end": "12:00",
+        "summary": "指挥官明确重新分类并从远航者产权转暗影60吨军用炸药，80金币/吨，仅账面4,800金币，非工业炸药；现金0。",
+        "date": "8363-12-02"
+      },
+      {
+        "start": "12:22",
+        "end": "12:58",
+        "summary": "王静从采购渠道以4金币/吨购入工业炸药4吨，已付16金币、交割并验收；40kg内部划拨：南燕-4 30kg，林舟-4 5kg，岩途-5 5kg；公共余3960kg。",
+        "date": "8363-12-02"
+      },
+      {
+        "start": "12:58",
+        "end": "13:10",
+        "summary": "暗影公共库存3,487医疗包调2包：林舟-4与岩途-5各完整1包，每包8人份；公共余3485包。",
+        "date": "8363-12-02"
+      },
+      {
+        "start": "13:10",
+        "end": "14:38",
+        "summary": "韩默分别询问瑟尔、加斯：五人团伙、后区藏箱和更换门锁等线索，均保留证词可信度限制。",
+        "date": "8363-12-02"
+      },
+      {
+        "start": "14:42",
+        "end": "16:10",
+        "summary": "本地两名兼职巡夜人伊莎、达勒增援；霍克、Q2携各2手雷与各1kg工业炸药，韩默自驾旧货车，三车五人回白眠；16:10后区隔离门接触持枪人员，停表。",
+        "date": "8363-12-02"
+      },
+      {
+        "start": "16:10",
+        "end": "16:17",
+        "summary": "霍克公开告知尤恩死亡，要求开门说明；诺恩尝试开门，布雷克持枪阻止；门开缝，停表。",
+        "date": "8363-12-02"
+      },
+      {
+        "start": "16:17",
+        "end": "16:25",
+        "summary": "霍克投一枚催泪模式多功能手雷，诺恩主动出来；布雷克持枪，被Q2电击棒一次制伏；第三人利克在封闭储物间呼救，停表。",
+        "date": "8363-12-02"
+      },
+      {
+        "start": "16:25",
+        "end": "16:52",
+        "summary": "霍克Q2从林舟-4取两套先锋-4穿戴，三防开启；动力助力打开储物间门，未爆破；利克持枪威胁，Q2一次电击棒非致命制伏并救出；医疗接应。",
+        "date": "8363-12-02"
+      },
+      {
+        "start": "16:52",
+        "end": "19:21",
+        "summary": "利克送社区诊疗站；清理白眠后区7箱2软袋1工具箱约248kg待核赃物，三人独立访谈；布雷克承认向尤恩开枪，诺恩利克作佐证；加斯朝塔娅车辆开枪嫌疑尚未最终确认。",
+        "date": "8363-12-02"
+      },
+      {
+        "start": "19:23",
+        "end": "19:48",
+        "summary": "韩默和伊沃核查27秒语音接收时间03:17、创建时间约前夜23:12及延迟转发记录；高度支持死前录制延迟送达，尤恩原发件终端未独立检验；交易册记20:30旧病区取货约定。",
+        "date": "8363-12-02"
+      },
+      {
+        "start": "19:48",
+        "end": "21:55",
+        "summary": "依指挥官命令不追20:30取货人；将本轮新搬出的赃物出售，共回款1金币17银20铜，款项为本案临时过桥收入非舰队收入；前次从嫌疑人身上缴获的四支枪未出售。",
+        "date": "8363-12-02"
+      },
+      {
+        "start": "22:08",
+        "end": "22:32",
+        "summary": "向尤恩姐姐芮娜·贝克转付全额1金币17银20铜，到账，过桥余额清零；直接属于个人家属，不属于舰队。",
+        "date": "8363-12-02"
+      },
+      {
+        "start": "22:38",
+        "end": "22:45",
+        "summary": "白眠案正式结案归档、撤销继续追查与取货人线；归还伊沃借用气检器1与检修灯2，解除增援；霍克和Q2返回余火，动力甲复检藏回林舟-4；剩5项任务。",
+        "date": "8363-12-02"
+      }
+    ],
+    "evidence_assessment": {
+      "confirmed_observations": [
+        "费克在检修口获救",
+        "后器材区找出藏货",
+        "诺恩布雷克利克被接触控制",
+        "布雷克当面承认开枪",
+        "本案货物出售与芮娜收款"
+      ],
+      "testimony_with_corroboration": [
+        "五人团伙从自由港不同地区结伙",
+        "布雷克朝尤恩开枪；诺恩与利克作支持"
+      ],
+      "unverified": [
+        "布雷克射击与最终死亡的完整医学因果证明",
+        "加斯是否向塔娅的配送车开枪",
+        "全部赃物的原财产主人",
+        "尤恩发件终端的原始日志",
+        "20:30取货者是否赴约"
+      ],
+      "resolved_high_probability_inference": "伊沃03:17收到尤恩求救语音是23:12左右死前录制及离线转发，非死后重新录制",
+      "external_organisation_link": "未发现与窄湾、粉末、其他大组织相连证据；不制造关联"
+    },
+    "temporary_goods_closeout": {
+      "goods": [
+        {
+          "item": "水压调节阀组件",
+          "quantity": 12,
+          "sale_copper": 2880
+        },
+        {
+          "item": "诊断与控制模块",
+          "quantity": 16,
+          "sale_copper": 4800
+        },
+        {
+          "item": "合金连接组件",
+          "quantity": 22,
+          "sale_copper": 1210
+        },
+        {
+          "item": "民用手枪",
+          "quantity": 3,
+          "sale_copper": 1080
+        },
+        {
+          "item": "普通枪弹",
+          "quantity": 96,
+          "sale_copper": 192
+        },
+        {
+          "item": "密封医疗耗材",
+          "quantity": 60,
+          "sale_copper": 540
+        },
+        {
+          "item": "旧民用终端",
+          "quantity": 4,
+          "sale_copper": 720
+        },
+        {
+          "item": "货运记录卡（已清除数据）",
+          "quantity": 7,
+          "sale_copper": 28
+        },
+        {
+          "item": "工具及工具箱",
+          "quantity": 1,
+          "sale_copper": 234
+        },
+        {
+          "item": "包装、软袋、纸张回收",
+          "quantity": 1,
+          "sale_copper": 36
+        }
+      ],
+      "cases": 7,
+      "bags": 2,
+      "toolboxes": 1,
+      "weight_kg_approx": 248,
+      "sold_at": "8363-12-02T21:55:00",
+      "sale_total_copper": 11720,
+      "family_paid_copper": 11720,
+      "family_paid_at": "8363-12-02T22:32:00",
+      "bridge_account_balance_copper": 0,
+      "trade_fees_paid_copper": 0,
+      "expense_copper": 0,
+      "owner": "尤恩家属芮娜个人收到款，不并入暗影/潜伏/余火/主账",
+      "not_sold": "先前各嫌疑人身上解除的独立4支民用枪作为记录/证物，不与箱中3支同售",
+      "original_purchase_cost": "赃物未以舰队商品采购入账；不能制造商品COGS或二次入账",
+      "bookkeeping": "先售11720铜暂管进款，同额转芮娜11720铜，净0，不计舰队收入"
+    },
+    "final_site_status": "后区没有遗留待运赃物；固定废弃设施、家具管线不搬走；其他居民和NPC自主生活；不自动生成取货人支线。",
+    "last_action": "8363-12-02T22:45:00 return_to_normal_operations",
+    "pending_decision": null
+  },
+  "purchase_and_transfers": {
+    "as_of": "8363-12-02T22:45:00",
+    "owner": "ORG-SHADOW-FLEET-01",
+    "military": {
+      "stock_t": 60,
+      "stock_kg": 60000,
+      "valuation_gold_per_t": 80,
+      "total_valuation_gold": 4800,
+      "origin": "远航者60吨军用库存内部产权转移，非工业，不记现金"
+    },
+    "industrial": {
+      "purchased_t": 4,
+      "purchase_price_gold_per_t": 4,
+      "paid_gold": 16,
+      "public_stock_kg": 3960,
+      "hawke_team": {
+        "南燕-4": 30,
+        "林舟-4": 3,
+        "岩途-5": 5,
+        "霍克随身": 1,
+        "Q2随身": 1
+      },
+      "total_owned_kg": 4000,
+      "total_purchase_cost_gold": 16,
+      "spent_kg": 0
+    },
+    "separation": "军用/工业分类不混淆；采购、调拨、消耗三者不重复记账",
+    "delivery": "工业4吨12:58验收；40kg给霍克组；用户授权舰队间调用符合原生内部直接调用规则"
+  },
+  "medical": {
+    "as_of": "8363-12-02T22:45:00",
+    "public_full_kits": 3485,
+    "local_full_kits": {
+      "林舟-4": 1,
+      "岩途-5": 1
+    },
+    "local_full_kits_total": 2,
+    "each_full_kit_person_uses": 8,
+    "previous_opened_kit_left_uses": 0,
+    "total_counted_from_original_public": 3487,
+    "new_purchased": 0,
+    "actual_people_uses_this_continuation": 0
+  },
+  "grenade_correction": {
+    "parent_owned": 24711,
+    "one_used_tear_gas": 1,
+    "current_owned": 24710,
+    "warehouse": 24695,
+    "field": 15,
+    "six_modes": [
+      "爆炸",
+      "闪光/震撼",
+      "烟雾",
+      "燃烧",
+      "EMP",
+      "催泪"
+    ]
+  },
+  "accounts": {
+    "parent_main_1e4_units": 529278750144573,
+    "main_purchase_delta_1e4_units": -160000,
+    "main_after_1e4_units": 529278749984573,
+    "grey_unchanged": "5209377218.76",
+    "covert_unchanged_copper": 6376963,
+    "shop_unchanged_copper": 24530,
+    "salvage_direct_family_copper": 11720
+  },
+  "task_status": {
+    "active": [
+      "TSK-MIN-OPERATIONS",
+      "TSK-CALDER-INDUSTRIES-302",
+      "TSK-MKT-RESEARCH-DATA-SALES",
+      "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+      "TSK-YUHUO-OPERATIONS"
+    ],
+    "case_completed": "TSK-LOCAL-IVO-WHITESLEEP-REQUEST"
+  },
+  "limits": [
+    "No 23:20 shop settlement in this save",
+    "No 20:30 unknown customer tracking",
+    "No legal system invented in Xilu-9",
+    "Do not confuse narrative merchant price with a native quote/authorization/receipt",
+    "V14.42 prior transaction audit deficiency persists"
+  ],
+  "source_attachment_names": [
+    "VOYAGER_SOURCE_V14.42_83631202_1200(1).zip",
+    "SAVE_GUARD_V14.42.py"
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "status": "PASS",
+  "passed": 30,
+  "total": 30,
+  "checks": [
+    {
+      "name": "Dec10 exact profit and cash",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Production clock and fleet totals",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Shop balance clearly labeled as simulated book balance",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Independent account ledger equations",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Business integrity and history",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "All monetary journal fields are integers and balance",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Sales COGS and purchases are distinct",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "No duplicate prepayment or construction charge",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Simulated inventory cannot masquerade as stocktake",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Contract allocation expires without renewal or cash payment",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Major safety incident still blocks",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Risk alert does not corrupt historical integrity",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Insufficient cash cannot assume sales or borrow",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Revenue cap enforced",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Revoked policy cannot operate",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Policy content tamper rejected",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Unavailable supplier does not create stock",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Inventory equation corruption rejected",
+      "status": "PASS",
+      "detail": "BUSINESS_INVENTORY_EQUATION:food"
+    },
+    {
+      "name": "Simulation stocktake relabeling rejected",
+      "status": "PASS",
+      "detail": "BUSINESS_SIMULATION_CANNOT_CLAIM_PHYSICAL_STOCKTAKE"
+    },
+    {
+      "name": "Untrusted real confirmation still rejected",
+      "status": "PASS",
+      "detail": "BUSINESS_ACTUALS_REQUIRE_TRUSTED_HOST_CONFIRMATION"
+    },
+    {
+      "name": "Real stocktake difference comparison preserves old discrepancy",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Repeated same business close is zero effect",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Future income prohibited TSK-MIN-OPERATIONS",
+      "status": "PASS",
+      "detail": "SCHEDULED_SETTLEMENT_NOT_CURRENT_DUE_PERIOD"
+    },
+    {
+      "name": "Historical income replay prohibited TSK-MIN-OPERATIONS",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Future income prohibited TSK-CALDER-INDUSTRIES-302",
+      "status": "PASS",
+      "detail": "SCHEDULED_SETTLEMENT_NOT_CURRENT_DUE_PERIOD"
+    },
+    {
+      "name": "Historical income replay prohibited TSK-CALDER-INDUSTRIES-302",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Future income prohibited TSK-MKT-RESEARCH-DATA-SALES",
+      "status": "PASS",
+      "detail": "SCHEDULED_SETTLEMENT_NOT_CURRENT_DUE_PERIOD"
+    },
+    {
+      "name": "Historical income replay prohibited TSK-MKT-RESEARCH-DATA-SALES",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "name": "Injected mid-settlement failure rolls input cash task history back",
+      "status": "PASS",
+      "detail": "TEST_SYNTHETIC_CASH_WRITE_FAILURE"
+    },
+    {
+      "name": "31-day isolated business model soak",
+      "status": "PASS",
+      "detail": {
+        "isolated_business_days": 31,
+        "through": "8364-01-10T23:20:00",
+        "lowest_cash_copper": 31638,
+        "physical_stock_claimed": false
+      }
+    }
+  ],
+  "production_time": "8363-12-11T08:00:00",
+  "isolated_fixture_results_do_not_change_save": true
+}

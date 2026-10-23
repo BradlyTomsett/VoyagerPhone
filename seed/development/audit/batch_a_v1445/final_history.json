@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "empty_protocol",
+      "status": "PASS",
+      "detail": "existing empty-history sequence convention retained"
+    },
+    {
+      "name": "typed_sequence",
+      "status": "PASS",
+      "detail": "HISTORY seq discontinuity expected=1 actual=True"
+    },
+    {
+      "name": "physical_append",
+      "status": "PASS",
+      "detail": "CRLF/blank lines preserved; duplicate/missing IDs refused"
+    },
+    {
+      "name": "rollback_batch",
+      "status": "PASS",
+      "detail": "outer exception rollback; caught nested exception rollback; one final flush"
+    },
+    {
+      "name": "concurrent_append",
+      "status": "PASS",
+      "detail": "independent thread batch ownership + file lock; contiguous append"
+    }
+  ],
+  "engine_sha256": "71a51b29a869bcfa0e421af8b74ad7355c20f0995c9f8ab6eaadf050b5df5247",
+  "source_save_set_id": "SAVESET-V14.45-27b38347304e1566"
+}

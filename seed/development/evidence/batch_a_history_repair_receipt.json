@@ -1,0 +1,19 @@
+{
+  "status": "COMMITTED",
+  "save_set_id": "SAVESET-V14.44-0782f15679588c5c",
+  "parent_save_set_id": "SAVESET-V14.43-24eac9bf774f7764",
+  "changed_fields": 1,
+  "plan_sha256": "b7a133f8f0537759000f141a9dca818cee239365d840b5d7876e6cfa9e7e06e9",
+  "event_appended": true,
+  "full_audit_status": "FAIL",
+  "unresolved_errors": [
+    "CURRENT_CONSISTENCY:PATROL_DOSSIER_SLOT_NOT_RELEASED",
+    "CURRENT_CONSISTENCY:PATROL_TASK_PHASE_EXPECTS_OPEN_EVENT",
+    "MANIFEST: INDEX/source manifest mismatch",
+    "RUNTIME_ARCHITECTURE: ['hazard clock HZ-GLOBAL-SMALL-CONFLICT last_evaluated must equal STATE.game_time', 'hazard clock HZ-MAJOR-NATION-INSTABILITY last_evaluated must equal STATE.game_time', 'hazard clock HZ-MEDIUM-NATION-INSTABILITY last_evaluated must equal STATE.game_time', 'hazard clock HZ-SMALL-NATION-INSTABILITY last_evaluated must equal STATE.game_time', 'hazard clock HZ-DEEP-SPACE-ENCOUNTER last_evaluated must equal STATE.game_time', 'hazard clock HZ-PIRACY-CRIME-CONTACT last_evaluated must equal STATE.game_time', 'hazard clock HZ-SALVAGE-DISCOVERY last_evaluated must equal STATE.game_time', 'hazard clock HZ-SCIENTIFIC-ANOMALY last_evaluated must equal STATE.game_time', 'hazard clock HZ-MARKET-EVENT last_evaluated must equal STATE.game_time', 'hazard clock HZ-MINING-EVENT last_evaluated must equal STATE.game_time', 'hazard clock HZ-INTELLIGENCE-OPPORTUNITY last_evaluated must equal STATE.game_time', 'hazard clock HZ-RARE-MAJOR-EVENT last_evaluated must equal STATE.game_time']",
+    "SHADOW_LOCATION_PARTITION: [[\"as_of\", \"8363-12-02T12:00:00\", \"8363-12-02T22:45:00\"]]"
+  ],
+  "game_time": "8363-12-02T22:45:00",
+  "export_status": "NOT_REQUESTED",
+  "external_save_confirmed": false
+}

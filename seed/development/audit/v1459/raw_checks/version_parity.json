@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "engine_sha256": "4a5f72d6cd19ec238f178ad5f221015742aa03a9a8ed0497baa618fa91ea0ef2",
+  "manifest_sha256": "149adea27913431a572241d1e6be2ca6a56d45465c0f20fb30b37fd6294837e7",
+  "model_generation": "NOT_RUN",
+  "tests": [
+    {
+      "name": "development_release_parity",
+      "status": "PASS",
+      "detail": true,
+      "seconds": 1.1809099310000875
+    }
+  ]
+}

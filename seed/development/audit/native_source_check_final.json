@@ -1,0 +1,78 @@
+{
+  "status": "PASS",
+  "schema": "VOYAGER_COMPONENT_SET_V2",
+  "save_set_id": "SAVESET-V14.42-8e623b38b1eb54e4",
+  "save_version": "V14.42",
+  "component_set_id": "COMPSET-328a5d6d38c85562ed5ef7a8",
+  "component_count": 8,
+  "errors": [],
+  "native_protocol": {
+    "status": "PASS",
+    "errors": [],
+    "manifest_version": "V14.42",
+    "rule_count": 201,
+    "catalog_entity_count": 48,
+    "asset_mapping_count": 708
+  },
+  "reference_integrity": {
+    "packet": "REFERENCE_INTEGRITY_V1",
+    "schema": "REFERENCE_GRAPH_V1",
+    "status": "PASS",
+    "errors": [],
+    "warnings": [],
+    "counts": {
+      "rules": 201,
+      "catalog_entities": 48,
+      "state_entities": 64,
+      "edges_checked": 5
+    }
+  },
+  "checked_root": "/workspace/scratch/9735e8b606a5/.runtime/save_v1442/native",
+  "protocol_binding": {
+    "status": "PASS",
+    "errors": [],
+    "root": "/workspace/scratch/9735e8b606a5/.runtime/save_v1442/native",
+    "engine_version": "2.59.2",
+    "engine_protocol": "4",
+    "manifest_engine_version": "2.59.2",
+    "manifest_engine_protocol": "4"
+  },
+  "current_authority_consistency": {
+    "status": "PASS",
+    "errors": [],
+    "facts": {
+      "shadow_patrol_event": {
+        "status": "PASS",
+        "errors": [],
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "open_event_id": "XILU9-WHITESLEEP-0317-83631202"
+      },
+      "core_save_files": 8,
+      "hash_checked_components": 7,
+      "industry": {
+        "asset_count": 1619,
+        "daily_net_income_gold": 2043374646.8122,
+        "daily_net_income_grey": 400107046.52,
+        "next_settlement_at": "8363-12-03T00:20:00"
+      },
+      "asset_mapping": {
+        "schema": "ASSET_MAPPING_REGISTRY_V3",
+        "entry_count": 708,
+        "migrated": 9,
+        "excluded": 699,
+        "ledger_active": true
+      },
+      "history_epoch": {
+        "compression_recommended": true,
+        "compression_applied": true,
+        "physical_epoch_records": 18,
+        "logical_event_count": 2524,
+        "raw_recent_event_count": 623,
+        "raw_recent_bytes": 3951337
+      }
+    }
+  },
+  "warnings": [],
+  "error_count": 0,
+  "warning_count": 0
+}

@@ -1,0 +1,284 @@
+{
+  "fixture": "isolated_business_model_only_not_production_world_advance",
+  "rows": [
+    {
+      "scheduled_at": "8363-12-11T23:20:00",
+      "cash_purchases_copper": 1088,
+      "profit_copper": 367,
+      "cash_delta_copper": 1234,
+      "cash_after_copper": 31638,
+      "prepaid_expense_copper": 154,
+      "inventory_loss_copper": 0
+    },
+    {
+      "scheduled_at": "8363-12-12T23:20:00",
+      "cash_purchases_copper": 96,
+      "profit_copper": 196,
+      "cash_delta_copper": 1853,
+      "cash_after_copper": 33491,
+      "prepaid_expense_copper": 154,
+      "inventory_loss_copper": 12
+    },
+    {
+      "scheduled_at": "8363-12-13T23:20:00",
+      "cash_purchases_copper": 1296,
+      "profit_copper": 367,
+      "cash_delta_copper": 1026,
+      "cash_after_copper": 34517,
+      "prepaid_expense_copper": 154,
+      "inventory_loss_copper": 0
+    },
+    {
+      "scheduled_at": "8363-12-14T23:20:00",
+      "cash_purchases_copper": 560,
+      "profit_copper": 168,
+      "cash_delta_copper": 1324,
+      "cash_after_copper": 35841,
+      "prepaid_expense_copper": 154,
+      "inventory_loss_copper": 12
+    },
+    {
+      "scheduled_at": "8363-12-15T23:20:00",
+      "cash_purchases_copper": 1536,
+      "profit_copper": 347,
+      "cash_delta_copper": 703,
+      "cash_after_copper": 36544,
+      "prepaid_expense_copper": 154,
+      "inventory_loss_copper": 0
+    },
+    {
+      "scheduled_at": "8363-12-16T23:20:00",
+      "cash_purchases_copper": 96,
+      "profit_copper": 364,
+      "cash_delta_copper": 2212,
+      "cash_after_copper": 38756,
+      "prepaid_expense_copper": 154,
+      "inventory_loss_copper": 12
+    },
+    {
+      "scheduled_at": "8363-12-17T23:20:00",
+      "cash_purchases_copper": 1872,
+      "profit_copper": 180,
+      "cash_delta_copper": -23,
+      "cash_after_copper": 38733,
+      "prepaid_expense_copper": 154,
+      "inventory_loss_copper": 0
+    },
+    {
+      "scheduled_at": "8363-12-18T23:20:00",
+      "cash_purchases_copper": 464,
+      "profit_copper": 217,
+      "cash_delta_copper": 1471,
+      "cash_after_copper": 40204,
+      "prepaid_expense_copper": 154,
+      "inventory_loss_copper": 0
+    },
+    {
+      "scheduled_at": "8363-12-19T23:20:00",
+      "cash_purchases_copper": 1536,
+      "profit_copper": 196,
+      "cash_delta_copper": 378,
+      "cash_after_copper": 40582,
+      "prepaid_expense_copper": 154,
+      "inventory_loss_copper": 12
+    },
+    {
+      "scheduled_at": "8363-12-20T23:20:00",
+      "cash_purchases_copper": 96,
+      "profit_copper": 392,
+      "cash_delta_copper": 2277,
+      "cash_after_copper": 42859,
+      "prepaid_expense_copper": 154,
+      "inventory_loss_copper": 12
+    },
+    {
+      "scheduled_at": "8363-12-21T23:20:00",
+      "cash_purchases_copper": 1632,
+      "profit_copper": 501,
+      "cash_delta_copper": 607,
+      "cash_after_copper": 43466,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 0
+    },
+    {
+      "scheduled_at": "8363-12-22T23:20:00",
+      "cash_purchases_copper": 1184,
+      "profit_copper": 518,
+      "cash_delta_copper": 1027,
+      "cash_after_copper": 44493,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 0
+    },
+    {
+      "scheduled_at": "8363-12-23T23:20:00",
+      "cash_purchases_copper": 336,
+      "profit_copper": 350,
+      "cash_delta_copper": 1481,
+      "cash_after_copper": 45974,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 0
+    },
+    {
+      "scheduled_at": "8363-12-24T23:20:00",
+      "cash_purchases_copper": 1392,
+      "profit_copper": 388,
+      "cash_delta_copper": 515,
+      "cash_after_copper": 46489,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 0
+    },
+    {
+      "scheduled_at": "8363-12-25T23:20:00",
+      "cash_purchases_copper": 336,
+      "profit_copper": 347,
+      "cash_delta_copper": 1502,
+      "cash_after_copper": 47991,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 12
+    },
+    {
+      "scheduled_at": "8363-12-26T23:20:00",
+      "cash_purchases_copper": 1904,
+      "profit_copper": 434,
+      "cash_delta_copper": 110,
+      "cash_after_copper": 48101,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 0
+    },
+    {
+      "scheduled_at": "8363-12-27T23:20:00",
+      "cash_purchases_copper": 336,
+      "profit_copper": 416,
+      "cash_delta_copper": 1636,
+      "cash_after_copper": 49737,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 0
+    },
+    {
+      "scheduled_at": "8363-12-28T23:20:00",
+      "cash_purchases_copper": 1392,
+      "profit_copper": 434,
+      "cash_delta_copper": 622,
+      "cash_after_copper": 50359,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 0
+    },
+    {
+      "scheduled_at": "8363-12-29T23:20:00",
+      "cash_purchases_copper": 1668,
+      "profit_copper": 322,
+      "cash_delta_copper": 84,
+      "cash_after_copper": 50443,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 0
+    },
+    {
+      "scheduled_at": "8363-12-30T23:20:00",
+      "cash_purchases_copper": 1664,
+      "profit_copper": 413,
+      "cash_delta_copper": 329,
+      "cash_after_copper": 50772,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 12
+    },
+    {
+      "scheduled_at": "8363-12-31T23:20:00",
+      "cash_purchases_copper": 1320,
+      "profit_copper": 425,
+      "cash_delta_copper": 673,
+      "cash_after_copper": 51445,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 0
+    },
+    {
+      "scheduled_at": "8364-01-01T23:20:00",
+      "cash_purchases_copper": 1296,
+      "profit_copper": 443,
+      "cash_delta_copper": 739,
+      "cash_after_copper": 52184,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 0
+    },
+    {
+      "scheduled_at": "8364-01-02T23:20:00",
+      "cash_purchases_copper": 2388,
+      "profit_copper": 489,
+      "cash_delta_copper": -246,
+      "cash_after_copper": 51938,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 0
+    },
+    {
+      "scheduled_at": "8364-01-03T23:20:00",
+      "cash_purchases_copper": 560,
+      "profit_copper": 431,
+      "cash_delta_copper": 1475,
+      "cash_after_copper": 53413,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 12
+    },
+    {
+      "scheduled_at": "8364-01-04T23:20:00",
+      "cash_purchases_copper": 2988,
+      "profit_copper": 388,
+      "cash_delta_copper": -1081,
+      "cash_after_copper": 52332,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 0
+    },
+    {
+      "scheduled_at": "8364-01-05T23:20:00",
+      "cash_purchases_copper": 336,
+      "profit_copper": 477,
+      "cash_delta_copper": 1806,
+      "cash_after_copper": 54138,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 12
+    },
+    {
+      "scheduled_at": "8364-01-06T23:20:00",
+      "cash_purchases_copper": 2280,
+      "profit_copper": 422,
+      "cash_delta_copper": -266,
+      "cash_after_copper": 53872,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 12
+    },
+    {
+      "scheduled_at": "8364-01-07T23:20:00",
+      "cash_purchases_copper": 1424,
+      "profit_copper": 497,
+      "cash_delta_copper": 766,
+      "cash_after_copper": 54638,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 12
+    },
+    {
+      "scheduled_at": "8364-01-08T23:20:00",
+      "cash_purchases_copper": 2148,
+      "profit_copper": 497,
+      "cash_delta_copper": 42,
+      "cash_after_copper": 54680,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 12
+    },
+    {
+      "scheduled_at": "8364-01-09T23:20:00",
+      "cash_purchases_copper": 432,
+      "profit_copper": 434,
+      "cash_delta_copper": 1582,
+      "cash_after_copper": 56262,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 0
+    },
+    {
+      "scheduled_at": "8364-01-10T23:20:00",
+      "cash_purchases_copper": 2868,
+      "profit_copper": 322,
+      "cash_delta_copper": -1116,
+      "cash_after_copper": 55146,
+      "prepaid_expense_copper": 0,
+      "inventory_loss_copper": 0
+    }
+  ]
+}

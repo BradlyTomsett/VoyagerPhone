@@ -1,0 +1,673 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "voyager:story_turn_proposal:v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "turn_id",
+    "base_identity",
+    "scene_id",
+    "actor_id",
+    "viewer",
+    "player_intent",
+    "intent_tags",
+    "basis_refs",
+    "segments",
+    "effects",
+    "updates",
+    "consequences",
+    "claims",
+    "public_reason",
+    "candidates"
+  ],
+  "properties": {
+    "schema": {
+      "const": "STORY_TURN_PROPOSAL_V1"
+    },
+    "turn_id": {
+      "type": "string",
+      "maxLength": 160
+    },
+    "base_identity": {
+      "type": "object",
+      "required": [
+        "save_set_id",
+        "manifest_sha256",
+        "engine_sha256"
+      ],
+      "properties": {
+        "save_set_id": {
+          "type": "string"
+        },
+        "manifest_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "engine_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "scene_id": {
+      "type": "string"
+    },
+    "actor_id": {
+      "type": "string"
+    },
+    "viewer": {
+      "type": "string"
+    },
+    "player_intent": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "intent_tags": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+        "type": "string"
+      }
+    },
+    "basis_refs": {
+      "type": "array",
+      "maxItems": 40,
+      "items": {
+        "type": "string"
+      }
+    },
+    "segments": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "required": [
+          "mode",
+          "speaker_id",
+          "text",
+          "basis_refs",
+          "receipt_refs"
+        ],
+        "properties": {
+          "mode": {
+            "enum": [
+              "description",
+              "dialogue",
+              "quote",
+              "rumor",
+              "hypothesis",
+              "outcome"
+            ]
+          },
+          "speaker_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "text": {
+            "type": "string",
+            "maxLength": 4000
+          },
+          "basis_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "receipt_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "effects": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "account_transfer",
+              "settle_price",
+              "transfer_asset",
+              "cancel_task",
+              "complete_task",
+              "start_travel",
+              "arrive_location"
+            ]
+          }
+        },
+        "description": "Other fields follow the existing typed domain command schema. Caller-supplied auth/actor/base/ID fields are forbidden."
+      }
+    },
+    "updates": {
+      "type": "array",
+      "maxItems": 40,
+      "items": {
+        "$ref": "#/$defs/update"
+      }
+    },
+    "consequences": {
+      "type": "array",
+      "maxItems": 40,
+      "items": {
+        "$ref": "#/$defs/consequence"
+      }
+    },
+    "claims": {
+      "type": "array",
+      "maxItems": 40,
+      "items": {
+        "type": "object",
+        "required": [
+          "receipt_ref",
+          "expected_effect"
+        ],
+        "properties": {
+          "receipt_ref": {
+            "type": "string"
+          },
+          "expected_effect": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "public_reason": {
+      "type": "string",
+      "maxLength": 1000
+    },
+    "candidates": {
+      "type": "array",
+      "maxItems": 40,
+      "items": {
+        "type": "string",
+        "maxLength": 500
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "update": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "scene_id",
+            "task_id",
+            "family",
+            "title",
+            "location_ref",
+            "participants",
+            "presence_mode",
+            "visible_to"
+          ],
+          "properties": {
+            "type": {
+              "const": "scene_open"
+            },
+            "scene_id": {},
+            "task_id": {},
+            "family": {},
+            "title": {},
+            "location_ref": {},
+            "participants": {},
+            "presence_mode": {},
+            "visible_to": {},
+            "patrol_directive": {}
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "scene_id",
+            "entity_id",
+            "presence_mode",
+            "visible_to"
+          ],
+          "properties": {
+            "type": {
+              "const": "scene_join"
+            },
+            "scene_id": {},
+            "entity_id": {},
+            "presence_mode": {},
+            "visible_to": {}
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "scene_id"
+          ],
+          "properties": {
+            "type": {
+              "const": "scene_focus_v2"
+            },
+            "scene_id": {}
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "entity_id",
+            "operation",
+            "record"
+          ],
+          "properties": {
+            "type": {
+              "const": "npc_update"
+            },
+            "entity_id": {},
+            "operation": {},
+            "record": {}
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "scene_id",
+            "fact_id",
+            "prior_fact_id",
+            "mode",
+            "evidence_fact_id",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "const": "fact_revision"
+            },
+            "scene_id": {},
+            "fact_id": {},
+            "prior_fact_id": {},
+            "mode": {},
+            "evidence_fact_id": {},
+            "value": {}
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "scene_id",
+            "consequence_id",
+            "status",
+            "reason"
+          ],
+          "properties": {
+            "type": {
+              "const": "consequence_manage"
+            },
+            "scene_id": {},
+            "consequence_id": {},
+            "status": {},
+            "reason": {}
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "turn_id",
+            "segments",
+            "viewer"
+          ],
+          "properties": {
+            "type": {
+              "const": "turn_rewrite"
+            },
+            "turn_id": {},
+            "segments": {},
+            "viewer": {}
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "scene_id",
+            "consequence_id",
+            "subject_id",
+            "effect_type",
+            "cause_event_id",
+            "not_before",
+            "not_after",
+            "visible_to",
+            "text",
+            "mode",
+            "condition",
+            "task_id",
+            "effect"
+          ],
+          "properties": {
+            "type": {
+              "const": "consequence_schedule"
+            },
+            "scene_id": {},
+            "consequence_id": {},
+            "subject_id": {},
+            "effect_type": {
+              "enum": [
+                "social_response",
+                "pending_reply",
+                "scene_hook"
+              ]
+            },
+            "cause_event_id": {},
+            "not_before": {},
+            "not_after": {},
+            "visible_to": {},
+            "text": {},
+            "mode": {
+              "enum": [
+                "needs_ai",
+                "mechanical"
+              ]
+            },
+            "condition": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "required": [
+                    "kind"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "const": "always"
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "required": [
+                    "kind",
+                    "scene_id",
+                    "fact_id",
+                    "viewer_id"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "const": "fact_known"
+                    },
+                    "scene_id": {
+                      "type": "string"
+                    },
+                    "fact_id": {
+                      "type": "string"
+                    },
+                    "viewer_id": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "task_id": {},
+            "effect": {
+              "type": "object",
+              "required": [
+                "kind"
+              ],
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "await_ai",
+                    "goal_activate",
+                    "learn_fact"
+                  ]
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "epistemic",
+            "fact_id",
+            "predicate",
+            "scene_id",
+            "source_category",
+            "subject_id",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "const": "fact_append"
+            },
+            "source_category": {},
+            "predicate": {},
+            "epistemic": {},
+            "fact_id": {},
+            "scene_id": {},
+            "subject_id": {},
+            "value": {},
+            "confidence_basis": {}
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "basis_event_id",
+            "channel",
+            "fact_id",
+            "scene_id",
+            "viewer_id"
+          ],
+          "properties": {
+            "type": {
+              "const": "knowledge_disclose"
+            },
+            "channel": {},
+            "basis_event_id": {},
+            "fact_id": {},
+            "scene_id": {},
+            "viewer_id": {}
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "decision_id",
+            "prompt",
+            "scene_id"
+          ],
+          "properties": {
+            "type": {
+              "const": "decision_open"
+            },
+            "decision_id": {},
+            "scene_id": {},
+            "prompt": {}
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "decision_id",
+            "player_action",
+            "scene_id"
+          ],
+          "properties": {
+            "type": {
+              "const": "decision_resolve"
+            },
+            "decision_id": {},
+            "scene_id": {},
+            "player_action": {}
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "entity_id",
+            "name"
+          ],
+          "properties": {
+            "type": {
+              "const": "entity_register"
+            },
+            "name": {},
+            "entity_id": {},
+            "role": {},
+            "aliases": {}
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "phase",
+            "scene_id"
+          ],
+          "properties": {
+            "type": {
+              "const": "scene_phase"
+            },
+            "scene_id": {},
+            "phase": {},
+            "task_id": {},
+            "patrol_adapter": {}
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "consequence": {
+      "type": "object",
+      "required": [
+        "scene_id",
+        "consequence_id",
+        "subject_id",
+        "effect_type",
+        "cause_event_id",
+        "not_before",
+        "not_after",
+        "visible_to",
+        "text",
+        "mode",
+        "condition",
+        "task_id",
+        "effect"
+      ],
+      "properties": {
+        "scene_id": {},
+        "consequence_id": {},
+        "subject_id": {},
+        "effect_type": {
+          "enum": [
+            "social_response",
+            "pending_reply",
+            "scene_hook"
+          ]
+        },
+        "cause_event_id": {},
+        "not_before": {},
+        "not_after": {},
+        "visible_to": {},
+        "text": {},
+        "mode": {
+          "enum": [
+            "needs_ai",
+            "mechanical"
+          ]
+        },
+        "condition": {
+          "oneOf": [
+            {
+              "type": "object",
+              "required": [
+                "kind"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "always"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "kind",
+                "scene_id",
+                "fact_id",
+                "viewer_id"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "fact_known"
+                },
+                "scene_id": {
+                  "type": "string"
+                },
+                "fact_id": {
+                  "type": "string"
+                },
+                "viewer_id": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        },
+        "task_id": {},
+        "effect": {
+          "type": "object",
+          "required": [
+            "kind"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "await_ai",
+                "goal_activate",
+                "learn_fact"
+              ]
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "description": "Structural schema only. The engine additionally checks actual bytes/version, actor knowledge, world resources, exact receipt values, host/grant scope, time windows, budgets and one native transaction."
+}

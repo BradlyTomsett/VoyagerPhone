@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "source_save_set_id": "SAVESET-V14.49-cdf55a13d2da9684",
+  "engine_sha256": "ac63c11ce36d993a93c7a789b956778740d3e7e7826815ba2a11bd63119d8c80",
+  "guard_sha256": "8feec5f087aba1c386d2bddf6ad23e8b15c74c6770fed6c1c92d61f800ee52fb",
+  "tests": [
+    {
+      "name": "full_manifest_forks_and_identical_duplicates",
+      "status": "PASS",
+      "detail": "ZIP/ZIP and directory/ZIP metadata forks refused; identical duplicate packages allowed",
+      "seconds": 2.138
+    },
+    {
+      "name": "cached_extraction_matches_requested_entire_manifest",
+      "status": "PASS",
+      "detail": "explicitly selected manifest replaces cached metadata, prior cache quarantined",
+      "seconds": 4.881
+    },
+    {
+      "name": "inspection_and_extraction_identity_bound",
+      "status": "PASS",
+      "detail": "source swap between inspection/extraction refused",
+      "seconds": 0.739
+    },
+    {
+      "name": "advanced_cached_game_save_never_replaced",
+      "status": "PASS",
+      "detail": "a valid cached save with a newer/different SID is retained; older transport cannot replace saved progress",
+      "seconds": 3.091
+    },
+    {
+      "name": "direct_development_binding_is_checked_before_selection",
+      "status": "PASS",
+      "detail": "damaged materialized development cannot outrank a complete healthy ZIP",
+      "seconds": 2.564
+    },
+    {
+      "name": "shared_reader_cache_key_atomic_publication",
+      "status": "PASS",
+      "detail": "two concurrent initializers see only one complete 32-byte key",
+      "seconds": 0.544
+    },
+    {
+      "name": "derived_cache_damage_is_optional_not_fatal",
+      "status": "PASS",
+      "detail": "corrupt/empty cache key and cache write failure do not block healthy authority; empty-key MAC ignored",
+      "seconds": 12.419
+    },
+    {
+      "name": "missing_members_have_structured_blocking_readiness",
+      "status": "PASS",
+      "detail": "missing members yield structured BLOCKED; deleting a member during a read still trips the closing source-change barrier",
+      "seconds": 26.109
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "input_version": "V14.58",
+  "output_version": "V14.59",
+  "engine_version": "2.70.0",
+  "protocol": "4",
+  "guard_core": "2.21.0 byte-identical",
+  "changes": [
+    {
+      "path": "development/devsrc/22_scene_visibility.py",
+      "input_sha256": "c23e0ed254fbae66928b109e0af1eb536de39628cc609206032036f070ea1834",
+      "output_sha256": "ffa48d054f7a4c4a65fc0e45ce6b8d4cb9ac1d27d19983f86e0928b27d4d3e69"
+    },
+    {
+      "path": "development/devsrc/00_prelude.py",
+      "input_sha256": "bcd9238809e2584f501e6586a71516d73f8482ea339683315b91a344e2d28840",
+      "output_sha256": "a691785ef3fec3a6a30190e9e11cf6490149932f90aec374c3d893f679a78479"
+    },
+    {
+      "path": "development/devsrc/21_mobile_read_cache.py",
+      "input_sha256": "a6e1459a1cf54ad47407faaa1ccdc124a308e84e3963455b04009cbf8d9bc028",
+      "output_sha256": "3308c914aed6fcd996b1eedc25e30184980b98df2923ea280e90d05b768516e1"
+    },
+    {
+      "path": "development/devsrc/35_story_services.py",
+      "input_sha256": "0565aa273d76815f6d26602235eceec9e403bc108454b0684f19926bdb7d9c73",
+      "output_sha256": "eb6d2c6e4ce2f5c06bbb96fd5500f103e5fc07152d28e66a0b85bed95db9e79f"
+    },
+    {
+      "path": "development/devsrc/28_snapshot_service.py",
+      "input_sha256": "19493b6e79bda8bdaf48a3b129535c56e6bce3721444f4c38401f902a6765c07",
+      "output_sha256": "a88eadc33d0b7e595c3fa08268fff11f948f0c8f8f82f94ccbab8141cf292091"
+    },
+    {
+      "path": "development/devsrc/06_query_layer.py",
+      "input_sha256": "fdf2c2e0030264617325977832ce41194f9258a80fc58680408e4ee9396d3e15",
+      "output_sha256": "9c693ba52515679ba53b24584b19b3e634d07682855538b6f2900bb3d48e8691"
+    },
+    {
+      "path": "development/devsrc/42_memory_experience.py",
+      "input_sha256": "63a2eb5eca9321214a3d7ca0079861592a119d3af3d484a3be06cc9947880547",
+      "output_sha256": "1cabfe45805fc12721151736e88e4f56bde68376b6c9bfa311ca80a7da440078"
+    },
+    {
+      "path": "development/devsrc/29_memory_content.py",
+      "input_sha256": "e2109d57d90b7e20714f9057c0fd5840dc81c0118dabcc501865b25d697a84e8",
+      "output_sha256": "5de79a2ac829979ad81576f250a6ee973721a3063891d9382ccf13424b0946a2"
+    },
+    {
+      "path": "development/devsrc/19b_transaction_service.py",
+      "input_sha256": "60192fecfc16179f2243f99d4728bb74b06b1f286c7ea408991645451c8d64e3",
+      "output_sha256": "2cf9881a7f36356052217bb807505aea49227e73c6c94ee714e7243df3f26175"
+    },
+    {
+      "path": "development/devsrc/43_extension_interface.py",
+      "input_sha256": "e4acded0167d9959b7c2f36e68680917f21357a4ad9b6297a03f08b1d3bdbdd6",
+      "output_sha256": "f5958b0572bbf6c74345076e92421fb99c0b094bf7e8e6f675db4b74d719f7d7"
+    },
+    {
+      "path": "development/devsrc/32_knowledge_policy.py",
+      "input_sha256": "7765f79865a27aa239539fceba9d9b0c9120b69669cdd3a8ac1ec9ddcf4a58b2",
+      "output_sha256": "1070e4c66af6828da461901b073df5d74bdac5627390ae71c2050d1a76baa011"
+    },
+    {
+      "path": "development/devsrc/41_content_versions.py",
+      "input_sha256": "973d24493ace5dda76dc8f4975332ef913cb6ec337a38d8da4482ad7cf31c94b",
+      "output_sha256": "63eafaa247b522eb5c6a7710dcd4dc3de27d169db76e091e5915196d024193cb"
+    },
+    {
+      "path": "development/devsrc/27_accounts_games.py",
+      "input_sha256": "34fbfec19664ece9caaa8705692356e9ea99ebc0ceca14a9627e76e0104089a9",
+      "output_sha256": "c266787b73ac048434459985ca7e072e831ae91d0d5fb4677cba8de45b51b49d"
+    },
+    {
+      "path": "development/devsrc/19_p2_contracts.py",
+      "input_sha256": "214f6d4e2ba0c829972c71b7d3d5c1b778005120887e2967192c6ee6c563795d",
+      "output_sha256": "7547ecd45cc6c37f13f3f4317c875909b801d6a6d5069c3930cacf7ed8fac5f7"
+    }
+  ],
+  "host_wiring": "NOT_CONNECTED"
+}

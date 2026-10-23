@@ -1,0 +1,160 @@
+{
+  "schema": "BATCH2_FOLLOWUP_TARGETED_V1",
+  "status": "PASS",
+  "engine_sha256": "4a5f72d6cd19ec238f178ad5f221015742aa03a9a8ed0497baa618fa91ea0ef2",
+  "parent_engine_sha256": "3322a64a51356823b0a7d2176d8ada742526b20bfbb2d51eff8e2925e5190acb",
+  "manifest_sha256": "149adea27913431a572241d1e6be2ca6a56d45465c0f20fb30b37fd6294837e7",
+  "model_generation": "NOT_RUN",
+  "tests": [
+    {
+      "name": "pure_query_semantics_and_zero_full_state_copies",
+      "status": "PASS",
+      "detail": [
+        {
+          "route": "batch",
+          "post_validation_full_state_copies": 0
+        },
+        {
+          "route": "knowledge",
+          "post_validation_full_state_copies": 0
+        },
+        {
+          "route": "scene",
+          "post_validation_full_state_copies": 0
+        },
+        {
+          "route": "account",
+          "post_validation_full_state_copies": 0
+        },
+        {
+          "route": "content",
+          "post_validation_full_state_copies": 0
+        }
+      ],
+      "seconds": 4.202230155000052
+    },
+    {
+      "name": "legacy_alias_correction_growth_and_same_snapshot_reuse",
+      "status": "PASS",
+      "detail": [
+        {
+          "synthetic": true,
+          "scenes": 1,
+          "people": 1,
+          "legacy_facts": 100,
+          "disclosures": 200,
+          "learning": 20,
+          "viewers": 4,
+          "seconds_samples": [
+            0.014717324000002918,
+            0.012511691000099745,
+            0.016051311000182977
+          ],
+          "median_seconds": 0.014717324000002918,
+          "counts": {
+            "json_parses": 0,
+            "history_decodes": 0,
+            "sha_calls": 399,
+            "bytes_hashed": 15361849,
+            "semantic_cache_hits": 0,
+            "full_semantic_checks": 0,
+            "history_index_incremental": 0,
+            "knowledge_alias_bindings_indexed": 1,
+            "knowledge_disclosures_indexed": 200,
+            "knowledge_learning_indexed": 20,
+            "knowledge_index_builds": 1,
+            "knowledge_rows_builds": 4,
+            "knowledge_rows_cache_hits": 2
+          },
+          "exact_V1458_semantics": true
+        },
+        {
+          "synthetic": true,
+          "scenes": 4,
+          "people": 4,
+          "legacy_facts": 1000,
+          "disclosures": 2000,
+          "learning": 200,
+          "viewers": 4,
+          "seconds_samples": [
+            0.08135354999990341,
+            0.0845036059999984,
+            0.0857283139998799
+          ],
+          "median_seconds": 0.0845036059999984,
+          "counts": {
+            "json_parses": 0,
+            "history_decodes": 0,
+            "sha_calls": 399,
+            "bytes_hashed": 15361849,
+            "semantic_cache_hits": 0,
+            "full_semantic_checks": 0,
+            "history_index_incremental": 0,
+            "knowledge_alias_bindings_indexed": 4,
+            "knowledge_disclosures_indexed": 2000,
+            "knowledge_learning_indexed": 200,
+            "knowledge_index_builds": 1,
+            "knowledge_rows_builds": 16,
+            "knowledge_rows_cache_hits": 2
+          },
+          "exact_V1458_semantics": true
+        },
+        {
+          "synthetic": true,
+          "scenes": 8,
+          "people": 16,
+          "legacy_facts": 4000,
+          "disclosures": 8000,
+          "learning": 800,
+          "viewers": 4,
+          "seconds_samples": [
+            0.3125451519999842,
+            0.3544842849998986,
+            0.3480030190000889
+          ],
+          "median_seconds": 0.3480030190000889,
+          "counts": {
+            "json_parses": 0,
+            "history_decodes": 0,
+            "sha_calls": 399,
+            "bytes_hashed": 15361849,
+            "semantic_cache_hits": 0,
+            "full_semantic_checks": 0,
+            "history_index_incremental": 0,
+            "knowledge_alias_bindings_indexed": 16,
+            "knowledge_disclosures_indexed": 8000,
+            "knowledge_learning_indexed": 800,
+            "knowledge_index_builds": 1,
+            "knowledge_rows_builds": 32,
+            "knowledge_rows_cache_hits": 2
+          },
+          "exact_V1458_semantics": true
+        }
+      ],
+      "seconds": 6.463951449999968
+    },
+    {
+      "name": "real_consistency_repair_paths_share_immutable_objects",
+      "status": "PASS",
+      "detail": {
+        "development_files_shared": 369,
+        "both_repair_snapshots_use_verified_pool": true,
+        "worktree_inode_isolated": true,
+        "corrupt_object_refused": true
+      },
+      "seconds": 4.227719456999921
+    },
+    {
+      "name": "host_upgrade_restart_and_distinct_root_isolation",
+      "status": "PASS",
+      "detail": {
+        "engine_upgrade_reloads": 2,
+        "new_process_style_instance_coldloads": 1,
+        "two_roots_separate_namespaces": true,
+        "replaced_root_inode_refused": true,
+        "ChatGPT_tool_wiring": "NOT_CONNECTED"
+      },
+      "seconds": 23.727491285000042
+    }
+  ]
+}

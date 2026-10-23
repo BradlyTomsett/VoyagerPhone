@@ -1,0 +1,450 @@
+{
+  "packet": "NATIVE_REGRESSION_SUITE_V4",
+  "status": "PASS",
+  "engine_version": "2.71.0",
+  "engine_protocol": "4",
+  "root": "/workspace/scratch/788ce3922fde/work/release_v1460",
+  "groups": {
+    "protocol_and_sourcecheck": {
+      "passed": 7,
+      "failed": 0,
+      "total": 7
+    },
+    "asset_registry": {
+      "passed": 8,
+      "failed": 0,
+      "total": 8
+    },
+    "native_smoke": {
+      "passed": 10,
+      "failed": 0,
+      "total": 10
+    },
+    "release_regressions": {
+      "passed": 5,
+      "failed": 0,
+      "total": 5
+    },
+    "phase2_transaction_event": {
+      "passed": 5,
+      "failed": 0,
+      "total": 5
+    },
+    "phase3_domain_safety": {
+      "passed": 5,
+      "failed": 0,
+      "total": 5
+    },
+    "phase4_upgrade_legacy": {
+      "passed": 11,
+      "failed": 0,
+      "total": 11
+    }
+  },
+  "tests": [
+    {
+      "name": "sourcecheck_runtime",
+      "status": "PASS",
+      "detail": {
+        "errors": [],
+        "root": "/workspace/scratch/788ce3922fde/work/release_v1460"
+      }
+    },
+    {
+      "name": "manifest_engine_protocol_matches_runtime",
+      "status": "PASS",
+      "detail": {
+        "status": "PASS",
+        "errors": [],
+        "root": "/workspace/scratch/788ce3922fde/work/release_v1460",
+        "engine_version": "2.71.0",
+        "engine_protocol": "4",
+        "manifest_engine_version": "2.71.0",
+        "manifest_engine_protocol": "4"
+      }
+    },
+    {
+      "name": "resolved_root_is_requested_root",
+      "status": "PASS",
+      "detail": "/workspace/scratch/788ce3922fde/work/release_v1460"
+    },
+    {
+      "name": "sourcecheck_explicit_base_precedence",
+      "status": "PASS",
+      "detail": {
+        "returncode": 1,
+        "stdout": "{\n  \"status\": \"FAIL\",\n  \"schema\": \"VOYAGER_COMPONENT_SET_V2\",\n  \"errors\": [\n    \"COMPONENT_MANIFEST_PARSE:FileNotFoundError:[Errno 2] No such file or directory: '/workspace/scratch/788ce3922fde/work/v14_60/voyager_bad_base_0fmpfu0k/missing/manifest.json'\",\n    \"MANIFEST_MISSING\"\n  ],\n  \"checked_root\": \"/workspace/scratch/788ce3922fde/work/v14_60/voyager_bad_base_0fmpfu0k/missing\",\n  \"warnings\": [],\n  \"error_count\": 2,\n  \"warning_count\": 0\n}\n"
+      }
+    },
+    {
+      "name": "strict_fileset_rejects_legacy_toplevel",
+      "status": "PASS",
+      "detail": [
+        "UNEXPECTED_TOPLEVEL:WORLD.md"
+      ]
+    },
+    {
+      "name": "protocol_mismatch_is_hard_failure",
+      "status": "PASS",
+      "detail": [
+        "PROTOCOL:ENGINE_PROTOCOL_MISMATCH:manifest=999:runtime=4"
+      ]
+    },
+    {
+      "name": "legacy_only_layout_not_normal_source",
+      "status": "PASS",
+      "detail": [
+        "COMPONENT_MANIFEST_PARSE:FileNotFoundError:[Errno 2] No such file or directory: '/workspace/scratch/788ce3922fde/work/v14_60/voyager_legacy_only_8mu2v79a/manifest.json'",
+        "MANIFEST_MISSING"
+      ]
+    },
+    {
+      "name": "asset_registry_schema",
+      "status": "PASS",
+      "detail": "ASSET_MAPPING_REGISTRY_V3"
+    },
+    {
+      "name": "asset_registry_entry_count",
+      "status": "PASS",
+      "detail": "declared=708 actual=708"
+    },
+    {
+      "name": "asset_registry_partition_counts",
+      "status": "PASS",
+      "detail": "migrated=9 excluded=699"
+    },
+    {
+      "name": "asset_registry_exclusions_compact",
+      "status": "PASS",
+      "detail": "bad=0"
+    },
+    {
+      "name": "asset_registry_source_paths_unique",
+      "status": "PASS",
+      "detail": "paths=708 unique=708"
+    },
+    {
+      "name": "asset_registry_migrated_matches_ledger",
+      "status": "PASS",
+      "detail": "registry=9 ledger=9"
+    },
+    {
+      "name": "asset_registry_migrated_fields_complete",
+      "status": "PASS",
+      "detail": "bad=0"
+    },
+    {
+      "name": "asset_registry_review_archive_bound",
+      "status": "PASS",
+      "detail": "archives/asset_mapping_registry_review_V13.49.json.gz"
+    },
+    {
+      "name": "smoke:native_sourcecheck",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "smoke:legacy_compat_absent",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "smoke:native_authority_validate",
+      "status": "PASS",
+      "detail": "SAVESET-V14.60-50a40db20c5a8242"
+    },
+    {
+      "name": "smoke:rules_catalog_roundtrip_world",
+      "status": "PASS",
+      "detail": 192853
+    },
+    {
+      "name": "smoke:finance_fixed_point_integrity",
+      "status": "PASS",
+      "detail": {
+        "active": true,
+        "status": "PASS",
+        "errors": [],
+        "schema": "FIXED_POINT_FINANCE_V2",
+        "scale": 10000,
+        "currency_decimal_places": {
+          "gold": 4,
+          "grey": 2
+        }
+      }
+    },
+    {
+      "name": "smoke:domain_command_runtime_integrity",
+      "status": "PASS",
+      "detail": {
+        "active": true,
+        "status": "PASS",
+        "errors": [],
+        "receipt_count": 10
+      }
+    },
+    {
+      "name": "smoke:cold_start_native",
+      "status": "PASS",
+      "detail": "8363-12-10T17:20:00"
+    },
+    {
+      "name": "smoke:location_query_contract",
+      "status": "PASS",
+      "detail": "COMPLETE"
+    },
+    {
+      "name": "smoke:lia_query_contract",
+      "status": "PASS",
+      "detail": "COMPLETE"
+    },
+    {
+      "name": "smoke:native_stage_no_legacy_files",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "manifest_is_only_current_version_authority",
+      "status": "PASS",
+      "detail": "V14.60"
+    },
+    {
+      "name": "legacy_compat_current_flags_absent",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "cold_start_budget",
+      "status": "PASS",
+      "detail": 2907
+    },
+    {
+      "name": "native_eight_component_manifest",
+      "status": "PASS",
+      "detail": {
+        "components": 7
+      }
+    },
+    {
+      "name": "warning_aggregation_matches_reference_graph",
+      "status": "PASS",
+      "detail": {
+        "sourcecheck": 0,
+        "reference": 0
+      }
+    },
+    {
+      "name": "current_authority_legacy_routes_absent",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "domain_command_authorization_required",
+      "status": "PASS",
+      "detail": "True"
+    },
+    {
+      "name": "domain_receipt_persistent_in_events",
+      "status": "PASS",
+      "detail": {
+        "command_id": "SELFTEST-PERSIST-1",
+        "kind": "create_task",
+        "payload_sha256": "394e377015a7d37a73529c637a167455a7e570732aaa79a96d9b36adf44c3602",
+        "event_id": "SELFTEST-PERSIST-E"
+      }
+    },
+    {
+      "name": "event_v2_current_refs_and_system_command",
+      "status": "PASS",
+      "detail": {
+        "command_id": "SYS:SELFTEST-EV2",
+        "effects": [
+          {
+            "target": "state:summary.funds",
+            "action": "x"
+          }
+        ],
+        "source_refs": [
+          "state:summary.funds"
+        ]
+      }
+    },
+    {
+      "name": "raw_stage_cli_internal_only",
+      "status": "PASS",
+      "detail": {
+        "returncode": 1,
+        "stdout": "mmitted\": false,\n  \"save_set_id\": null,\n  \"export_status\": \"NOT_REQUESTED\",\n  \"retry_action\": \"correct_request\",\n  \"result_category\": \"PRECONDITION_NOT_MET\",\n  \"error_code\": \"RAW_STAGE_INTERNAL_ONLY_USE_DOMAIN_COMMAND_OR_SESSION\",\n  \"error\": \"RAW_STAGE_INTERNAL_ONLY_USE_DOMAIN_COMMAND_OR_SESSION\"\n}\n"
+      }
+    },
+    {
+      "name": "repair_start_uses_repair_queue",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "medical_start_uses_medical_queue",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "personnel_transfer_rejects_nonpersonnel_integer_paths",
+      "status": "PASS",
+      "detail": "True"
+    },
+    {
+      "name": "travel_rejects_unregistered_location",
+      "status": "PASS",
+      "detail": "True"
+    },
+    {
+      "name": "schedule_task_rejects_past_time",
+      "status": "PASS",
+      "detail": "True"
+    },
+    {
+      "name": "v130_ast_unique_definitions",
+      "status": "PASS",
+      "detail": {
+        "status": "PASS",
+        "errors": [],
+        "duplicate_function_count": 0,
+        "duplicate_class_count": 0,
+        "duplicate_critical_constant_count": 0,
+        "duplicate_cli_command_count": 0,
+        "cli_command_count": 68,
+        "engine_path": "/workspace/scratch/788ce3922fde/work/release_v1460/engine.py"
+      }
+    },
+    {
+      "name": "v130_version_protocol_hash_binding",
+      "status": "PASS",
+      "detail": {
+        "status": "PASS",
+        "errors": [],
+        "root": "/workspace/scratch/788ce3922fde/work/release_v1460",
+        "engine_version": "2.71.0",
+        "engine_protocol": "4",
+        "guard_version": "2.22.0",
+        "guard_protocol": "4"
+      }
+    },
+    {
+      "name": "native_stage_parent_fileset_binding",
+      "status": "PASS",
+      "detail": {
+        "bound_files": [
+          "catalog.json",
+          "engine.py",
+          "events.jsonl",
+          "guard.py",
+          "manifest.json",
+          "rules.json",
+          "state.json",
+          "tasks.json"
+        ],
+        "expected_files": [
+          "catalog.json",
+          "engine.py",
+          "events.jsonl",
+          "guard.py",
+          "manifest.json",
+          "rules.json",
+          "state.json",
+          "tasks.json"
+        ]
+      }
+    },
+    {
+      "name": "legacy_worldpurifyplan_component_compatible",
+      "status": "PASS",
+      "detail": {
+        "candidates": 0,
+        "missing": 19
+      }
+    },
+    {
+      "name": "legacy_worldpurify_dry_run_component_compatible",
+      "status": "PASS",
+      "detail": "DRY_RUN"
+    },
+    {
+      "name": "native_manifest_lineage_tracks_layout_and_time",
+      "status": "PASS",
+      "detail": {
+        "zero_time": {
+          "from_save_set_id": "SAVESET-V14.60-50a40db20c5a8242",
+          "from_layout": "native_eight_component_v4_tiered_history",
+          "to_layout": "native_eight_component_v4_tiered_history",
+          "game_time_advanced": false
+        },
+        "advanced": {
+          "from_save_set_id": "SAVESET-V99.1-50a40db20c5a8242",
+          "from_layout": "native_eight_component_v4_tiered_history",
+          "to_layout": "native_eight_component_v4_tiered_history",
+          "game_time_advanced": true
+        }
+      }
+    },
+    {
+      "name": "component_transport_sync_prefers_matching_save_set",
+      "status": "PASS",
+      "detail": {
+        "status": "VERIFIED_PROJECT_SOURCE",
+        "current_save_set_id": "SAVESET-V14.60-50a40db20c5a8242",
+        "source_save_set_id": "SAVESET-V14.60-50a40db20c5a8242",
+        "parent_save_set_id": "SAVESET-V14.59-707b38f6542b6ffc",
+        "verified": true,
+        "transport_file": "VOYAGER_SOURCE_V99.1.zip",
+        "component_set_id": "COMPSET-144f0bd03eecdc3a005ae477"
+      }
+    },
+    {
+      "name": "doctor_native_project_source_transport",
+      "status": "PASS",
+      "detail": {
+        "status": "PASS",
+        "mode": "native_component_transport",
+        "base": "/workspace/scratch/788ce3922fde/work/v14_60/voyager_transport_sync_2gv_7979",
+        "save_set_id": "SAVESET-V14.60-50a40db20c5a8242",
+        "save_version": "V14.60",
+        "transport_file": "VOYAGER_SOURCE_V99.1.zip",
+        "external_guard_matches": [
+          "guard_VTEST.py"
+        ],
+        "zip_check": {
+          "status": "PASS",
+          "errors": []
+        },
+        "errors": []
+      }
+    },
+    {
+      "name": "component_transport_rejects_cold_archive_hash_mismatch",
+      "status": "PASS",
+      "detail": [
+        "SOURCE_ZIP_COLD_ARCHIVE_HASH:archives/asset_mapping_registry_review_V13.49.json.gz"
+      ]
+    },
+    {
+      "name": "sourcecheck_rejects_cold_archive_hash_mismatch",
+      "status": "PASS",
+      "detail": [
+        "NATIVE_PROTOCOL:cold_archive_hash_mismatch:archives/asset_mapping_registry_review_V13.49.json.gz"
+      ]
+    },
+    {
+      "name": "guard_normal_boot_rejects_cold_archive_hash_mismatch",
+      "status": "PASS",
+      "detail": {
+        "returncode": 1,
+        "output": "{\"status\": \"FAIL\", \"error\": \"SOURCE_ZIP_COLD_ARCHIVE_HASH:archives/asset_mapping_registry_review_V13.49.json.gz\"}\n"
+      }
+    }
+  ],
+  "passed": 51,
+  "failed": 0,
+  "warnings": [],
+  "warning_count": 0,
+  "note": "Phase 4 adds native engine-upgrade and legacy command compatibility gates."
+}

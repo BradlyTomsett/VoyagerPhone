@@ -1,0 +1,149 @@
+{
+  "schema": "VOYAGER_EXTERNAL_IMAGE_INDEX_V1",
+  "version": "V14.38",
+  "image_storage": "EXTERNAL_PROJECT_SOURCES_ONLY",
+  "instructions": "Original images remain in the project 来源 external five ZIP packages. The game save ZIP contains this index and verification code, but no original image files or image archives.",
+  "search_locations": [
+    "与游戏存档同级的来源ZIP文件",
+    "项目「来源」中独立上传的五个ZIP文件",
+    "环境变量 VOYAGER_IMAGE_SOURCE_DIR 指定的文件夹",
+    "/mnt/data 或启动目录中单独挂载的ZIP文件"
+  ],
+  "source_zip_sha256": {
+    "vehicle_posters_en.zip": "1d114613b1d20da569a965e35251afee5bf51ce9374f4c15a32ff37b6d708bb2",
+    "combat_robot_posters_en.zip": "783ca6de6e7567e89e1f509dcc2a2365c83ee332a3f5f1a63fed407ebed8b919",
+    "space_uav_posters_en.zip": "76dfbc780bd38c07081abde1783e99ac5c155f27c03fc4f61104e9724877e78b",
+    "armored_vehicle_posters_en.zip": "330242dc2a43bf85ae189dccb97b64d4b07e86383e9247239c10831d62ec8022",
+    "combat_uav_armored_images_en.zip": "28d0c5ddfabf6c36693a70c8ad73971086fee4491584de74897944fcbaa48561"
+  },
+  "assets": {
+    "beilu_9_all_terrain_armored_vehicle.png": {
+      "archive": "armored_vehicle_posters_en.zip",
+      "member": "beilu_9_all_terrain_armored_vehicle.png",
+      "sha256": "b997f38b1525bf083ede676192363f383bff04a96b70c173ef73a0ee75b3e6fc"
+    },
+    "biandun_6_all_terrain_armored_vehicle.png": {
+      "archive": "armored_vehicle_posters_en.zip",
+      "member": "biandun_6_all_terrain_armored_vehicle.png",
+      "sha256": "333bd67c6ca111632b1d09f822637d9b1834c9ef006c3e2f7915fb935e232424"
+    },
+    "chiyuan_4_all_terrain_armored_vehicle.png": {
+      "archive": "armored_vehicle_posters_en.zip",
+      "member": "chiyuan_4_all_terrain_armored_vehicle.png",
+      "sha256": "aaba6b8488fb2d4e7640cf790a3635dce2176caf80d54ec672bcc7d6afdc917c"
+    },
+    "dune_all_terrain_armored_vehicle.png": {
+      "archive": "armored_vehicle_posters_en.zip",
+      "member": "dune_all_terrain_armored_vehicle.png",
+      "sha256": "d153f495e2c36ff0ff75acc321587177dcd9ad6879d57dd7bebb31a8b5c5e8ab"
+    },
+    "falcon_2_space_ucav.png": {
+      "archive": "space_uav_posters_en.zip",
+      "member": "falcon_2_space_ucav.png",
+      "sha256": "0509ab214ad5674e314a6e5b1787adad830c2810603280e4af4c018bd47ccbfe"
+    },
+    "falcon_3_orbital_ucav.png": {
+      "archive": "space_uav_posters_en.zip",
+      "member": "falcon_3_orbital_ucav.png",
+      "sha256": "dcca844c812774b95c0491e6cc25b7f69b754d825468680e0a55b7274f01b571"
+    },
+    "falcon_4_space_ucav.png": {
+      "archive": "space_uav_posters_en.zip",
+      "member": "falcon_4_space_ucav.png",
+      "sha256": "cbe6dabd88f458ade47c2c20f4ac10bc806f4031c4fb1ecd4ac03ae30ced80b3"
+    },
+    "fortress_4_combat_robot.png": {
+      "archive": "combat_robot_posters_en.zip",
+      "member": "fortress_4_combat_robot.png",
+      "sha256": "b570e8f909e77b22586e6c2b68b427c33b83873b6f6fad192e9aa1901b2e4cfa"
+    },
+    "fortress_5_combat_robot.png": {
+      "archive": "combat_robot_posters_en.zip",
+      "member": "fortress_5_combat_robot.png",
+      "sha256": "1bfe357581fb2373295602d03b5eb1272951515a788a92df196ddca5a226ac13"
+    },
+    "fortress_6_combat_robot.png": {
+      "archive": "combat_robot_posters_en.zip",
+      "member": "fortress_6_combat_robot.png",
+      "sha256": "e6edd3ba9e4703c0304d03d753994842380180b82bd12b515be2260312f3cdf9"
+    },
+    "guardian_1_combat_robot.png": {
+      "archive": "combat_robot_posters_en.zip",
+      "member": "guardian_1_combat_robot.png",
+      "sha256": "69dba0833cba80410643d384c8817023651835bd1c982786020e3b2c2a625402"
+    },
+    "hawk_team_linzhou4_sedan.png": {
+      "archive": "vehicle_posters_en.zip",
+      "member": "hawk_team_linzhou4_sedan.png",
+      "sha256": "2eda9a522d5fc3a8894ddb78db156dea6c05dd771624be2be62780ed2e594abd"
+    },
+    "hawk_team_roadfox4_motorcycle.png": {
+      "archive": "vehicle_posters_en.zip",
+      "member": "hawk_team_roadfox4_motorcycle.png",
+      "sha256": "36bcef93ecc8c17df2016629c53203b9350533206d54b02ab22bb94d46d74dbd"
+    },
+    "hawk_team_yantu5_suv.png": {
+      "archive": "vehicle_posters_en.zip",
+      "member": "hawk_team_yantu5_suv.png",
+      "sha256": "19b5c1d52c2f1c538bc9ce245c697bca29b2537a9e486a3fce9510d8184ed1ee"
+    },
+    "laobing_11_armored_personnel_carrier.png": {
+      "archive": "armored_vehicle_posters_en.zip",
+      "member": "laobing_11_armored_personnel_carrier.png",
+      "sha256": "baada1b399c2d45acb4eb7dcea9227c060b4110eb3d66bc0b5dfe7a6c8a8afab"
+    },
+    "panshi_12_all_terrain_armored_vehicle.png": {
+      "archive": "armored_vehicle_posters_en.zip",
+      "member": "panshi_12_all_terrain_armored_vehicle.png",
+      "sha256": "c38e96ff7f55781299b441a1bf5006cec607f90c20ecbe9f596c4b9fcf84d759"
+    },
+    "rainbow_1_space_ucav.png": {
+      "archive": "space_uav_posters_en.zip",
+      "member": "rainbow_1_space_ucav.png",
+      "sha256": "f6e9056f576e657ff69a3ce4b9993a0e4db0198d0282dea445e5976a14725788"
+    },
+    "yuhuo_luwei6_van.png": {
+      "archive": "vehicle_posters_en.zip",
+      "member": "yuhuo_luwei6_van.png",
+      "sha256": "129a13c87c98e82df4c2f67917d1ea973df27b8821312a0098aa225cccd10d5b"
+    },
+    "yuhuo_roadfox4_delivery_motorcycle.png": {
+      "archive": "vehicle_posters_en.zip",
+      "member": "yuhuo_roadfox4_delivery_motorcycle.png",
+      "sha256": "7c93a45c0cf3a47d47ffc0f61b0c4a8ccd5b0d140eca230a176cd31de7d2285c"
+    },
+    "yuhuo_u6_pickup.png": {
+      "archive": "vehicle_posters_en.zip",
+      "member": "yuhuo_u6_pickup.png",
+      "sha256": "2fea8e17d6e534d7e519a58d102eba989bd1c42f47d6ad210c4431ecbc9148c3"
+    }
+  },
+  "aliases": {
+    "余火U6皮卡": "yuhuo_u6_pickup.png",
+    "余火路狐-4": "yuhuo_roadfox4_delivery_motorcycle.png",
+    "北陆-9": "beilu_9_all_terrain_armored_vehicle.png",
+    "卫士-1": "guardian_1_combat_robot.png",
+    "堡垒-4": "fortress_4_combat_robot.png",
+    "堡垒-5": "fortress_5_combat_robot.png",
+    "堡垒-6": "fortress_6_combat_robot.png",
+    "岩途-5": "hawk_team_yantu5_suv.png",
+    "岩途5": "hawk_team_yantu5_suv.png",
+    "彩虹-1": "rainbow_1_space_ucav.png",
+    "林舟-4": "hawk_team_linzhou4_sedan.png",
+    "林舟4": "hawk_team_linzhou4_sedan.png",
+    "沙丘": "dune_all_terrain_armored_vehicle.png",
+    "猎隼-2": "falcon_2_space_ucav.png",
+    "猎隼-3": "falcon_3_orbital_ucav.png",
+    "猎隼-4": "falcon_4_space_ucav.png",
+    "磐石-12": "panshi_12_all_terrain_armored_vehicle.png",
+    "老兵-11": "laobing_11_armored_personnel_carrier.png",
+    "边盾-6": "biandun_6_all_terrain_armored_vehicle.png",
+    "霍克组岩途-5": "hawk_team_yantu5_suv.png",
+    "霍克组林舟-4": "hawk_team_linzhou4_sedan.png",
+    "霍克组路狐-4": "hawk_team_roadfox4_motorcycle.png",
+    "驰援-4": "chiyuan_4_all_terrain_armored_vehicle.png",
+    "鹿威-6": "yuhuo_luwei6_van.png"
+  },
+  "unique_images": 20,
+  "missing_image_policy": "DO_NOT_GENERATE_OR_WEB_SEARCH_FALLBACK"
+}

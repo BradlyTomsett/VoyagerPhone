@@ -1,0 +1,103 @@
+"""Reconcile this conversation's fictional dice receipts, once per session.
+
+Usage: python .runtime/gambling_sessions/settle_dice.py RECEIPT.json
+Only use when the commander submits the receipt. Never replay a settled session.
+"""
+from pathlib import Path
+import datetime as dt
+import fcntl
+import json
+import os
+import sys
+
+HOME = Path(__file__).resolve().parent
+CURRENT = HOME.parent / 'gameplay_continuity.json'
+
+
+def put(path, obj):
+    tmp = path.with_suffix(path.suffix + '.pending')
+    with tmp.open('w') as f:
+        json.dump(obj, f, ensure_ascii=False, indent=2)
+        f.write('\n')
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, path)
+
+
+def settle(receipt):
+    sid = receipt.get('session_id')
+    if sid != 'DICE-83631127-2246-HW-01':
+        raise ValueError('UNKNOWN_SESSION')
+    sp = HOME / (sid + '.json')
+    session = json.loads(sp.read_text())
+    state = json.loads(CURRENT.read_text())
+    event_id = sid + '-SETTLED'
+    previous = next((e for e in state.get('financial_effects', []) if e.get('id') == event_id), None)
+    if previous:
+        if previous['receipt'] != receipt:
+            raise ValueError('SESSION_ALREADY_SETTLED_DIFFERENT_RECEIPT')
+        session.update(settlement_status='settled', receipt=receipt, settlement_event=previous)
+        put(sp, session)
+        return {'status': 'ALREADY_SETTLED', 'event': previous}
+    if session['funding_status'] != 'funded' or session['settlement_status'] != 'open':
+        raise ValueError('SESSION_NOT_OPEN_OR_FUNDED')
+    if receipt.get('schema') != 'HAWKE_DICE_RECEIPT_V1' or receipt.get('nonce') != session['nonce']:
+        raise ValueError('RECEIPT_BINDING')
+    if receipt.get('account') != session['account'] or receipt.get('game_time_start') != session['time_start']:
+        raise ValueError('ACCOUNT_OR_TIME_BINDING')
+    rows = receipt.get('rounds')
+    if not isinstance(rows, list) or len(rows) > session['max_rounds']:
+        raise ValueError('ROUND_LIMIT')
+    chips = session['reserved_chips_copper']
+    for i, row in enumerate(rows):
+        bet, side = row.get('stake_copper'), row.get('choice')
+        if type(bet) is not int or bet not in session['stakes_copper'] or bet > chips or side not in ('small', 'big'):
+            raise ValueError('STAKE_OR_CHOICE')
+        dice = session['rolls'][i]
+        total = sum(dice)
+        triple = len(set(dice)) == 1
+        win = not triple and ((4 <= total <= 10) if side == 'small' else (11 <= total <= 17))
+        expected = dict(round=i + 1, choice=side, stake_copper=bet, dice=dice, total=total, triple=triple, net_copper=bet if win else -bet)
+        if row != expected:
+            raise ValueError('DICE_OR_NET_MISMATCH')
+        chips += expected['net_copper']
+    checks = {
+        'minutes_played': len(rows), 'reserved_chips_copper': 100,
+        'chips_to_return_copper': chips, 'net_copper': chips - 100,
+        'account_cash_after_reserve_copper': 829915,
+        'expected_account_cash_after_settlement_copper': 829915 + chips,
+        'idempotency_key': sid,
+    }
+    if any(receipt.get(k) != v for k, v in checks.items()):
+        raise ValueError('RECEIPT_TOTALS')
+    if state['current_balances']['covert_copper'] != 829915:
+        raise ValueError('STALE_CASH_RECONCILIATION_REQUIRED')
+    if state['game_time'] != session['time_start']:
+        raise ValueError('CLOCK_RECONCILIATION_REQUIRED_NO_BACKFILL')
+    final = (dt.datetime.fromisoformat(session['time_start']) + dt.timedelta(minutes=len(rows))).isoformat()
+    event = {'id': event_id, 'at': final, 'account': session['account'], 'delta_copper': chips,
+             'reason': 'return dice-table chips; net gambling outcome separately identified, reserve not a second expense',
+             'reserve_return_copper': 100, 'gambling_net_copper': chips - 100,
+             'balance_before_copper': 829915, 'balance_after_copper': 829915 + chips, 'receipt': receipt}
+    state['current_balances']['covert_copper'] += chips
+    state['financial_effects'].append(event)
+    state['game_time'] = final
+    state['advance_minutes'] = len(rows)
+    state['gambling_sessions'][sid].update(status='settled', rounds=len(rows), chips_copper=0, receipt=receipt)
+    state['clock_barrier'] = None
+    state['stop_reason'] = 'dice table settled; no additional action or event authorised'
+    if state.get('current_activity'):
+        state['current_activity']['current_time'] = final
+    # The continuity file is the commit point. Repeating the same receipt repairs
+    # session metadata if an interruption occurs after this write.
+    put(CURRENT, state)
+    session.update(settlement_status='settled', receipt=receipt, settlement_event=event)
+    put(sp, session)
+    return {'status': 'SETTLED', 'event': event, 'game_time': final}
+
+
+if __name__ == '__main__':
+    with (HOME / '.ledger.lock').open('a') as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        result = settle(json.loads(Path(sys.argv[1]).read_text()))
+        print(json.dumps(result, ensure_ascii=False))

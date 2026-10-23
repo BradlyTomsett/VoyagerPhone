@@ -1,0 +1,224 @@
+{
+  "first": {
+    "packet": "STORY_TURN_REPORT_V1",
+    "status": "COMMITTED",
+    "turn_id": "LIVED-FIRST",
+    "viewer": "player",
+    "source_event_id": "DOMAIN-LIVED-FIRST-5910aab8",
+    "committed_at": "8363-12-10T17:20:00",
+    "current_identity": {
+      "save_set_id": "SAVESET-V14.63-4125d3963af1cf93",
+      "manifest_sha256": "27ee4c347d209aba9c0241609d73a2dbc60be4bbd2cb7f09c69da0184e19a6dc",
+      "engine_sha256": "f4971327c7221d18f14ffe8b2bcd07e14d8792026932b601c01fdc4f9de08222"
+    },
+    "segments": [
+      {
+        "mode": "description",
+        "speaker_id": null,
+        "text": "你推开接待廊的门，门轴在掌下轻轻一震。灰灯把积尘的墙角照得发白，扶手贴着手心，凉意顺着指节停了一瞬。通风机在头顶低鸣，过滤空气里有一点清洁剂的味道。窄廊里挤着换班的人，旧工作服的袖口擦过你身边；有人把水杯往窗台挪了挪，给后来的人腾出地方。诺娃抬眼看你，手里的小螺丝刀却没有放下。你原本急着开口，看到她发红的指节，喉咙里的话又缓了半拍。",
+        "basis_refs": [],
+        "receipt_refs": [],
+        "world_truth": false,
+        "role": "creative prose or attributed speech; never a mechanical state update"
+      },
+      {
+        "mode": "dialogue",
+        "speaker_id": "PER-NOVA-01",
+        "text": "先坐会儿……你要问哪一段？我手头这点活还没收。",
+        "basis_refs": [],
+        "receipt_refs": [],
+        "world_truth": false,
+        "role": "creative prose or attributed speech; never a mechanical state update"
+      }
+    ],
+    "verified_results": [],
+    "newly_learned_facts": [],
+    "narration_instruction": "每次玩家行动写成一个真实的人正在生活：行动、环境、具体细节、身体/情绪/认知体验与人物反应自然相连；有人交流必须有符合背景和情绪的对话。禁止流水账、状态报告、事件列表。初访完整写视觉、听觉、嗅觉、触觉和氛围；重访只写变化、新发现与简短定位，连续停留不算再次进入。描写服从游戏时间、设施、天气、社会状态与角色认知。真空、隔离头盔、远程等感官缺失必须承认，不能编造可闻气味。NPC说话有各自词汇、口癖、方言、礼貌、幽默、停顿、重复、比喻和关注点；情绪改变节奏，不把这些特点每句堆满，不一次倒出全部信息。玩家台词服从本次实际输入及身份、教育和职业；可把明确交谈意图转为自然台词，但不得添加新的承诺和选择，意图改写须AI复核。重要NPC有完整生活档案，大多数是普通人；拒绝、误解、欺骗、利用、怀疑、遗忘、离开和改变主意都合理，不自动崇拜主角。内在体验用精确身体反应、轻微情绪/认知变化或可选行为倾向呈现；日常一笔带过，关键时刻才展开。感受不是决定，不强迫逃跑、交易、示爱或结盟。世界按游戏时间持续运行，与玩家位置和活动无关；工作作息自动推算，人生节点独立调度；重大未定发展交AI依据人物利益与已知经历塑造，不能把可能性当既成事实。离线聊天不会产生无人运行的后台进程；等待、航行、战斗、交易、调查的实际耗时统一推进游戏时钟。\n机械结果依据verified_results融入自然叙述；不要向玩家显示内部档案、锚点、回执JSON。",
+    "generation_quality": "NOT_RUN",
+    "decision_record": {
+      "base_identity": {
+        "save_set_id": "SAVESET-V14.61-4097b387af7e359f",
+        "manifest_sha256": "7d3dec270ff00637cbc0ffedd4240d56b6fce56f4470e5d73f695470044815f2",
+        "engine_sha256": "f4971327c7221d18f14ffe8b2bcd07e14d8792026932b601c01fdc4f9de08222"
+      },
+      "fact_refs": [
+        "fact/LIVED-SYNTHETIC/F-OPEN"
+      ],
+      "rule_versions": [
+        {
+          "rule_id": "RULE-DYNAMIC-STATE-PLACEMENT-01",
+          "version": 1
+        },
+        {
+          "rule_id": "RULE-EVIDENCE-01",
+          "version": 1
+        },
+        {
+          "rule_id": "RULE-INDEPENDENT-WORLD-CLOCK-01",
+          "version": 1
+        },
+        {
+          "rule_id": "RULE-INNER-EXPERIENCE-AND-AGENCY-01",
+          "version": 1
+        },
+        {
+          "rule_id": "RULE-INTEL-KNOWLEDGE-01",
+          "version": 1
+        },
+        {
+          "rule_id": "RULE-LIVED-NARRATION-01",
+          "version": 1
+        },
+        {
+          "rule_id": "RULE-NPC-LIFE-AND-VOICE-01",
+          "version": 1
+        },
+        {
+          "rule_id": "RULE-RANDOM-DETERMINISM-01",
+          "version": 1
+        }
+      ],
+      "intent": "看看接待廊，听对方说话。",
+      "candidates": [
+        "询问",
+        "等待"
+      ],
+      "public_reason": "场景与对白依据合成夹具，玩家未作承诺。",
+      "selected_effect_kinds": [],
+      "result_event_id": "DOMAIN-LIVED-FIRST-5910aab8",
+      "no_hidden_chain_of_thought_stored": true,
+      "strategy": {
+        "policy_version": "bounded_observed_strategy_v1",
+        "scope": "conversation",
+        "machine_enabled": true,
+        "hints": [],
+        "preferred_topic": null,
+        "preferred_pace": null,
+        "user_evidence_event": null,
+        "machine_evidence_events": [],
+        "input_experience_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "max_ranking_displacement": 2,
+        "mechanical_effects": false,
+        "counterexample": "accepted validation resets current failure run",
+        "expiry": "observations <=7 game days; user preference <=30 game days; environment change invalidates machine evidence"
+      }
+    },
+    "prose": "你推开接待廊的门，门轴在掌下轻轻一震。灰灯把积尘的墙角照得发白，扶手贴着手心，凉意顺着指节停了一瞬。通风机在头顶低鸣，过滤空气里有一点清洁剂的味道。窄廊里挤着换班的人，旧工作服的袖口擦过你身边；有人把水杯往窗台挪了挪，给后来的人腾出地方。诺娃抬眼看你，手里的小螺丝刀却没有放下。你原本急着开口，看到她发红的指节，喉咙里的话又缓了半拍。\n\n先坐会儿……你要问哪一段？我手头这点活还没收。",
+    "experience_review": {
+      "structural": "PASS",
+      "literary": "AI_REQUIRED",
+      "player_agency": "REQUIRED"
+    }
+  },
+  "continuing": {
+    "packet": "STORY_TURN_REPORT_V1",
+    "status": "COMMITTED",
+    "turn_id": "LIVED-CONTINUE",
+    "viewer": "player",
+    "source_event_id": "DOMAIN-LIVED-CONTINUE-47ed3cc7",
+    "committed_at": "8363-12-10T17:20:00",
+    "current_identity": {
+      "save_set_id": "SAVESET-V14.63-4125d3963af1cf93",
+      "manifest_sha256": "27ee4c347d209aba9c0241609d73a2dbc60be4bbd2cb7f09c69da0184e19a6dc",
+      "engine_sha256": "f4971327c7221d18f14ffe8b2bcd07e14d8792026932b601c01fdc4f9de08222"
+    },
+    "segments": [
+      {
+        "mode": "description",
+        "speaker_id": null,
+        "text": "你在窗边停了一步，诺娃把杯子从右手换到左手，灯下能看见杯沿新沾的水渍。通风机忽然低了一个调子。你听着，肩头绷紧的那一点劲慢慢松开，她却仍在等你先把问题说清楚。",
+        "basis_refs": [],
+        "receipt_refs": [],
+        "world_truth": false,
+        "role": "creative prose or attributed speech; never a mechanical state update"
+      },
+      {
+        "mode": "dialogue",
+        "speaker_id": "PER-NOVA-01",
+        "text": "先坐会儿……你要问哪一段？我手头这点活还没收。",
+        "basis_refs": [],
+        "receipt_refs": [],
+        "world_truth": false,
+        "role": "creative prose or attributed speech; never a mechanical state update"
+      }
+    ],
+    "verified_results": [],
+    "newly_learned_facts": [],
+    "narration_instruction": "每次玩家行动写成一个真实的人正在生活：行动、环境、具体细节、身体/情绪/认知体验与人物反应自然相连；有人交流必须有符合背景和情绪的对话。禁止流水账、状态报告、事件列表。初访完整写视觉、听觉、嗅觉、触觉和氛围；重访只写变化、新发现与简短定位，连续停留不算再次进入。描写服从游戏时间、设施、天气、社会状态与角色认知。真空、隔离头盔、远程等感官缺失必须承认，不能编造可闻气味。NPC说话有各自词汇、口癖、方言、礼貌、幽默、停顿、重复、比喻和关注点；情绪改变节奏，不把这些特点每句堆满，不一次倒出全部信息。玩家台词服从本次实际输入及身份、教育和职业；可把明确交谈意图转为自然台词，但不得添加新的承诺和选择，意图改写须AI复核。重要NPC有完整生活档案，大多数是普通人；拒绝、误解、欺骗、利用、怀疑、遗忘、离开和改变主意都合理，不自动崇拜主角。内在体验用精确身体反应、轻微情绪/认知变化或可选行为倾向呈现；日常一笔带过，关键时刻才展开。感受不是决定，不强迫逃跑、交易、示爱或结盟。世界按游戏时间持续运行，与玩家位置和活动无关；工作作息自动推算，人生节点独立调度；重大未定发展交AI依据人物利益与已知经历塑造，不能把可能性当既成事实。离线聊天不会产生无人运行的后台进程；等待、航行、战斗、交易、调查的实际耗时统一推进游戏时钟。\n机械结果依据verified_results融入自然叙述；不要向玩家显示内部档案、锚点、回执JSON。",
+    "generation_quality": "NOT_RUN",
+    "decision_record": {
+      "base_identity": {
+        "save_set_id": "SAVESET-V14.62-64b58d44559700fe",
+        "manifest_sha256": "b50b83210932101dcef9f294b730441154c3d28b4590590f726fb4dfa641b21f",
+        "engine_sha256": "f4971327c7221d18f14ffe8b2bcd07e14d8792026932b601c01fdc4f9de08222"
+      },
+      "fact_refs": [
+        "fact/LIVED-SYNTHETIC/F-OPEN"
+      ],
+      "rule_versions": [
+        {
+          "rule_id": "RULE-DYNAMIC-STATE-PLACEMENT-01",
+          "version": 1
+        },
+        {
+          "rule_id": "RULE-EVIDENCE-01",
+          "version": 1
+        },
+        {
+          "rule_id": "RULE-INDEPENDENT-WORLD-CLOCK-01",
+          "version": 1
+        },
+        {
+          "rule_id": "RULE-INNER-EXPERIENCE-AND-AGENCY-01",
+          "version": 1
+        },
+        {
+          "rule_id": "RULE-INTEL-KNOWLEDGE-01",
+          "version": 1
+        },
+        {
+          "rule_id": "RULE-LIVED-NARRATION-01",
+          "version": 1
+        },
+        {
+          "rule_id": "RULE-NPC-LIFE-AND-VOICE-01",
+          "version": 1
+        },
+        {
+          "rule_id": "RULE-RANDOM-DETERMINISM-01",
+          "version": 1
+        }
+      ],
+      "intent": "看看接待廊，听对方说话。",
+      "candidates": [
+        "询问",
+        "等待"
+      ],
+      "public_reason": "场景与对白依据合成夹具，玩家未作承诺。",
+      "selected_effect_kinds": [],
+      "result_event_id": "DOMAIN-LIVED-CONTINUE-47ed3cc7",
+      "no_hidden_chain_of_thought_stored": true,
+      "strategy": {
+        "policy_version": "bounded_observed_strategy_v1",
+        "scope": "conversation",
+        "machine_enabled": true,
+        "hints": [],
+        "preferred_topic": null,
+        "preferred_pace": null,
+        "user_evidence_event": null,
+        "machine_evidence_events": [],
+        "input_experience_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "max_ranking_displacement": 2,
+        "mechanical_effects": false,
+        "counterexample": "accepted validation resets current failure run",
+        "expiry": "observations <=7 game days; user preference <=30 game days; environment change invalidates machine evidence"
+      }
+    },
+    "prose": "你在窗边停了一步，诺娃把杯子从右手换到左手，灯下能看见杯沿新沾的水渍。通风机忽然低了一个调子。你听着，肩头绷紧的那一点劲慢慢松开，她却仍在等你先把问题说清楚。\n\n先坐会儿……你要问哪一段？我手头这点活还没收。",
+    "experience_review": {
+      "structural": "PASS",
+      "literary": "AI_REQUIRED",
+      "player_agency": "REQUIRED"
+    }
+  }
+}

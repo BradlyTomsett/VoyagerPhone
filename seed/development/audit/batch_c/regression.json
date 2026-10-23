@@ -1,0 +1,99 @@
+{
+  "schema": "BATCH_C_ACCEPTANCE_V1",
+  "status": "PASS",
+  "engine_sha256": "9e21dce8cb3edbb72ec479fc2d6bb39f36efe7a3dba093bdfab7ff2980a96e83",
+  "source_save_set_id": "SAVESET-V14.47-487d7e2cf2971251",
+  "tests": [
+    {
+      "name": "every_gameplay_fact_and_old_event_byte_preserved",
+      "status": "PASS",
+      "detail": {
+        "old_current_facts_unchanged": true,
+        "old_logical_events_exact_bytes": 2539,
+        "zero_time_maintenance_events": 1,
+        "all_old_cold_archives": 22
+      },
+      "seconds": 1.963
+    },
+    {
+      "name": "historical_disclosures_and_central_visibility_filter",
+      "status": "PASS",
+      "detail": "legacy known hypothesis remains uncertain; null preserved; private metadata filtered across dedicated outputs",
+      "seconds": 5.943
+    },
+    {
+      "name": "authorized_parallel_scenes_entities_and_separate_knowledge",
+      "status": "PASS",
+      "detail": {
+        "parallel_scenes": 3,
+        "duplicate_command_replay_no_effect": true,
+        "no_automatic_focus": true,
+        "different_npc_knows_nothing": true
+      },
+      "seconds": 47.584
+    },
+    {
+      "name": "narrative_authority_knowledge_and_hard_effect_negative_matrix",
+      "status": "PASS",
+      "detail": {
+        "hidden_fact_hard_cash_combat_mechanical_fact_unknown_npc_forged_effect_and_time_rejected": true,
+        "director_switch_does_not_disable_engine": true
+      },
+      "seconds": 0.312
+    },
+    {
+      "name": "three_story_families_freeform_choice_causal_consequences",
+      "status": "PASS",
+      "detail": {
+        "end_to_end_families": [
+          "rescue",
+          "ordinary_life",
+          "discovery"
+        ],
+        "freeform_choice": true,
+        "hard_effects_reused_not_executed": true,
+        "soft_quality_is_separate_fixture_review": true
+      },
+      "seconds": 43.725
+    },
+    {
+      "name": "knowledge_correction_story_rewrite_and_reversible_experience",
+      "status": "PASS",
+      "detail": {
+        "old_rumor_retained_correction_learned": true,
+        "rewrite_no_cash_rng_effect": true,
+        "alias_before": "unclassified",
+        "alias_after": "exact_current_balance",
+        "repetition_feedback_changes_context_rank_not_randomness": true,
+        "cache_deletion_and_switch": true
+      },
+      "seconds": 56.596
+    },
+    {
+      "name": "terminal_scenes_evidence_identity_and_revoke_protection",
+      "status": "PASS",
+      "detail": {
+        "closed_not_reopened": true,
+        "history_disclosure_requires_real_evidence": true,
+        "names_not_duplicated": true,
+        "consequence_once_only": true,
+        "experience_revoke_rebuildable": true,
+        "all_original_mechanics_preserved": true,
+        "fullcheck": "PASS"
+      },
+      "seconds": 60.429
+    },
+    {
+      "name": "cold_reload_dev_release_views_and_authorization_boundary",
+      "status": "PASS",
+      "detail": {
+        "reload_character_and_consequence_continuity": true,
+        "development_release_equal": true,
+        "sceneindex_no_hidden_fact": true,
+        "forged_authorization_rejected": true,
+        "corrupt_learning_cache_rebuilt": true
+      },
+      "seconds": 12.892
+    }
+  ]
+}

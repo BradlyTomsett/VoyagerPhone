@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VOYAGER data-only content package V1",
+  "type": "object",
+  "required": [
+    "schema",
+    "schema_version",
+    "package_id",
+    "namespace",
+    "version",
+    "rule_version",
+    "dependencies",
+    "source",
+    "visibility",
+    "definitions"
+  ],
+  "properties": {
+    "schema": {
+      "const": "VOYAGER_CONTENT_PACKAGE_V1"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "package_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{2,100}$"
+    },
+    "namespace": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_.-]{2,80}$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "rule_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "visibility": {
+      "enum": [
+        "player",
+        "gm",
+        "definition_only"
+      ]
+    },
+    "dependencies": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "definitions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "organization",
+              "location",
+              "equipment",
+              "scene_family",
+              "semantic_rule",
+              "random_tables"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

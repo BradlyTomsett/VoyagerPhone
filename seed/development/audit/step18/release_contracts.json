@@ -1,0 +1,49 @@
+{
+  "suite": "release_contracts",
+  "groups": 3,
+  "status": "PASS",
+  "script_sha256": "0791bc5b465d0545d334120c0b47378933849ce6b611c4452a760fcaf8f3306e",
+  "tested_save_set_id": "SAVESET-V14.48-cdf55a13d2da9684",
+  "tested_engine_sha256": "28678d32b60d671cae0247badba5e4d73600dbfb101811aa1d39c57d83cc81da",
+  "tested_guard_sha256": "e780ae0f45b082f5624be925f92ad04d1e21e3ab3a76c1655f571af222cc1dad",
+  "tested_manifest_sha256": "15f91516ddfd70ad897f47f497b85386218a65ed3913316ba373666f4c94c467",
+  "seconds": 78.475,
+  "result": {
+    "status": "PASS",
+    "tests": [
+      {
+        "name": "same_version_transport_fork_refused",
+        "status": "PASS",
+        "detail": "two individually bound same-version forks refused; mtime never resolves ambiguity",
+        "seconds": 0.865
+      },
+      {
+        "name": "commit_export_failure_retry_and_frozen_source",
+        "status": "PASS",
+        "detail": {
+          "committed_then_export_failure": true,
+          "only_export_retry": true,
+          "no_business_reexecution": true,
+          "frozen_zip_survives_later_development_changes": true
+        },
+        "seconds": 68.669
+      },
+      {
+        "name": "bounded_warm_queries_and_shared_batch_measurement",
+        "status": "PASS",
+        "detail": {
+          "samples": 20,
+          "warm_query_median_seconds": 0.04731878500001585,
+          "warm_query_p95_seconds": 0.060723357000028955,
+          "warm_history_decodes": 0,
+          "four_separate_function_seconds": 0.32665157000008094,
+          "four_topic_batch_seconds": 0.2291420090000429,
+          "batch_results_equal": true,
+          "environment": "Linux-6.18.44-x86_64-with-glibc2.39",
+          "measurement_scope": "function body after validated snapshot; no 30% speedup claim, no ChatGPT latency promise"
+        },
+        "seconds": 8.264
+      }
+    ]
+  }
+}

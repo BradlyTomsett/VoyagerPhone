@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "engine_sha256": "ad299e70637cbd8333ca05bd873f90d3b13eeaf51a00b18bf8448a5e50f283e9",
+  "tests": [
+    {
+      "name": "portable_input_contract_and_history_byte_protection",
+      "status": "PASS",
+      "detail": {
+        "source_gameplay_facts": true,
+        "old_event_byte_count": 2539,
+        "portable_proof": true
+      }
+    },
+    {
+      "name": "final_authorized_parallel_focus_alias_and_pattern_strategy",
+      "status": "PASS",
+      "detail": {
+        "current_and_batch_focus_required": true,
+        "alias_exact": true,
+        "NPC_isolation": true,
+        "temporary_repetition_rank_improves_without_permanent_preference": true,
+        "switch_rollback": true
+      }
+    },
+    {
+      "name": "dedicated_endpoints_and_learning_negative_matrix",
+      "status": "PASS",
+      "detail": "strict mechanical schema, cross-viewer access and wrong learned source rejected with no authority changes"
+    },
+    {
+      "name": "revoke_ID_protection_and_development_real_write_equivalence",
+      "status": "PASS",
+      "detail": {
+        "revoke_is_permanent_per_entry_id": true,
+        "development_real_commit_matches_release_routes": true,
+        "all_mechanics_and_cash_preserved": true
+      }
+    }
+  ]
+}

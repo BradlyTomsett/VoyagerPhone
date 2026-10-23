@@ -1,0 +1,92 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "zero_time_byte_exact_conservation",
+      "status": "PASS",
+      "detail": {
+        "old_events": 2636,
+        "new_events": 2637,
+        "game_time": "8363-12-11T08:00:00",
+        "authority_and_archives_byte_exact": true
+      },
+      "seconds": 1.9847
+    },
+    {
+      "name": "one_read_context_parity_and_exact_budget",
+      "status": "PASS",
+      "detail": {
+        "same_business_facts": true,
+        "combined_snapshot_identity": true,
+        "no_time_or_authority_write": true,
+        "bytes": 8531
+      },
+      "seconds": 7.175
+    },
+    {
+      "name": "boundary_and_dependency_equivalence",
+      "status": "PASS",
+      "detail": {
+        "legacy_layout_and_dependency_semantics_identical": true
+      },
+      "seconds": 0.3591
+    },
+    {
+      "name": "verified_epoch_reuse_without_mutable_sharing",
+      "status": "PASS",
+      "detail": {
+        "first_decodes": 19,
+        "second_decodes": 0,
+        "second_process_hits": 19,
+        "immutable": true
+      },
+      "seconds": 1.4938
+    },
+    {
+      "name": "actual_bytes_invalidate_cache_after_hidden_timestamp_tamper",
+      "status": "PASS",
+      "detail": {
+        "same_size_same_mtime_archive_damage_rejected": true,
+        "repair_revalidates": true
+      },
+      "seconds": 6.3236
+    },
+    {
+      "name": "cache_disabled_fallback_parity",
+      "status": "PASS",
+      "detail": {
+        "all_cache_off_same_public_result": true
+      },
+      "seconds": 17.1271
+    },
+    {
+      "name": "editable_split_source_and_built_engine_parity",
+      "status": "PASS",
+      "detail": {
+        "modules": 52,
+        "release_and_split_api_equal": true
+      },
+      "seconds": 0.8572
+    },
+    {
+      "name": "role_isolation_and_reused_host_context",
+      "status": "PASS",
+      "detail": {
+        "no_cross_viewer_batch": true,
+        "host_context_one_engine_load": true
+      },
+      "seconds": 0.9581
+    },
+    {
+      "name": "exact_transfer_authorization_commit_and_idempotent_retry",
+      "status": "PASS",
+      "detail": {
+        "fake_host_json_rejected": true,
+        "one_transfer_one_receipt": true,
+        "same_ID_no_replay": true,
+        "full": "PASS"
+      },
+      "seconds": 19.2185
+    }
+  ]
+}

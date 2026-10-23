@@ -1,0 +1,621 @@
+{
+  "schema": "BATCH2_FOLLOWUP_PERFORMANCE_V1",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+    "os_page_cache_flushed": false,
+    "profiling": false,
+    "concurrent_suites": false,
+    "fsync_scope": "current Python process; Guard subprocess fsync not instrumented",
+    "write_bytes_scope": "bytes passed to Python file streams in current process; includes object/JSON writes, excludes Guard subprocess and pipe writes; OS output blocks separately recorded"
+  },
+  "scope": "actual supplied V14.58 direct baseline; V14.57 batch baseline unavailable, NOT_RUN",
+  "model_generation": "NOT_RUN",
+  "ChatGPT_tool_roundtrips": "NOT_CONNECTED",
+  "conditions": "sequential unprofiled wall time including final canonical JSON serialization; fixture cloning/setup excluded; import measured separately; read first cold-derived then five warm; write sample count explicit; backend API calls are not actual provider tool roundtrips",
+  "versions": {
+    "V14.58": {
+      "engine_sha256": "3322a64a51356823b0a7d2176d8ada742526b20bfbb2d51eff8e2925e5190acb",
+      "input_manifest_sha256": "70ffd1aac8b95c70f9ed6aedbef944e7d14337da4ac3b6fa9ae68792097949f0",
+      "samples": {
+        "batch_cold_derived": [
+          5.27568569999994
+        ],
+        "batch_warm": [
+          0.43390591700017467,
+          0.46937408299982053,
+          0.3816706630000226,
+          0.3883166609998625,
+          0.43205341200018665
+        ],
+        "prepare_with_session_load": [
+          3.7574412540002413,
+          3.0624647850004294
+        ],
+        "prepare_hot_session": [
+          0.44260248199998387,
+          0.4107897280000543,
+          0.49887314000034166,
+          0.4091178260000561,
+          0.43897228300011193,
+          0.2931627349998962,
+          0.31936411900005623,
+          0.3357870270001513,
+          0.35468201300000146,
+          0.33381475600026533
+        ],
+        "round_prepare": [
+          0.4516349209998225,
+          0.32285724999974263
+        ],
+        "dialogue_submit_with_report": [
+          23.032672565999746,
+          21.172701727999993
+        ],
+        "warm_backend_round_prepare_submit": [
+          23.525465069999882,
+          21.534056024000165
+        ],
+        "prepare_after_dialogue": [
+          0.4043886350000321,
+          0.5389006209998115
+        ],
+        "dialogue_same_ID_retry": [
+          3.3865687739998975,
+          4.029319879000013
+        ],
+        "transfer_commit": [
+          14.986011815999973,
+          15.087132157999804
+        ],
+        "transfer_same_ID_retry": [
+          3.8613096720000613,
+          4.058744682999986
+        ],
+        "repair_parent_target_snapshots": [
+          1.7447925460000988
+        ],
+        "full_export_independent_coldboot": [
+          16.203760330000023
+        ],
+        "cold_interrupted_recovery_guard_check": [
+          14.698267947999739
+        ],
+        "cold_guard--check": [
+          8.641941047999808
+        ],
+        "cold_guard--resume": [
+          3.0437683899999683
+        ]
+      },
+      "IO": [
+        {
+          "sample": 0,
+          "kind": "dialogue",
+          "durable_copy_requests": 784,
+          "durable_copy_source_bytes": 34611191,
+          "fsync_calls": 915,
+          "stream_write_bytes": 37258715,
+          "full_copy_data_bytes": 17429477,
+          "os_block_output_512_bytes": 46166016
+        },
+        {
+          "sample": 0,
+          "kind": "transfer",
+          "durable_copy_requests": 784,
+          "durable_copy_source_bytes": 34665545,
+          "fsync_calls": 899,
+          "stream_write_bytes": 27184064,
+          "full_copy_data_bytes": 17483831,
+          "os_block_output_512_bytes": 36093952
+        },
+        {
+          "sample": 0,
+          "kind": "repair_two_snapshots",
+          "durable_copy_requests": 776,
+          "durable_copy_source_bytes": 30124856,
+          "fsync_calls": 1556,
+          "stream_write_bytes": 30128930,
+          "full_copy_data_bytes": 30124856,
+          "os_block_output_512_bytes": 32350208
+        },
+        {
+          "sample": 1,
+          "kind": "dialogue",
+          "durable_copy_requests": 784,
+          "durable_copy_source_bytes": 34611191,
+          "fsync_calls": 915,
+          "stream_write_bytes": 37261602,
+          "full_copy_data_bytes": 17429477,
+          "os_block_output_512_bytes": 46260224
+        },
+        {
+          "sample": 1,
+          "kind": "transfer",
+          "durable_copy_requests": 784,
+          "durable_copy_source_bytes": 34665545,
+          "fsync_calls": 899,
+          "stream_write_bytes": 27186720,
+          "full_copy_data_bytes": 17483831,
+          "os_block_output_512_bytes": 36069376
+        }
+      ],
+      "growth": [
+        {
+          "sample": 0,
+          "stage": "after_setup",
+          "files": 1521,
+          "logical_bytes": 62879409,
+          "unique_inode_allocated_bytes": 47529984
+        },
+        {
+          "sample": 0,
+          "stage": "after_dialogue",
+          "files": 2332,
+          "logical_bytes": 99424516,
+          "unique_inode_allocated_bytes": 67117056
+        },
+        {
+          "sample": 0,
+          "stage": "after_transfer",
+          "files": 3110,
+          "logical_bytes": 129550993,
+          "unique_inode_allocated_bytes": 80199680
+        },
+        {
+          "sample": 0,
+          "stage": "after_repair_snapshots",
+          "files": 3886,
+          "logical_bytes": 159676577,
+          "unique_inode_allocated_bytes": 112082944
+        },
+        {
+          "sample": 1,
+          "stage": "after_setup",
+          "files": 1521,
+          "logical_bytes": 62879409,
+          "unique_inode_allocated_bytes": 47529984
+        },
+        {
+          "sample": 1,
+          "stage": "after_dialogue",
+          "files": 2372,
+          "logical_bytes": 112676908,
+          "unique_inode_allocated_bytes": 80470016
+        },
+        {
+          "sample": 1,
+          "stage": "after_transfer",
+          "files": 3150,
+          "logical_bytes": 142803385,
+          "unique_inode_allocated_bytes": 93552640
+        }
+      ],
+      "engine_import_seconds": 0.9065421999998762,
+      "full_round_counts": [
+        {
+          "engine_loads": 0,
+          "prepare_requests": 1,
+          "submit_requests": 1
+        },
+        {
+          "engine_loads": 0,
+          "prepare_requests": 1,
+          "submit_requests": 1
+        }
+      ],
+      "host_session_metrics": [
+        {
+          "engine_loads": 1,
+          "prepare_requests": 8,
+          "submit_requests": 2
+        },
+        {
+          "engine_loads": 1,
+          "prepare_requests": 8,
+          "submit_requests": 2
+        }
+      ],
+      "summary": {
+        "batch_cold_derived": {
+          "n": 1,
+          "median_seconds": 5.27568569999994,
+          "min_seconds": 5.27568569999994,
+          "max_seconds": 5.27568569999994
+        },
+        "batch_warm": {
+          "n": 5,
+          "median_seconds": 0.43205341200018665,
+          "min_seconds": 0.3816706630000226,
+          "max_seconds": 0.46937408299982053
+        },
+        "prepare_with_session_load": {
+          "n": 2,
+          "median_seconds": 3.4099530195003354,
+          "min_seconds": 3.0624647850004294,
+          "max_seconds": 3.7574412540002413
+        },
+        "prepare_hot_session": {
+          "n": 10,
+          "median_seconds": 0.3818999195000288,
+          "min_seconds": 0.2931627349998962,
+          "max_seconds": 0.49887314000034166
+        },
+        "round_prepare": {
+          "n": 2,
+          "median_seconds": 0.38724608549978257,
+          "min_seconds": 0.32285724999974263,
+          "max_seconds": 0.4516349209998225
+        },
+        "dialogue_submit_with_report": {
+          "n": 2,
+          "median_seconds": 22.10268714699987,
+          "min_seconds": 21.172701727999993,
+          "max_seconds": 23.032672565999746
+        },
+        "warm_backend_round_prepare_submit": {
+          "n": 2,
+          "median_seconds": 22.529760547000024,
+          "min_seconds": 21.534056024000165,
+          "max_seconds": 23.525465069999882
+        },
+        "prepare_after_dialogue": {
+          "n": 2,
+          "median_seconds": 0.4716446279999218,
+          "min_seconds": 0.4043886350000321,
+          "max_seconds": 0.5389006209998115
+        },
+        "dialogue_same_ID_retry": {
+          "n": 2,
+          "median_seconds": 3.7079443264999554,
+          "min_seconds": 3.3865687739998975,
+          "max_seconds": 4.029319879000013
+        },
+        "transfer_commit": {
+          "n": 2,
+          "median_seconds": 15.036571986999888,
+          "min_seconds": 14.986011815999973,
+          "max_seconds": 15.087132157999804
+        },
+        "transfer_same_ID_retry": {
+          "n": 2,
+          "median_seconds": 3.9600271775000238,
+          "min_seconds": 3.8613096720000613,
+          "max_seconds": 4.058744682999986
+        },
+        "repair_parent_target_snapshots": {
+          "n": 1,
+          "median_seconds": 1.7447925460000988,
+          "min_seconds": 1.7447925460000988,
+          "max_seconds": 1.7447925460000988
+        },
+        "full_export_independent_coldboot": {
+          "n": 1,
+          "median_seconds": 16.203760330000023,
+          "min_seconds": 16.203760330000023,
+          "max_seconds": 16.203760330000023
+        },
+        "cold_interrupted_recovery_guard_check": {
+          "n": 1,
+          "median_seconds": 14.698267947999739,
+          "min_seconds": 14.698267947999739,
+          "max_seconds": 14.698267947999739
+        },
+        "cold_guard--check": {
+          "n": 1,
+          "median_seconds": 8.641941047999808,
+          "min_seconds": 8.641941047999808,
+          "max_seconds": 8.641941047999808
+        },
+        "cold_guard--resume": {
+          "n": 1,
+          "median_seconds": 3.0437683899999683,
+          "min_seconds": 3.0437683899999683,
+          "max_seconds": 3.0437683899999683
+        }
+      }
+    },
+    "V14.59": {
+      "engine_sha256": "4a5f72d6cd19ec238f178ad5f221015742aa03a9a8ed0497baa618fa91ea0ef2",
+      "input_manifest_sha256": "149adea27913431a572241d1e6be2ca6a56d45465c0f20fb30b37fd6294837e7",
+      "samples": {
+        "batch_cold_derived": [
+          5.68572922400017
+        ],
+        "batch_warm": [
+          0.3521251110000776,
+          0.25582720600004905,
+          0.3028611479999199,
+          0.34065861800036146,
+          0.45110862999990786
+        ],
+        "prepare_with_session_load": [
+          3.8502380509999057,
+          3.2428133739999794
+        ],
+        "prepare_hot_session": [
+          0.3953377709999586,
+          0.34065126499990583,
+          0.3174707729999682,
+          0.35332889699975567,
+          0.37431263400003445,
+          0.3033244799999011,
+          0.36356304499986436,
+          0.3181503379996684,
+          0.27209366400029467,
+          0.3091372079998109
+        ],
+        "round_prepare": [
+          0.41470381900035136,
+          0.2614983039998151
+        ],
+        "dialogue_submit_with_report": [
+          20.957400823999706,
+          20.291247525000017
+        ],
+        "warm_backend_round_prepare_submit": [
+          21.4110875690003,
+          20.578784696000184
+        ],
+        "prepare_after_dialogue": [
+          0.3352094080000825,
+          0.30064236399994115
+        ],
+        "dialogue_same_ID_retry": [
+          3.9656838079999943,
+          3.667122016999656
+        ],
+        "transfer_commit": [
+          14.625378071999876,
+          14.942526466000345
+        ],
+        "transfer_same_ID_retry": [
+          3.6933874900000774,
+          3.4440407289998802
+        ],
+        "repair_parent_target_snapshots": [
+          1.2373938929999895
+        ],
+        "full_export_independent_coldboot": [
+          18.103083269000308
+        ],
+        "cold_interrupted_recovery_guard_check": [
+          13.061782264999692
+        ],
+        "cold_guard--check": [
+          8.663024041999961
+        ],
+        "cold_guard--resume": [
+          2.815101350999612
+        ]
+      },
+      "IO": [
+        {
+          "sample": 0,
+          "kind": "dialogue",
+          "durable_copy_requests": 806,
+          "durable_copy_source_bytes": 34820051,
+          "fsync_calls": 937,
+          "stream_write_bytes": 37287838,
+          "full_copy_data_bytes": 17442389,
+          "os_block_output_512_bytes": 46215168
+        },
+        {
+          "sample": 0,
+          "kind": "transfer",
+          "durable_copy_requests": 806,
+          "durable_copy_source_bytes": 34874405,
+          "fsync_calls": 921,
+          "stream_write_bytes": 27212310,
+          "full_copy_data_bytes": 17496743,
+          "os_block_output_512_bytes": 36110336
+        },
+        {
+          "sample": 0,
+          "kind": "repair_two_snapshots",
+          "durable_copy_requests": 798,
+          "durable_copy_source_bytes": 30329412,
+          "fsync_calls": 862,
+          "stream_write_bytes": 12964828,
+          "full_copy_data_bytes": 12951750,
+          "os_block_output_512_bytes": 13389824
+        },
+        {
+          "sample": 1,
+          "kind": "dialogue",
+          "durable_copy_requests": 806,
+          "durable_copy_source_bytes": 34820051,
+          "fsync_calls": 937,
+          "stream_write_bytes": 37290721,
+          "full_copy_data_bytes": 17442389,
+          "os_block_output_512_bytes": 46211072
+        },
+        {
+          "sample": 1,
+          "kind": "transfer",
+          "durable_copy_requests": 806,
+          "durable_copy_source_bytes": 34874405,
+          "fsync_calls": 921,
+          "stream_write_bytes": 27214964,
+          "full_copy_data_bytes": 17496743,
+          "os_block_output_512_bytes": 36331520
+        }
+      ],
+      "growth": [
+        {
+          "sample": 0,
+          "stage": "after_setup",
+          "files": 1568,
+          "logical_bytes": 58582842,
+          "unique_inode_allocated_bytes": 43089920
+        },
+        {
+          "sample": 0,
+          "stage": "after_dialogue",
+          "files": 2437,
+          "logical_bytes": 107731918,
+          "unique_inode_allocated_bytes": 75177984
+        },
+        {
+          "sample": 0,
+          "stage": "after_transfer",
+          "files": 3272,
+          "logical_bytes": 147927304,
+          "unique_inode_allocated_bytes": 98222080
+        },
+        {
+          "sample": 0,
+          "stage": "after_repair_snapshots",
+          "files": 4070,
+          "logical_bytes": 178257444,
+          "unique_inode_allocated_bytes": 111312896
+        },
+        {
+          "sample": 1,
+          "stage": "after_setup",
+          "files": 1577,
+          "logical_bytes": 64203083,
+          "unique_inode_allocated_bytes": 48730112
+        },
+        {
+          "sample": 1,
+          "stage": "after_dialogue",
+          "files": 2437,
+          "logical_bytes": 107731918,
+          "unique_inode_allocated_bytes": 75177984
+        },
+        {
+          "sample": 1,
+          "stage": "after_transfer",
+          "files": 3253,
+          "logical_bytes": 146327844,
+          "unique_inode_allocated_bytes": 96575488
+        }
+      ],
+      "engine_import_seconds": 0.8887315749998379,
+      "full_round_counts": [
+        {
+          "engine_loads": 0,
+          "prepare_requests": 1,
+          "submit_requests": 1
+        },
+        {
+          "engine_loads": 0,
+          "prepare_requests": 1,
+          "submit_requests": 1
+        }
+      ],
+      "host_session_metrics": [
+        {
+          "engine_loads": 1,
+          "prepare_requests": 8,
+          "submit_requests": 2
+        },
+        {
+          "engine_loads": 1,
+          "prepare_requests": 8,
+          "submit_requests": 2
+        }
+      ],
+      "summary": {
+        "batch_cold_derived": {
+          "n": 1,
+          "median_seconds": 5.68572922400017,
+          "min_seconds": 5.68572922400017,
+          "max_seconds": 5.68572922400017
+        },
+        "batch_warm": {
+          "n": 5,
+          "median_seconds": 0.34065861800036146,
+          "min_seconds": 0.25582720600004905,
+          "max_seconds": 0.45110862999990786
+        },
+        "prepare_with_session_load": {
+          "n": 2,
+          "median_seconds": 3.5465257124999425,
+          "min_seconds": 3.2428133739999794,
+          "max_seconds": 3.8502380509999057
+        },
+        "prepare_hot_session": {
+          "n": 10,
+          "median_seconds": 0.3294008014997871,
+          "min_seconds": 0.27209366400029467,
+          "max_seconds": 0.3953377709999586
+        },
+        "round_prepare": {
+          "n": 2,
+          "median_seconds": 0.33810106150008323,
+          "min_seconds": 0.2614983039998151,
+          "max_seconds": 0.41470381900035136
+        },
+        "dialogue_submit_with_report": {
+          "n": 2,
+          "median_seconds": 20.62432417449986,
+          "min_seconds": 20.291247525000017,
+          "max_seconds": 20.957400823999706
+        },
+        "warm_backend_round_prepare_submit": {
+          "n": 2,
+          "median_seconds": 20.994936132500243,
+          "min_seconds": 20.578784696000184,
+          "max_seconds": 21.4110875690003
+        },
+        "prepare_after_dialogue": {
+          "n": 2,
+          "median_seconds": 0.3179258860000118,
+          "min_seconds": 0.30064236399994115,
+          "max_seconds": 0.3352094080000825
+        },
+        "dialogue_same_ID_retry": {
+          "n": 2,
+          "median_seconds": 3.816402912499825,
+          "min_seconds": 3.667122016999656,
+          "max_seconds": 3.9656838079999943
+        },
+        "transfer_commit": {
+          "n": 2,
+          "median_seconds": 14.78395226900011,
+          "min_seconds": 14.625378071999876,
+          "max_seconds": 14.942526466000345
+        },
+        "transfer_same_ID_retry": {
+          "n": 2,
+          "median_seconds": 3.568714109499979,
+          "min_seconds": 3.4440407289998802,
+          "max_seconds": 3.6933874900000774
+        },
+        "repair_parent_target_snapshots": {
+          "n": 1,
+          "median_seconds": 1.2373938929999895,
+          "min_seconds": 1.2373938929999895,
+          "max_seconds": 1.2373938929999895
+        },
+        "full_export_independent_coldboot": {
+          "n": 1,
+          "median_seconds": 18.103083269000308,
+          "min_seconds": 18.103083269000308,
+          "max_seconds": 18.103083269000308
+        },
+        "cold_interrupted_recovery_guard_check": {
+          "n": 1,
+          "median_seconds": 13.061782264999692,
+          "min_seconds": 13.061782264999692,
+          "max_seconds": 13.061782264999692
+        },
+        "cold_guard--check": {
+          "n": 1,
+          "median_seconds": 8.663024041999961,
+          "min_seconds": 8.663024041999961,
+          "max_seconds": 8.663024041999961
+        },
+        "cold_guard--resume": {
+          "n": 1,
+          "median_seconds": 2.815101350999612,
+          "min_seconds": 2.815101350999612,
+          "max_seconds": 2.815101350999612
+        }
+      }
+    }
+  },
+  "status": "PASS"
+}

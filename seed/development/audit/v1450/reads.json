@@ -1,0 +1,38 @@
+{
+  "suite": "reads",
+  "status": "PASS",
+  "returncode": 0,
+  "seconds": 20.729,
+  "upstream_script_sha256": "45e45e4a195829a6bd52c84fa6bc2da9c31e58b8fcf5d34b3c75792e66e0099a",
+  "adapted_script_sha256": "45e45e4a195829a6bd52c84fa6bc2da9c31e58b8fcf5d34b3c75792e66e0099a",
+  "result": {
+    "status": "PASS",
+    "tests": [
+      {
+        "name": "development_release_behavior_equivalence",
+        "status": "PASS",
+        "detail": "release engine and checked isolated development modules agree for four public read commands"
+      },
+      {
+        "name": "development_module_hash_and_export_fail_closed",
+        "status": "PASS",
+        "detail": "module tamper and missing exported symbol fail before calling public commands"
+      },
+      {
+        "name": "cache_disabled_result_equivalence",
+        "status": "PASS",
+        "detail": "same packet with semantics cache disabled"
+      },
+      {
+        "name": "tenfold_history_exact_query_does_not_expand_cold_history",
+        "status": "PASS",
+        "detail": {
+          "logical_events": 25400,
+          "warm_history_decodes": 0,
+          "warm_json_parses": 1,
+          "no_linear_full_history_expansion": true
+        }
+      }
+    ]
+  }
+}

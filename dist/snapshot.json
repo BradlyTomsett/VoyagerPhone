@@ -1,0 +1,514 @@
+{
+  "version": "V14.66",
+  "save_set_id": "SAVESET-V14.66-c62fa79e3172e017",
+  "game_time": "8363-12-11T08:00:00",
+  "core": {
+    "packet": "QUERY_INTENT_V4",
+    "registry": "QUERY_INTENT_REGISTRY_V3",
+    "contract": "QUERY_CONTRACT_V4",
+    "engine_version": "2.74.0",
+    "save_set_id": "SAVESET-V14.66-c62fa79e3172e017",
+    "game_time": "8363-12-11T08:00:00",
+    "topic": "舰队核心",
+    "intent": "core",
+    "entity_id": null,
+    "required_fields": [
+      "fleet_core",
+      "locations"
+    ],
+    "returned_fields": [
+      "fleet_core",
+      "locations"
+    ],
+    "missing_fields": [],
+    "value": {
+      "fleet_core": {
+        "voyager": {
+          "ships": 51,
+          "personnel": 17203,
+          "display_name": "远航者舰队",
+          "source_paths": [
+            "state:summary.ships.voyager",
+            "state:voyager_fleet.current_personnel"
+          ],
+          "complete": true
+        },
+        "jinchuan": {
+          "ships": 9,
+          "personnel": 709,
+          "display_name": "金川舰队",
+          "source_paths": [
+            "state:summary.ships.jinchuan",
+            "state:jinchuan_fleet.personnel_total"
+          ],
+          "complete": true
+        },
+        "shadow": {
+          "ships": 18,
+          "personnel": 6034,
+          "display_name": "暗影舰队",
+          "source_paths": [
+            "state:summary.ships.shadow_active",
+            "state:shadow_fleet.personnel_total"
+          ],
+          "complete": true
+        },
+        "gold": 12593192705.828,
+        "grey": 99131161896.42,
+        "five_balances": {
+          "main_gold": {
+            "status": "CONFIRMED_CURRENT",
+            "account_id": "fleet",
+            "currency": "gold",
+            "amount": "12593192705.828",
+            "integer_units": "125931927058280",
+            "units_per_currency": 10000,
+            "reserved_units": "0"
+          },
+          "main_grey": {
+            "status": "CONFIRMED_CURRENT",
+            "account_id": "fleet",
+            "currency": "grey",
+            "amount": "99131161896.42",
+            "integer_units": "991311618964200",
+            "units_per_currency": 10000,
+            "reserved_units": "0"
+          },
+          "covert_copper": {
+            "status": "CONFIRMED_CURRENT",
+            "account_id": "covert",
+            "currency": "copper",
+            "amount": "15560892",
+            "integer_units": "15560892",
+            "units_per_currency": 1,
+            "reserved_units": "0",
+            "display": {
+              "gold": 1556,
+              "silver": 8,
+              "copper": 92
+            }
+          },
+          "covert_grey": {
+            "status": "CONFIRMED_CURRENT",
+            "account_id": "covert",
+            "currency": "grey",
+            "amount": "3121.32",
+            "integer_units": "31213200",
+            "units_per_currency": 10000,
+            "reserved_units": "0"
+          },
+          "shop_copper": {
+            "status": "ACCEPTED_SIMULATED_BOOK_BALANCE",
+            "account_id": "shop",
+            "currency": "copper",
+            "amount": "30404",
+            "integer_units": "30404",
+            "units_per_currency": 1,
+            "reserved_units": "0",
+            "balance_evidence": {
+              "class": "accepted_simulated_book_balance",
+              "physical_cash_verified": false,
+              "policy_id": "YUHUO-AUTONOMY-83631210",
+              "contains_authorized_simulation": true,
+              "meaning": "accepted in-game ledger balance; not evidence of physical receipts or POS reconciliation"
+            },
+            "display": {
+              "gold": 3,
+              "silver": 4,
+              "copper": 4
+            }
+          }
+        }
+      },
+      "locations": {
+        "voyager": {
+          "as_of": "8363-07-08T21:46:00",
+          "base_ships": 51,
+          "deployment_count": 0,
+          "transit_ships": 0,
+          "base": {
+            "ships": 51,
+            "status": "51舰全部位于远航者基地；探索者1号已于8363-07-06 15:27返航。"
+          },
+          "deployments": {},
+          "transit": {
+            "ships": 0,
+            "vessels": [],
+            "status": "当前无远航者舰艇处于未封板返航航段。"
+          }
+        },
+        "jinchuan": {
+          "as_of": "8362-06-27T08:20:00",
+          "guard_site_count": 5,
+          "development_group_count": 2,
+          "commercial_guard_sites": {
+            "P-3": "VES-BIANWEI1",
+            "M-17": "VES-BIANWEI2",
+            "R-6": "VES-BIANWEI3",
+            "C-9": "VES-BIANWEI4",
+            "M-22": "VES-BIANWEI5"
+          },
+          "development_groups": {
+            "L-3": [
+              "VES-FARROAD1",
+              "VES-BORDER"
+            ],
+            "W-5": [
+              "VES-FARROAD2",
+              "VES-SENTINEL9"
+            ]
+          },
+          "status": "九舰正常运行；W-5/L-3扩产均已结束，丹尼尔维持生产、销售与警戒。"
+        },
+        "shadow": {
+          "as_of": "8363-12-05T09:10:00",
+          "homeport": "LOC-SHADOWBASE-01",
+          "base_ships": 11,
+          "deployment_count": 1,
+          "transit_ships": null,
+          "base": {
+            "ships": 11,
+            "vessels": [
+              "VES-ANYA1",
+              "VES-CHENXIANG2",
+              "VES-CHENXIANG4",
+              "VES-CHENXIANG5",
+              "VES-ANYA7",
+              "VES-ANYA10",
+              "VES-ANYA8",
+              "VES-ANYA9",
+              "VES-ANYA11",
+              "VES-ANYA12",
+              "VES-ANYA13"
+            ],
+            "status": "原其余11现役舰留S-B5"
+          },
+          "deployments": {
+            "SHADOW-CT-GROUP1": {
+              "ships": 7,
+              "vessels": [
+                "VES-ANYA2",
+                "VES-ANYA3",
+                "VES-ANYA4",
+                "VES-ANYA5",
+                "VES-ANYA6",
+                "VES-CHENXIANG1",
+                "VES-CHENXIANG3"
+              ],
+              "location_id": "LOC-XILU9-NEAR-HIDDEN-01",
+              "location_name": "熄炉-9附近小行星带隐蔽停泊区",
+              "ship_personnel": 507,
+              "qrf_personnel": 460,
+              "total_personnel": 967,
+              "qrf_aboard": 455,
+              "local_detached_qrf": 5,
+              "persons_aboard": 962,
+              "status": "用户位置纠正已生效；七舰隐蔽停泊，不自动巡航/参战"
+            }
+          },
+          "transit": {},
+          "note": "12/08行动组原七舰返回此前附近隐蔽位置；12/10继续七舰近熄炉隐藏、十一舰S-B5，未跨区域调舰。"
+        }
+      }
+    },
+    "source_refs": [
+      "state:game_time",
+      "state:core"
+    ],
+    "freshness": {
+      "as_of_game_time": "8363-12-11T08:00:00",
+      "save_set_id": "SAVESET-V14.66-c62fa79e3172e017"
+    },
+    "confidence": "authoritative",
+    "completeness": "COMPLETE",
+    "status": "COMPLETE",
+    "truncated": false,
+    "as_of": "8363-12-11T08:00:00"
+  },
+  "tasks": {
+    "packet": "QUERY_INTENT_V4",
+    "registry": "QUERY_INTENT_REGISTRY_V3",
+    "contract": "QUERY_CONTRACT_V4",
+    "engine_version": "2.74.0",
+    "save_set_id": "SAVESET-V14.66-c62fa79e3172e017",
+    "game_time": "8363-12-11T08:00:00",
+    "topic": "活动任务",
+    "intent": "active_tasks",
+    "entity_id": null,
+    "required_fields": [
+      "value:list"
+    ],
+    "returned_fields": [
+      "value:list"
+    ],
+    "missing_fields": [],
+    "value": [
+      {
+        "task_id": "TSK-MIN-OPERATIONS",
+        "title": "金川矿业与固定打捞运营",
+        "phase": "commercial_operations_14_mines_9_fixed_salvage_operational",
+        "priority": "high",
+        "mode": "scheduled",
+        "next_review_at": "8363-12-11T08:20:00",
+        "requires_ai_review": false
+      },
+      {
+        "task_id": "TSK-CALDER-INDUSTRIES-302",
+        "title": "多国产业统一总账运营",
+        "phase": "asset_1628_operational_unified_gold_grey",
+        "priority": "high",
+        "mode": "scheduled",
+        "next_review_at": "8363-12-12T00:20:00",
+        "requires_ai_review": false
+      },
+      {
+        "task_id": "TSK-MKT-RESEARCH-DATA-SALES",
+        "title": "科研数据非独占销售",
+        "phase": "catalog_97_unified_open_recurring_nonexclusive_45g",
+        "priority": "medium_high",
+        "mode": "scheduled",
+        "next_review_at": "8363-12-11T11:20:00",
+        "requires_ai_review": false
+      },
+      {
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "title": "暗反1组—熄炉近域隐蔽待命、区域警戒与维护",
+        "phase": "hidden_standby",
+        "priority": "high",
+        "mode": "manual",
+        "next_review_at": null,
+        "requires_ai_review": true
+      },
+      {
+        "task_id": "TSK-YUHUO-OPERATIONS",
+        "title": "余火咖啡持续运营与员工保障",
+        "phase": "shop_normal_operation_white_sleep_local_case_separate",
+        "priority": "normal",
+        "mode": "scheduled",
+        "next_review_at": "8363-12-11T23:20:00",
+        "requires_ai_review": false
+      }
+    ],
+    "source_refs": [
+      "tasks:active_tasks"
+    ],
+    "freshness": {
+      "as_of_game_time": "8363-12-11T08:00:00",
+      "save_set_id": "SAVESET-V14.66-c62fa79e3172e017"
+    },
+    "confidence": "authoritative",
+    "completeness": "COMPLETE",
+    "status": "COMPLETE",
+    "truncated": false,
+    "as_of": "8363-12-11T08:00:00"
+  },
+  "accounts": {
+    "packet": "EXACT_ACCOUNT_PROJECTION_V1",
+    "status": "COMPLETE",
+    "save_set_id": "SAVESET-V14.66-c62fa79e3172e017",
+    "game_time": "8363-12-11T08:00:00",
+    "value": {
+      "main_gold": {
+        "status": "CONFIRMED_CURRENT",
+        "account_id": "fleet",
+        "currency": "gold",
+        "amount": "12593192705.828",
+        "integer_units": "125931927058280",
+        "units_per_currency": 10000,
+        "reserved_units": "0"
+      },
+      "main_grey": {
+        "status": "CONFIRMED_CURRENT",
+        "account_id": "fleet",
+        "currency": "grey",
+        "amount": "99131161896.42",
+        "integer_units": "991311618964200",
+        "units_per_currency": 10000,
+        "reserved_units": "0"
+      },
+      "covert_copper": {
+        "status": "CONFIRMED_CURRENT",
+        "account_id": "covert",
+        "currency": "copper",
+        "amount": "15560892",
+        "integer_units": "15560892",
+        "units_per_currency": 1,
+        "reserved_units": "0",
+        "display": {
+          "gold": 1556,
+          "silver": 8,
+          "copper": 92
+        }
+      },
+      "covert_grey": {
+        "status": "CONFIRMED_CURRENT",
+        "account_id": "covert",
+        "currency": "grey",
+        "amount": "3121.32",
+        "integer_units": "31213200",
+        "units_per_currency": 10000,
+        "reserved_units": "0"
+      },
+      "shop_copper": {
+        "status": "ACCEPTED_SIMULATED_BOOK_BALANCE",
+        "account_id": "shop",
+        "currency": "copper",
+        "amount": "30404",
+        "integer_units": "30404",
+        "units_per_currency": 1,
+        "reserved_units": "0",
+        "balance_evidence": {
+          "class": "accepted_simulated_book_balance",
+          "physical_cash_verified": false,
+          "policy_id": "YUHUO-AUTONOMY-83631210",
+          "contains_authorized_simulation": true,
+          "meaning": "accepted in-game ledger balance; not evidence of physical receipts or POS reconciliation"
+        },
+        "display": {
+          "gold": 3,
+          "silver": 4,
+          "copper": 4
+        }
+      }
+    },
+    "source_ref": "state:engine_runtime.account_registry_v1"
+  },
+  "scenes": {
+    "packet": "SCENE_INDEX_V2",
+    "status": "COMPLETE",
+    "save_set_id": "SAVESET-V14.66-c62fa79e3172e017",
+    "viewer": "player",
+    "current": {
+      "scene_id": null,
+      "task_id": null,
+      "phase": null,
+      "status": "NO_OPEN_SCENE",
+      "candidates": []
+    },
+    "total": 25,
+    "offset": 0,
+    "rows": [
+      {
+        "scene_id": "XILU9-WHITESLEEP-0317-83631202",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL"
+      },
+      {
+        "scene_id": "CASE-CENTRAL-CUSTODY-ARBITER-83630723-0818",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "knowledge_evidence": "historical_disclosure_unverified"
+      },
+      {
+        "scene_id": "CASE-CUTLINE-CLIENTVEIL-83630709-0719",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "knowledge_evidence": "historical_disclosure_unverified"
+      },
+      {
+        "scene_id": "CASE-FREEPORT-CORP-LEAK-83630830",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "knowledge_evidence": "historical_disclosure_unverified"
+      },
+      {
+        "scene_id": "LOCAL-FREEPORT-AMBERGATE2-83630828",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "knowledge_evidence": "historical_disclosure_unverified"
+      },
+      {
+        "scene_id": "LOCAL-FREEPORT-COLDWELL47-83630826",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "knowledge_evidence": "historical_disclosure_unverified"
+      },
+      {
+        "scene_id": "LOCAL-FREEPORT-CROWNRESERVE-K7726-83630821",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "knowledge_evidence": "historical_disclosure_unverified"
+      },
+      {
+        "scene_id": "LOCAL-FREEPORT-CUSTODIAN7-83630907",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "knowledge_evidence": "historical_disclosure_unverified"
+      },
+      {
+        "scene_id": "LOCAL-FREEPORT-ECHO13-83630819",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "knowledge_evidence": "historical_disclosure_unverified"
+      },
+      {
+        "scene_id": "LOCAL-FREEPORT-GRAYLAMP4-83630910",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "knowledge_evidence": "historical_disclosure_unverified"
+      },
+      {
+        "scene_id": "LOCAL-FREEPORT-GRAYSAIL17-83630825",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "knowledge_evidence": "historical_disclosure_unverified"
+      },
+      {
+        "scene_id": "LOCAL-FREEPORT-SEEDSHIP17-83630910",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "knowledge_evidence": "historical_disclosure_unverified"
+      },
+      {
+        "scene_id": "LOCAL-FREEPORT-STONEWEDGE41-83630820",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "knowledge_evidence": "historical_disclosure_unverified"
+      },
+      {
+        "scene_id": "LOCAL-FREEPORT-XILU9-SEVENDOCK-83630910",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "knowledge_evidence": "historical_disclosure_unverified"
+      },
+      {
+        "scene_id": "LOCAL-SIX-LIGHTS-83630819",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "knowledge_evidence": "historical_disclosure_unverified"
+      },
+      {
+        "scene_id": "LOCAL-WHITE-GLOVE-83630819",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "knowledge_evidence": "historical_disclosure_unverified"
+      },
+      {
+        "scene_id": "LOCAL-XIANYUE-BLINDSPRING6-83630629",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "knowledge_evidence": "historical_disclosure_unverified"
+      },
+      {
+        "scene_id": "LOCAL-XIANYUE-COLDSTACK9-83630706",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "knowledge_evidence": "historical_disclosure_unverified"
+      },
+      {
+        "scene_id": "LOCAL-XIANYUE-FENGXIANG4-83630624",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "knowledge_evidence": "historical_disclosure_unverified"
+      },
+      {
+        "scene_id": "LOCAL-XIANYUE-GRAYRIDGE12-OVERGATE-83630625",
+        "phase": "closed",
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "knowledge_evidence": "historical_disclosure_unverified"
+      }
+    ],
+    "next_offset": 20
+  },
+  "source": "verified_engine"
+}

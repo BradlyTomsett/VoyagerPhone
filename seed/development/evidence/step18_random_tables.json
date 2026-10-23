@@ -1,0 +1,2174 @@
+{
+  "framework": {
+    "version": "RANDOM_EVENT_FRAMEWORK_V3",
+    "allow_multiple_events_same_game_day": true,
+    "mechanical_multi_event_limit_per_advance": 64,
+    "history_event_per_hazard_cycle_required": true,
+    "auto_materialized_families": [
+      "global_small_armed_conflict",
+      "major_nation_significant_instability",
+      "medium_nation_significant_instability",
+      "small_nation_significant_instability",
+      "piracy_crime_contact",
+      "scientific_anomaly",
+      "intelligence_opportunity",
+      "market_event",
+      "mining_event"
+    ],
+    "operational_hazard_families": [
+      "global_small_armed_conflict",
+      "major_nation_significant_instability",
+      "medium_nation_significant_instability",
+      "small_nation_significant_instability",
+      "deep_space_encounter",
+      "piracy_crime_contact",
+      "salvage_discovery",
+      "scientific_anomaly",
+      "market_event",
+      "mining_event",
+      "intelligence_opportunity",
+      "rare_major_event"
+    ]
+  },
+  "tables": {
+    "global_small_armed_conflict": {
+      "table_id": "RANDOM-WORLD-CONFLICT-MECHANICAL-V1",
+      "mode": "mechanical",
+      "policy": "Engine deterministically selects actors, conflict form and immediate disposition. No direct player funds/assets mutation.",
+      "rows": [
+        {
+          "id": "border_patrol_exchange",
+          "weight": 4,
+          "mode": "mechanical",
+          "payload": {
+            "event": "border_patrol_exchange",
+            "choice_fields": {
+              "actor_a": [
+                "新罗马帝国",
+                "联邦合众国",
+                "东方联合体",
+                "维拉共和国",
+                "泰坦联邦",
+                "天鹰公国",
+                "自由港联盟",
+                "北境王国",
+                "绿洲联邦",
+                "星环共和国",
+                "白峡共和国",
+                "卡尔德自由邦",
+                "卡岚边境联盟",
+                "蓝湾共和国",
+                "澜桥共和国",
+                "红岬共和国",
+                "塔勒斯自由港邦",
+                "塔维斯边境联邦"
+              ],
+              "actor_b": [
+                "新罗马帝国",
+                "联邦合众国",
+                "东方联合体",
+                "维拉共和国",
+                "泰坦联邦",
+                "天鹰公国",
+                "自由港联盟",
+                "北境王国",
+                "绿洲联邦",
+                "星环共和国",
+                "白峡共和国",
+                "卡尔德自由邦",
+                "卡岚边境联盟",
+                "蓝湾共和国",
+                "澜桥共和国",
+                "红岬共和国",
+                "塔勒斯自由港邦",
+                "塔维斯边境联邦"
+              ],
+              "location_type": [
+                "中立货运航道",
+                "边境空间站外缘",
+                "争议采矿带",
+                "边境跳跃航路"
+              ],
+              "duration_class": [
+                "十余分钟",
+                "不足一小时",
+                "数小时"
+              ],
+              "immediate_outcome": [
+                "局地停火",
+                "双方脱离接触",
+                "第三方调停后停火"
+              ]
+            },
+            "major_force_change": false,
+            "direct_player_effect": false
+          }
+        },
+        {
+          "id": "anti_piracy_crossfire",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "anti_piracy_crossfire",
+            "choice_fields": {
+              "actor_a": [
+                "新罗马帝国",
+                "联邦合众国",
+                "东方联合体",
+                "维拉共和国",
+                "泰坦联邦",
+                "天鹰公国",
+                "自由港联盟",
+                "北境王国",
+                "绿洲联邦",
+                "星环共和国",
+                "白峡共和国",
+                "卡尔德自由邦",
+                "卡岚边境联盟",
+                "蓝湾共和国",
+                "澜桥共和国",
+                "红岬共和国",
+                "塔勒斯自由港邦",
+                "塔维斯边境联邦"
+              ],
+              "location_type": [
+                "外围贸易航线",
+                "自由港外缘",
+                "资源运输走廊"
+              ],
+              "immediate_outcome": [
+                "海盗撤离",
+                "执法方恢复航路控制",
+                "双方脱离"
+              ]
+            },
+            "opponent_type": "pirate_or_criminal_force",
+            "major_force_change": false,
+            "direct_player_effect": false
+          }
+        },
+        {
+          "id": "localized_rebel_clash",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "localized_rebel_clash",
+            "choice_fields": {
+              "actor_a": [
+                "维拉共和国",
+                "泰坦联邦",
+                "天鹰公国",
+                "自由港联盟",
+                "北境王国",
+                "绿洲联邦",
+                "星环共和国",
+                "白峡共和国",
+                "卡尔德自由邦",
+                "卡岚边境联盟",
+                "蓝湾共和国",
+                "澜桥共和国",
+                "红岬共和国",
+                "塔勒斯自由港邦",
+                "塔维斯边境联邦"
+              ],
+              "location_type": [
+                "外围殖民地",
+                "工业轨道区",
+                "边境居住站"
+              ],
+              "immediate_outcome": [
+                "政府军守住关键节点",
+                "叛乱方撤入外围区域",
+                "形成短期停火"
+              ]
+            },
+            "major_force_change": false,
+            "direct_player_effect": false
+          }
+        },
+        {
+          "id": "peacekeeping_firefight",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "peacekeeping_firefight",
+            "choice_fields": {
+              "actor_a": [
+                "新罗马帝国",
+                "联邦合众国",
+                "东方联合体",
+                "维拉共和国",
+                "泰坦联邦",
+                "天鹰公国",
+                "自由港联盟",
+                "北境王国",
+                "绿洲联邦",
+                "星环共和国",
+                "白峡共和国",
+                "卡尔德自由邦",
+                "卡岚边境联盟",
+                "蓝湾共和国",
+                "澜桥共和国",
+                "红岬共和国",
+                "塔勒斯自由港邦",
+                "塔维斯边境联邦"
+              ],
+              "location_type": [
+                "维和缓冲区",
+                "撤侨航线",
+                "人道主义补给通道"
+              ],
+              "immediate_outcome": [
+                "交火停止",
+                "通道恢复有限通行",
+                "维和力量加强警戒"
+              ]
+            },
+            "major_force_change": false,
+            "direct_player_effect": false
+          }
+        },
+        {
+          "id": "counterterror_security_action",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "counterterror_security_action",
+            "choice_fields": {
+              "actor_a": [
+                "维拉共和国",
+                "泰坦联邦",
+                "天鹰公国",
+                "自由港联盟",
+                "北境王国",
+                "绿洲联邦",
+                "星环共和国",
+                "白峡共和国",
+                "卡尔德自由邦",
+                "卡岚边境联盟",
+                "蓝湾共和国",
+                "澜桥共和国",
+                "红岬共和国",
+                "塔勒斯自由港邦",
+                "塔维斯边境联邦"
+              ],
+              "location_type": [
+                "港口城区",
+                "工业卫星区",
+                "货运中转站"
+              ],
+              "immediate_outcome": [
+                "安全部队控制现场",
+                "嫌疑网络转入潜伏",
+                "行动结束并继续追查"
+              ]
+            },
+            "major_force_change": false,
+            "direct_player_effect": false
+          }
+        }
+      ]
+    },
+    "major_nation_significant_instability": {
+      "table_id": "RANDOM-MAJOR-POLITICS-MECHANICAL-V1",
+      "mode": "mechanical",
+      "policy": "Engine materializes a bounded major-nation political shock; no one-roll civil war, breakup or annexation.",
+      "rows": [
+        {
+          "id": "cabinet_crisis",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "cabinet_crisis",
+            "choice_fields": {
+              "affected_entity": [
+                "新罗马帝国",
+                "联邦合众国",
+                "东方联合体"
+              ],
+              "trigger": [
+                "预算案失败",
+                "高级官员辞职潮",
+                "安全丑闻",
+                "执政联盟内部决裂"
+              ],
+              "immediate_outcome": [
+                "启动信任投票",
+                "内阁改组谈判",
+                "议会紧急磋商"
+              ]
+            },
+            "structural_state_change": false
+          }
+        },
+        {
+          "id": "mass_protest_wave",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "mass_protest_wave",
+            "choice_fields": {
+              "affected_entity": [
+                "新罗马帝国",
+                "联邦合众国",
+                "东方联合体"
+              ],
+              "trigger": [
+                "生活成本争议",
+                "劳工政策",
+                "地方自治争议",
+                "大型公共采购丑闻"
+              ],
+              "immediate_outcome": [
+                "政府宣布对话机制",
+                "议会启动听证",
+                "地方安保升级但未进入战争状态"
+              ]
+            },
+            "structural_state_change": false
+          }
+        },
+        {
+          "id": "high_level_corruption_probe",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "high_level_corruption_probe",
+            "choice_fields": {
+              "affected_entity": [
+                "新罗马帝国",
+                "联邦合众国",
+                "东方联合体"
+              ],
+              "immediate_outcome": [
+                "检方正式立案",
+                "议会调查委员会成立",
+                "涉事官员暂停职务"
+              ]
+            },
+            "structural_state_change": false
+          }
+        }
+      ]
+    },
+    "medium_nation_significant_instability": {
+      "table_id": "RANDOM-MEDIUM-POLITICS-MECHANICAL-V1",
+      "mode": "mechanical",
+      "policy": "Engine materializes bounded political crises in the seven named medium states; structural collapse requires a separate causal process.",
+      "rows": [
+        {
+          "id": "coalition_breakdown",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "coalition_breakdown",
+            "choice_fields": {
+              "affected_entity": [
+                "维拉共和国",
+                "泰坦联邦",
+                "天鹰公国",
+                "自由港联盟",
+                "北境王国",
+                "绿洲联邦",
+                "星环共和国"
+              ],
+              "immediate_outcome": [
+                "少数政府暂时留任",
+                "启动新联盟谈判",
+                "宣布提前选举准备"
+              ]
+            },
+            "structural_state_change": false
+          }
+        },
+        {
+          "id": "regional_unrest",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "regional_unrest",
+            "choice_fields": {
+              "affected_entity": [
+                "维拉共和国",
+                "泰坦联邦",
+                "天鹰公国",
+                "自由港联盟",
+                "北境王国",
+                "绿洲联邦",
+                "星环共和国"
+              ],
+              "trigger": [
+                "工业区罢工",
+                "地方自治争议",
+                "公共服务削减",
+                "边境安全事件"
+              ],
+              "immediate_outcome": [
+                "中央与地方展开谈判",
+                "增派警务力量",
+                "议会成立调查组"
+              ]
+            },
+            "structural_state_change": false
+          }
+        },
+        {
+          "id": "security_scandal",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "security_scandal",
+            "choice_fields": {
+              "affected_entity": [
+                "维拉共和国",
+                "泰坦联邦",
+                "天鹰公国",
+                "自由港联盟",
+                "北境王国",
+                "绿洲联邦",
+                "星环共和国"
+              ],
+              "immediate_outcome": [
+                "安全主管辞职",
+                "议会紧急听证",
+                "启动独立审计"
+              ]
+            },
+            "structural_state_change": false
+          }
+        },
+        {
+          "id": "snap_election_call",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "snap_election_call",
+            "choice_fields": {
+              "affected_entity": [
+                "维拉共和国",
+                "泰坦联邦",
+                "天鹰公国",
+                "自由港联盟",
+                "北境王国",
+                "绿洲联邦",
+                "星环共和国"
+              ],
+              "reason": [
+                "联盟失去多数",
+                "预算僵局",
+                "执政党内部重组"
+              ]
+            },
+            "structural_state_change": false
+          }
+        }
+      ]
+    },
+    "small_nation_significant_instability": {
+      "table_id": "RANDOM-SMALL-POLITICS-MECHANICAL-V1",
+      "mode": "mechanical",
+      "policy": "Engine auto-generates a named known-small-state event when possible plus a deterministic 1..123 registry slot for audit coverage.",
+      "rows": [
+        {
+          "id": "government_coalition_collapse",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "government_coalition_collapse",
+            "choice_fields": {
+              "affected_entity": [
+                "白峡共和国",
+                "卡尔德自由邦",
+                "卡岚边境联盟",
+                "蓝湾共和国",
+                "澜桥共和国",
+                "红岬共和国",
+                "塔勒斯自由港邦",
+                "塔维斯边境联邦"
+              ],
+              "immediate_outcome": [
+                "看守政府接管",
+                "新联盟谈判开始",
+                "议会准备提前选举"
+              ]
+            },
+            "small_nation_registry_index_range": [
+              1,
+              123
+            ],
+            "structural_state_change": false
+          }
+        },
+        {
+          "id": "anti_corruption_crisis",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "anti_corruption_crisis",
+            "choice_fields": {
+              "affected_entity": [
+                "白峡共和国",
+                "卡尔德自由邦",
+                "卡岚边境联盟",
+                "蓝湾共和国",
+                "澜桥共和国",
+                "红岬共和国",
+                "塔勒斯自由港邦",
+                "塔维斯边境联邦"
+              ],
+              "trigger": [
+                "军需腐败",
+                "港务合同回扣",
+                "选举资金问题",
+                "地方财政造假"
+              ],
+              "immediate_outcome": [
+                "检方立案",
+                "部长辞职",
+                "议会调查"
+              ]
+            },
+            "small_nation_registry_index_range": [
+              1,
+              123
+            ],
+            "structural_state_change": false
+          }
+        },
+        {
+          "id": "localized_security_unrest",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "localized_security_unrest",
+            "choice_fields": {
+              "affected_entity": [
+                "白峡共和国",
+                "卡尔德自由邦",
+                "卡岚边境联盟",
+                "蓝湾共和国",
+                "澜桥共和国",
+                "红岬共和国",
+                "塔勒斯自由港邦",
+                "塔维斯边境联邦"
+              ],
+              "trigger": [
+                "恐怖袭击余波",
+                "民兵复员争议",
+                "边境难民压力",
+                "港口治安恶化"
+              ],
+              "immediate_outcome": [
+                "宣布临时安全措施",
+                "增派警务",
+                "启动跨区协作"
+              ]
+            },
+            "small_nation_registry_index_range": [
+              1,
+              123
+            ],
+            "structural_state_change": false
+          }
+        },
+        {
+          "id": "constitutional_dispute",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "constitutional_dispute",
+            "choice_fields": {
+              "affected_entity": [
+                "白峡共和国",
+                "卡尔德自由邦",
+                "卡岚边境联盟",
+                "蓝湾共和国",
+                "澜桥共和国",
+                "红岬共和国",
+                "塔勒斯自由港邦",
+                "塔维斯边境联邦"
+              ],
+              "trigger": [
+                "总统与议会权限争议",
+                "地方自治权限争议",
+                "司法任命争议"
+              ],
+              "immediate_outcome": [
+                "最高法院受理",
+                "议会启动修法谈判",
+                "各方接受临时程序安排"
+              ]
+            },
+            "small_nation_registry_index_range": [
+              1,
+              123
+            ],
+            "structural_state_change": false
+          }
+        }
+      ]
+    },
+    "piracy_crime_contact": {
+      "table_id": "RANDOM-PIRACY-CRIME-MECHANICAL-V1",
+      "mode": "mechanical",
+      "policy": "Engine auto-generates contact type plus deterministic sensor-initiative gate. It does not auto-start combat or buy/sell anything.",
+      "rows": [
+        {
+          "id": "pirate_recon_probe",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "pirate_recon_probe",
+            "contact_target_class": "pirate_civilian_regular_mercenary",
+            "choice_fields": {
+              "contact_scale": [
+                "single_small_craft",
+                "two_to_three_small_craft",
+                "small_raider_group"
+              ],
+              "behavior": [
+                "passive_observation",
+                "low_power_tracking",
+                "route_probe"
+              ]
+            },
+            "recommended_action": "observe_track_or_ignore"
+          }
+        },
+        {
+          "id": "hijacked_merchant_distress",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "hijacked_merchant_distress",
+            "contact_target_class": "pirate_civilian_regular_mercenary",
+            "choice_fields": {
+              "victim_type": [
+                "small_freighter",
+                "passenger_shuttle",
+                "fuel_tender"
+              ],
+              "signal_quality": [
+                "clear",
+                "intermittent",
+                "weak_authenticated"
+              ]
+            },
+            "recommended_action": "optional_intervention_or_report"
+          }
+        },
+        {
+          "id": "pirate_test_transmission",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "pirate_test_transmission",
+            "contact_target_class": "pirate_civilian_regular_mercenary",
+            "choice_fields": {
+              "message_type": [
+                "identity_probe",
+                "toll_demand",
+                "false_trade_offer",
+                "intimidation_broadcast"
+              ]
+            },
+            "recommended_action": "record_and_choose_response"
+          }
+        },
+        {
+          "id": "criminal_broker_offer",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "criminal_broker_offer",
+            "contact_target_class": "pirate_civilian_regular_mercenary",
+            "choice_fields": {
+              "offer_type": [
+                "stolen_cargo_tip",
+                "grey_market_introduction",
+                "wanted_person_location",
+                "salvage_coordinates"
+              ]
+            },
+            "recommended_action": "optional_due_diligence"
+          }
+        },
+        {
+          "id": "pirate_infighting",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "pirate_infighting",
+            "contact_target_class": "pirate_civilian_regular_mercenary",
+            "choice_fields": {
+              "contact_scale": [
+                "two_small_groups",
+                "one_group_pursuing_another"
+              ],
+              "observed_state": [
+                "weapons_fire_detected",
+                "one_group_disengaging",
+                "distress_beacons_present"
+              ]
+            },
+            "recommended_action": "observe_or_avoid"
+          }
+        },
+        {
+          "id": "local_force_pursuit",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "local_force_pursuit",
+            "contact_target_class": "regular_military_research_low_emission",
+            "choice_fields": {
+              "pursuer_type": [
+                "local_patrol",
+                "customs_enforcement",
+                "militia_interceptor"
+              ],
+              "target_type": [
+                "suspected_pirate",
+                "smuggling_craft",
+                "wanted_criminal_transport"
+              ]
+            },
+            "recommended_action": "avoid_interference_or_offer_intel"
+          }
+        },
+        {
+          "id": "mistaken_merchant_identity",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "mistaken_merchant_identity",
+            "contact_target_class": "pirate_civilian_regular_mercenary",
+            "choice_fields": {
+              "pirate_behavior": [
+                "approach_for_toll",
+                "shadow_route",
+                "attempt_trade_probe"
+              ]
+            },
+            "recommended_action": "maintain_concealment_or_reveal"
+          }
+        },
+        {
+          "id": "suspected_trafficking_transport",
+          "weight": 1,
+          "mode": "mechanical",
+          "payload": {
+            "event": "suspected_trafficking_transport",
+            "contact_target_class": "pirate_civilian_regular_mercenary",
+            "choice_fields": {
+              "evidence_level": [
+                "low",
+                "moderate"
+              ],
+              "indicator": [
+                "forged_manifests",
+                "sealed_life_support_compartments",
+                "known_criminal_route_match"
+              ]
+            },
+            "recommended_action": "collect_evidence_and_optional_intercept"
+          }
+        }
+      ]
+    },
+    "scientific_anomaly": {
+      "table_id": "RANDOM-SCIENCE-ANOMALY-MECHANICAL-V1",
+      "mode": "mechanical",
+      "policy": "Engine auto-generates a bounded scientific observation; no alien supertechnology or automatic reward.",
+      "rows": [
+        {
+          "id": "gravitational_gradient_anomaly",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "gravitational_gradient_anomaly",
+            "choice_fields": {
+              "strength": [
+                "weak",
+                "moderate"
+              ],
+              "persistence": [
+                "transient",
+                "persistent_over_hours"
+              ],
+              "likely_natural": [
+                true,
+                false
+              ]
+            },
+            "direct_reward": false,
+            "recommended_action": "optional_sensor_survey"
+          }
+        },
+        {
+          "id": "unidentified_em_pulse",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "unidentified_em_pulse",
+            "choice_fields": {
+              "band": [
+                "broadband",
+                "narrowband",
+                "repeating_harmonic"
+              ],
+              "persistence": [
+                "single_pulse",
+                "intermittent"
+              ]
+            },
+            "direct_reward": false,
+            "recommended_action": "optional_triangulation"
+          }
+        },
+        {
+          "id": "unusual_stellar_activity",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "unusual_stellar_activity",
+            "choice_fields": {
+              "phenomenon": [
+                "flare_pattern",
+                "magnetic_cycle_shift",
+                "spectral_line_variation"
+              ],
+              "hazard_level": [
+                "low",
+                "moderate"
+              ]
+            },
+            "direct_reward": false
+          }
+        },
+        {
+          "id": "rare_natural_object",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "rare_natural_object",
+            "choice_fields": {
+              "object_class": [
+                "metal_rich_microbody",
+                "volatile_rich_comet_fragment",
+                "high_density_asteroid",
+                "unusual_dust_cloud"
+              ]
+            },
+            "direct_reward": false,
+            "recommended_action": "optional_scientific_scan"
+          }
+        },
+        {
+          "id": "unidentified_artificial_signal",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "unidentified_artificial_signal",
+            "choice_fields": {
+              "signal_form": [
+                "old_navigation_beacon_like",
+                "telemetry_like",
+                "machine_handshake_like"
+              ],
+              "confidence": [
+                "low",
+                "moderate"
+              ]
+            },
+            "technology_assessment": "within_known_human_engineering_bounds_until_proven_otherwise",
+            "direct_reward": false
+          }
+        },
+        {
+          "id": "nonhuman_biological_trace",
+          "weight": 1,
+          "mode": "mechanical",
+          "payload": {
+            "event": "nonhuman_biological_trace",
+            "choice_fields": {
+              "trace_type": [
+                "organic_molecule_cluster",
+                "spore_like_particle",
+                "biological_spectral_signature"
+              ],
+              "viability": [
+                "unknown",
+                "nonviable_sample_signature"
+              ]
+            },
+            "direct_reward": false
+          }
+        },
+        {
+          "id": "old_probe_signature",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "old_probe_signature",
+            "choice_fields": {
+              "origin_class": [
+                "historical_human",
+                "old_federal_era",
+                "unregistered_legacy"
+              ],
+              "condition": [
+                "silent",
+                "intermittent_power"
+              ]
+            },
+            "technology_assessment": "not_above_contemporary_human_mature_technology",
+            "direct_reward": false
+          }
+        },
+        {
+          "id": "unusual_material_signature",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "unusual_material_signature",
+            "choice_fields": {
+              "material_class": [
+                "high_density_alloy",
+                "metamaterial_like_structure",
+                "radiation_modified_composite"
+              ],
+              "confidence": [
+                "low",
+                "moderate"
+              ]
+            },
+            "direct_reward": false
+          }
+        },
+        {
+          "id": "warp_disturbance",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "warp_disturbance",
+            "choice_fields": {
+              "pattern": [
+                "localized_shear",
+                "transient_phase_noise",
+                "route_echo"
+              ],
+              "navigation_risk": [
+                "low",
+                "moderate"
+              ]
+            },
+            "direct_reward": false
+          }
+        },
+        {
+          "id": "unexplained_sensor_echo",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "unexplained_sensor_echo",
+            "choice_fields": {
+              "confidence": [
+                "low",
+                "moderate"
+              ],
+              "repeatability": [
+                "not_repeated",
+                "repeated_twice"
+              ]
+            },
+            "direct_reward": false
+          }
+        }
+      ]
+    },
+    "intelligence_opportunity": {
+      "table_id": "RANDOM-INTELLIGENCE-OPPORTUNITY-MECHANICAL-V1",
+      "mode": "mechanical",
+      "policy": "Engine auto-generates a source, topic, freshness and confidence claim. Truth is not implied; normal validation rules still apply.",
+      "rows": [
+        {
+          "id": "black_market_broker_tip",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "black_market_broker_tip",
+            "choice_fields": {
+              "topic": [
+                "pirate_route",
+                "grey_market_inventory",
+                "wanted_person_location",
+                "smuggling_network",
+                "mercenary_contract"
+              ],
+              "source_reliability": [
+                "low",
+                "moderate"
+              ],
+              "freshness": [
+                "hours",
+                "one_to_three_days"
+              ]
+            },
+            "claim_verified": false
+          }
+        },
+        {
+          "id": "captured_pirate_exchange",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "captured_pirate_exchange",
+            "choice_fields": {
+              "topic": [
+                "safehouse",
+                "ship_identification",
+                "finance_contact",
+                "weapons_cache"
+              ],
+              "source_reliability": [
+                "moderate",
+                "mixed"
+              ],
+              "freshness": [
+                "days",
+                "one_week"
+              ]
+            },
+            "claim_verified": false
+          }
+        },
+        {
+          "id": "database_leak",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "database_leak",
+            "choice_fields": {
+              "topic": [
+                "shipping_manifests",
+                "corporate_accounts",
+                "port_access_logs",
+                "procurement_records",
+                "encrypted_contact_graph"
+              ],
+              "source_reliability": [
+                "moderate",
+                "high_but_unverified"
+              ],
+              "freshness": [
+                "hours",
+                "days"
+              ]
+            },
+            "claim_verified": false
+          }
+        },
+        {
+          "id": "merchant_rumor",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "merchant_rumor",
+            "choice_fields": {
+              "topic": [
+                "market_shortage",
+                "new_pirate_group",
+                "military_convoy",
+                "abandoned_asset",
+                "political_tension"
+              ],
+              "source_reliability": [
+                "low",
+                "moderate"
+              ],
+              "freshness": [
+                "days",
+                "one_to_two_weeks"
+              ]
+            },
+            "claim_verified": false
+          }
+        },
+        {
+          "id": "organization_insider_offer",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "organization_insider_offer",
+            "choice_fields": {
+              "topic": [
+                "leadership_split",
+                "planned_operation",
+                "funding_channel",
+                "hidden_depot"
+              ],
+              "source_reliability": [
+                "moderate",
+                "high_but_motive_unclear"
+              ],
+              "freshness": [
+                "hours",
+                "days"
+              ]
+            },
+            "claim_verified": false
+          }
+        },
+        {
+          "id": "communications_intercept",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "communications_intercept",
+            "choice_fields": {
+              "topic": [
+                "route_schedule",
+                "rendezvous_point",
+                "payment_instruction",
+                "security_rotation"
+              ],
+              "source_reliability": [
+                "moderate",
+                "high_signal_integrity"
+              ],
+              "freshness": [
+                "minutes",
+                "hours"
+              ]
+            },
+            "claim_verified": false
+          }
+        },
+        {
+          "id": "drifting_data_recorder",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "drifting_data_recorder",
+            "choice_fields": {
+              "topic": [
+                "ship_log",
+                "navigation_history",
+                "cargo_manifest",
+                "sensor_record"
+              ],
+              "source_reliability": [
+                "data_integrity_partial",
+                "data_integrity_good"
+              ],
+              "freshness": [
+                "days",
+                "months"
+              ]
+            },
+            "claim_verified": false
+          }
+        },
+        {
+          "id": "hostile_group_internal_split",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "hostile_group_internal_split",
+            "choice_fields": {
+              "topic": [
+                "leadership_dispute",
+                "financial_split",
+                "defection_offer",
+                "competing_cells"
+              ],
+              "source_reliability": [
+                "moderate",
+                "fragmentary"
+              ],
+              "freshness": [
+                "hours",
+                "days"
+              ]
+            },
+            "claim_verified": false
+          }
+        },
+        {
+          "id": "insurance_claim_anomaly",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "insurance_claim_anomaly",
+            "choice_fields": {
+              "topic": [
+                "staged_loss_suspicion",
+                "repeat_owner_pattern",
+                "cargo_value_mismatch",
+                "salvage_rights_conflict"
+              ],
+              "source_reliability": [
+                "moderate",
+                "high_documentary"
+              ],
+              "freshness": [
+                "days",
+                "weeks"
+              ]
+            },
+            "claim_verified": false
+          }
+        },
+        {
+          "id": "port_customs_pattern",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "port_customs_pattern",
+            "choice_fields": {
+              "topic": [
+                "shell_company_cluster",
+                "forged_registry_pattern",
+                "unusual_crew_rotation",
+                "restricted_cargo_route"
+              ],
+              "source_reliability": [
+                "moderate",
+                "high_documentary"
+              ],
+              "freshness": [
+                "hours",
+                "days"
+              ]
+            },
+            "claim_verified": false
+          }
+        }
+      ]
+    },
+    "market_event": {
+      "table_id": "RANDOM-MARKET-INTELLIGENCE-MECHANICAL-V2",
+      "mode": "mechanical",
+      "policy": "Engine materializes richer market intelligence/opportunities. No purchase or sale is automatic; direct funds change is always false.",
+      "rows": [
+        {
+          "id": "corporate_liquidation",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "corporate_liquidation",
+            "choice_fields": {
+              "asset_class": [
+                "industrial_equipment",
+                "warehouse_assets",
+                "shipyard_tools",
+                "civilian_spares"
+              ],
+              "discount_band_pct": [
+                "8-12",
+                "12-18",
+                "18-25"
+              ],
+              "availability_window_hours": [
+                24,
+                48,
+                72
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "used_military_inventory_listing",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "used_military_inventory_listing",
+            "choice_fields": {
+              "asset_class": [
+                "combat_robot",
+                "armed_uav",
+                "power_armor",
+                "small_arms",
+                "ship_spares"
+              ],
+              "condition_band": [
+                "70-80%",
+                "80-90%",
+                "90-95%"
+              ],
+              "pricing_signal": [
+                "below_recent_market",
+                "near_market",
+                "seller_urgent"
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "old_ship_port_auction",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "old_ship_port_auction",
+            "choice_fields": {
+              "hull_class": [
+                "shuttle",
+                "patrol_craft",
+                "small_freighter",
+                "utility_ship"
+              ],
+              "auction_state": [
+                "reserve_low",
+                "creditor_sale",
+                "port_seizure_sale"
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "creditor_fire_sale",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "creditor_fire_sale",
+            "choice_fields": {
+              "asset_class": [
+                "mining_rights",
+                "warehouse_contracts",
+                "repair_dock_income_rights",
+                "logistics_receivables"
+              ],
+              "discount_band_pct": [
+                "5-10",
+                "10-15",
+                "15-20"
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "resource_price_spike",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "resource_price_spike",
+            "choice_fields": {
+              "commodity": [
+                "rare_metals",
+                "volatiles",
+                "industrial_ceramics",
+                "reactor_feedstock"
+              ],
+              "price_delta_pct": [
+                4,
+                6,
+                8,
+                10
+              ],
+              "duration_hours": [
+                24,
+                48,
+                72
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "resource_price_softening",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "resource_price_softening",
+            "choice_fields": {
+              "commodity": [
+                "common_ore",
+                "industrial_metals",
+                "volatiles",
+                "construction_composites"
+              ],
+              "price_delta_pct": [
+                -4,
+                -6,
+                -8,
+                -10
+              ],
+              "duration_hours": [
+                24,
+                48,
+                72
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "seller_temporary_discount",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "seller_temporary_discount",
+            "choice_fields": {
+              "market_segment": [
+                "civilian_ships",
+                "industrial_equipment",
+                "secondhand_weapons",
+                "spares",
+                "logistics_contracts"
+              ],
+              "discount_pct": [
+                3,
+                5,
+                7,
+                9
+              ],
+              "duration_hours": [
+                12,
+                24,
+                48
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "military_surplus_overhang",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "military_surplus_overhang",
+            "choice_fields": {
+              "asset_class": [
+                "small_arms",
+                "grenades",
+                "power_armor",
+                "combat_robots",
+                "armed_uavs"
+              ],
+              "discount_pct": [
+                4,
+                6,
+                8,
+                10
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "manufacturer_new_model_launch",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "manufacturer_new_model_launch",
+            "choice_fields": {
+              "product_class": [
+                "industrial_robot",
+                "civilian_sensor",
+                "power_system",
+                "ship_component",
+                "security_equipment"
+              ],
+              "old_model_discount_pct": [
+                5,
+                8,
+                12
+              ]
+            },
+            "new_model_requires_separate_registered_model_event": true,
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "war_risk_premium",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "war_risk_premium",
+            "choice_fields": {
+              "affected_segment": [
+                "shipping_insurance",
+                "military_spares",
+                "fuel_transport",
+                "border_logistics"
+              ],
+              "price_delta_pct": [
+                5,
+                8,
+                12
+              ],
+              "duration_hours": [
+                24,
+                72,
+                168
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "major_company_market_exit",
+          "weight": 1,
+          "mode": "mechanical",
+          "payload": {
+            "event": "major_company_market_exit",
+            "choice_fields": {
+              "sector": [
+                "ship_repair",
+                "mining_services",
+                "cold_chain",
+                "data_hosting",
+                "freight_forwarding"
+              ],
+              "market_effect": [
+                "capacity_tightening",
+                "asset_disposal",
+                "contract_repricing"
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "localized_demand_softening",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "localized_demand_softening",
+            "choice_fields": {
+              "market_segment": [
+                "consumer_goods",
+                "bulk_freight",
+                "industrial_spares",
+                "fuel"
+              ],
+              "market_index_delta_pct": [
+                -2,
+                -3,
+                -4
+              ],
+              "duration_hours": [
+                24,
+                48
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "localized_demand_tightening",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "localized_demand_tightening",
+            "choice_fields": {
+              "market_segment": [
+                "consumer_goods",
+                "bulk_freight",
+                "industrial_spares",
+                "fuel"
+              ],
+              "market_index_delta_pct": [
+                2,
+                3,
+                4
+              ],
+              "duration_hours": [
+                24,
+                48
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "freight_spread_widening",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "freight_spread_widening",
+            "choice_fields": {
+              "freight_spread_delta_pct": [
+                3,
+                4,
+                5
+              ],
+              "duration_hours": [
+                24,
+                48
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "freight_spread_narrowing",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "freight_spread_narrowing",
+            "choice_fields": {
+              "freight_spread_delta_pct": [
+                -3,
+                -4,
+                -5
+              ],
+              "duration_hours": [
+                24,
+                48
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "credit_tightening",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "credit_tightening",
+            "choice_fields": {
+              "affected_segment": [
+                "small_shipowners",
+                "mining_contractors",
+                "repair_yards",
+                "grey_logistics"
+              ],
+              "financing_cost_delta_pct": [
+                2,
+                3,
+                5
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "insurance_premium_shift",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "insurance_premium_shift",
+            "choice_fields": {
+              "affected_segment": [
+                "cargo",
+                "ship_hull",
+                "salvage",
+                "industrial_facility"
+              ],
+              "premium_delta_pct": [
+                -4,
+                -2,
+                3,
+                5,
+                8
+              ]
+            },
+            "direct_funds_change": false
+          }
+        }
+      ]
+    },
+    "mining_event": {
+      "table_id": "RANDOM-MINING-MECHANICAL-V2",
+      "mode": "mechanical",
+      "policy": "No ordinary yield/efficiency variance and no random mechanical failure. Events are geological, legal, security or explicit extraction incidents.",
+      "rows": [
+        {
+          "id": "rich_ore_lens",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "rich_ore_lens",
+            "choice_fields": {
+              "resource_class": [
+                "cobalt_group",
+                "nickel_iron",
+                "rare_metals",
+                "industrial_crystal"
+              ],
+              "significance": [
+                "minor",
+                "moderate"
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "reserve_upward_revision",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "reserve_upward_revision",
+            "choice_fields": {
+              "revision_band_pct": [
+                3,
+                5,
+                8,
+                12
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "reserve_downward_revision",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "reserve_downward_revision",
+            "choice_fields": {
+              "revision_band_pct": [
+                -3,
+                -5,
+                -8
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "geological_void",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "geological_void",
+            "choice_fields": {
+              "void_type": [
+                "subsurface_cavity",
+                "volatile_pocket",
+                "fracture_zone"
+              ],
+              "operational_risk": [
+                "low",
+                "moderate"
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "rare_byproduct",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "rare_byproduct",
+            "choice_fields": {
+              "byproduct_class": [
+                "platinum_group_trace",
+                "helium_isotope_pocket",
+                "rare_earth_concentration",
+                "high_purity_silicate"
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "illegal_mining_activity",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "illegal_mining_activity",
+            "choice_fields": {
+              "scale": [
+                "small",
+                "organized_small_group"
+              ],
+              "evidence_level": [
+                "moderate",
+                "high"
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "mining_rights_dispute",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "mining_rights_dispute",
+            "choice_fields": {
+              "dispute_type": [
+                "boundary_overlap",
+                "legacy_claim",
+                "contract_interpretation",
+                "salvage_vs_mining_rights"
+              ]
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "artificial_structure_found",
+          "weight": 1,
+          "mode": "mechanical",
+          "payload": {
+            "event": "artificial_structure_found",
+            "choice_fields": {
+              "structure_class": [
+                "old_habitat_fragment",
+                "survey_installation",
+                "sealed_service_tunnel",
+                "abandoned_processing_module"
+              ],
+              "technology_assessment": "human_known_technology_range"
+            },
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "extraction_incident",
+          "weight": 1,
+          "mode": "mechanical",
+          "payload": {
+            "event": "extraction_incident",
+            "choice_fields": {
+              "incident_type": [
+                "rockfall",
+                "pressure_release",
+                "dust_flash",
+                "localized_collapse"
+              ],
+              "severity": [
+                "minor",
+                "moderate"
+              ]
+            },
+            "mechanical_failure": false,
+            "direct_funds_change": false
+          }
+        }
+      ]
+    },
+    "deep_space_encounter": {
+      "table_id": "RANDOM-DEEP-SPACE-MIXED-V3",
+      "mode": "semantic",
+      "policy": "Diversified deep-space table. Low-information traces no longer dominate. Mechanical observations remain auto-generated; people/distress/ownership contacts remain semantic.",
+      "rows": [
+        {
+          "id": "dormant_derelict_contact",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "dormant_derelict_sensor_contact",
+            "emissions": "none_detected",
+            "active_transponder": false,
+            "identity": "unresolved_sensor_only",
+            "immediate_hostility": "none_detected",
+            "asset_booking": false,
+            "direct_funds_change": false,
+            "recommended_action": "optional_passive_scan"
+          }
+        },
+        {
+          "id": "ambiguous_sensor_trace",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "ambiguous_sensor_trace",
+            "confidence": "low",
+            "persistent_target": false,
+            "immediate_hostility": "none_detected",
+            "identity": "unresolved_sensor_only",
+            "asset_booking": false,
+            "direct_funds_change": false,
+            "recommended_action": "log_and_optional_rescan"
+          }
+        },
+        {
+          "id": "unregistered_civilian_contact",
+          "weight": 3,
+          "mode": "semantic",
+          "payload": {
+            "contact_type": "unregistered_civilian_contact",
+            "semantic_fields": [
+              "identity",
+              "intent",
+              "legal_status",
+              "communications",
+              "risk"
+            ]
+          }
+        },
+        {
+          "id": "distress_or_emergency_signal",
+          "weight": 2,
+          "mode": "semantic",
+          "payload": {
+            "contact_type": "distress_or_emergency_signal",
+            "semantic_fields": [
+              "authenticity",
+              "identity",
+              "survivors",
+              "hazard",
+              "response_decision"
+            ]
+          }
+        },
+        {
+          "id": "lost_shuttle_contact",
+          "weight": 2,
+          "mode": "semantic",
+          "payload": {
+            "contact_type": "lost_shuttle_contact",
+            "semantic_fields": [
+              "identity",
+              "crew_status",
+              "cause",
+              "response_decision"
+            ]
+          }
+        },
+        {
+          "id": "damaged_research_ship",
+          "weight": 2,
+          "mode": "semantic",
+          "payload": {
+            "contact_type": "damaged_research_ship",
+            "semantic_fields": [
+              "identity",
+              "damage",
+              "medical_status",
+              "assistance_request"
+            ]
+          }
+        },
+        {
+          "id": "lifeboat_cluster",
+          "weight": 2,
+          "mode": "semantic",
+          "payload": {
+            "contact_type": "lifeboat_cluster",
+            "semantic_fields": [
+              "occupants",
+              "origin",
+              "hazards",
+              "rescue_decision"
+            ]
+          }
+        },
+        {
+          "id": "unidentified_probe",
+          "weight": 2,
+          "mode": "semantic",
+          "payload": {
+            "contact_type": "unidentified_probe",
+            "technology_assessment": "assume_known_human_bounds_until_evidence",
+            "semantic_fields": [
+              "identity",
+              "ownership",
+              "intent"
+            ]
+          }
+        },
+        {
+          "id": "merchant_repair_request",
+          "weight": 2,
+          "mode": "semantic",
+          "payload": {
+            "contact_type": "merchant_repair_request",
+            "semantic_fields": [
+              "identity",
+              "repair_need",
+              "payment_offer",
+              "risk"
+            ]
+          }
+        },
+        {
+          "id": "escort_request",
+          "weight": 1,
+          "mode": "semantic",
+          "payload": {
+            "contact_type": "escort_request",
+            "semantic_fields": [
+              "identity",
+              "route",
+              "threat",
+              "payment_offer"
+            ]
+          }
+        },
+        {
+          "id": "dark_transponder_contact",
+          "weight": 2,
+          "mode": "semantic",
+          "payload": {
+            "contact_type": "dark_transponder_contact",
+            "semantic_fields": [
+              "identity",
+              "intent",
+              "risk",
+              "sensor_initiative"
+            ]
+          }
+        },
+        {
+          "id": "route_debris_field",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "route_debris_field",
+            "hazard_level": "low_to_moderate",
+            "active_emissions": false,
+            "direct_funds_change": false,
+            "recommended_action": "minor_course_adjustment_or_scan"
+          }
+        }
+      ]
+    },
+    "salvage_discovery": {
+      "table_id": "RANDOM-SALVAGE-MIXED-V3",
+      "mode": "semantic",
+      "policy": "More varied salvage; ordinary observations are mechanical, consequential ownership/high-value finds remain semantic.",
+      "rows": [
+        {
+          "id": "abandoned_freight_hull",
+          "weight": 3,
+          "mode": "semantic",
+          "payload": {
+            "broad_type": "abandoned_freight_hull",
+            "size_class": "small_to_medium",
+            "condition": "unknown",
+            "semantic_fields": [
+              "identity",
+              "ownership",
+              "cargo_specifics",
+              "hazards",
+              "disposition"
+            ]
+          }
+        },
+        {
+          "id": "drifting_cargo_cluster",
+          "weight": 3,
+          "mode": "mechanical",
+          "payload": {
+            "event": "drifting_cargo_cluster_observation",
+            "container_count_class": "few",
+            "ownership_status": "unresolved_observation_only",
+            "asset_booking": false,
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "old_wreck_fragment",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "old_wreck_fragment_observation",
+            "salvageability": "low_value_requires_optional_scan",
+            "condition": "degraded",
+            "asset_booking": false,
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "abandoned_supply_cache",
+          "weight": 2,
+          "mode": "semantic",
+          "payload": {
+            "broad_type": "abandoned_supply_cache",
+            "semantic_fields": [
+              "ownership",
+              "contents",
+              "hazard",
+              "disposition"
+            ]
+          }
+        },
+        {
+          "id": "old_satellite",
+          "weight": 2,
+          "mode": "mechanical",
+          "payload": {
+            "event": "old_satellite_observation",
+            "condition": "degraded",
+            "identity": "unresolved",
+            "direct_funds_change": false
+          }
+        },
+        {
+          "id": "abandoned_station_module",
+          "weight": 2,
+          "mode": "semantic",
+          "payload": {
+            "broad_type": "abandoned_station_module",
+            "semantic_fields": [
+              "identity",
+              "ownership",
+              "hazards",
+              "salvage_value"
+            ]
+          }
+        },
+        {
+          "id": "war_relic_cache",
+          "weight": 1,
+          "mode": "semantic",
+          "payload": {
+            "broad_type": "war_relic_cache",
+            "semantic_fields": [
+              "ownership",
+              "weapon_identity",
+              "safety",
+              "legal_disposition"
+            ]
+          }
+        },
+        {
+          "id": "sealed_research_module",
+          "weight": 1,
+          "mode": "semantic",
+          "payload": {
+            "broad_type": "sealed_research_module",
+            "technology_assessment": "not_above_contemporary_human_mature_technology",
+            "semantic_fields": [
+              "identity",
+              "ownership",
+              "hazard",
+              "research_value"
+            ]
+          }
+        },
+        {
+          "id": "navigation_database",
+          "weight": 2,
+          "mode": "semantic",
+          "payload": {
+            "broad_type": "navigation_database",
+            "semantic_fields": [
+              "data_integrity",
+              "ownership",
+              "freshness",
+              "intelligence_value"
+            ]
+          }
+        },
+        {
+          "id": "legacy_human_facility",
+          "weight": 1,
+          "mode": "semantic",
+          "payload": {
+            "broad_type": "legacy_human_facility",
+            "technology_assessment": "historical_human_not_supertechnology",
+            "semantic_fields": [
+              "identity",
+              "ownership",
+              "hazard",
+              "historical_value"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "status": "PASS",
+  "mode": "full",
+  "base": "/workspace/scratch/db7a921ac22d/batch_c/candidate",
+  "passed_count": 65,
+  "error_count": 0,
+  "warning_count": 0,
+  "passed": [
+    "PARSE",
+    "TEXT_CHARSET_POLICY",
+    "TEXT_NAME_SYMBOL_POLICY",
+    "SCHEMA",
+    "VERSION",
+    "PROTOCOL_SYMBOL_HYGIENE",
+    "STALE_CURRENT_SEMANTIC_CHECK",
+    "WORLD_REVISION_SYNC",
+    "WORLD_RULE_REGISTRY_INTEGRITY",
+    "GAME_TIME",
+    "HISTORY_SEQ",
+    "HISTORY_NEXT_SEQ",
+    "EVENT_ID_UNIQUE",
+    "HISTORY_TIME_BOUND",
+    "ASSET_LEDGER_INTEGRITY",
+    "SHIP_COUNTS",
+    "VOYAGER_CLASS_COUNTS",
+    "VOYAGER_VESSEL_NAMING",
+    "PLAYER_VESSEL_LOCATION_AUTHORITY",
+    "VOYAGER_MISSION_CURRENT_HYGIENE",
+    "ACTIVE_TASK_TEMPORAL_MIRROR_HYGIENE",
+    "DATED_CURRENT_ALIAS_HYGIENE",
+    "CURRENT_STATE_TEMPORAL_HYGIENE",
+    "ROUTING_ONLY_FACT_HYGIENE",
+    "CURRENT_SETTLEMENT_RECORD_COHERENCE",
+    "ENTITY_LIFECYCLE_INTEGRITY",
+    "ENTITY_REGISTRY_INTEGRITY",
+    "PERSONNEL_COUNTS",
+    "FLEET_CORE_CROSSPATH",
+    "SHIPBOARD_ASSET_CROSSPATH",
+    "SHADOW_LOCATION_PARTITION",
+    "SHADOW_VESSEL_LOCATION_CROSSPATH",
+    "STATE_CURRENT_ONLY_POLICY",
+    "VERSIONED_CURRENT_ZERO_POLICY",
+    "CURRENT_SEMANTIC_HYGIENE",
+    "V10_AUTHORITY_SURFACE_HYGIENE",
+    "MULTINATIONAL_INDUSTRY_CURRENT_V2_INTEGRITY",
+    "CALDER_LEGACY_SCHEDULE_HYGIENE",
+    "NONNEGATIVE_CORE",
+    "FIXED_POINT_FINANCE_INTEGRITY",
+    "DOMAIN_COMMAND_RUNTIME_INTEGRITY",
+    "LEGACY_SUPPLY_DAYS_REMOVED",
+    "SUPPLY_INVENTORY_SCHEMA",
+    "VOYAGE_DAY_TYPE",
+    "NONNEGATIVE_INVENTORY",
+    "TASK_ID_UNIQUE",
+    "TASK_OBJECT_SCHEMA",
+    "TASK_REQUIRED_FIELDS",
+    "TASK_FIELD_TYPES",
+    "TASK_LIFECYCLE",
+    "WORLD_STATIC_CATALOG_INTEGRITY",
+    "RUNTIME_ARCHITECTURE",
+    "TASK_ENTITY_REFS",
+    "RETRIEVAL_STATE_PATHS",
+    "RETRIEVAL_WORLD_RULES",
+    "RETRIEVAL_ROUTE_COVERAGE",
+    "RUNTIME_STATE_PATHS",
+    "ACTIVE_RUNTIME_VERSIONED_STATE_PATHS",
+    "STATE_RESOURCE_REFS",
+    "INVENTORY_BALANCE[31]",
+    "MEDICAL_CAPACITY_VALUES",
+    "NO_STALE_PURCHASE_AUTH",
+    "MANIFEST",
+    "ROOT_BOUND_TO_COMMIT",
+    "AUDIT_REGISTRY_SCHEMA"
+  ],
+  "errors": [],
+  "warnings": [],
+  "history_last_seq": 2540,
+  "history_next_seq": 2541,
+  "active_tasks": 5,
+  "queued_tasks": 0,
+  "audit_summary": {
+    "registry_format": "STATE_AUDIT_REGISTRY_V2",
+    "total_records": 9,
+    "open_blocking": 0,
+    "open_reconcilable": 0,
+    "open_blocking_other": 0,
+    "open_nonblocking": 9,
+    "archived_known_gap": 0,
+    "resolved": 0,
+    "ids": {
+      "open_reconcilable": [],
+      "open_blocking_other": [],
+      "open_nonblocking": [
+        "AUD-DEEP-WEAPON-MODEL-01",
+        "AUD-RECOVERY-V6510-DYNAMIC-01",
+        "AUD-RECOVERY-HZ-SALVAGE-0602",
+        "AUD-RANDOM-EVENT-SURFACING-83620627",
+        "AUD-SHADOW-POST-CT-REPAIR-STATUS-01",
+        "AUD-V10132-MIGRATION-RECOVERY-01",
+        "AUD-RECONCILE-HZ-DEEPSPACE-83630607",
+        "AUD-V1345-FULL-SAVE-RECONCILIATION-01",
+        "AUD-V1410-FULL-SAVE-RECONCILIATION-01"
+      ],
+      "archived_known_gap": [],
+      "resolved": []
+    },
+    "policy": "Only open blocking audits are warnings; V2 separates active and archive records while legacy list snapshots remain readable for recovery."
+  },
+  "reference_integrity": {
+    "packet": "REFERENCE_INTEGRITY_V1",
+    "schema": "REFERENCE_GRAPH_V1",
+    "status": "PASS",
+    "errors": [],
+    "warnings": [],
+    "counts": {
+      "rules": 202,
+      "catalog_entities": 48,
+      "state_entities": 64,
+      "edges_checked": 5
+    }
+  },
+  "current_authority_consistency": {
+    "status": "PASS",
+    "errors": [],
+    "facts": {
+      "shadow_patrol_event": {
+        "status": "PASS",
+        "errors": [],
+        "task_id": "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+        "open_event_id": null
+      },
+      "core_save_files": 8,
+      "hash_checked_components": 7,
+      "industry": {
+        "asset_count": 1619,
+        "daily_net_income_gold": 2043374646.8122,
+        "daily_net_income_grey": 400107046.52,
+        "next_settlement_at": "8363-12-03T00:20:00"
+      },
+      "asset_mapping": {
+        "schema": "ASSET_MAPPING_REGISTRY_V3",
+        "entry_count": 708,
+        "migrated": 9,
+        "excluded": 699,
+        "ledger_active": true
+      },
+      "history_epoch": {
+        "compression_recommended": false,
+        "compression_applied": true,
+        "physical_epoch_records": 19,
+        "logical_event_count": 2540,
+        "raw_recent_event_count": 65,
+        "raw_recent_bytes": 86859
+      }
+    }
+  },
+  "ast_structure": {
+    "status": "PASS",
+    "errors": [],
+    "engine_path": "/workspace/scratch/db7a921ac22d/batch_c/candidate/engine.py",
+    "duplicate_function_count": 0,
+    "duplicate_class_count": 0,
+    "duplicate_critical_constant_count": 0,
+    "duplicate_cli_command_count": 0,
+    "cli_command_count": 68
+  },
+  "version_binding": {
+    "status": "PASS",
+    "errors": [],
+    "root": "/workspace/scratch/db7a921ac22d/batch_c/candidate",
+    "engine_version": "2.62.0",
+    "engine_protocol": "4",
+    "guard_version": "2.20.0",
+    "guard_protocol": "4"
+  },
+  "scene_integrity": {
+    "status": "PASS",
+    "errors": [],
+    "legacy_closed_count": 24,
+    "native_count": 1
+  },
+  "pricing_integrity": {
+    "status": "PASS",
+    "errors": [],
+    "record_count": 265,
+    "research_count": 97,
+    "pending_candidates": 2
+  },
+  "accounts": {
+    "status": "PASS",
+    "errors": []
+  },
+  "content": {
+    "status": "PASS",
+    "errors": [],
+    "packages": 1
+  },
+  "memory": {
+    "status": "PASS",
+    "errors": [],
+    "cold_objects": 11
+  },
+  "story": {
+    "status": "PASS",
+    "errors": [],
+    "bound_tasks": 5,
+    "registered_people": 0
+  }
+}

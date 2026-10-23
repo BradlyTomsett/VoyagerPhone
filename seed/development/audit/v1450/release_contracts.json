@@ -1,0 +1,46 @@
+{
+  "suite": "release_contracts",
+  "status": "PASS",
+  "returncode": 0,
+  "seconds": 74.952,
+  "upstream_script_sha256": "e0c516ea5a2651cc9df53ce7c34581123799dd4b34b866072f4bb3bea8b80eef",
+  "adapted_script_sha256": "6cc62ad8ea00c04824263a1a45b976ed0a64f44f1827213de3f4133de3eefaf9",
+  "result": {
+    "status": "PASS",
+    "tests": [
+      {
+        "name": "same_version_transport_fork_refused",
+        "status": "PASS",
+        "detail": "two individually bound same-version forks refused; mtime never resolves ambiguity",
+        "seconds": 0.976
+      },
+      {
+        "name": "commit_export_failure_retry_and_frozen_source",
+        "status": "PASS",
+        "detail": {
+          "committed_then_export_failure": true,
+          "only_export_retry": true,
+          "no_business_reexecution": true,
+          "frozen_zip_survives_later_development_changes": true
+        },
+        "seconds": 64.614
+      },
+      {
+        "name": "bounded_warm_queries_and_shared_batch_measurement",
+        "status": "PASS",
+        "detail": {
+          "samples": 20,
+          "warm_query_median_seconds": 0.04251484199994593,
+          "warm_query_p95_seconds": 0.049665111999274814,
+          "warm_history_decodes": 0,
+          "four_separate_function_seconds": 0.3549268509996182,
+          "four_topic_batch_seconds": 0.21777717900022253,
+          "batch_results_equal": true,
+          "environment": "Linux-6.18.44-x86_64-with-glibc2.39",
+          "measurement_scope": "function body after validated snapshot; no 30% speedup claim, no ChatGPT latency promise"
+        },
+        "seconds": 8.681
+      }
+    ]
+  }
+}

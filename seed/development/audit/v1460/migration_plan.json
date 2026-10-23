@@ -1,0 +1,1220 @@
+{
+  "schema": "LIVING_WORLD_MAINTENANCE_V1",
+  "parent": "SAVESET-V14.59-707b38f6542b6ffc",
+  "engine_sha256": "f4971327c7221d18f14ffe8b2bcd07e14d8792026932b601c01fdc4f9de08222",
+  "guard_sha256": "5fe301c92b07c10bf500f34a34361fc5ba9354de5d99684473dc7e588ddc8b9a",
+  "field_changes": [
+    {
+      "file": "state.json",
+      "path": "/engine_runtime/living_world_v1",
+      "operation": "add",
+      "after": {
+        "schema": "LIVING_WORLD_V1",
+        "policy_version": 1,
+        "adopted_at": "8363-12-10T17:20:00",
+        "initial_review_at": "8363-12-11T17:20:00",
+        "policy": {
+          "enabled": true,
+          "npc_autonomy": true,
+          "default_population": "ordinary_people",
+          "player_decisions": "player_only",
+          "clock": "game_time",
+          "history_before_adoption": "do_not_resimulate"
+        },
+        "profiles": {
+          "PER-CASSIAN-VAHL": {
+            "entity_id": "PER-CASSIAN-VAHL",
+            "important": true,
+            "background": {
+              "name": "卡西安·沃尔",
+              "age": null,
+              "sex": null,
+              "species": null,
+              "occupation": null,
+              "income": null,
+              "housing": null,
+              "family": null,
+              "personality": null,
+              "habits": null,
+              "goals": null,
+              "troubles": null,
+              "experiences": null,
+              "relations": null,
+              "memories": null,
+              "social_identity": null,
+              "social_class": null,
+              "beliefs": null,
+              "interests": null,
+              "past": null,
+              "current_life": null,
+              "future_paths": null,
+              "education": null,
+              "professional_background": null
+            },
+            "voice": {
+              "vocabulary": null,
+              "catchphrases": null,
+              "dialect": null,
+              "politeness": null,
+              "humor": null,
+              "pauses": null,
+              "repetition": null,
+              "metaphors": null,
+              "topic_gravity": null,
+              "angry": null,
+              "tired": null,
+              "relaxed": null,
+              "nervous": null
+            },
+            "public_fields": [
+              "name"
+            ],
+            "voice_visible_to": [],
+            "daily_routine": [],
+            "basis_refs": [
+              "state:entity_registry.entities.PER-CASSIAN-VAHL"
+            ],
+            "source_kind": "legacy_reference",
+            "revision": 0,
+            "source_event_id": null,
+            "as_of": "8363-12-10T17:20:00"
+          },
+          "PER-RAFE-KELLAN": {
+            "entity_id": "PER-RAFE-KELLAN",
+            "important": true,
+            "background": {
+              "name": "雷夫·凯兰",
+              "age": null,
+              "sex": null,
+              "species": null,
+              "occupation": null,
+              "income": null,
+              "housing": null,
+              "family": null,
+              "personality": null,
+              "habits": null,
+              "goals": null,
+              "troubles": null,
+              "experiences": null,
+              "relations": null,
+              "memories": null,
+              "social_identity": null,
+              "social_class": null,
+              "beliefs": null,
+              "interests": null,
+              "past": null,
+              "current_life": null,
+              "future_paths": null,
+              "education": null,
+              "professional_background": null
+            },
+            "voice": {
+              "vocabulary": null,
+              "catchphrases": null,
+              "dialect": null,
+              "politeness": null,
+              "humor": null,
+              "pauses": null,
+              "repetition": null,
+              "metaphors": null,
+              "topic_gravity": null,
+              "angry": null,
+              "tired": null,
+              "relaxed": null,
+              "nervous": null
+            },
+            "public_fields": [
+              "name"
+            ],
+            "voice_visible_to": [],
+            "daily_routine": [],
+            "basis_refs": [
+              "state:entity_registry.entities.PER-RAFE-KELLAN"
+            ],
+            "source_kind": "legacy_reference",
+            "revision": 0,
+            "source_event_id": null,
+            "as_of": "8363-12-10T17:20:00"
+          },
+          "PER-SEVENTH-LAMP-IVAN-LOSA": {
+            "entity_id": "PER-SEVENTH-LAMP-IVAN-LOSA",
+            "important": true,
+            "background": {
+              "name": "伊文·洛萨",
+              "age": null,
+              "sex": null,
+              "species": null,
+              "occupation": null,
+              "income": null,
+              "housing": null,
+              "family": null,
+              "personality": null,
+              "habits": null,
+              "goals": null,
+              "troubles": null,
+              "experiences": null,
+              "relations": null,
+              "memories": null,
+              "social_identity": null,
+              "social_class": null,
+              "beliefs": null,
+              "interests": null,
+              "past": null,
+              "current_life": null,
+              "future_paths": null,
+              "education": null,
+              "professional_background": null
+            },
+            "voice": {
+              "vocabulary": null,
+              "catchphrases": null,
+              "dialect": null,
+              "politeness": null,
+              "humor": null,
+              "pauses": null,
+              "repetition": null,
+              "metaphors": null,
+              "topic_gravity": null,
+              "angry": null,
+              "tired": null,
+              "relaxed": null,
+              "nervous": null
+            },
+            "public_fields": [
+              "name"
+            ],
+            "voice_visible_to": [],
+            "daily_routine": [],
+            "basis_refs": [
+              "state:entity_registry.entities.PER-SEVENTH-LAMP-IVAN-LOSA"
+            ],
+            "source_kind": "legacy_reference",
+            "revision": 0,
+            "source_event_id": null,
+            "as_of": "8363-12-10T17:20:00"
+          },
+          "PER-NADIA-HADDAD": {
+            "entity_id": "PER-NADIA-HADDAD",
+            "important": true,
+            "background": {
+              "name": "纳迪娅·哈达德",
+              "age": null,
+              "sex": null,
+              "species": null,
+              "occupation": null,
+              "income": null,
+              "housing": null,
+              "family": null,
+              "personality": null,
+              "habits": null,
+              "goals": null,
+              "troubles": null,
+              "experiences": null,
+              "relations": null,
+              "memories": null,
+              "social_identity": null,
+              "social_class": null,
+              "beliefs": null,
+              "interests": null,
+              "past": null,
+              "current_life": null,
+              "future_paths": null,
+              "education": null,
+              "professional_background": null
+            },
+            "voice": {
+              "vocabulary": null,
+              "catchphrases": null,
+              "dialect": null,
+              "politeness": null,
+              "humor": null,
+              "pauses": null,
+              "repetition": null,
+              "metaphors": null,
+              "topic_gravity": null,
+              "angry": null,
+              "tired": null,
+              "relaxed": null,
+              "nervous": null
+            },
+            "public_fields": [
+              "name"
+            ],
+            "voice_visible_to": [],
+            "daily_routine": [],
+            "basis_refs": [
+              "state:entity_registry.entities.PER-NADIA-HADDAD"
+            ],
+            "source_kind": "legacy_reference",
+            "revision": 0,
+            "source_event_id": null,
+            "as_of": "8363-12-10T17:20:00"
+          },
+          "PER-CHEN-YILAN": {
+            "entity_id": "PER-CHEN-YILAN",
+            "important": true,
+            "background": {
+              "name": "陈奕岚",
+              "age": null,
+              "sex": null,
+              "species": null,
+              "occupation": null,
+              "income": null,
+              "housing": null,
+              "family": null,
+              "personality": null,
+              "habits": null,
+              "goals": null,
+              "troubles": null,
+              "experiences": null,
+              "relations": null,
+              "memories": null,
+              "social_identity": null,
+              "social_class": null,
+              "beliefs": null,
+              "interests": null,
+              "past": null,
+              "current_life": null,
+              "future_paths": null,
+              "education": null,
+              "professional_background": null
+            },
+            "voice": {
+              "vocabulary": null,
+              "catchphrases": null,
+              "dialect": null,
+              "politeness": null,
+              "humor": null,
+              "pauses": null,
+              "repetition": null,
+              "metaphors": null,
+              "topic_gravity": null,
+              "angry": null,
+              "tired": null,
+              "relaxed": null,
+              "nervous": null
+            },
+            "public_fields": [
+              "name"
+            ],
+            "voice_visible_to": [],
+            "daily_routine": [],
+            "basis_refs": [
+              "state:entity_registry.entities.PER-CHEN-YILAN"
+            ],
+            "source_kind": "legacy_reference",
+            "revision": 0,
+            "source_event_id": null,
+            "as_of": "8363-12-10T17:20:00"
+          },
+          "PER-WAUGHN-01": {
+            "entity_id": "PER-WAUGHN-01",
+            "important": true,
+            "background": {
+              "name": "蕾娅·沃恩",
+              "age": null,
+              "sex": null,
+              "species": null,
+              "occupation": null,
+              "income": null,
+              "housing": null,
+              "family": null,
+              "personality": null,
+              "habits": null,
+              "goals": null,
+              "troubles": null,
+              "experiences": null,
+              "relations": null,
+              "memories": null,
+              "social_identity": null,
+              "social_class": null,
+              "beliefs": null,
+              "interests": null,
+              "past": null,
+              "current_life": null,
+              "future_paths": null,
+              "education": null,
+              "professional_background": null
+            },
+            "voice": {
+              "vocabulary": null,
+              "catchphrases": null,
+              "dialect": null,
+              "politeness": null,
+              "humor": null,
+              "pauses": null,
+              "repetition": null,
+              "metaphors": null,
+              "topic_gravity": null,
+              "angry": null,
+              "tired": null,
+              "relaxed": null,
+              "nervous": null
+            },
+            "public_fields": [
+              "name"
+            ],
+            "voice_visible_to": [],
+            "daily_routine": [],
+            "basis_refs": [
+              "state:entity_registry.entities.PER-WAUGHN-01"
+            ],
+            "source_kind": "legacy_reference",
+            "revision": 0,
+            "source_event_id": null,
+            "as_of": "8363-12-10T17:20:00"
+          },
+          "PER-LIA-SOREN": {
+            "entity_id": "PER-LIA-SOREN",
+            "important": true,
+            "background": {
+              "name": "莉娅·索伦",
+              "age": null,
+              "sex": null,
+              "species": null,
+              "occupation": null,
+              "income": null,
+              "housing": null,
+              "family": null,
+              "personality": null,
+              "habits": null,
+              "goals": null,
+              "troubles": null,
+              "experiences": null,
+              "relations": null,
+              "memories": null,
+              "social_identity": null,
+              "social_class": null,
+              "beliefs": null,
+              "interests": null,
+              "past": null,
+              "current_life": null,
+              "future_paths": null,
+              "education": null,
+              "professional_background": null
+            },
+            "voice": {
+              "vocabulary": null,
+              "catchphrases": null,
+              "dialect": null,
+              "politeness": null,
+              "humor": null,
+              "pauses": null,
+              "repetition": null,
+              "metaphors": null,
+              "topic_gravity": null,
+              "angry": null,
+              "tired": null,
+              "relaxed": null,
+              "nervous": null
+            },
+            "public_fields": [
+              "name"
+            ],
+            "voice_visible_to": [],
+            "daily_routine": [],
+            "basis_refs": [
+              "state:entity_registry.entities.PER-LIA-SOREN"
+            ],
+            "source_kind": "legacy_reference",
+            "revision": 0,
+            "source_event_id": null,
+            "as_of": "8363-12-10T17:20:00"
+          },
+          "PER-DANIEL-01": {
+            "entity_id": "PER-DANIEL-01",
+            "important": true,
+            "background": {
+              "name": "丹尼尔",
+              "age": null,
+              "sex": null,
+              "species": null,
+              "occupation": null,
+              "income": null,
+              "housing": null,
+              "family": null,
+              "personality": null,
+              "habits": null,
+              "goals": null,
+              "troubles": null,
+              "experiences": null,
+              "relations": null,
+              "memories": null,
+              "social_identity": null,
+              "social_class": null,
+              "beliefs": null,
+              "interests": null,
+              "past": null,
+              "current_life": null,
+              "future_paths": null,
+              "education": null,
+              "professional_background": null
+            },
+            "voice": {
+              "vocabulary": null,
+              "catchphrases": null,
+              "dialect": null,
+              "politeness": null,
+              "humor": null,
+              "pauses": null,
+              "repetition": null,
+              "metaphors": null,
+              "topic_gravity": null,
+              "angry": null,
+              "tired": null,
+              "relaxed": null,
+              "nervous": null
+            },
+            "public_fields": [
+              "name"
+            ],
+            "voice_visible_to": [],
+            "daily_routine": [],
+            "basis_refs": [
+              "state:entity_registry.entities.PER-DANIEL-01"
+            ],
+            "source_kind": "legacy_reference",
+            "revision": 0,
+            "source_event_id": null,
+            "as_of": "8363-12-10T17:20:00"
+          },
+          "PER-WANGJING-01": {
+            "entity_id": "PER-WANGJING-01",
+            "important": true,
+            "background": {
+              "name": "王静",
+              "age": null,
+              "sex": null,
+              "species": null,
+              "occupation": null,
+              "income": null,
+              "housing": null,
+              "family": null,
+              "personality": null,
+              "habits": null,
+              "goals": null,
+              "troubles": null,
+              "experiences": null,
+              "relations": null,
+              "memories": null,
+              "social_identity": null,
+              "social_class": null,
+              "beliefs": null,
+              "interests": null,
+              "past": null,
+              "current_life": null,
+              "future_paths": null,
+              "education": null,
+              "professional_background": null
+            },
+            "voice": {
+              "vocabulary": null,
+              "catchphrases": null,
+              "dialect": null,
+              "politeness": null,
+              "humor": null,
+              "pauses": null,
+              "repetition": null,
+              "metaphors": null,
+              "topic_gravity": null,
+              "angry": null,
+              "tired": null,
+              "relaxed": null,
+              "nervous": null
+            },
+            "public_fields": [
+              "name"
+            ],
+            "voice_visible_to": [],
+            "daily_routine": [],
+            "basis_refs": [
+              "state:entity_registry.entities.PER-WANGJING-01"
+            ],
+            "source_kind": "legacy_reference",
+            "revision": 0,
+            "source_event_id": null,
+            "as_of": "8363-12-10T17:20:00"
+          },
+          "PER-KOVACS-01": {
+            "entity_id": "PER-KOVACS-01",
+            "important": true,
+            "background": {
+              "name": "科瓦奇",
+              "age": null,
+              "sex": null,
+              "species": null,
+              "occupation": null,
+              "income": null,
+              "housing": null,
+              "family": null,
+              "personality": null,
+              "habits": null,
+              "goals": null,
+              "troubles": null,
+              "experiences": null,
+              "relations": null,
+              "memories": null,
+              "social_identity": null,
+              "social_class": null,
+              "beliefs": null,
+              "interests": null,
+              "past": null,
+              "current_life": null,
+              "future_paths": null,
+              "education": null,
+              "professional_background": null
+            },
+            "voice": {
+              "vocabulary": null,
+              "catchphrases": null,
+              "dialect": null,
+              "politeness": null,
+              "humor": null,
+              "pauses": null,
+              "repetition": null,
+              "metaphors": null,
+              "topic_gravity": null,
+              "angry": null,
+              "tired": null,
+              "relaxed": null,
+              "nervous": null
+            },
+            "public_fields": [
+              "name"
+            ],
+            "voice_visible_to": [],
+            "daily_routine": [],
+            "basis_refs": [
+              "state:entity_registry.entities.PER-KOVACS-01"
+            ],
+            "source_kind": "legacy_reference",
+            "revision": 0,
+            "source_event_id": null,
+            "as_of": "8363-12-10T17:20:00"
+          },
+          "PER-MARCUS-01": {
+            "entity_id": "PER-MARCUS-01",
+            "important": true,
+            "background": {
+              "name": "马库斯",
+              "age": null,
+              "sex": null,
+              "species": null,
+              "occupation": null,
+              "income": null,
+              "housing": null,
+              "family": null,
+              "personality": null,
+              "habits": null,
+              "goals": null,
+              "troubles": null,
+              "experiences": null,
+              "relations": null,
+              "memories": null,
+              "social_identity": null,
+              "social_class": null,
+              "beliefs": null,
+              "interests": null,
+              "past": null,
+              "current_life": null,
+              "future_paths": null,
+              "education": null,
+              "professional_background": null
+            },
+            "voice": {
+              "vocabulary": null,
+              "catchphrases": null,
+              "dialect": null,
+              "politeness": null,
+              "humor": null,
+              "pauses": null,
+              "repetition": null,
+              "metaphors": null,
+              "topic_gravity": null,
+              "angry": null,
+              "tired": null,
+              "relaxed": null,
+              "nervous": null
+            },
+            "public_fields": [
+              "name"
+            ],
+            "voice_visible_to": [],
+            "daily_routine": [],
+            "basis_refs": [
+              "state:entity_registry.entities.PER-MARCUS-01"
+            ],
+            "source_kind": "legacy_reference",
+            "revision": 0,
+            "source_event_id": null,
+            "as_of": "8363-12-10T17:20:00"
+          },
+          "PER-WALKER-01": {
+            "entity_id": "PER-WALKER-01",
+            "important": true,
+            "background": {
+              "name": "沃克",
+              "age": null,
+              "sex": null,
+              "species": null,
+              "occupation": null,
+              "income": null,
+              "housing": null,
+              "family": null,
+              "personality": null,
+              "habits": null,
+              "goals": null,
+              "troubles": null,
+              "experiences": null,
+              "relations": null,
+              "memories": null,
+              "social_identity": null,
+              "social_class": null,
+              "beliefs": null,
+              "interests": null,
+              "past": null,
+              "current_life": null,
+              "future_paths": null,
+              "education": null,
+              "professional_background": null
+            },
+            "voice": {
+              "vocabulary": null,
+              "catchphrases": null,
+              "dialect": null,
+              "politeness": null,
+              "humor": null,
+              "pauses": null,
+              "repetition": null,
+              "metaphors": null,
+              "topic_gravity": null,
+              "angry": null,
+              "tired": null,
+              "relaxed": null,
+              "nervous": null
+            },
+            "public_fields": [
+              "name"
+            ],
+            "voice_visible_to": [],
+            "daily_routine": [],
+            "basis_refs": [
+              "state:entity_registry.entities.PER-WALKER-01"
+            ],
+            "source_kind": "legacy_reference",
+            "revision": 0,
+            "source_event_id": null,
+            "as_of": "8363-12-10T17:20:00"
+          },
+          "PER-NOVA-01": {
+            "entity_id": "PER-NOVA-01",
+            "important": true,
+            "background": {
+              "name": "诺娃",
+              "age": null,
+              "sex": null,
+              "species": null,
+              "occupation": null,
+              "income": null,
+              "housing": null,
+              "family": null,
+              "personality": null,
+              "habits": null,
+              "goals": null,
+              "troubles": null,
+              "experiences": null,
+              "relations": null,
+              "memories": null,
+              "social_identity": null,
+              "social_class": null,
+              "beliefs": null,
+              "interests": null,
+              "past": null,
+              "current_life": null,
+              "future_paths": null,
+              "education": null,
+              "professional_background": null
+            },
+            "voice": {
+              "vocabulary": null,
+              "catchphrases": null,
+              "dialect": null,
+              "politeness": null,
+              "humor": null,
+              "pauses": null,
+              "repetition": null,
+              "metaphors": null,
+              "topic_gravity": null,
+              "angry": null,
+              "tired": null,
+              "relaxed": null,
+              "nervous": null
+            },
+            "public_fields": [
+              "name"
+            ],
+            "voice_visible_to": [],
+            "daily_routine": [],
+            "basis_refs": [
+              "state:entity_registry.entities.PER-NOVA-01"
+            ],
+            "source_kind": "legacy_reference",
+            "revision": 0,
+            "source_event_id": null,
+            "as_of": "8363-12-10T17:20:00"
+          },
+          "PER-HAWK-MALEN-01": {
+            "entity_id": "PER-HAWK-MALEN-01",
+            "important": true,
+            "background": {
+              "name": "霍克·马伦",
+              "age": null,
+              "sex": null,
+              "species": null,
+              "occupation": null,
+              "income": null,
+              "housing": null,
+              "family": null,
+              "personality": null,
+              "habits": null,
+              "goals": null,
+              "troubles": null,
+              "experiences": null,
+              "relations": null,
+              "memories": null,
+              "social_identity": null,
+              "social_class": null,
+              "beliefs": null,
+              "interests": null,
+              "past": null,
+              "current_life": null,
+              "future_paths": null,
+              "education": null,
+              "professional_background": null
+            },
+            "voice": {
+              "vocabulary": null,
+              "catchphrases": null,
+              "dialect": null,
+              "politeness": null,
+              "humor": null,
+              "pauses": null,
+              "repetition": null,
+              "metaphors": null,
+              "topic_gravity": null,
+              "angry": null,
+              "tired": null,
+              "relaxed": null,
+              "nervous": null
+            },
+            "public_fields": [
+              "name"
+            ],
+            "voice_visible_to": [],
+            "daily_routine": [],
+            "basis_refs": [
+              "state:entity_registry.entities.PER-HAWK-MALEN-01"
+            ],
+            "source_kind": "legacy_reference",
+            "revision": 0,
+            "source_event_id": null,
+            "as_of": "8363-12-10T17:20:00"
+          },
+          "PER-MARCO-SAIN": {
+            "entity_id": "PER-MARCO-SAIN",
+            "important": true,
+            "background": {
+              "name": "马尔科·赛恩",
+              "age": null,
+              "sex": null,
+              "species": null,
+              "occupation": null,
+              "income": null,
+              "housing": null,
+              "family": null,
+              "personality": null,
+              "habits": null,
+              "goals": null,
+              "troubles": null,
+              "experiences": null,
+              "relations": null,
+              "memories": null,
+              "social_identity": null,
+              "social_class": null,
+              "beliefs": null,
+              "interests": null,
+              "past": null,
+              "current_life": null,
+              "future_paths": null,
+              "education": null,
+              "professional_background": null
+            },
+            "voice": {
+              "vocabulary": null,
+              "catchphrases": null,
+              "dialect": null,
+              "politeness": null,
+              "humor": null,
+              "pauses": null,
+              "repetition": null,
+              "metaphors": null,
+              "topic_gravity": null,
+              "angry": null,
+              "tired": null,
+              "relaxed": null,
+              "nervous": null
+            },
+            "public_fields": [
+              "name"
+            ],
+            "voice_visible_to": [],
+            "daily_routine": [],
+            "basis_refs": [
+              "state:entity_registry.entities.PER-MARCO-SAIN"
+            ],
+            "source_kind": "legacy_reference",
+            "revision": 0,
+            "source_event_id": null,
+            "as_of": "8363-12-10T17:20:00"
+          },
+          "PER-ADRIAN-WEISS": {
+            "entity_id": "PER-ADRIAN-WEISS",
+            "important": true,
+            "background": {
+              "name": "阿德里安·维斯",
+              "age": null,
+              "sex": null,
+              "species": null,
+              "occupation": null,
+              "income": null,
+              "housing": null,
+              "family": null,
+              "personality": null,
+              "habits": null,
+              "goals": null,
+              "troubles": null,
+              "experiences": null,
+              "relations": null,
+              "memories": null,
+              "social_identity": null,
+              "social_class": null,
+              "beliefs": null,
+              "interests": null,
+              "past": null,
+              "current_life": null,
+              "future_paths": null,
+              "education": null,
+              "professional_background": null
+            },
+            "voice": {
+              "vocabulary": null,
+              "catchphrases": null,
+              "dialect": null,
+              "politeness": null,
+              "humor": null,
+              "pauses": null,
+              "repetition": null,
+              "metaphors": null,
+              "topic_gravity": null,
+              "angry": null,
+              "tired": null,
+              "relaxed": null,
+              "nervous": null
+            },
+            "public_fields": [
+              "name"
+            ],
+            "voice_visible_to": [],
+            "daily_routine": [],
+            "basis_refs": [
+              "state:entity_registry.entities.PER-ADRIAN-WEISS"
+            ],
+            "source_kind": "legacy_reference",
+            "revision": 0,
+            "source_event_id": null,
+            "as_of": "8363-12-10T17:20:00"
+          }
+        },
+        "places": {},
+        "visits": {},
+        "interiors": {},
+        "life_nodes": {},
+        "experience_receipts": {}
+      }
+    },
+    {
+      "file": "state.json",
+      "path": "/engine_runtime/story_turns_v1/rule_index/RULE-INDEPENDENT-WORLD-CLOCK-01",
+      "operation": "add",
+      "after": {
+        "tags": [
+          "always"
+        ],
+        "subjects": [
+          "*"
+        ],
+        "scene_types": [
+          "*"
+        ],
+        "trigger": "always",
+        "priority": 100,
+        "hard": true,
+        "visibility": "public_constraints",
+        "valid_from": null,
+        "valid_until": null,
+        "source_ref": "document_segments.order=217.markdown",
+        "rule_version": 1
+      }
+    },
+    {
+      "file": "state.json",
+      "path": "/engine_runtime/story_turns_v1/rule_index/RULE-INNER-EXPERIENCE-AND-AGENCY-01",
+      "operation": "add",
+      "after": {
+        "tags": [
+          "always"
+        ],
+        "subjects": [
+          "*"
+        ],
+        "scene_types": [
+          "*"
+        ],
+        "trigger": "always",
+        "priority": 100,
+        "hard": true,
+        "visibility": "public_constraints",
+        "valid_from": null,
+        "valid_until": null,
+        "source_ref": "document_segments.order=216.markdown",
+        "rule_version": 1
+      }
+    },
+    {
+      "file": "state.json",
+      "path": "/engine_runtime/story_turns_v1/rule_index/RULE-LIVED-NARRATION-01",
+      "operation": "add",
+      "after": {
+        "tags": [
+          "always"
+        ],
+        "subjects": [
+          "*"
+        ],
+        "scene_types": [
+          "*"
+        ],
+        "trigger": "always",
+        "priority": 100,
+        "hard": true,
+        "visibility": "public_constraints",
+        "valid_from": null,
+        "valid_until": null,
+        "source_ref": "document_segments.order=214.markdown",
+        "rule_version": 1
+      }
+    },
+    {
+      "file": "state.json",
+      "path": "/engine_runtime/story_turns_v1/rule_index/RULE-NPC-LIFE-AND-VOICE-01",
+      "operation": "add",
+      "after": {
+        "tags": [
+          "always"
+        ],
+        "subjects": [
+          "*"
+        ],
+        "scene_types": [
+          "*"
+        ],
+        "trigger": "always",
+        "priority": 100,
+        "hard": true,
+        "visibility": "public_constraints",
+        "valid_from": null,
+        "valid_until": null,
+        "source_ref": "document_segments.order=215.markdown",
+        "rule_version": 1
+      }
+    },
+    {
+      "file": "rules.json",
+      "path": "/document_segments/195",
+      "operation": "add",
+      "after": {
+        "order": 214,
+        "markdown": "## 每次行动如真实生活\n\n每次玩家行动必须以连贯生活叙事呈现行动、环境、细节、内在体验和人物反应；有交流必须有符合背景的对话。地点初访详细写五感与氛围，重访仅写变化、新信息和必要定位；符合时间、设施、天气、社会与认知。结构锚点与访问记忆程序校验；文学质量由AI逐轮复核。\n"
+      }
+    },
+    {
+      "file": "rules.json",
+      "path": "/document_segments/196",
+      "operation": "add",
+      "after": {
+        "order": 215,
+        "markdown": "## 普通人的自主生活与独特说话方式\n\n重要NPC必须有姓名、年龄、性别、种族、职业、收入、住房、家庭、性格、习惯、目标、烦恼、经历、关系、记忆、社会身份、阶层、信念、利益、过去、当前生活、未来可能、教育和职业背景。语言档案包括词汇、口癖、方言、礼貌、幽默、停顿、重复、比喻、关注点及愤怒/疲惫/放松/紧张的变化。大多数为普通人；可拒绝、误解、欺骗、帮助、利用、讨厌、怀疑、忘记、离开或改变想法，不因主角自动喜欢或特殊对待。信息不一次倒出。\n"
+      }
+    },
+    {
+      "file": "rules.json",
+      "path": "/document_segments/197",
+      "operation": "add",
+      "after": {
+        "order": 216,
+        "markdown": "## 内在体验与玩家决定权\n\n自然呈现身体（饿、冷、累、疼、渴、憋尿、腿麻、头晕）、情绪（紧张、恐惧、愤怒、羞愧、期待、失望、孤独、满足）与认知（困惑、好奇、怀疑、恍悟、犹豫）。优先精准身体反应与可选行为倾向；日常克制，关键时刻展开，避免每句你感到。感受不代替玩家逃跑、承诺、签字、表达好感等决定。玩家台词依据真实输入及身份教育职业，禁止擅自作决定。\n"
+      }
+    },
+    {
+      "file": "rules.json",
+      "path": "/document_segments/198",
+      "operation": "add",
+      "after": {
+        "order": 217,
+        "markdown": "## NPC人生独立于玩家场景\n\n航行、战斗、交易、调查、等待都使用统一游戏时钟，NPC不等待玩家。工作、婚育、搬迁、升职、失业、破产、旅行、学习、实力提升、参军、经商、生病、退休、死亡、家庭/组织/职业/思想/关系变动按人物条件规划与发生。作息按时刻推算，人生节点全局调度，到期复核后续生活；长期未见必须核对变化。旧档空白不伪造既成过去，未来只是可能。关闭聊天不假称有后台服务；钱款、兵力等机械变化依原接口。\n"
+      }
+    },
+    {
+      "file": "rules.json",
+      "path": "/rule_registry/rules/RULE-INDEPENDENT-WORLD-CLOCK-01",
+      "operation": "add",
+      "after": {
+        "rule_id": "RULE-INDEPENDENT-WORLD-CLOCK-01",
+        "version": 1,
+        "domain": "living_world",
+        "title": "NPC人生独立于玩家场景",
+        "scope": "current_authority",
+        "applicability": [
+          "all_player_turns_and_npc_life"
+        ],
+        "conditions": [],
+        "parameters": {},
+        "priority": 100,
+        "effects": [],
+        "constraints": [
+          "航行、战斗、交易、调查、等待都使用统一游戏时钟，NPC不等待玩家。工作、婚育、搬迁、升职、失业、破产、旅行、学习、实力提升、参军、经商、生病、退休、死亡、家庭/组织/职业/思想/关系变动按人物条件规划与发生。作息按时刻推算，人生节点全局调度，到期复核后续生活；长期未见必须核对变化。旧档空白不伪造既成过去，未来只是可能。关闭聊天不假称有后台服务；钱款、兵力等机械变化依原接口。"
+        ],
+        "authorization_requirement": "existing_real_user_authority; ordinary NPC life uses adopted simulation policy",
+        "randomness_policy": "no_new_random_roll_from_rewrite_or_query",
+        "supersedes": [],
+        "superseded_by": [],
+        "semantic_notes": "程序检查结构/状态/因果/时钟；自然语言可信度与文学性由AI复核。",
+        "source_ref": "document_segments.order=217.markdown",
+        "order": 217,
+        "source": "document_segments",
+        "lifecycle_status": "active",
+        "implementation_status": "partially_executable",
+        "source_role": "commander_permanent_amendment"
+      }
+    },
+    {
+      "file": "rules.json",
+      "path": "/rule_registry/rules/RULE-INNER-EXPERIENCE-AND-AGENCY-01",
+      "operation": "add",
+      "after": {
+        "rule_id": "RULE-INNER-EXPERIENCE-AND-AGENCY-01",
+        "version": 1,
+        "domain": "living_world",
+        "title": "内在体验与玩家决定权",
+        "scope": "current_authority",
+        "applicability": [
+          "all_player_turns_and_npc_life"
+        ],
+        "conditions": [],
+        "parameters": {},
+        "priority": 100,
+        "effects": [],
+        "constraints": [
+          "自然呈现身体（饿、冷、累、疼、渴、憋尿、腿麻、头晕）、情绪（紧张、恐惧、愤怒、羞愧、期待、失望、孤独、满足）与认知（困惑、好奇、怀疑、恍悟、犹豫）。优先精准身体反应与可选行为倾向；日常克制，关键时刻展开，避免每句你感到。感受不代替玩家逃跑、承诺、签字、表达好感等决定。玩家台词依据真实输入及身份教育职业，禁止擅自作决定。"
+        ],
+        "authorization_requirement": "existing_real_user_authority; ordinary NPC life uses adopted simulation policy",
+        "randomness_policy": "no_new_random_roll_from_rewrite_or_query",
+        "supersedes": [],
+        "superseded_by": [],
+        "semantic_notes": "程序检查结构/状态/因果/时钟；自然语言可信度与文学性由AI复核。",
+        "source_ref": "document_segments.order=216.markdown",
+        "order": 216,
+        "source": "document_segments",
+        "lifecycle_status": "active",
+        "implementation_status": "partially_executable",
+        "source_role": "commander_permanent_amendment"
+      }
+    },
+    {
+      "file": "rules.json",
+      "path": "/rule_registry/rules/RULE-LIVED-NARRATION-01",
+      "operation": "add",
+      "after": {
+        "rule_id": "RULE-LIVED-NARRATION-01",
+        "version": 1,
+        "domain": "living_world",
+        "title": "每次行动如真实生活",
+        "scope": "current_authority",
+        "applicability": [
+          "all_player_turns_and_npc_life"
+        ],
+        "conditions": [],
+        "parameters": {},
+        "priority": 100,
+        "effects": [],
+        "constraints": [
+          "每次玩家行动必须以连贯生活叙事呈现行动、环境、细节、内在体验和人物反应；有交流必须有符合背景的对话。地点初访详细写五感与氛围，重访仅写变化、新信息和必要定位；符合时间、设施、天气、社会与认知。结构锚点与访问记忆程序校验；文学质量由AI逐轮复核。"
+        ],
+        "authorization_requirement": "existing_real_user_authority; ordinary NPC life uses adopted simulation policy",
+        "randomness_policy": "no_new_random_roll_from_rewrite_or_query",
+        "supersedes": [],
+        "superseded_by": [],
+        "semantic_notes": "程序检查结构/状态/因果/时钟；自然语言可信度与文学性由AI复核。",
+        "source_ref": "document_segments.order=214.markdown",
+        "order": 214,
+        "source": "document_segments",
+        "lifecycle_status": "active",
+        "implementation_status": "partially_executable",
+        "source_role": "commander_permanent_amendment"
+      }
+    },
+    {
+      "file": "rules.json",
+      "path": "/rule_registry/rules/RULE-NPC-LIFE-AND-VOICE-01",
+      "operation": "add",
+      "after": {
+        "rule_id": "RULE-NPC-LIFE-AND-VOICE-01",
+        "version": 1,
+        "domain": "living_world",
+        "title": "普通人的自主生活与独特说话方式",
+        "scope": "current_authority",
+        "applicability": [
+          "all_player_turns_and_npc_life"
+        ],
+        "conditions": [],
+        "parameters": {},
+        "priority": 100,
+        "effects": [],
+        "constraints": [
+          "重要NPC必须有姓名、年龄、性别、种族、职业、收入、住房、家庭、性格、习惯、目标、烦恼、经历、关系、记忆、社会身份、阶层、信念、利益、过去、当前生活、未来可能、教育和职业背景。语言档案包括词汇、口癖、方言、礼貌、幽默、停顿、重复、比喻、关注点及愤怒/疲惫/放松/紧张的变化。大多数为普通人；可拒绝、误解、欺骗、帮助、利用、讨厌、怀疑、忘记、离开或改变想法，不因主角自动喜欢或特殊对待。信息不一次倒出。"
+        ],
+        "authorization_requirement": "existing_real_user_authority; ordinary NPC life uses adopted simulation policy",
+        "randomness_policy": "no_new_random_roll_from_rewrite_or_query",
+        "supersedes": [],
+        "superseded_by": [],
+        "semantic_notes": "程序检查结构/状态/因果/时钟；自然语言可信度与文学性由AI复核。",
+        "source_ref": "document_segments.order=215.markdown",
+        "order": 215,
+        "source": "document_segments",
+        "lifecycle_status": "active",
+        "implementation_status": "partially_executable",
+        "source_role": "commander_permanent_amendment"
+      }
+    }
+  ],
+  "zero_time": true,
+  "old_history_count": 2617,
+  "old_history_raw_sha256": "f4e42f7c31617b139b2e177b9b97f3364e6cd8d66da6cbff9bce17444cfdcec0",
+  "unchanged": [
+    "tasks.json",
+    "catalog.json"
+  ],
+  "old_business_state_exact": true,
+  "new_game_events": 0,
+  "digest": "7de698adefb6ccbe2bd129faf8004268f5b15b2985cdfcaf6dc84c1500c1882b"
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "BATCH2_IO_CLEAN_V1",
+  "scope": "current Python process file streams/fsync; benchmark records written strictly after measurement; Guard subprocess not instrumented; OS block output separately reported; n=1 per operation/version on existing warmed object pools",
+  "samples": [
+    {
+      "version": "V14.58",
+      "kind": "transfer",
+      "durable_copy_requests": 784,
+      "durable_copy_source_bytes": 34719448,
+      "fsync_calls": 899,
+      "stream_write_bytes": 27289492,
+      "full_copy_data_bytes": 17537734,
+      "os_block_output_512_bytes": 36356096
+    },
+    {
+      "version": "V14.58",
+      "kind": "repair_two_snapshots",
+      "durable_copy_requests": 776,
+      "durable_copy_source_bytes": 30160922,
+      "fsync_calls": 1556,
+      "stream_write_bytes": 30160922,
+      "full_copy_data_bytes": 30160922,
+      "os_block_output_512_bytes": 32374784
+    },
+    {
+      "version": "V14.59",
+      "kind": "transfer",
+      "durable_copy_requests": 806,
+      "durable_copy_source_bytes": 34928308,
+      "fsync_calls": 921,
+      "stream_write_bytes": 27308734,
+      "full_copy_data_bytes": 17550646,
+      "os_block_output_512_bytes": 36274176
+    },
+    {
+      "version": "V14.59",
+      "kind": "repair_two_snapshots",
+      "durable_copy_requests": 798,
+      "durable_copy_source_bytes": 30365478,
+      "fsync_calls": 862,
+      "stream_write_bytes": 12987816,
+      "full_copy_data_bytes": 12987816,
+      "os_block_output_512_bytes": 13529088
+    }
+  ],
+  "status": "PASS"
+}

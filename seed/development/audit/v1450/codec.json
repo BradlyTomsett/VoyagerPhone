@@ -1,0 +1,125 @@
+{
+  "schema": "HISTORY_CODEC_V1450_ACCEPTANCE_V1",
+  "status": "PASS",
+  "save_set_id": "SAVESET-V14.50-3ce082aeb6ea6366",
+  "engine_sha256": "3e5071ced725caef8ef10e1cbcfbe6b157cd3629b2d543b345bbfaaae27828c9",
+  "guard_sha256": "917db42bd54ef993a8a917a2c56d2252fbfe27f3a9d4d3899edbde520fb3cf08",
+  "test_sha256": "893759f724ee26e37ed58d7deb6608cacb6ed3890f5676852599f0783a37fbfa",
+  "tests": [
+    {
+      "name": "all_original_event_bytes_metadata_hot_tail_and_game_facts",
+      "status": "PASS",
+      "detail": {
+        "logical_events": 2540,
+        "logical_bytes_exact": true,
+        "hot_lines_exact": 65,
+        "cold_segments": 19,
+        "verified_archives": 22,
+        "new_events": 0,
+        "unchanged_files": 15
+      },
+      "seconds": 1.071
+    },
+    {
+      "name": "legacy_and_new_inline_epochs",
+      "status": "PASS",
+      "detail": {
+        "legacy_zlib_inline": true,
+        "new_xz_inline": true,
+        "same_logical_bytes": true
+      },
+      "seconds": 0.01
+    },
+    {
+      "name": "exact_original_source_and_legacy_external_history_restore",
+      "status": "PASS",
+      "detail": {
+        "restored_original_members": 277,
+        "legacy_external_segments_read_by_new_engine": 19,
+        "previous_cold_boot": true,
+        "v1448_recovery_chain": true
+      },
+      "seconds": 18.595
+    },
+    {
+      "name": "mixed_codec_archive_compatibility",
+      "status": "PASS",
+      "detail": "one old zlib segment and eighteen XZ segments decode to the identical event stream",
+      "seconds": 1.523
+    },
+    {
+      "name": "future_hot_compaction_uses_new_codec_without_rewriting_cold",
+      "status": "PASS",
+      "detail": {
+        "new_cold_segments": 1,
+        "prior_segments_unchanged": 19,
+        "logical_stream_unchanged": true
+      },
+      "seconds": 3.932
+    },
+    {
+      "name": "malformed_stream_metadata_hash_and_resource_bounds",
+      "status": "PASS",
+      "detail": {
+        "corruption_and_stream_boundary_rejections": 16,
+        "decoded_byte_and_memory_bounds_exercised": true
+      },
+      "seconds": 0.003
+    },
+    {
+      "name": "independent_guard_codec_hash_count_size_and_stream_checks",
+      "status": "PASS",
+      "detail": {
+        "inner_fault_rejections": 11,
+        "outer_file_corruption_rejected": true
+      },
+      "seconds": 0.795
+    },
+    {
+      "name": "cold_hot_index_boundaries_and_warm_read_without_history_decode",
+      "status": "PASS",
+      "detail": {
+        "exact_cold_and_hot_sequences": [
+          1,
+          1000,
+          1001,
+          1832,
+          2475,
+          2476,
+          2540
+        ],
+        "invalid_index_rebuilt": true,
+        "warm_balance_history_decodes": 0
+      },
+      "seconds": 7.816
+    },
+    {
+      "name": "copy_only_migration_and_new_fact_rollback_refusals",
+      "status": "PASS",
+      "detail": "new facts/events, in-place migration/restore and missing source rejected before output publication",
+      "seconds": 6.876
+    },
+    {
+      "name": "idempotent_copy_of_already_upgraded_history",
+      "status": "PASS",
+      "detail": {
+        "schema": "VOYAGER_HISTORY_CODEC_UPGRADE_V1",
+        "status": "PASS",
+        "source_save_set_id": "SAVESET-V14.50-3ce082aeb6ea6366",
+        "save_set_id": "SAVESET-V14.51-3ce082aeb6ea6366",
+        "output": "<V1450_WORKSPACE>/audit/final_codec/idempotent",
+        "logical_events": 2540,
+        "logical_sha256": "623a3c5eee54bbab0b8165baf80825d95778198eb586769ae7e82ef78e94920f",
+        "logical_bytes_exact": true,
+        "metadata_exact": true,
+        "new_logical_events": 0,
+        "game_authority_bytes_exact": true,
+        "segments": [],
+        "cold_history_bytes_before": 0,
+        "cold_history_bytes_after": 0
+      },
+      "seconds": 6.511
+    }
+  ],
+  "source_components_unchanged": true
+}

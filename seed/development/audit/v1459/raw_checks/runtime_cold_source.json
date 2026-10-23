@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "engine_sha256": "4a5f72d6cd19ec238f178ad5f221015742aa03a9a8ed0497baa618fa91ea0ef2",
+  "model_generation": "NOT_RUN",
+  "tests": [
+    {
+      "name": "immutable_ownership_growth_and_unknown_correction",
+      "status": "PASS",
+      "detail": [
+        {
+          "scenes": 1,
+          "facts": 50,
+          "learning": 83,
+          "viewers": 4,
+          "exact_equal": true
+        },
+        {
+          "scenes": 4,
+          "facts": 1000,
+          "learning": 1664,
+          "viewers": 4,
+          "exact_equal": true
+        },
+        {
+          "scenes": 8,
+          "facts": 4000,
+          "learning": 6664,
+          "viewers": 4,
+          "exact_equal": true
+        }
+      ],
+      "seconds": 7.199799471999995
+    },
+    {
+      "name": "host_two_calls_roles_and_retry",
+      "status": "PASS",
+      "detail": {
+        "backend_requests": 2,
+        "engine_loads": 1,
+        "same_ID_original_receipt": true,
+        "viewer_and_root_isolated": true,
+        "ChatGPT_tool_wiring": "NOT_CONNECTED"
+      },
+      "seconds": 40.94272827300006
+    }
+  ]
+}

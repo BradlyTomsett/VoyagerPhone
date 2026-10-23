@@ -1,0 +1,27 @@
+{
+  "suite": "rollback",
+  "status": "PASS",
+  "returncode": 0,
+  "seconds": 12.301,
+  "upstream_script_sha256": "be0fbbe2a8328fca99655206a7f88416539e91287d0d5a1bb15960ef0de090d7",
+  "adapted_script_sha256": "cd0101215beee2c0409f744d48b2acfbff0fd28d8e204b79b73502cb861a8fe1",
+  "result": {
+    "status": "PASS",
+    "tests": [
+      {
+        "name": "previous_complete_source_restored_without_old_zip",
+        "status": "PASS",
+        "detail": {
+          "previous_complete_declared_source_restored": true,
+          "previous_guard_cold_resume": "READY_WITH_LIMITATIONS",
+          "old_zip_required": false
+        }
+      },
+      {
+        "name": "new_authority_bytes_and_inplace_rollback_refused",
+        "status": "PASS",
+        "detail": "changed authority and in-place rollback refused before writing"
+      }
+    ]
+  }
+}

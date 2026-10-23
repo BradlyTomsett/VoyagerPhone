@@ -1,0 +1,43 @@
+{
+  "schema": "V1450_INPUT_CONTRACT_V1",
+  "input_save_set_id": "SAVESET-V14.49-cdf55a13d2da9684",
+  "input_zip_sha256": "766b478019e60da57d24d2ac99e16c565d364951b2f837c9f8c8a435f490020a",
+  "logical_events": 2540,
+  "logical_sha256": "623a3c5eee54bbab0b8165baf80825d95778198eb586769ae7e82ef78e94920f",
+  "metadata_raw_sha256": "2daf8ade059d2e5feb9a109add84d0cf0234d054d319890850d206aa6ddb319a",
+  "hot_lines_sha256": "086d1ade6aa11147657782a38f3f4d18908c4fdb94990037e0ae6183571e0a8a",
+  "unchanged_files": {
+    "rules.json": "e72c64ed3edffd9194749bbeea8c9dc09d403ac80b1e3a10962a735480e8b043",
+    "catalog.json": "18bd2263a78e40fec2ddbe5aa638757aa115065f2d44c9a86950c29a58722174",
+    "state.json": "9de0c61a36c896ee8430b10a2339bb8737ab65d1f0f8c6117c0be89a964b8521",
+    "tasks.json": "dba90ff1f134e3bf2c518bce53b482f55bbbda6dd013777f68958fcb32ddf052",
+    "archives/asset_mapping_registry_review_V13.49.json.gz": "801d18bf9984737576ecd096ef9e6dfc956253da8476e86d05b01b60dcc346f5",
+    "archives/multinational_industry_history_V13.49.json.gz": "b1dc3c081f0a68c5c74990468fa998cdf825b9fe09a8df27787b4b49b4dc52b8",
+    "archives/memory_handoffs_V14.46_a1bd6b0c8266.json.gz": "f3799bf08d773c930d81def9132f46285df8d9db6b652b312da980cd86801edf",
+    "development/ui/minigame-request.html": "6c0f9ad578386a00ed0bd0ddc10f65f7ae34cc93cdfa5dca03e64fb21b751fac",
+    "development/ui/dice-client-config.json": "65017be95dd2d9eb0b4cdca239c768d5e3c2ccab5dbd44c091d7240523ae8f1d",
+    "development/ui/foundry-dice-preview.html": "e0eae10ee3205f58fd7eb30016632b0cb07bf69c56d72334b0290a47f092efa1",
+    "development/visual_assets/舰队图片来源闸门.py": "9fd2d2f5bf52a0902f6d8ed0c68e5343493f6d1e2c3b9ca36e878d7dd3c2379d",
+    "development/visual_assets/README.md": "b632f6ed578af67726c2932f83e16864ece711a9d5de4dfea6739797bf530895",
+    "development/visual_assets/image_source_index.json": "9dffd61c4fdc4e822fb81c9369f566c82a04c6c4875f06cf74b98c5835b4d5da",
+    "development/visual_assets/舰队图片强制门禁_项目指令.txt": "169438e1a8a32c7e10757c4ac5a3beab25e179a242e010ab6a376ebe5ea44c8d",
+    "development/query_ui/数据查询ui.html": "893078d96f99d0804a9ecb6a78a3f8d485d9ea1d0ad9221b07116b1ba0c46553"
+  },
+  "asset_policy": {
+    "original_images_embedded": 0,
+    "original_image_archive_embedded": 0,
+    "index_path": "development/visual_assets/image_source_index.json",
+    "original_source_archives_location": "external:project_source_files",
+    "external_archive_names": [
+      "vehicle_posters_en.zip",
+      "combat_robot_posters_en.zip",
+      "space_uav_posters_en.zip",
+      "armored_vehicle_posters_en.zip",
+      "combat_uav_armored_images_en.zip"
+    ],
+    "fail_closed_when_external_not_found": true
+  },
+  "historical_archives": 19,
+  "cold_events": 2475,
+  "hot_events": 65
+}

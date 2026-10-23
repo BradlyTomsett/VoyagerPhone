@@ -1,0 +1,161 @@
+{
+  "ordinary_query": "当前金币余额",
+  "registered_query_aliases": {
+    "当前金币余额": {
+      "exact_key": "gold",
+      "intent": [
+        null,
+        null
+      ]
+    },
+    "当前灰币余额": {
+      "exact_key": "grey",
+      "intent": [
+        null,
+        null
+      ]
+    },
+    "当前游戏时间": {
+      "exact_key": "game_time",
+      "intent": [
+        null,
+        null
+      ]
+    },
+    "当前任务": {
+      "exact_key": null,
+      "intent": [
+        "active_tasks",
+        null
+      ]
+    }
+  },
+  "batch_topics": [
+    "当前金币余额",
+    "当前灰币余额",
+    "当前游戏时间",
+    "task:TSK-MIN-OPERATIONS"
+  ],
+  "task_topic": "task:TSK-MIN-OPERATIONS",
+  "task_source_ref": "tasks:active_tasks.task_id=TSK-MIN-OPERATIONS",
+  "scene_id": "CASE-CENTRAL-CUSTODY-ARBITER-83630723-0818",
+  "scene_selection": "existing sorted native or legacy_closed scene registry only",
+  "quote": {
+    "request": {
+      "price_id": "PRICE-BIOFILM",
+      "item_id": "BIOFILM-V1",
+      "quantity": 1,
+      "unit": "份",
+      "currency": "gold",
+      "specification": {
+        "version": "V1.0",
+        "technology_id": "EQP-JINCHUAN-SHELLMOON-BIOFILM-V1"
+      }
+    },
+    "expected_quote": {
+      "packet": "PRICE_QUOTE_V1",
+      "status": "VALID",
+      "quote_id": "QUOTE-d48c0d6e1126a4e64e2d0be0",
+      "binding_sha256": "d48c0d6e1126a4e64e2d0be04a628f74028720616c77176186313013846ce9e4",
+      "request": {
+        "price_id": "PRICE-BIOFILM",
+        "item_id": "BIOFILM-V1",
+        "quantity": "1",
+        "unit": "份",
+        "currency": "gold",
+        "specification": {
+          "version": "V1.0",
+          "technology_id": "EQP-JINCHUAN-SHELLMOON-BIOFILM-V1"
+        },
+        "modifiers": [],
+        "transaction_type": "reference"
+      },
+      "price_id": "PRICE-BIOFILM",
+      "item_id": "BIOFILM-V1",
+      "specification": {
+        "version": "V1.0",
+        "technology_id": "EQP-JINCHUAN-SHELLMOON-BIOFILM-V1"
+      },
+      "included_components": [],
+      "excluded_components": [],
+      "effective_conditions": [],
+      "price_version": 1,
+      "source_ref": "state:jinchuan_fleet.biofilm_process_commercialization.standard_price_gold_per_package",
+      "source_rule": "RULE-ECONOMY-01",
+      "source_save_set_id": "SAVESET-V14.20-9dae2d93810259aa",
+      "save_set_id": "SAVESET-V14.23-a841a489f315c4b4",
+      "game_time": "8363-09-29T06:18:00",
+      "price_kind": "fixed_price",
+      "category": "industrial_technology",
+      "unit_price": {
+        "amount": "5.6",
+        "currency": "gold"
+      },
+      "range": {
+        "min": "5.6",
+        "max": "5.6",
+        "currency": "gold"
+      },
+      "quantity": "1",
+      "unit": "份",
+      "quantity_conversion": null,
+      "modifiers": [],
+      "total": {
+        "amount": "5.6",
+        "currency": "gold"
+      },
+      "checks": [
+        "source_exists",
+        "currency_complete",
+        "unit_matches",
+        "exact_arithmetic",
+        "scoped_policy"
+      ],
+      "conditions": {},
+      "binding": {
+        "price_id": "PRICE-BIOFILM",
+        "price_version": 1,
+        "source_sha256": "5fa067c1e4cdd35a5916d6eab8a27fb0f32778ce1de6c013e44ac205822b6698",
+        "source_record_sha256": null,
+        "specification": {
+          "version": "V1.0",
+          "technology_id": "EQP-JINCHUAN-SHELLMOON-BIOFILM-V1"
+        },
+        "included_components": [],
+        "anchor": [
+          "5.6",
+          "5.6"
+        ],
+        "exchange_source": "state:commander_runtime_rules.parameters.economic_generation_and_display_calibration.currency.grey_to_gold",
+        "exchange_value": "0.036",
+        "request": {
+          "price_id": "PRICE-BIOFILM",
+          "item_id": "BIOFILM-V1",
+          "quantity": "1",
+          "unit": "份",
+          "currency": "gold",
+          "specification": {
+            "version": "V1.0",
+            "technology_id": "EQP-JINCHUAN-SHELLMOON-BIOFILM-V1"
+          },
+          "modifiers": [],
+          "transaction_type": "reference"
+        },
+        "game_time": "8363-09-29T06:18:00",
+        "modifiers": [],
+        "total": {
+          "amount": "5.6",
+          "currency": "gold"
+        }
+      },
+      "authorized": false,
+      "display": "单价5.6金币/份 × 1份；合计5.6金币。"
+    },
+    "source_ref": "state:jinchuan_fleet.biofilm_process_commercialization.standard_price_gold_per_package",
+    "selection": "first sorted registered active price that current calculator returns VALID"
+  },
+  "report_since_seq": 2055,
+  "report_selection": "since the existing final logical event; empty bounded window is intentional",
+  "audience": "player",
+  "diagnostic_context": "gm only for diagnostic commands; does not change gameplay authority"
+}

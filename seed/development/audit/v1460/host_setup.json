@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "engine_sha256": "f4971327c7221d18f14ffe8b2bcd07e14d8792026932b601c01fdc4f9de08222",
+  "tests": {
+    "missing_authorizer_refuses_without_write": true,
+    "exact_authenticated_setup_commits": true,
+    "same_retry_returns_receipt_without_replay": true,
+    "one_engine_load": true
+  },
+  "scope": "SYNTHETIC only; no production approval or installed ChatGPT host claimed"
+}

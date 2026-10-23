@@ -1,0 +1,163 @@
+{
+  "suite": "core",
+  "groups": 17,
+  "status": "PASS",
+  "script_sha256": "e946478c54cbbfa8a7feede60f76681cc77df9daa439f68d4c692cd02947bcd6",
+  "tested_save_set_id": "SAVESET-V14.48-cdf55a13d2da9684",
+  "tested_engine_sha256": "28678d32b60d671cae0247badba5e4d73600dbfb101811aa1d39c57d83cc81da",
+  "tested_guard_sha256": "e780ae0f45b082f5624be925f92ad04d1e21e3ab3a76c1655f571af222cc1dad",
+  "tested_manifest_sha256": "d3ae627c3227bf289b94a9bf9a32e8e3e46e26ab4d23383cdde1d06830b5b208",
+  "seconds": 428.783,
+  "result": {
+    "schema": "RELEASE_TEST_EVIDENCE_V1",
+    "source_save_set_id": "SAVESET-V14.48-cdf55a13d2da9684",
+    "engine_sha256": "28678d32b60d671cae0247badba5e4d73600dbfb101811aa1d39c57d83cc81da",
+    "guard_sha256": "e780ae0f45b082f5624be925f92ad04d1e21e3ab3a76c1655f571af222cc1dad",
+    "test_sha256": "e946478c54cbbfa8a7feede60f76681cc77df9daa439f68d4c692cd02947bcd6",
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "group": "all",
+    "tests": [
+      {
+        "name": "guard_startup_query_same_readiness_and_no_writes",
+        "status": "PASS",
+        "detail": {
+          "status": "READY_WITH_LIMITATIONS",
+          "authority_unchanged": true
+        },
+        "seconds": 8.549
+      },
+      {
+        "name": "bad_history_never_fake_ready",
+        "status": "PASS",
+        "detail": "bad metadata blocked all ordinary entrypoints, restricted plan still available",
+        "seconds": 20.691
+      },
+      {
+        "name": "sequence_gap_not_metadata_repair",
+        "status": "PASS",
+        "detail": "HISTORY seq discontinuity expected=2540 actual=2541",
+        "seconds": 1.891
+      },
+      {
+        "name": "closed_scene_survives_task_archive",
+        "status": "PASS",
+        "detail": "terminal task is valid for closed scene only",
+        "seconds": 0.02
+      },
+      {
+        "name": "risk_gap_truth_determinism_and_future_windows",
+        "status": "PASS",
+        "detail": {
+          "deterministic": true,
+          "actual_evaluation_timestamp_preserved": true,
+          "future_two_windows": true
+        },
+        "seconds": 0.077
+      },
+      {
+        "name": "location_time_semantics",
+        "status": "PASS",
+        "detail": "observation and validated-through timestamps have distinct contracts",
+        "seconds": 0.026
+      },
+      {
+        "name": "authorization_negative_matrix",
+        "status": "PASS",
+        "detail": "self-approval, wrong subject, parent, expiry, targets, budget and stale base rejected without writes",
+        "seconds": 47.811
+      },
+      {
+        "name": "manifest_policy_roundtrip_and_required_extension_gate",
+        "status": "PASS",
+        "detail": "MANIFEST_UNKNOWN_REQUIRED_EXTENSION",
+        "seconds": 0.08
+      },
+      {
+        "name": "development_release_equivalence",
+        "status": "PASS",
+        "detail": "development and bundled release contracts equivalent",
+        "seconds": 3.816
+      },
+      {
+        "name": "legal_task_action_commit_replay_and_cold_boot",
+        "status": "PASS",
+        "detail": {
+          "committed": true,
+          "replay_once": true,
+          "cold_boot": true
+        },
+        "seconds": 54.79
+      },
+      {
+        "name": "confirmed_purchase_full_transaction",
+        "status": "PASS",
+        "detail": "completed service purchase: trusted scope + quote + delivery evidence + exact cash + permanent once-only receipt",
+        "seconds": 54.056
+      },
+      {
+        "name": "process_death_after_journal",
+        "status": "PASS",
+        "detail": {
+          "killed_at": "after_journal",
+          "outcome": "parent",
+          "journal_clean": true,
+          "late_journal_refused": true
+        },
+        "seconds": 38.854
+      },
+      {
+        "name": "process_death_after_component",
+        "status": "PASS",
+        "detail": {
+          "killed_at": "after_component",
+          "outcome": "parent",
+          "journal_clean": true,
+          "late_journal_refused": true
+        },
+        "seconds": 37.266
+      },
+      {
+        "name": "process_death_after_manifest",
+        "status": "PASS",
+        "detail": {
+          "killed_at": "after_manifest",
+          "outcome": "target",
+          "journal_clean": true,
+          "late_journal_refused": true
+        },
+        "seconds": 42.673
+      },
+      {
+        "name": "process_death_after_receipt",
+        "status": "PASS",
+        "detail": {
+          "killed_at": "after_receipt",
+          "outcome": "target",
+          "journal_clean": true,
+          "late_journal_refused": true
+        },
+        "seconds": 44.616
+      },
+      {
+        "name": "process_death_after_cleanup",
+        "status": "PASS",
+        "detail": {
+          "killed_at": "after_cleanup",
+          "outcome": "target",
+          "journal_clean": true,
+          "late_journal_refused": false
+        },
+        "seconds": 38.966
+      },
+      {
+        "name": "unknown_writer_bytes_protected",
+        "status": "PASS",
+        "detail": "unknown bytes and journal retained; no overwrite",
+        "seconds": 33.847
+      }
+    ],
+    "status": "PASS",
+    "passed": 17,
+    "total": 17
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "engine_sha256": "ad299e70637cbd8333ca05bd873f90d3b13eeaf51a00b18bf8448a5e50f283e9",
+  "tests": [
+    {
+      "phase": "after_component",
+      "unknown": false,
+      "status": "PASS",
+      "detail": {
+        "atomic_outcome": "parent",
+        "no_partial_people_or_scenes": true,
+        "readiness": "READY_WITH_LIMITATIONS"
+      }
+    },
+    {
+      "phase": "after_manifest",
+      "unknown": false,
+      "status": "PASS",
+      "detail": {
+        "atomic_outcome": "target",
+        "no_partial_people_or_scenes": true,
+        "readiness": "READY_WITH_LIMITATIONS"
+      }
+    },
+    {
+      "phase": "after_component",
+      "unknown": true,
+      "status": "PASS",
+      "detail": {
+        "unknown_bytes_protected": true
+      }
+    }
+  ]
+}

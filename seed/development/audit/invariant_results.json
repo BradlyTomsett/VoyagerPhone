@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "checks": {
+    "game_time": true,
+    "finance_units": true,
+    "independent_accounts": true,
+    "all_other_state_facts": true,
+    "tasks_and_settlement_pointers": true,
+    "assets_and_ownership": true,
+    "random_state": true,
+    "cold_archives": true,
+    "physical_history_prefix": true,
+    "all_historical_research_sales_revenue": true
+  },
+  "original_save_set_id": "SAVESET-V14.20-9dae2d93810259aa",
+  "current_save_set_id": "SAVESET-V14.21-ff148af04a003f63",
+  "parent_save_set_id": "SAVESET-V14.20-9dae2d93810259aa",
+  "game_time": "8363-09-18T12:28:00",
+  "funds_units": {
+    "gold": 308227761146651,
+    "grey": 725726184000
+  },
+  "assets_sha256": "6bcc13f15536c784a4546f4b594342d775e5eab847be2eb54f19c7ecdc980ee8",
+  "random_sha256": "b8befbfeccd2f12cba6c4da2a1f62a7fe86107a8645f7dce43c05a7f56bac4ba",
+  "tasks_sha256": "a850a330232da7fba3eabf9739f9b43509dfcc3d6ba1de0ecd624ed7e5738d4c"
+}

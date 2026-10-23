@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "voyager:experience:v2",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "viewer",
+        "scope",
+        "probe",
+        "valid_until"
+      ],
+      "properties": {
+        "scope": {
+          "enum": [
+            "retrieval",
+            "conversation",
+            "proposal"
+          ]
+        },
+        "probe": {
+          "type": "object",
+          "required": [
+            "kind",
+            "input"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "proposal_validation",
+                "memory_retrieval"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "viewer",
+        "scope",
+        "control",
+        "instruction_ref",
+        "valid_until"
+      ],
+      "properties": {
+        "control": {
+          "type": "object",
+          "required": [
+            "op"
+          ],
+          "properties": {
+            "op": {
+              "enum": [
+                "preference",
+                "revoke",
+                "enable",
+                "disable"
+              ]
+            }
+          }
+        }
+      }
+    }
+  ],
+  "description": "Fields extend ordinary DOMAIN_COMMAND; actual outcomes computed in engine; controls need matching real host evidence. No inferred user preference."
+}

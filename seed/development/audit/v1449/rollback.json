@@ -1,0 +1,31 @@
+{
+  "suite": "rollback",
+  "status": "PASS",
+  "returncode": 0,
+  "seconds": 10.546,
+  "script_sha256": "be0fbbe2a8328fca99655206a7f88416539e91287d0d5a1bb15960ef0de090d7",
+  "result": {
+    "status": "PASS",
+    "tests": [
+      {
+        "name": "previous_complete_source_restored_without_old_zip",
+        "status": "PASS",
+        "detail": {
+          "previous_complete_declared_source_restored": true,
+          "previous_guard_cold_resume": "READY_WITH_LIMITATIONS",
+          "old_zip_required": false
+        }
+      },
+      {
+        "name": "new_authority_bytes_and_inplace_rollback_refused",
+        "status": "PASS",
+        "detail": "changed authority and in-place rollback refused before writing"
+      }
+    ]
+  },
+  "groups": 2,
+  "tested_save_set_id": "SAVESET-V14.49-cdf55a13d2da9684",
+  "tested_manifest_sha256": "072d15a555565100d274bd02109bbb5210909fdcdbd83c0f95974a6f443bbf8e",
+  "tested_engine_sha256": "ac63c11ce36d993a93c7a789b956778740d3e7e7826815ba2a11bd63119d8c80",
+  "tested_guard_sha256": "8feec5f087aba1c386d2bddf6ad23e8b15c74c6770fed6c1c92d61f800ee52fb"
+}

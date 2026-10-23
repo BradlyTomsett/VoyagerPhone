@@ -1,0 +1,26 @@
+{
+  "suite": "repair",
+  "status": "PASS",
+  "returncode": 0,
+  "seconds": 85.132,
+  "upstream_script_sha256": "fa56530970d8f949329cc0b27cbb82f21aedc823fb81f31c2f64d3a905a80621",
+  "adapted_script_sha256": "fa56530970d8f949329cc0b27cbb82f21aedc823fb81f31c2f64d3a905a80621",
+  "result": {
+    "status": "PASS",
+    "engine_sha256": "3e5071ced725caef8ef10e1cbcfbe6b157cd3629b2d543b345bbfaaae27828c9",
+    "guard_sha256": "917db42bd54ef993a8a917a2c56d2252fbfe27f3a9d4d3899edbde520fb3cf08",
+    "source_save_set_id": "SAVESET-V14.50-3ce082aeb6ea6366",
+    "tests": [
+      {
+        "name": "repair_after_events.jsonl",
+        "status": "PASS",
+        "outcome": "parent"
+      },
+      {
+        "name": "repair_after_manifest",
+        "status": "PASS",
+        "outcome": "target"
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "BATCH_A_RELEASE_EVIDENCE_V1",
+  "source_save_set_id": "SAVESET-V14.45-27b38347304e1566",
+  "engine_sha256": "71a51b29a869bcfa0e421af8b74ad7355c20f0995c9f8ab6eaadf050b5df5247",
+  "guard_sha256": "e780ae0f45b082f5624be925f92ad04d1e21e3ab3a76c1655f571af222cc1dad",
+  "tests_passed": 26,
+  "tests_total": 26,
+  "protected_fact_checks": 92,
+  "continuation_assertions": 23,
+  "full_engine_groups": 65,
+  "readiness": "READY_WITH_LIMITATIONS",
+  "status": "PASS",
+  "not_tested": [
+    "original image ZIP content",
+    "native ChatGPT authenticated intent injection",
+    "full legacy combat/upgrade combination matrix",
+    "physical power-loss durability on real hardware"
+  ],
+  "historical_risk_window": "acknowledged_unsimulated 8363-12-02T12:00:00 to 8363-12-02T22:45:00"
+}

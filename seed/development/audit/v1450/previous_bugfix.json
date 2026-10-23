@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "source_save_set_id": "SAVESET-V14.50-3ce082aeb6ea6366",
+  "engine_sha256": "3e5071ced725caef8ef10e1cbcfbe6b157cd3629b2d543b345bbfaaae27828c9",
+  "guard_sha256": "917db42bd54ef993a8a917a2c56d2252fbfe27f3a9d4d3899edbde520fb3cf08",
+  "test_sha256": "bfe053f7565c7d3e8b909f3438e92b862537322d8084f64c6838c6a068b3500b",
+  "manifest_sha256": "28fc535fdd81f8dd427c4f9bdfe7297987f89395dfa2e67c80cbad58110aa838",
+  "tests": [
+    {
+      "name": "full_manifest_forks_and_identical_duplicates",
+      "status": "PASS",
+      "detail": "ZIP/ZIP and directory/ZIP metadata forks refused; identical duplicate packages allowed",
+      "seconds": 2.388
+    },
+    {
+      "name": "cached_extraction_matches_requested_entire_manifest",
+      "status": "PASS",
+      "detail": "explicitly selected manifest replaces cached metadata, prior cache quarantined",
+      "seconds": 5.57
+    },
+    {
+      "name": "inspection_and_extraction_identity_bound",
+      "status": "PASS",
+      "detail": "source swap between inspection/extraction refused",
+      "seconds": 0.842
+    },
+    {
+      "name": "advanced_cached_game_save_never_replaced",
+      "status": "PASS",
+      "detail": "a valid cached save with a newer/different SID is retained; older transport cannot replace saved progress",
+      "seconds": 3.713
+    },
+    {
+      "name": "direct_development_binding_is_checked_before_selection",
+      "status": "PASS",
+      "detail": "damaged materialized development cannot outrank a complete healthy ZIP",
+      "seconds": 2.912
+    },
+    {
+      "name": "shared_reader_cache_key_atomic_publication",
+      "status": "PASS",
+      "detail": "two concurrent initializers see only one complete 32-byte key",
+      "seconds": 0.674
+    },
+    {
+      "name": "derived_cache_damage_is_optional_not_fatal",
+      "status": "PASS",
+      "detail": "corrupt/empty cache key and cache write failure do not block healthy authority; empty-key MAC ignored",
+      "seconds": 13.201
+    },
+    {
+      "name": "missing_members_have_structured_blocking_readiness",
+      "status": "PASS",
+      "detail": "missing members yield structured BLOCKED; deleting a member during a read still trips the closing source-change barrier",
+      "seconds": 26.383
+    }
+  ]
+}

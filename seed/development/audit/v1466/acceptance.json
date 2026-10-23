@@ -1,0 +1,161 @@
+{
+  "status": "PASS",
+  "engine_sha256": "863e8e448088f29668447b9fe3476df322142f317e168771349d3181b55bbbec",
+  "tests": {
+    "fast_play": 9,
+    "business": 30,
+    "npc_background": 7,
+    "commit_interruption": 6,
+    "lived_world_current_fixture_combined": 15
+  },
+  "total_unique_cases": 67,
+  "lived_world_resolved": [
+    {
+      "name": "setup_explicit_control_and_complete_profiles",
+      "status": "PASS",
+      "detail": {
+        "control": true
+      },
+      "seconds": 14.428
+    },
+    {
+      "name": "11_boot_actual_size_and_budget",
+      "status": "PASS",
+      "detail": {
+        "actual_bytes": 3232,
+        "budget": 3500,
+        "honest_exceeded": false
+      },
+      "seconds": 3.067
+    },
+    {
+      "name": "15_distinct_evidence_and_independent_review_gate",
+      "status": "PASS",
+      "detail": {
+        "self_flags_rejected": true,
+        "status_report_rejected": true,
+        "unrequested_promise_rejected_by_independent_review": true,
+        "hash_bound_review": true
+      },
+      "seconds": 0.713
+    },
+    {
+      "name": "04_14_private_interior_and_actor_cognition",
+      "status": "PASS",
+      "detail": {
+        "other_private_inner_hidden": true,
+        "controlled_self_education_and_inner_available": true,
+        "actor_specific_perception": true
+      },
+      "seconds": 11.523
+    },
+    {
+      "name": "13_duration_commits_atomically_and_retry_is_idempotent",
+      "status": "PASS",
+      "detail": {
+        "single_atomic_clock_seconds": 10,
+        "retry_no_time_or_effect_replay": true
+      },
+      "seconds": 14.721
+    },
+    {
+      "name": "02_03_memory_cache_and_profile_update_after_forgetting",
+      "status": "PASS",
+      "detail": {
+        "warm_cache_forget_and_recall": true,
+        "profile_voice_edit_preserves_dynamic_fields": true
+      },
+      "seconds": 31.942
+    },
+    {
+      "name": "08_rewrite_uses_original_speaker_knowledge",
+      "status": "PASS",
+      "detail": {
+        "historical_speech_survives_current_forgetting": true,
+        "no_time_or_visit_replay": true
+      },
+      "seconds": 45.68
+    },
+    {
+      "name": "07_real_evidence_required_for_biography_correction",
+      "status": "PASS",
+      "detail": {
+        "fake_reference_denied": true,
+        "matching_committed_evidence_accepted_and_audited": true
+      },
+      "seconds": 22.884
+    },
+    {
+      "name": "06_legacy_registration_initializes_all_layers",
+      "status": "PASS",
+      "detail": {
+        "both_legacy_registration_paths_initialized_and_positionable": true
+      },
+      "seconds": 44.558
+    },
+    {
+      "name": "10_physical_visit_epochs_instead_of_scene_ids",
+      "status": "PASS",
+      "detail": {
+        "new_scene_same_entry_continuing": true,
+        "leave_and_return_same_scene_counted": true
+      },
+      "seconds": 38.119
+    },
+    {
+      "name": "05_revalidate_live_presence_each_turn",
+      "status": "PASS",
+      "detail": {
+        "moved_actor_and_speaker_denied": true,
+        "historical_participant_not_forced_to_speak": true
+      },
+      "seconds": 39.233
+    },
+    {
+      "name": "09_12_retirement_routine_and_revocable_player_control",
+      "status": "PASS",
+      "detail": {
+        "explicit_take_and_release": true,
+        "NPC_autonomy_resumes": true,
+        "retirement_clears_old_shift": true
+      },
+      "seconds": 51.94
+    },
+    {
+      "name": "01_death_preserves_historical_identity_and_clock_commit",
+      "status": "PASS",
+      "detail": {
+        "death_commits_and_keeps_history": true
+      },
+      "seconds": 43.631
+    },
+    {
+      "name": "13_barrier_rolls_back_whole_combined_transaction",
+      "status": "PASS",
+      "detail": {
+        "mechanical_money_narrative_visit_and_clock_rollback_together": true,
+        "barrier_not_covered_by_ordinary_background_policy": true
+      },
+      "seconds": 23.639
+    },
+    {
+      "name": "module_loader_active_scene_and_full_integrity",
+      "status": "PASS",
+      "detail": {
+        "active_scene_module_release_parity": true,
+        "full_passed": 65,
+        "history_threshold_flag_matches_final_audit_bytes": true,
+        "source_files_unchanged": 476
+      },
+      "seconds": 2.311
+    }
+  ],
+  "legacy_fixture_notes": {
+    "ordinary_npc_review_barrier": "V14.65 already authorizes existing ordinary NPC routine review; use new entity outside standing policy to exercise an actual AI barrier",
+    "module_loader": "Missing capture/name contracts from V14.65 fixed and revalidated; built engine logic unchanged by the manifest fix"
+  },
+  "real_AI_generation": "NOT_RUN",
+  "production_game_time_advanced": false,
+  "final_delivery_engine_sha256": "c15344f8266d89a31cc8c879ca968b7559e61dd936a3c682055c7de4f851aa8a",
+  "post_benchmark_scope": "Cold boot presentation only; public CLI current guide, final size and all five exact balances revalidated."
+}

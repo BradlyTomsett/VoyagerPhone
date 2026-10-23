@@ -1,0 +1,781 @@
+{
+  "schema": "V1459_VALIDATION_CONSOLIDATED_V1",
+  "status": "PASS",
+  "unique_cases": 51,
+  "engine_sha256": "4a5f72d6cd19ec238f178ad5f221015742aa03a9a8ed0497baa618fa91ea0ef2",
+  "model_generation": "NOT_RUN",
+  "host_ChatGPT_tool_wiring": "NOT_CONNECTED",
+  "groups": {
+    "snapshot": {
+      "status": "PASS",
+      "tests": [
+        {
+          "name": "batch_viewer_and_alias_isolation",
+          "status": "PASS",
+          "detail": {
+            "single_save_set": true,
+            "viewer_checked": true,
+            "public_return_isolated": true,
+            "internal_views_immutable": true
+          },
+          "seconds": 4.106432202000178,
+          "verified_in": "snapshot_cold_source"
+        },
+        {
+          "name": "frozen_game_facts_and_history",
+          "status": "PASS",
+          "detail": {
+            "baseline": "actual V14.58 parent",
+            "four_JSON_and_Guard_byte_exact": true,
+            "zero_time_maintenance_only": true
+          },
+          "seconds": 1.1576500169999235,
+          "verified_in": "snapshot"
+        },
+        {
+          "name": "compact_full_contract_and_budget",
+          "status": "PASS",
+          "detail": {
+            "compact_full_domain_equivalence": true,
+            "final_bytes_exact": true,
+            "hard_constraints_not_truncated": true,
+            "version_bound_diagnostics": true
+          },
+          "seconds": 8.31799805200012,
+          "verified_in": "snapshot_cold_source"
+        },
+        {
+          "name": "observer_diagnostics_do_not_leak_world_state",
+          "status": "PASS",
+          "detail": {
+            "observer_batch_compact_and_full_no_private_diagnostics": true,
+            "global_integrity_status_preserved": true,
+            "unscoped_player_routes_denied_to_observer": true
+          },
+          "seconds": 0.8279215520001344,
+          "verified_in": "snapshot_cold_source"
+        },
+        {
+          "name": "actual_byte_cache_invalidation",
+          "status": "PASS",
+          "detail": [
+            "state_same_mtime",
+            "inode_replacement",
+            "cold_same_mtime",
+            "development",
+            "rules_permission"
+          ],
+          "seconds": 56.70909367200011,
+          "verified_in": "snapshot"
+        },
+        {
+          "name": "no_mixed_snapshot_output",
+          "status": "PASS",
+          "detail": {
+            "whole_result_buffered_and_discarded": true,
+            "recovery_intent_checked_at_exit": true
+          },
+          "seconds": 14.182534381000096,
+          "verified_in": "snapshot"
+        },
+        {
+          "name": "exact_parsed_bytes_match_the_proof",
+          "status": "PASS",
+          "detail": {
+            "transient_JSON_bytes_cannot_escape_snapshot_binding": true,
+            "history_cache_key_binds_exact_single_parse_input": true
+          },
+          "seconds": 10.236698751000176,
+          "verified_in": "snapshot"
+        },
+        {
+          "name": "optional_cache_faults",
+          "status": "PASS",
+          "detail": {
+            "deleted_corrupt_unwritable": true,
+            "first_creation_concurrent_readers": 4
+          },
+          "seconds": 25.63944823399993,
+          "verified_in": "snapshot"
+        },
+        {
+          "name": "transaction_validation_dependencies",
+          "status": "PASS",
+          "detail": {
+            "proof_hit_then_actual_change_revalidated": true,
+            "compile_digest_invalidated": true,
+            "scope_discarded": true
+          },
+          "seconds": 5.404363845000034,
+          "verified_in": "snapshot"
+        },
+        {
+          "name": "zero_interval_report_and_legacy_coverage",
+          "status": "PASS",
+          "detail": {
+            "warm_zero_interval_no_cold_decodes": true,
+            "legacy_unknown_preserved": true
+          },
+          "seconds": 3.5901973129998623,
+          "verified_in": "snapshot_cold_source"
+        },
+        {
+          "name": "development_release_parity",
+          "status": "PASS",
+          "detail": {
+            "release_development_main_and_services": true
+          },
+          "seconds": 6.533099056000083,
+          "verified_in": "snapshot_cold_source"
+        },
+        {
+          "name": "committed_write_output_contract",
+          "status": "PASS",
+          "detail": {
+            "real_CLI_compact_full_same_state": true,
+            "compact_bytes": 8452,
+            "full_json_bytes": 66400,
+            "presentation_failure_never_invites_gameplay_retry": true
+          },
+          "seconds": 50.48689400199987,
+          "verified_in": "snapshot"
+        }
+      ]
+    },
+    "firstbatch": {
+      "status": "PASS",
+      "tests": [
+        {
+          "name": "actual_parent_conservation",
+          "status": "PASS",
+          "detail": {
+            "four_authority_JSON_and_Guard_byte_exact": true,
+            "old_logical_and_physical_history_byte_exact": 2616,
+            "maintenance_events": 1
+          },
+          "seconds": 2.9437110119999943,
+          "verified_in": "firstbatch_cold_source"
+        },
+        {
+          "name": "history_ownership",
+          "status": "PASS",
+          "detail": {
+            "no_scope_snapshot_transaction": true,
+            "mutable_public_results_isolated": true,
+            "private_metadata_and_readonly_nested_tree": true
+          },
+          "seconds": 19.091354383999942,
+          "verified_in": "firstbatch_cold_source"
+        },
+        {
+          "name": "history_batch_faults",
+          "status": "PASS",
+          "detail": {
+            "append_duplicate_next_seq_nested_outer_rollback_concurrent_change": true,
+            "full_history_copies": 0
+          },
+          "seconds": 0.0157915640002102,
+          "verified_in": "firstbatch"
+        },
+        {
+          "name": "archive_byte_binding",
+          "status": "PASS",
+          "detail": {
+            "same_size_mtime_corruption_rejected": true,
+            "escaped_JSON_dependency_bound": true,
+            "one_read_per_history_and_archive_input": true
+          },
+          "seconds": 7.8136272120000285,
+          "verified_in": "firstbatch"
+        },
+        {
+          "name": "static_content_options_rules_corruption_repair",
+          "status": "PASS",
+          "detail": {
+            "sha_calls": 1,
+            "bytes_hashed": 67615,
+            "compile_executions": 5,
+            "compile_proof_hits": 1,
+            "ast_parse_executions": 6,
+            "ast_proof_hits": 1
+          },
+          "seconds": 0.007023566000043502,
+          "verified_in": "firstbatch"
+        },
+        {
+          "name": "transaction_proof_boundaries_and_receipts",
+          "status": "PASS",
+          "detail": {
+            "metrics": {
+              "sha_calls": 19452,
+              "bytes_hashed": 967450585,
+              "component_check_executions": 6,
+              "compile_executions": 2,
+              "history_cache_misses": 6,
+              "epoch_cache_misses": 19,
+              "history_decodes": 19,
+              "component_proof_hits": 11,
+              "history_cache_hits": 23,
+              "epoch_cache_hits": 133,
+              "compile_proof_hits": 10,
+              "ast_parse_executions": 1,
+              "staged_readiness_executions": 1,
+              "run_checks_readiness_layer_hits": 1,
+              "development_objects_created": 359,
+              "development_snapshot_links": 738,
+              "published_readiness_proof_hits": 2
+            },
+            "full_report_equivalence": true,
+            "published_semantic_risk_calls": 0,
+            "missing_evidence_runs_full_check": true,
+            "stale_bytes_inode_development_and_journal_blocked": true,
+            "original_ID_after_display_failure_exactly_once": true,
+            "version_separation": true
+          },
+          "seconds": 56.60998009199989,
+          "verified_in": "firstbatch"
+        },
+        {
+          "name": "real_signed_pipe_CLI_projects_once",
+          "status": "PASS",
+          "detail": {
+            "projection_count": 1,
+            "final_JSON_bytes": 8809
+          },
+          "seconds": 26.217544303000068,
+          "verified_in": "firstbatch"
+        },
+        {
+          "name": "development_release_parity",
+          "status": "PASS",
+          "detail": true,
+          "seconds": 1.1809099310000875,
+          "verified_in": "version_parity"
+        }
+      ]
+    },
+    "runtime": {
+      "status": "PASS",
+      "tests": [
+        {
+          "name": "conservation",
+          "status": "PASS",
+          "detail": {
+            "four_JSON_and_Guard_byte_exact": true,
+            "old_raw_events": 2616
+          },
+          "seconds": 2.8248333680000997,
+          "verified_in": "runtime"
+        },
+        {
+          "name": "immutable_ownership_growth_and_unknown_correction",
+          "status": "PASS",
+          "detail": [
+            {
+              "scenes": 1,
+              "facts": 50,
+              "learning": 83,
+              "viewers": 4,
+              "exact_equal": true
+            },
+            {
+              "scenes": 4,
+              "facts": 1000,
+              "learning": 1664,
+              "viewers": 4,
+              "exact_equal": true
+            },
+            {
+              "scenes": 8,
+              "facts": 4000,
+              "learning": 6664,
+              "viewers": 4,
+              "exact_equal": true
+            }
+          ],
+          "seconds": 7.199799471999995,
+          "verified_in": "runtime_cold_source"
+        },
+        {
+          "name": "host_two_calls_roles_and_retry",
+          "status": "PASS",
+          "detail": {
+            "backend_requests": 2,
+            "engine_loads": 1,
+            "same_ID_original_receipt": true,
+            "viewer_and_root_isolated": true,
+            "ChatGPT_tool_wiring": "NOT_CONNECTED"
+          },
+          "seconds": 40.94272827300006,
+          "verified_in": "runtime_cold_source"
+        },
+        {
+          "name": "memory_dependencies_and_cache_faults",
+          "status": "PASS",
+          "detail": {
+            "unrelated_balance_reuses_content": true,
+            "identity_current": true,
+            "bad_cache_rebuilds": true
+          },
+          "seconds": 20.55712097100013,
+          "verified_in": "runtime"
+        },
+        {
+          "name": "experience_prefix_and_actual_time_expiry",
+          "status": "PASS",
+          "detail": {
+            "tail_events": 2,
+            "no_extra_full_decode_on_proven_prefix": true,
+            "actual_clock_expiry": true
+          },
+          "seconds": 56.07029176900005,
+          "verified_in": "runtime"
+        },
+        {
+          "name": "immutable_development_pool_and_fallback",
+          "status": "PASS",
+          "detail": {
+            "pool_objects": 359,
+            "independent_working_inodes": true,
+            "inplace_working_change_does_not_pollute_snapshots": true,
+            "unsupported_link_full_copy_fallback": true,
+            "Guard_original_format": true
+          },
+          "seconds": 21.603001694999875,
+          "verified_in": "runtime"
+        },
+        {
+          "name": "historical_snapshot_export_independent_cold_boot",
+          "status": "PASS",
+          "detail": {
+            "status": "READY",
+            "committed": true,
+            "save_set_id": "SAVESET-V14.95-a84600df9993dc3e",
+            "export_status": "VERIFIED",
+            "package_generated": true,
+            "package_verified": true,
+            "external_persistence_confirmed": false,
+            "path": "/workspace/scratch/8da8f6aaa549/work/validation/runtime/exports/VOYAGER_SOURCE_V14.95_22e2b8472cd02703.zip",
+            "sha256": "bf6057f69ca8afcead5a66a25ee0dabf37adf04e6a3f46b963ac80b16ccfd1c0",
+            "cold_boot": "PASS",
+            "retry_action": null
+          },
+          "seconds": 19.81871048500011,
+          "verified_in": "runtime"
+        }
+      ]
+    },
+    "story": {
+      "status": "PASS",
+      "tests": [
+        {
+          "name": "equivalent_zero_time_migration",
+          "status": "PASS",
+          "detail": {
+            "baseline": "actual V14.58 parent",
+            "four_JSON_and_Guard_byte_exact": true,
+            "zero_time_maintenance_only": true
+          },
+          "seconds": 1.1711974510001255,
+          "verified_in": "story"
+        },
+        {
+          "name": "ordinary_conversation_and_numeric_quotes",
+          "status": "PASS",
+          "detail": {
+            "rounds": 3,
+            "numeric_quote_rumor_accepted": true,
+            "no_mechanical_change": true,
+            "generation_quality": "NOT_RUN"
+          },
+          "seconds": 68.61675243899981,
+          "verified_in": "story"
+        },
+        {
+          "name": "atomic_trade_learning_receipt_retry_and_rewrite",
+          "status": "PASS",
+          "detail": {
+            "one_cash_effect": true,
+            "reaction_and_learning_same_event": true,
+            "same_retry_same_receipt": true,
+            "different_payload_rejected": true,
+            "rewrite_does_not_replay": true
+          },
+          "seconds": 48.98075234199996,
+          "verified_in": "story"
+        },
+        {
+          "name": "failed_story_cannot_leave_half_trade",
+          "status": "PASS",
+          "detail": {
+            "mechanical_success_then_story_failure_rolls_back_everything": true
+          },
+          "seconds": 4.909603928000024,
+          "verified_in": "story"
+        },
+        {
+          "name": "fabricated_results_stale_proposals_and_real_authorization",
+          "status": "PASS",
+          "detail": {
+            "fabricated_outcome_refused": true,
+            "stale_refused": true,
+            "unsupported_explicit": true,
+            "prose_cannot_self_authorize": true
+          },
+          "seconds": 33.393118291000064,
+          "verified_in": "story"
+        },
+        {
+          "name": "multi_role_context_cache_report_and_error_isolation",
+          "status": "PASS",
+          "detail": {
+            "actor_A_secret_absent_from_B_player_and_wrong_report": true,
+            "return_alias_isolated": true
+          },
+          "seconds": 48.13237553900012,
+          "verified_in": "story"
+        },
+        {
+          "name": "belief_evolution_with_committed_evidence",
+          "status": "PASS",
+          "detail": {
+            "rumor_not_promoted": true,
+            "new_time_fact_does_not_rewrite_old_fact": true,
+            "rounds": 3,
+            "generation_quality": "NOT_RUN"
+          },
+          "seconds": 84.09438914899988,
+          "verified_in": "story"
+        },
+        {
+          "name": "priced_transaction_inventory_and_story_same_commit",
+          "status": "PASS",
+          "detail": {
+            "price_source_units_asset_delivery_and_native_full_audit": true,
+            "aggregate_receipt_not_a_temporary_receipt": true
+          },
+          "seconds": 49.79207996100013,
+          "verified_in": "story"
+        },
+        {
+          "name": "finite_autonomy_uses_existing_authorization_ledger",
+          "status": "PASS",
+          "detail": {
+            "real_host_registered_finite_policy": true,
+            "actual_CLI_allowed_NPC_turn_committed": true,
+            "NPC_write_summary_has_no_commander_diagnostics": true,
+            "wrong_target_refused": true,
+            "grey_budget_refused": true,
+            "autonomous_privilege_escalation_refused": true
+          },
+          "seconds": 48.78742079200015,
+          "verified_in": "story"
+        },
+        {
+          "name": "unified_consequence_timeline_real_advance_and_expiry",
+          "status": "PASS",
+          "detail": {
+            "same_time_stable_order": true,
+            "real_session_stops_for_AI": true,
+            "pure_authorized_effect_once": true,
+            "conditional_wait_no_busy_loop": true,
+            "expiry_strictly_after_inclusive_end": true,
+            "cancelled_not_delivered": true
+          },
+          "seconds": 89.69485954099991,
+          "verified_in": "story"
+        },
+        {
+          "name": "independent_scenes_focus_and_existing_patrol_policy",
+          "status": "PASS",
+          "detail": {
+            "two_independent_scenes_run": true,
+            "focus_explicit": true,
+            "existing_hidden_standby_byte_values_unchanged": true,
+            "old_case_cannot_reopen": true,
+            "negotiation_rounds": 3
+          },
+          "seconds": 109.46967488600012,
+          "verified_in": "story"
+        },
+        {
+          "name": "budget_full_content_cli_and_development_release_parity",
+          "status": "PASS",
+          "detail": {
+            "hard_rules_not_truncated": true,
+            "final_bytes_exact": true,
+            "actual_cli_and_development_loader_match": true
+          },
+          "seconds": 3.6418588880001153,
+          "verified_in": "story_source_parity"
+        }
+      ]
+    },
+    "targeted": {
+      "status": "PASS",
+      "tests": [
+        {
+          "name": "pure_query_semantics_and_zero_full_state_copies",
+          "status": "PASS",
+          "detail": [
+            {
+              "route": "batch",
+              "post_validation_full_state_copies": 0
+            },
+            {
+              "route": "knowledge",
+              "post_validation_full_state_copies": 0
+            },
+            {
+              "route": "scene",
+              "post_validation_full_state_copies": 0
+            },
+            {
+              "route": "account",
+              "post_validation_full_state_copies": 0
+            },
+            {
+              "route": "content",
+              "post_validation_full_state_copies": 0
+            }
+          ],
+          "seconds": 4.202230155000052,
+          "verified_in": "targeted_verified"
+        },
+        {
+          "name": "legacy_alias_correction_growth_and_same_snapshot_reuse",
+          "status": "PASS",
+          "detail": [
+            {
+              "synthetic": true,
+              "scenes": 1,
+              "people": 1,
+              "legacy_facts": 100,
+              "disclosures": 200,
+              "learning": 20,
+              "viewers": 4,
+              "seconds_samples": [
+                0.014717324000002918,
+                0.012511691000099745,
+                0.016051311000182977
+              ],
+              "median_seconds": 0.014717324000002918,
+              "counts": {
+                "json_parses": 0,
+                "history_decodes": 0,
+                "sha_calls": 399,
+                "bytes_hashed": 15361849,
+                "semantic_cache_hits": 0,
+                "full_semantic_checks": 0,
+                "history_index_incremental": 0,
+                "knowledge_alias_bindings_indexed": 1,
+                "knowledge_disclosures_indexed": 200,
+                "knowledge_learning_indexed": 20,
+                "knowledge_index_builds": 1,
+                "knowledge_rows_builds": 4,
+                "knowledge_rows_cache_hits": 2
+              },
+              "exact_V1458_semantics": true
+            },
+            {
+              "synthetic": true,
+              "scenes": 4,
+              "people": 4,
+              "legacy_facts": 1000,
+              "disclosures": 2000,
+              "learning": 200,
+              "viewers": 4,
+              "seconds_samples": [
+                0.08135354999990341,
+                0.0845036059999984,
+                0.0857283139998799
+              ],
+              "median_seconds": 0.0845036059999984,
+              "counts": {
+                "json_parses": 0,
+                "history_decodes": 0,
+                "sha_calls": 399,
+                "bytes_hashed": 15361849,
+                "semantic_cache_hits": 0,
+                "full_semantic_checks": 0,
+                "history_index_incremental": 0,
+                "knowledge_alias_bindings_indexed": 4,
+                "knowledge_disclosures_indexed": 2000,
+                "knowledge_learning_indexed": 200,
+                "knowledge_index_builds": 1,
+                "knowledge_rows_builds": 16,
+                "knowledge_rows_cache_hits": 2
+              },
+              "exact_V1458_semantics": true
+            },
+            {
+              "synthetic": true,
+              "scenes": 8,
+              "people": 16,
+              "legacy_facts": 4000,
+              "disclosures": 8000,
+              "learning": 800,
+              "viewers": 4,
+              "seconds_samples": [
+                0.3125451519999842,
+                0.3544842849998986,
+                0.3480030190000889
+              ],
+              "median_seconds": 0.3480030190000889,
+              "counts": {
+                "json_parses": 0,
+                "history_decodes": 0,
+                "sha_calls": 399,
+                "bytes_hashed": 15361849,
+                "semantic_cache_hits": 0,
+                "full_semantic_checks": 0,
+                "history_index_incremental": 0,
+                "knowledge_alias_bindings_indexed": 16,
+                "knowledge_disclosures_indexed": 8000,
+                "knowledge_learning_indexed": 800,
+                "knowledge_index_builds": 1,
+                "knowledge_rows_builds": 32,
+                "knowledge_rows_cache_hits": 2
+              },
+              "exact_V1458_semantics": true
+            }
+          ],
+          "seconds": 6.463951449999968,
+          "verified_in": "targeted_verified"
+        },
+        {
+          "name": "real_consistency_repair_paths_share_immutable_objects",
+          "status": "PASS",
+          "detail": {
+            "development_files_shared": 369,
+            "both_repair_snapshots_use_verified_pool": true,
+            "worktree_inode_isolated": true,
+            "corrupt_object_refused": true
+          },
+          "seconds": 4.227719456999921,
+          "verified_in": "targeted_verified"
+        },
+        {
+          "name": "host_upgrade_restart_and_distinct_root_isolation",
+          "status": "PASS",
+          "detail": {
+            "engine_upgrade_reloads": 2,
+            "new_process_style_instance_coldloads": 1,
+            "two_roots_separate_namespaces": true,
+            "replaced_root_inode_refused": true,
+            "ChatGPT_tool_wiring": "NOT_CONNECTED"
+          },
+          "seconds": 23.727491285000042,
+          "verified_in": "targeted_verified"
+        }
+      ]
+    },
+    "commit_faults": {
+      "status": "PASS",
+      "tests": [
+        {
+          "name": "after_journal",
+          "status": "PASS",
+          "detail": {
+            "recovered_to": "parent",
+            "money_memory_turn_all_atomic": true,
+            "original_retry_exactly_once": true,
+            "old_journal_reappearance_checked": false,
+            "fail_closed_source_stability_refusals": 0,
+            "fresh_retry_requires_independent_complete_Guard_validation": true
+          },
+          "seconds": 63.51385443799995,
+          "verified_in": "faults"
+        },
+        {
+          "name": "after_component",
+          "status": "PASS",
+          "detail": {
+            "recovered_to": "parent",
+            "money_memory_turn_all_atomic": true,
+            "original_retry_exactly_once": true,
+            "old_journal_reappearance_checked": false,
+            "fail_closed_source_stability_refusals": 1,
+            "fresh_retry_requires_independent_complete_Guard_validation": true
+          },
+          "seconds": 69.42553010300003,
+          "verified_in": "faults"
+        },
+        {
+          "name": "after_manifest",
+          "status": "PASS",
+          "detail": {
+            "recovered_to": "target",
+            "money_memory_turn_all_atomic": true,
+            "original_retry_exactly_once": true,
+            "old_journal_reappearance_checked": true,
+            "fail_closed_source_stability_refusals": 0,
+            "fresh_retry_requires_independent_complete_Guard_validation": true
+          },
+          "seconds": 44.77331525500017,
+          "verified_in": "faults"
+        },
+        {
+          "name": "after_receipt",
+          "status": "PASS",
+          "detail": {
+            "recovered_to": "target",
+            "money_memory_turn_all_atomic": true,
+            "original_retry_exactly_once": true,
+            "old_journal_reappearance_checked": true,
+            "fail_closed_source_stability_refusals": 0,
+            "fresh_retry_requires_independent_complete_Guard_validation": true
+          },
+          "seconds": 47.745116951,
+          "verified_in": "faults"
+        },
+        {
+          "name": "after_cleanup",
+          "status": "PASS",
+          "detail": {
+            "recovered_to": "target",
+            "money_memory_turn_all_atomic": true,
+            "original_retry_exactly_once": true,
+            "old_journal_reappearance_checked": false,
+            "fail_closed_source_stability_refusals": 0,
+            "fresh_retry_requires_independent_complete_Guard_validation": true
+          },
+          "seconds": 36.61968830900014,
+          "verified_in": "faults"
+        },
+        {
+          "name": "after_component_unknown",
+          "status": "PASS",
+          "detail": {
+            "unknown_bytes_preserved": true
+          },
+          "seconds": 29.45213513700014,
+          "verified_in": "faults"
+        }
+      ]
+    },
+    "repair_faults": {
+      "status": "PASS",
+      "tests": [
+        {
+          "name": "repair_after_events.jsonl",
+          "status": "PASS",
+          "outcome": "parent",
+          "verified_in": "repair_faults"
+        },
+        {
+          "name": "repair_after_manifest",
+          "status": "PASS",
+          "outcome": "target",
+          "verified_in": "repair_faults"
+        }
+      ]
+    }
+  },
+  "rerun_notes": [
+    "Initial development-material resealing changed manifest bytes after a completed maintenance journal; Guard correctly refused the stale workspace proof. Source-dependent cases were repeated from a new runtime-free source directory. No Guard check was disabled or weakened.",
+    "The forward first-batch fixture retained an Engine 2.69.0 assertion; only the expected version was corrected to 2.70.0 and the equality check reran successfully.",
+    "Cross-version query equality excludes readiness/version/save-set metadata, whose history count and identity correctly change for the extra zero-time maintenance event. Business output equality is retained.",
+    "Correctness suite elapsed values were collected with parallel tests and are not performance measurements. Dedicated benchmark is sequential."
+  ]
+}

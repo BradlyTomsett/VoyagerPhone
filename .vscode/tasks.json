@@ -1,0 +1,4 @@
+{
+  "version": "2.0.0",
+  "tasks": [{"label": "启动远航游戏", "type": "shell", "command": "python scripts/start_codespaces.py", "problemMatcher": [], "presentation": {"reveal": "always", "panel": "dedicated"}}]
+}

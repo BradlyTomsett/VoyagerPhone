@@ -1,0 +1,51 @@
+{
+  "suite": "story_integration",
+  "status": "PASS",
+  "returncode": 0,
+  "seconds": 196.603,
+  "upstream_script_sha256": "5b2f56dca53f8010c53f7c91f33c267583865c0739e95cd2c25fd9d63c1a974e",
+  "adapted_script_sha256": "5b2f56dca53f8010c53f7c91f33c267583865c0739e95cd2c25fd9d63c1a974e",
+  "result": {
+    "status": "PASS",
+    "engine_sha256": "3e5071ced725caef8ef10e1cbcfbe6b157cd3629b2d543b345bbfaaae27828c9",
+    "tests": [
+      {
+        "name": "portable_input_contract_and_history_byte_protection",
+        "status": "PASS",
+        "detail": {
+          "unchanged_files": 15,
+          "logical_events": 2540,
+          "logical_bytes_exact": true,
+          "new_game_events": 0,
+          "step17": "NOT_AUTHORIZED_UNCHANGED",
+          "input_save_set_id": "SAVESET-V14.49-cdf55a13d2da9684"
+        }
+      },
+      {
+        "name": "final_authorized_parallel_focus_alias_and_pattern_strategy",
+        "status": "PASS",
+        "detail": {
+          "current_and_batch_focus_required": true,
+          "alias_exact": true,
+          "NPC_isolation": true,
+          "temporary_repetition_rank_improves_without_permanent_preference": true,
+          "switch_rollback": true
+        }
+      },
+      {
+        "name": "dedicated_endpoints_and_learning_negative_matrix",
+        "status": "PASS",
+        "detail": "strict mechanical schema, cross-viewer access and wrong learned source rejected with no authority changes"
+      },
+      {
+        "name": "revoke_ID_protection_and_development_real_write_equivalence",
+        "status": "PASS",
+        "detail": {
+          "revoke_is_permanent_per_entry_id": true,
+          "development_real_commit_matches_release_routes": true,
+          "all_mechanics_and_cash_preserved": true
+        }
+      }
+    ]
+  }
+}

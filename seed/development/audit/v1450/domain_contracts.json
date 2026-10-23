@@ -1,0 +1,30 @@
+{
+  "suite": "domain_contracts",
+  "status": "PASS",
+  "returncode": 0,
+  "seconds": 0.818,
+  "upstream_script_sha256": "9ae4732c11da5a6ffa5b230235bbac01e8b3a916c4cdd5d85fd6493510e25e24",
+  "adapted_script_sha256": "9ae4732c11da5a6ffa5b230235bbac01e8b3a916c4cdd5d85fd6493510e25e24",
+  "result": {
+    "status": "PASS",
+    "tests": [
+      {
+        "name": "standing_grant_revocation_scope_and_consumption",
+        "status": "PASS",
+        "detail": "synthetic in-memory standing grant: exact active scope, revoked/inactive/expired/wrong actor/target/budget, one-use consumption"
+      },
+      {
+        "name": "asset_conservation_units_ownership_and_negative_stock",
+        "status": "PASS",
+        "detail": {
+          "in_memory_synthetic_verified_buckets": true,
+          "transfer_conservation": true,
+          "no_negative_stock": true,
+          "ownership_change_requires_contract": true,
+          "live_source_unchanged": true,
+          "limitation": "unverified identity/unit in live source remains unverified, not filled by this fixture"
+        }
+      }
+    ]
+  }
+}

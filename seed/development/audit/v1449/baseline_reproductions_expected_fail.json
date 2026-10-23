@@ -1,0 +1,67 @@
+{
+  "scope": "Original V14.48; the eight failures are the reproduced bugs, not this release results",
+  "evidence": {
+    "status": "FAIL",
+    "source_save_set_id": "SAVESET-V14.48-cdf55a13d2da9684",
+    "engine_sha256": "28678d32b60d671cae0247badba5e4d73600dbfb101811aa1d39c57d83cc81da",
+    "guard_sha256": "e780ae0f45b082f5624be925f92ad04d1e21e3ab3a76c1655f571af222cc1dad",
+    "tests": [
+      {
+        "name": "full_manifest_forks_and_identical_duplicates",
+        "status": "FAIL",
+        "error": "Expected refusal: MANIFEST_FORK",
+        "trace": "Traceback (most recent call last):\n  File \"<V1449_WORKSPACE>/tools/regression.py\", line 17, in test\n    try:detail=fn();row={'name':name,'status':'PASS','detail':detail}\n               ^^^^\n  File \"<V1449_WORKSPACE>/tools/regression.py\", line 37, in source_forks\n    expected_exit(lambda:g.find_transport(d),'MANIFEST_FORK')\n  File \"<V1449_WORKSPACE>/tools/regression.py\", line 34, in expected_exit\n    raise AssertionError('Expected refusal: '+code)\nAssertionError: Expected refusal: MANIFEST_FORK\n",
+        "seconds": 0.773
+      },
+      {
+        "name": "cached_extraction_matches_requested_entire_manifest",
+        "status": "FAIL",
+        "error": "stale manifest returned",
+        "trace": "Traceback (most recent call last):\n  File \"<V1449_WORKSPACE>/tools/regression.py\", line 17, in test\n    try:detail=fn();row={'name':name,'status':'PASS','detail':detail}\n               ^^^^\n  File \"<V1449_WORKSPACE>/tools/regression.py\", line 44, in cache_manifest\n    assert new['asset_policy'].get('isolated_manifest_marker')=='new requested policy metadata','stale manifest returned'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: stale manifest returned\n",
+        "seconds": 2.768
+      },
+      {
+        "name": "inspection_and_extraction_identity_bound",
+        "status": "FAIL",
+        "error": "Expected refusal: SOURCE_CHANGED_SINCE_INSPECTION",
+        "trace": "Traceback (most recent call last):\n  File \"<V1449_WORKSPACE>/tools/regression.py\", line 17, in test\n    try:detail=fn();row={'name':name,'status':'PASS','detail':detail}\n               ^^^^\n  File \"<V1449_WORKSPACE>/tools/regression.py\", line 50, in changed_since_inspection\n    r=clone('inspection_source');p=OUT/'inspected.zip';pack(r,p);inspected,err=g.inspect_transport(p);assert not err;variant(r,'metadata');pack(r,p);d=OUT/'inspection';d.mkdir();expected_exit(lambda:g.extract_transport(p,d,inspected),'SOURCE_CHANGED_SINCE_INSPECTION');return 'source swap between inspection/extraction refused'\n                                                                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<V1449_WORKSPACE>/tools/regression.py\", line 34, in expected_exit\n    raise AssertionError('Expected refusal: '+code)\nAssertionError: Expected refusal: SOURCE_CHANGED_SINCE_INSPECTION\n",
+        "seconds": 1.76
+      },
+      {
+        "name": "advanced_cached_game_save_never_replaced",
+        "status": "FAIL",
+        "error": "Expected refusal: CACHED_SOURCE_DIVERGED",
+        "trace": "Traceback (most recent call last):\n  File \"<V1449_WORKSPACE>/tools/regression.py\", line 17, in test\n    try:detail=fn();row={'name':name,'status':'PASS','detail':detail}\n               ^^^^\n  File \"<V1449_WORKSPACE>/tools/regression.py\", line 53, in advanced_cache\n    r=clone('advanced_source');p=OUT/'advanced.zip';pack(r,p);d=OUT/'advanced_delivery';d.mkdir();root,m=g.extract_transport(p,d);b=load(root/'engine.py');old=m['save_set_id'];b._component_write_manifest_native(root,'V14.60',old);before=(root/'manifest.json').read_bytes();expected_exit(lambda:g.extract_transport(p,d),'CACHED_SOURCE_DIVERGED');assert (root/'manifest.json').read_bytes()==before;return 'a valid cached save with a newer/different SID is retained; older transport cannot replace saved progress'\n                                                                                                                                                                                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<V1449_WORKSPACE>/tools/regression.py\", line 34, in expected_exit\n    raise AssertionError('Expected refusal: '+code)\nAssertionError: Expected refusal: CACHED_SOURCE_DIVERGED\n",
+        "seconds": 4.918
+      },
+      {
+        "name": "direct_development_binding_is_checked_before_selection",
+        "status": "FAIL",
+        "error": "",
+        "trace": "Traceback (most recent call last):\n  File \"<V1449_WORKSPACE>/tools/regression.py\", line 17, in test\n    try:detail=fn();row={'name':name,'status':'PASS','detail':detail}\n               ^^^^\n  File \"<V1449_WORKSPACE>/tools/regression.py\", line 56, in damaged_direct\n    r=clone('damaged_direct');p=r/'VOYAGER_SOURCE_V14.49_healthy.zip';pack(r,p);(r/'development/README.md').write_text('isolated damaged member');root,m,selection=g.select_source(r);assert root!=r and selection['kind']=='zip';assert g.development_intact(root,m);return 'damaged materialized development cannot outrank a complete healthy ZIP'\n                                                                                                                                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+        "seconds": 1.34
+      },
+      {
+        "name": "shared_reader_cache_key_atomic_publication",
+        "status": "FAIL",
+        "error": "CACHE_KEY_INVALID",
+        "trace": "Traceback (most recent call last):\n  File \"<V1449_WORKSPACE>/tools/regression.py\", line 17, in test\n    try:detail=fn();row={'name':name,'status':'PASS','detail':detail}\n               ^^^^\n  File \"<V1449_WORKSPACE>/tools/regression.py\", line 71, in key_publication\n    key=b._derived_key(r);assert len(key)==32\n        ^^^^^^^^^^^^^^^^^\n  File \"<V1449_WORKSPACE>/audit/before_extended/key_race/engine.py\", line 18798, in _derived_key\n    if len(key)!=32:raise EngineError('CACHE_KEY_INVALID')\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nx1792187854057132676.EngineError: CACHE_KEY_INVALID\n",
+        "seconds": 0.599
+      },
+      {
+        "name": "derived_cache_damage_is_optional_not_fatal",
+        "status": "FAIL",
+        "error": "CACHE_KEY_INVALID",
+        "trace": "Traceback (most recent call last):\n  File \"<V1449_WORKSPACE>/tools/regression.py\", line 17, in test\n    try:detail=fn();row={'name':name,'status':'PASS','detail':detail}\n               ^^^^\n  File \"<V1449_WORKSPACE>/tools/regression.py\", line 77, in optional_cache\n    r=clone('bad_cache_key');runtime=r/'.runtime';runtime.mkdir();(runtime/'derived_cache.key').write_bytes(b'');b=load(r/'engine.py');before={n:sha(r/n) for n in b.COMPONENT_FILES};report=b.readiness_report(r);assert report['status']=='READY_WITH_LIMITATIONS',report\n                                                                                                                                                                                             ^^^^^^^^^^^^^^^^^^^^^\n  File \"<V1449_WORKSPACE>/audit/before_extended/bad_cache_key/engine.py\", line 18909, in _snapshot_readiness\n    with SnapshotContext(base) as snapshot:return snapshot.validated_report()\n                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<V1449_WORKSPACE>/audit/before_extended/bad_cache_key/engine.py\", line 18867, in validated_report\n    if self.report['status']!='BLOCKED':_derived_write(self.base,'read_semantics_v2.json',self.binding,self.report)\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<V1449_WORKSPACE>/audit/before_extended/bad_cache_key/engine.py\", line 18819, in _derived_write\n    body={'binding':binding,'value':value};mac=hmac.new(_derived_key(base),json.dumps(body,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode(),'sha256').hexdigest()\n                                                        ^^^^^^^^^^^^^^^^^^\n  File \"<V1449_WORKSPACE>/audit/before_extended/bad_cache_key/engine.py\", line 18798, in _derived_key\n    if len(key)!=32:raise EngineError('CACHE_KEY_INVALID')\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nx1792187854661161184.EngineError: CACHE_KEY_INVALID\n",
+        "seconds": 5.766
+      },
+      {
+        "name": "missing_members_have_structured_blocking_readiness",
+        "status": "FAIL",
+        "error": "[Errno 2] No such file or directory: '<V1449_WORKSPACE>/audit/before_extended/missing_archive/archives/history_001809_001810_57478623250b.json.gz'",
+        "trace": "Traceback (most recent call last):\n  File \"<V1449_WORKSPACE>/tools/regression.py\", line 17, in test\n    try:detail=fn();row={'name':name,'status':'PASS','detail':detail}\n               ^^^^\n  File \"<V1449_WORKSPACE>/tools/regression.py\", line 91, in missing_source\n    path=next((r/'archives').glob('history*')) if case=='archive' else r/('tasks.json' if case=='component' else 'development/README.md');path.unlink();report=b.readiness_report(r);assert report['status']=='BLOCKED' and report['capabilities']['read'] is False,report\n                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^\n  File \"<V1449_WORKSPACE>/audit/before_extended/missing_archive/engine.py\", line 18909, in _snapshot_readiness\n    with SnapshotContext(base) as snapshot:return snapshot.validated_report()\n         ^^^^^^^^^^^^^^^^^^^^^\n  File \"<V1449_WORKSPACE>/audit/before_extended/missing_archive/engine.py\", line 18839, in __enter__\n    self.fingerprint={n:_snapshot_sha_file(self.base/n) for n in dict.fromkeys(names)}\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<V1449_WORKSPACE>/audit/before_extended/missing_archive/engine.py\", line 18884, in _snapshot_sha_file\n    return _batch_b_sha_file(path)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<V1449_WORKSPACE>/audit/before_extended/missing_archive/engine.py\", line 459, in sha256_file\n    with path.open(\"rb\") as f:\n         ^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '<V1449_WORKSPACE>/audit/before_extended/missing_archive/archives/history_001809_001810_57478623250b.json.gz'\n",
+        "seconds": 0.599
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "STAGE4_FORWARD_STORY_REGRESSION_V1",
+  "status": "PASS",
+  "engine_sha256": "4a5f72d6cd19ec238f178ad5f221015742aa03a9a8ed0497baa618fa91ea0ef2",
+  "manifest_sha256": "149adea27913431a572241d1e6be2ca6a56d45465c0f20fb30b37fd6294837e7",
+  "save_set_id": "SAVESET-V14.59-707b38f6542b6ffc",
+  "tests": [
+    {
+      "name": "budget_full_content_cli_and_development_release_parity",
+      "status": "PASS",
+      "detail": {
+        "hard_rules_not_truncated": true,
+        "final_bytes_exact": true,
+        "actual_cli_and_development_loader_match": true
+      },
+      "seconds": 3.6418588880001153
+    }
+  ]
+}

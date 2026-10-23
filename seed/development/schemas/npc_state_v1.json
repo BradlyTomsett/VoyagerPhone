@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "voyager:npc_state:v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "entity_id",
+    "identity_ref",
+    "organization_ref",
+    "location_ref",
+    "traits",
+    "goals",
+    "relations",
+    "memory_refs",
+    "commitment_refs",
+    "resource_refs",
+    "revision",
+    "last_event_id",
+    "visibility",
+    "initialization"
+  ],
+  "properties": {
+    "schema": {
+      "const": "NPC_STATE_V1"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "entity_id": {
+      "type": "string"
+    },
+    "identity_ref": {
+      "type": "string"
+    },
+    "traits": {
+      "type": "array"
+    },
+    "goals": {
+      "type": "object"
+    },
+    "relations": {
+      "type": "object"
+    },
+    "memory_refs": {
+      "type": "array"
+    },
+    "commitment_refs": {
+      "type": "array"
+    },
+    "resource_refs": {
+      "type": "array"
+    }
+  },
+  "description": "Identity and resources are canonical references. No second balance, asset inventory or retroactively generated memory."
+}

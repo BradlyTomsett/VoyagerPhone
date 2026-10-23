@@ -1,0 +1,11 @@
+{
+  "status": "COMPACTED",
+  "logical_events": 2539,
+  "compressed_event_count": 574,
+  "raw_recent_event_count": 64,
+  "epoch_records": 19,
+  "new_cold_segments": 1,
+  "before_bytes": 3979182,
+  "after_bytes": 96767,
+  "saved_bytes": 3882415
+}

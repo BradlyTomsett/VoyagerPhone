@@ -1,0 +1,162 @@
+{
+  "schema": "VOYAGER_CONVERSATION_CONTINUATION_V14_51",
+  "format_version": "1",
+  "source_save_set_id": "SAVESET-V14.50-3ce082aeb6ea6366",
+  "as_of": "8363-12-05T09:10:00",
+  "voyage_day": 686,
+  "source_time": "8363-12-02T22:45:00",
+  "authoritative_paths": {
+    "fleet": "state.json summary/voyager_fleet/jinchuan_fleet/shadow_fleet",
+    "money": "state.json engine_runtime.finance_runtime.funds_units",
+    "case": "state.json world_state_overrides.freeport_xilu9_current.h4_case_current",
+    "shop": "state.json world_state_overrides.freeport_xilu9_current.hawke_commercial_cover.shop_cash_continuation_83631205",
+    "new_investments": "state.json world_state_overrides.multinational_industry_current.investment_continuation_83631202",
+    "active_tasks": "tasks.json active_tasks"
+  },
+  "confirmed_final": {
+    "time": "8363-12-05T09:10:00",
+    "voyage_day": 686,
+    "ships": {
+      "voyager": 51,
+      "jinchuan": 9,
+      "shadow_active": 18,
+      "shadow_owned_total": 21,
+      "player_active_total": 78
+    },
+    "personnel": {
+      "voyager": 17203,
+      "jinchuan": 709,
+      "shadow": 6034,
+      "active_total": 23946
+    },
+    "cash": {
+      "gold_units_1e4": 64608948997924,
+      "gold_display": "6,460,894,899金币79银24铜",
+      "grey_units_1e2": 3989314438448,
+      "grey_display": "39,893,144,384.48灰币",
+      "covert_cash_copper": 6376220,
+      "covert_display": "637金币62银20铜",
+      "shop_cash_copper": 24313,
+      "shop_display": "2金币43银13铜"
+    },
+    "task_counts": {
+      "active": 5,
+      "queued": 0,
+      "H4_completed": true
+    }
+  },
+  "core_game_rules": [
+    "以舰队副官口吻向指挥官报告，有故事现场/NPC独立反应且不能凭空添加机密认知",
+    "首行为 ### 游戏时间｜远航第N天｜本次推进x，紧跟 ### 🚀 舰队核心；尾部必须 ### 🌌 当前态势、### 🕒 当前游戏时间，并以副官报告完毕，指挥官。结束",
+    "只有用户明确推进时间才推进；保存动作推进0分钟；避免超过指挥官要求的时长",
+    "1金币=100银币=10000铜币；1灰币=0.036金币；不足1金币用银铜币显示；经济/军事/武器价格贴合熄炉-9环境",
+    "必须继承V14.50所有原始任务规则/组织档案、舰船和库存数据；未修改项不生成替代事实",
+    "远航/金川/暗影三舰队独立人数/船数，金川每日矿业与多国产业不可重复计提，科研仅备份非独家合法销售",
+    "其他NPC按自有动机行动，四名余火员工为普通平民、带薪轮休，不知暗影五人的真实身份",
+    "熄炉-9没有常设正规警察，四名本地兼职巡夜人有原来的自卫武器但无正式拘押权",
+    "暗影七舰继续熄炉近域隐蔽待命，十一舰留S-B5；小规模行动不等于全舰队出动",
+    "武器、弹药、医疗包、资源库存必须做来源/位置/归属精确核减，不重复增发或重复采购",
+    "指挥官只要求保存时，除封板与一致性检查外不能新增游戏事件或财务结算",
+    "来源车辆及机器人图片优先使用项目外部原始图片ZIP；V14.50存档未将原始图片嵌入压缩包"
+  ],
+  "fleet_and_organizations_unchanged_inherited": {
+    "source_all_rules": "rules.json original preserved",
+    "source_all_catalog": "catalog.json original preserved",
+    "source_all_ship_inventory": "state.json voyager_fleet/jinchuan_fleet/shadow_fleet/inventories/asset_ledger_v1 preserved except logged updates",
+    "source_all_external_orgs": "state.json world_state_overrides.organizations_and_politics/nation_dynamics/organizations_current/external_force_registry/registry preserved",
+    "source_all_archives": "original 22 cold archives and complete development/source trees unchanged"
+  },
+  "conversion_and_settlements": {
+    "gold_base_units_1e4": 529278749984573,
+    "gold_exchanged_83631202_2250": 52600000000,
+    "base_grey": "5209377218.76",
+    "grey_exchange_received": "1461111111111.11",
+    "grey_total_spent_on_nine_groups": "1466320488329.87",
+    "gold_industries_daily": "2043374646.8122",
+    "grey_original_industries_daily": "400107046.52",
+    "grey_new_industries_daily": "19345490205.46",
+    "grey_total_daily_from_83631204": "19745597251.98",
+    "mining_daily_gold": "930535.2995",
+    "mining_daily_grey": "614278",
+    "research_settlement_8363_12_03": {
+      "copies": 1138,
+      "gold": 51210
+    },
+    "research_settlement_8363_12_04": {
+      "copies": 1181,
+      "gold": 53145
+    },
+    "settlements_executed": [
+      "8363-12-03 00:20 多国产业旧1619",
+      "8363-12-03 08:20 金川",
+      "8363-12-03 11:20 科研51210",
+      "8363-12-04 00:20 多国产业1628",
+      "8363-12-04 08:20 金川",
+      "8363-12-04 11:20 科研53145",
+      "8363-12-05 00:20 多国产业1628",
+      "8363-12-05 08:20 金川"
+    ],
+    "future_avoid_duplicate": [
+      "8363-12-05 11:20 科研",
+      "8363-12-05 23:20 余火",
+      "8363-12-06 00:20 多国产业",
+      "8363-12-06 08:20 金川"
+    ]
+  },
+  "covert_balance_provenance": {
+    "source_covert_copper": 6376963,
+    "accepted_chat_case_costs_total_copper": 743,
+    "details": "前期H4未拆明细108，雷托首8h75，贝克首8h80，雷托加班20，罗恩8h240，临时工程师与耗材220；合计743铜",
+    "no_fleet_expense_double_booking": true
+  },
+  "shop_cash_provenance": {
+    "source_copper": 24530,
+    "after_83631202_copper": 23906,
+    "after_83631203_copper": 24145,
+    "after_83631204_copper": 24313,
+    "daily_staff_wage_copper": 520,
+    "daily_meals_copper": 96,
+    "daily_PPE_copper": 8,
+    "rent": "免租、产权及室内空间沿用来源",
+    "cash_not_combined_with_covert_or_main": true,
+    "Dec04_PoS_item_detail_unknown_do_not_invent": true
+  },
+  "H4_closed_case_ref": "state:world_state_overrides.freeport_xilu9_current.h4_case_current",
+  "equipment_after_H4": {
+    "Linzhou4_advanced_medkit": "opened remaining 6 person uses after helping 埃文/杜恩",
+    "Yantu5_full_advanced_medkit": 1,
+    "public_shadow_full_medkits": 3485,
+    "original_completely_spent_standard_kit_on_Yantu5": 0,
+    "military_weapon_ammunition_explosive_consumption": "none",
+    "Hawke5_each": "1 pistol + 1 electric baton + 1 utility knife concealed",
+    "Hawke_extra": "1 multifunction grenade and 1kg industrial explosive",
+    "Q2_extra": "2 multifunction grenades and 1kg industrial explosive",
+    "Linzhou4": "2先锋-4 2外来军步枪 1多功能手雷 3kg工业炸药 1打开的高级医疗包6人份",
+    "Yantu5": "3先锋-4 3外来军步枪 11多功能手雷 5kg工业炸药 1完整高级医疗包 1耗尽旧标准医疗包",
+    "civilian_nightwatch": "伊莎及其他3名本地巡夜人各有原有自卫步枪、手枪；本轮未新发枪械",
+    "legal_seized_weapons": "塔洛/维克旧民用手枪非我方库存；不得重复占有"
+  },
+  "whereabouts": {
+    "Hawke_and_Q2_Q3_Q4_Q5": "旧熔炉酒店修整，两车停周边",
+    "Q3": "此前持续协助马洛保管207房证据，现与五人合流",
+    "Linzhou4": "旧熔炉酒店周边",
+    "Yantu5": "旧熔炉酒店周边",
+    "team_Roadfox4": "熄炉-9原民用摩托保管处",
+    "Yuhuo_own_Roadfox4": "余火商铺配送车，产权独立",
+    "Nanyan4": "既有停泊处/内部装备保持来源",
+    "HanMo_Isa_Ivo": "各回原有工作/生活位置",
+    "hired_Rayto_Beck_Ron": "合同结束，没有持续雇佣",
+    "DuEn_Evan": "医院接诊，没有虚构已出院"
+  },
+  "known_ambiguities_not_to_fill": [
+    "九组新增产业逐组身份与设备清单未在接受对话明确，不编造",
+    "12月4日余火店逐品项流水没有来源，封存1银68铜现金净变动但不可杜撰SKU",
+    "科研12月4日销售1181份是聊天接受总额，缺逐包核验，不伪造逐包明细",
+    "之前H4潜伏账户108铜余额差额仅能记为未拆明细的已接受续档残差",
+    "杜恩和埃文医院费用由各自医院记录，未见我方授权付款，不扣主账",
+    "第三密封箱完整鉴定、司法判决、B2事故的完整成因仍待外界后续进展，案件已经按指挥官命令终结主动搜查",
+    "来源旧历史某些数据缺口与风险缺口继承，不回填或重复结算",
+    "截图和HTML工具非权威新游戏状态，状态以本档state/tasks/证据为准"
+  ],
+  "opening_prompt_for_new_conversation": "指挥官，已恢复8363年12月5日09:10（远航第686天）。霍克5人在旧熔炉酒店修整，H4事件结案；余火四员工正常轮休经营；5项原有持续任务运营，金币/灰币主账及潜伏/余火余额以整数账本为准。用户未下新命令不得推进时间。"
+}

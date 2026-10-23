@@ -1,0 +1,65 @@
+{
+  "schema": "BATCH_B_RELEASE_ACCEPTANCE_V1",
+  "status": "PASS",
+  "save_set_id": "SAVESET-V14.46-aac59e5c68893646",
+  "game_time": "8363-12-02T22:45:00",
+  "game_time_advanced": false,
+  "groups": {
+    "economic_and_history": {
+      "status": "PASS",
+      "file": "development/audit/batch_b/economic_and_history.json",
+      "scenario_count": 8,
+      "raw_origin_file": "audit/regression_final/results.json"
+    },
+    "goods_delivery": {
+      "status": "PASS",
+      "file": "development/audit/batch_b/goods_delivery.json",
+      "scenario_count": 1,
+      "raw_origin_file": "audit/goods/results.json"
+    },
+    "development_cache_scaling": {
+      "status": "PASS",
+      "file": "development/audit/batch_b/development_cache_scaling.json",
+      "scenario_count": 4,
+      "raw_origin_file": "audit/read_contract_verified/results.json"
+    },
+    "authorization_compatibility": {
+      "status": "PASS",
+      "file": "development/audit/batch_b/authorization_compatibility.json",
+      "scenario_count": 9,
+      "raw_origin_file": "audit/batch_a_fast_final/results.json"
+    },
+    "process_death_and_unknown_writer": {
+      "status": "PASS",
+      "file": "development/audit/batch_b/process_death_and_unknown_writer.json",
+      "scenario_count": 6,
+      "raw_origin_file": "audit/fault_verified/results.json"
+    },
+    "continuation_facts": {
+      "status": "PASS",
+      "file": "development/audit/batch_b/continuation_facts.json",
+      "scenario_count": 23,
+      "raw_origin_file": "audit/final_continuation.json"
+    },
+    "fullcheck": {
+      "status": "PASS",
+      "file": "development/audit/batch_b/fullcheck.json",
+      "scenario_count": 65,
+      "raw_origin_file": "audit/final_fullcheck.json"
+    }
+  },
+  "regression_groups": 28,
+  "continuation_checks": 23,
+  "core_checks": 65,
+  "engine_sha256": "0b9f8e6362df829f00dc8e6a8d9eda2536f0ea48558033139b50670267738908",
+  "guard_sha256": "e780ae0f45b082f5624be925f92ad04d1e21e3ab3a76c1655f571af222cc1dad",
+  "old_event_bytes_preserved": 2538,
+  "old_cold_archives_preserved": 20,
+  "known_limitations": [
+    "accepted_unsimulated_1200_2245_gap",
+    "startup_output_above_advisory_4KiB",
+    "substantial_write_validation_cost_retained",
+    "native_chatgpt_identity_injection_unavailable",
+    "unattributed_late_journal_writer_not_claimed_resolved"
+  ]
+}

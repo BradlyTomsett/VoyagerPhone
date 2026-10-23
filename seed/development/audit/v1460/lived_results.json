@@ -1,0 +1,111 @@
+{
+  "status": "PASS",
+  "engine_sha256": "f4971327c7221d18f14ffe8b2bcd07e14d8792026932b601c01fdc4f9de08222",
+  "generation_quality": "fixed prose reviewed by assertions; no live model or unattended process tested",
+  "tests": [
+    {
+      "name": "zero_time_migration_cold_boot_and_source_parity",
+      "status": "PASS",
+      "detail": {
+        "unencountered_NPCs_get_global_initialization": true,
+        "legacy_identity_profiles": 16,
+        "no_fabricated_age_or_history": true,
+        "current_game_time_preserved": true,
+        "development_release_parity": true,
+        "cold_boot_policy": true
+      },
+      "seconds": 11.91
+    },
+    {
+      "name": "actual_setup_private_biographies_and_query_idempotency",
+      "status": "PASS",
+      "detail": {
+        "full_profiles_and_voice_required": true,
+        "queries_do_not_count_as_visits": true,
+        "private_family_not_in_player_context": true,
+        "undersized_context_blocks_generation": true
+      },
+      "seconds": 27.178
+    },
+    {
+      "name": "reject_unlived_reports_missing_senses_and_forced_choices",
+      "status": "PASS",
+      "detail": {
+        "status_report_missing_experience_rejected": true,
+        "sensory_omission_rejected": true,
+        "fake_checklist_anchor_rejected": true,
+        "forced_choice_rejected": true,
+        "unauthorized_player_dialogue_rejected": true,
+        "information_dump_and_stale_environment_rejected": true
+      },
+      "seconds": 2.14
+    },
+    {
+      "name": "first_visit_continuing_retry_rewrite_and_prose_report",
+      "status": "PASS",
+      "detail": {
+        "atomic_first_and_continuing": true,
+        "same_retry_one_visit": true,
+        "rewrite_no_replayed_effect_or_visit": true,
+        "readable_prose_report": true
+      },
+      "seconds": 59.606
+    },
+    {
+      "name": "actual_forgetting_and_recall_without_erasing_history",
+      "status": "PASS",
+      "detail": {
+        "forgetting_affects_actual_NPC_knowledge_selection": true,
+        "other_person_memory_unchanged": true,
+        "original_learning_evidence_retained": true,
+        "recall_supported": true
+      },
+      "seconds": 38.61
+    },
+    {
+      "name": "return_visits_track_changes_and_due_boundary_is_a_gate",
+      "status": "PASS",
+      "detail": {
+        "new_scene_same_place_is_return_visit": true,
+        "changed_weather_tracked": true,
+        "due_boundary_cannot_be_committed_without_resolution": true
+      },
+      "seconds": 0.065
+    },
+    {
+      "name": "world_continues_during_wait_and_after_scene_closure",
+      "status": "PASS",
+      "detail": {
+        "real_shared_scheduler_committed_NPC_life": true,
+        "closed_scene_did_not_cancel_NPC_life": true,
+        "no_current_player_presence_needed": true,
+        "exactly_once_history": true,
+        "autonomous_position_used_by_presence_checks": true,
+        "routine_at_night": true,
+        "life_review_at_long_absence_frontier": true
+      },
+      "seconds": 42.014
+    },
+    {
+      "name": "rollback_player_agency_conflicting_plans_and_native_fullcheck",
+      "status": "PASS",
+      "detail": {
+        "player_autonomy_denied": true,
+        "failed_command_leaves_no_authority_write": true,
+        "old_plan_cannot_overwrite_changed_life": true,
+        "native_fullcheck_after_all_actions": "PASS"
+      },
+      "seconds": 13.523
+    },
+    {
+      "name": "existing_financial_command_and_idempotent_receipt_regression",
+      "status": "PASS",
+      "detail": {
+        "fixed_point_balance_correct": true,
+        "same_retry_no_second_debit": true,
+        "new_living_wrapper_preserves_existing_mechanics": true
+      },
+      "seconds": 23.497
+    }
+  ]
+}

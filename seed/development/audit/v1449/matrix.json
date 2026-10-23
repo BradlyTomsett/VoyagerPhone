@@ -1,0 +1,54 @@
+{
+  "suite": "matrix",
+  "status": "PASS",
+  "returncode": 0,
+  "seconds": 104.914,
+  "script_sha256": "ddb9888b3a3700d42dc23227fcc9eb431a651fbd8f9b7abeab7b1ebf5cdc8322",
+  "result": {
+    "status": "PASS",
+    "tests": [
+      {
+        "name": "source_binding_and_missing_members",
+        "status": "PASS",
+        "detail": "valid source accepted; missing component, changed tools, changed materialized development rejected"
+      },
+      {
+        "name": "logical_history_damage_is_blocking",
+        "status": "PASS",
+        "detail": "duplicate event ID, missing epoch and corrupted compressed payload refused; missing file may raise explicit file exception"
+      },
+      {
+        "name": "pricing_fixed_range_missing_unit_stale",
+        "status": "PASS",
+        "detail": {
+          "fixed_quote_no_authorization": true,
+          "unpriced_and_wrong_unit_rejected": true,
+          "old_time_quote_rejected": true,
+          "unagreed_reference_range": [
+            "PRICE-CARGO-130"
+          ]
+        }
+      },
+      {
+        "name": "second_boundaries_same_time_and_semantic_stop",
+        "status": "PASS",
+        "detail": {
+          "before_due": 0,
+          "same_instant_candidates": 2,
+          "semantic_barrier_requires_decision": true,
+          "scope": "queue and boundary contract; no live settlement/time advance"
+        }
+      },
+      {
+        "name": "idempotence_after_receipt_cache_eviction",
+        "status": "PASS",
+        "detail": "permanent event receipt survives in-state hot receipt eviction; conflicting payload denied"
+      }
+    ]
+  },
+  "groups": 5,
+  "tested_save_set_id": "SAVESET-V14.49-cdf55a13d2da9684",
+  "tested_manifest_sha256": "072d15a555565100d274bd02109bbb5210909fdcdbd83c0f95974a6f443bbf8e",
+  "tested_engine_sha256": "ac63c11ce36d993a93c7a789b956778740d3e7e7826815ba2a11bd63119d8c80",
+  "tested_guard_sha256": "8feec5f087aba1c386d2bddf6ad23e8b15c74c6770fed6c1c92d61f800ee52fb"
+}

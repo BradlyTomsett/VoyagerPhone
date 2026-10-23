@@ -1,0 +1,42 @@
+{
+  "suite": "reads",
+  "status": "PASS",
+  "returncode": 0,
+  "seconds": 20.782,
+  "script_sha256": "45e45e4a195829a6bd52c84fa6bc2da9c31e58b8fcf5d34b3c75792e66e0099a",
+  "result": {
+    "status": "PASS",
+    "tests": [
+      {
+        "name": "development_release_behavior_equivalence",
+        "status": "PASS",
+        "detail": "release engine and checked isolated development modules agree for four public read commands"
+      },
+      {
+        "name": "development_module_hash_and_export_fail_closed",
+        "status": "PASS",
+        "detail": "module tamper and missing exported symbol fail before calling public commands"
+      },
+      {
+        "name": "cache_disabled_result_equivalence",
+        "status": "PASS",
+        "detail": "same packet with semantics cache disabled"
+      },
+      {
+        "name": "tenfold_history_exact_query_does_not_expand_cold_history",
+        "status": "PASS",
+        "detail": {
+          "logical_events": 25400,
+          "warm_history_decodes": 0,
+          "warm_json_parses": 1,
+          "no_linear_full_history_expansion": true
+        }
+      }
+    ]
+  },
+  "groups": 4,
+  "tested_save_set_id": "SAVESET-V14.49-cdf55a13d2da9684",
+  "tested_manifest_sha256": "072d15a555565100d274bd02109bbb5210909fdcdbd83c0f95974a6f443bbf8e",
+  "tested_engine_sha256": "ac63c11ce36d993a93c7a789b956778740d3e7e7826815ba2a11bd63119d8c80",
+  "tested_guard_sha256": "8feec5f087aba1c386d2bddf6ad23e8b15c74c6770fed6c1c92d61f800ee52fb"
+}

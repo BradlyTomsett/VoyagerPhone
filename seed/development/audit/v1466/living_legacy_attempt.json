@@ -1,0 +1,135 @@
+[
+  {
+    "name": "setup_explicit_control_and_complete_profiles",
+    "status": "PASS",
+    "detail": {
+      "control": true
+    },
+    "seconds": 18.899
+  },
+  {
+    "name": "11_boot_actual_size_and_budget",
+    "status": "PASS",
+    "detail": {
+      "actual_bytes": 3232,
+      "budget": 3500,
+      "honest_exceeded": false
+    },
+    "seconds": 3.067
+  },
+  {
+    "name": "15_distinct_evidence_and_independent_review_gate",
+    "status": "PASS",
+    "detail": {
+      "self_flags_rejected": true,
+      "status_report_rejected": true,
+      "unrequested_promise_rejected_by_independent_review": true,
+      "hash_bound_review": true
+    },
+    "seconds": 0.713
+  },
+  {
+    "name": "04_14_private_interior_and_actor_cognition",
+    "status": "PASS",
+    "detail": {
+      "other_private_inner_hidden": true,
+      "controlled_self_education_and_inner_available": true,
+      "actor_specific_perception": true
+    },
+    "seconds": 11.523
+  },
+  {
+    "name": "13_duration_commits_atomically_and_retry_is_idempotent",
+    "status": "PASS",
+    "detail": {
+      "single_atomic_clock_seconds": 10,
+      "retry_no_time_or_effect_replay": true
+    },
+    "seconds": 14.721
+  },
+  {
+    "name": "02_03_memory_cache_and_profile_update_after_forgetting",
+    "status": "PASS",
+    "detail": {
+      "warm_cache_forget_and_recall": true,
+      "profile_voice_edit_preserves_dynamic_fields": true
+    },
+    "seconds": 31.942
+  },
+  {
+    "name": "08_rewrite_uses_original_speaker_knowledge",
+    "status": "PASS",
+    "detail": {
+      "historical_speech_survives_current_forgetting": true,
+      "no_time_or_visit_replay": true
+    },
+    "seconds": 45.68
+  },
+  {
+    "name": "07_real_evidence_required_for_biography_correction",
+    "status": "PASS",
+    "detail": {
+      "fake_reference_denied": true,
+      "matching_committed_evidence_accepted_and_audited": true
+    },
+    "seconds": 22.884
+  },
+  {
+    "name": "06_legacy_registration_initializes_all_layers",
+    "status": "PASS",
+    "detail": {
+      "both_legacy_registration_paths_initialized_and_positionable": true
+    },
+    "seconds": 44.558
+  },
+  {
+    "name": "10_physical_visit_epochs_instead_of_scene_ids",
+    "status": "PASS",
+    "detail": {
+      "new_scene_same_entry_continuing": true,
+      "leave_and_return_same_scene_counted": true
+    },
+    "seconds": 38.119
+  },
+  {
+    "name": "05_revalidate_live_presence_each_turn",
+    "status": "PASS",
+    "detail": {
+      "moved_actor_and_speaker_denied": true,
+      "historical_participant_not_forced_to_speak": true
+    },
+    "seconds": 39.233
+  },
+  {
+    "name": "09_12_retirement_routine_and_revocable_player_control",
+    "status": "PASS",
+    "detail": {
+      "explicit_take_and_release": true,
+      "NPC_autonomy_resumes": true,
+      "retirement_clears_old_shift": true
+    },
+    "seconds": 51.94
+  },
+  {
+    "name": "01_death_preserves_historical_identity_and_clock_commit",
+    "status": "PASS",
+    "detail": {
+      "death_commits_and_keeps_history": true
+    },
+    "seconds": 43.631
+  },
+  {
+    "name": "13_barrier_rolls_back_whole_combined_transaction",
+    "status": "FAIL",
+    "error": "EXPECTED_REJECTION",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/scratch/e41cffe750d0/work/v1466/development/tests/living_world_v1461.py\", line 38, in case\n    try:detail=fn();row={'name':name,'status':'PASS','detail':detail}\n               ^^^^\n  File \"/workspace/scratch/e41cffe750d0/work/v1466/development/tests/living_world_v1461.py\", line 145, in rollback\n    expect(lambda:f.commit('story_turn',p['turn_id'],proposal=p),'STORY_TIME_NEEDS_AI');assert p['turn_id'] not in a._s3_runtime(state())['turns'];return {'mechanical_money_narrative_visit_and_clock_rollback_together':True}\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/e41cffe750d0/work/v1466/development/tests/living_world_v1461.py\", line 45, in expect\n    before=frozen();error=h.reject(fn,part);assert frozen()==before;return error\n                          ^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/e41cffe750d0/work/v1466/development/tests/stage1_v1453.py\", line 19, in reject\n    raise AssertionError('EXPECTED_REJECTION')\nAssertionError: EXPECTED_REJECTION\n",
+    "seconds": 30.289
+  },
+  {
+    "name": "module_loader_active_scene_and_full_integrity",
+    "status": "FAIL",
+    "error": "name '_resolver_jinchuan' is not defined",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/scratch/e41cffe750d0/work/v1466/development/tests/living_world_v1461.py\", line 38, in case\n    try:detail=fn();row={'name':name,'status':'PASS','detail':detail}\n               ^^^^\n  File \"/workspace/scratch/e41cffe750d0/work/v1466/development/tests/living_world_v1461.py\", line 148, in parity_and_full\n    release=a.prepare_turn(f.root,f.sid,f.actor,'player','看一眼',budget_bytes=65536);d=h.load_api(f.root,'dev1461',True);assert d.prepare_turn(f.root,f.sid,f.actor,'player','看一眼',budget_bytes=65536)==release\n                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/e41cffe750d0/work/v1466/development/tests/stage1_v1453.py\", line 11, in load_api\n    return m.load(root/'engine.py')[0] if dev else m\n           ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/e41cffe750d0/work/qa_living/SYNTHETIC/development/devsrc/runtime.py\", line 39, in load\n    exec(code,ns)\n  File \"11b_autonomous_business.py\", line 388, in <module>\nNameError: name '_resolver_jinchuan' is not defined\n",
+    "seconds": 0.379
+  }
+]

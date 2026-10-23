@@ -1,0 +1,78 @@
+{
+  "schema": "HEALTHY_BASELINE_BENCHMARK_V1",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "platform": "linux",
+    "clock": "time.monotonic wall seconds",
+    "measurements": "independent processes; filesystem caches not flushed; temporary snapshots; bounded sample counts"
+  },
+  "summary": [
+    {
+      "version": "baseline",
+      "test": "exact_cold",
+      "samples": 3,
+      "median_seconds": 12.992717079999693,
+      "p95_seconds": 13.294316940000044,
+      "output_bytes_median": 2037
+    },
+    {
+      "version": "baseline",
+      "test": "exact_warm",
+      "samples": 5,
+      "median_seconds": 10.832395728999927,
+      "p95_seconds": 11.413465469999664,
+      "output_bytes_median": 2037
+    },
+    {
+      "version": "baseline",
+      "test": "four_topics",
+      "samples": 3,
+      "median_seconds": 25.858804620999763,
+      "p95_seconds": 25.95995098900039,
+      "output_bytes_median": 8725
+    },
+    {
+      "version": "baseline",
+      "test": "startup",
+      "samples": 3,
+      "median_seconds": 13.678167411999766,
+      "p95_seconds": 13.98079135800026,
+      "output_bytes_median": 6659
+    },
+    {
+      "version": "candidate",
+      "test": "exact_cold",
+      "samples": 3,
+      "median_seconds": 5.0632658860004085,
+      "p95_seconds": 5.090126261999558,
+      "output_bytes_median": 2395
+    },
+    {
+      "version": "candidate",
+      "test": "exact_warm",
+      "samples": 5,
+      "median_seconds": 0.4995867329998873,
+      "p95_seconds": 0.5568730110003344,
+      "output_bytes_median": 2394
+    },
+    {
+      "version": "candidate",
+      "test": "four_topics",
+      "samples": 3,
+      "median_seconds": 0.6162122999999156,
+      "p95_seconds": 0.6721965570000066,
+      "output_bytes_median": 6506
+    },
+    {
+      "version": "candidate",
+      "test": "startup",
+      "samples": 3,
+      "median_seconds": 0.6049829509997835,
+      "p95_seconds": 0.6050056300000506,
+      "output_bytes_median": 5705
+    }
+  ],
+  "warm_query_median_reduction": 0.9538803099980534,
+  "baseline_health": "V14.45 validated, not original failing V14.43",
+  "limits": "Small sample P95 is descriptive. Counts cover instrumented engine service functions, not OS or all Guard internals."
+}

@@ -1,0 +1,21 @@
+{
+  "suite": "goods",
+  "status": "PASS",
+  "returncode": 0,
+  "seconds": 72.837,
+  "script_sha256": "3b2c0c152f21e92607265196a75a90ab66a54b9b0eb2e1b8c0f277a82ff17b32",
+  "result": {
+    "status": "PASS",
+    "no_delivery_no_cash_change": true,
+    "completed_goods_cash_and_inventory_atomic": true,
+    "replay_has_no_effect": true,
+    "cash_gold_units": 2000,
+    "delivered_food_packs": 10,
+    "fullcheck": "PASS"
+  },
+  "groups": 1,
+  "tested_save_set_id": "SAVESET-V14.49-cdf55a13d2da9684",
+  "tested_manifest_sha256": "072d15a555565100d274bd02109bbb5210909fdcdbd83c0f95974a6f443bbf8e",
+  "tested_engine_sha256": "ac63c11ce36d993a93c7a789b956778740d3e7e7826815ba2a11bd63119d8c80",
+  "tested_guard_sha256": "8feec5f087aba1c386d2bddf6ad23e8b15c74c6770fed6c1c92d61f800ee52fb"
+}

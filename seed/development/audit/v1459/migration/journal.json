@@ -1,0 +1,31 @@
+{
+  "schema": "VOYAGER_NATIVE_COMMIT_JOURNAL_V2",
+  "status": "PREPARED",
+  "transaction_id": "4603daedb5b9442aae97bea82c11663e",
+  "root": "/workspace/scratch/8da8f6aaa549/work/release1459",
+  "parent_save_set_id": "SAVESET-V14.58-00f16348a31896bf",
+  "target_save_set_id": "SAVESET-V14.59-707b38f6542b6ffc",
+  "parent_snapshot": ".runtime/snapshots/SAVESET-V14.58-00f16348a31896bf",
+  "target_snapshot": ".runtime/transactions/4603daedb5b9442aae97bea82c11663e/target",
+  "parent_hashes": {
+    "manifest.json": "70ffd1aac8b95c70f9ed6aedbef944e7d14337da4ac3b6fa9ae68792097949f0",
+    "rules.json": "e72c64ed3edffd9194749bbeea8c9dc09d403ac80b1e3a10962a735480e8b043",
+    "catalog.json": "18bd2263a78e40fec2ddbe5aa638757aa115065f2d44c9a86950c29a58722174",
+    "state.json": "d70139d6c5be10bf8efd6f519a33d3b4acaaf30b5f28611ab735878a15fb85b9",
+    "tasks.json": "a9a7e3d49cc0395fa038c467a04b7372c98246bd1fd451edcc642620cc57e3d8",
+    "events.jsonl": "d933df91c03adca6aecf3fadb1f72eefdf80e73e82f870c844b993c273ed8304",
+    "engine.py": "3322a64a51356823b0a7d2176d8ada742526b20bfbb2d51eff8e2925e5190acb",
+    "guard.py": "917db42bd54ef993a8a917a2c56d2252fbfe27f3a9d4d3899edbde520fb3cf08"
+  },
+  "target_hashes": {
+    "manifest.json": "38e68bd17aa9641b3d07e27ff755cf9cd6ce9d32d1f0f23e5c551d04cbb2cb26",
+    "rules.json": "e72c64ed3edffd9194749bbeea8c9dc09d403ac80b1e3a10962a735480e8b043",
+    "catalog.json": "18bd2263a78e40fec2ddbe5aa638757aa115065f2d44c9a86950c29a58722174",
+    "state.json": "d70139d6c5be10bf8efd6f519a33d3b4acaaf30b5f28611ab735878a15fb85b9",
+    "tasks.json": "a9a7e3d49cc0395fa038c467a04b7372c98246bd1fd451edcc642620cc57e3d8",
+    "events.jsonl": "01fcdcfdc7705b6489e42e28b3ad17c88550f5bce3048a7ebf748f6b80157497",
+    "engine.py": "4a5f72d6cd19ec238f178ad5f221015742aa03a9a8ed0497baa618fa91ea0ef2",
+    "guard.py": "917db42bd54ef993a8a917a2c56d2252fbfe27f3a9d4d3899edbde520fb3cf08"
+  },
+  "engine_upgrade": true
+}

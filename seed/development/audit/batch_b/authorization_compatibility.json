@@ -1,0 +1,75 @@
+{
+  "schema": "RELEASE_TEST_EVIDENCE_V1",
+  "source_save_set_id": "SAVESET-V14.46-aac59e5c68893646",
+  "engine_sha256": "a07a10a55299b28c9490343443d083069022e258ba973e6a801fd0a5d259df6e",
+  "guard_sha256": "e780ae0f45b082f5624be925f92ad04d1e21e3ab3a76c1655f571af222cc1dad",
+  "test_sha256": "f85cc24299cec24a7a3591095196c13d8e5c63ea14681145869cbfc20a491ae2",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "group": "fast",
+  "tests": [
+    {
+      "name": "guard_startup_query_same_readiness_and_no_writes",
+      "status": "PASS",
+      "detail": {
+        "status": "READY_WITH_LIMITATIONS",
+        "authority_unchanged": true
+      },
+      "seconds": 16.187
+    },
+    {
+      "name": "bad_history_never_fake_ready",
+      "status": "PASS",
+      "detail": "bad metadata blocked all ordinary entrypoints, restricted plan still available",
+      "seconds": 15.585
+    },
+    {
+      "name": "sequence_gap_not_metadata_repair",
+      "status": "PASS",
+      "detail": "HISTORY seq discontinuity expected=2539 actual=2540",
+      "seconds": 1.738
+    },
+    {
+      "name": "closed_scene_survives_task_archive",
+      "status": "PASS",
+      "detail": "terminal task is valid for closed scene only",
+      "seconds": 0.018
+    },
+    {
+      "name": "risk_gap_truth_determinism_and_future_windows",
+      "status": "PASS",
+      "detail": {
+        "deterministic": true,
+        "actual_evaluation_timestamp_preserved": true,
+        "future_two_windows": true
+      },
+      "seconds": 0.078
+    },
+    {
+      "name": "location_time_semantics",
+      "status": "PASS",
+      "detail": "observation and validated-through timestamps have distinct contracts",
+      "seconds": 0.018
+    },
+    {
+      "name": "authorization_negative_matrix",
+      "status": "PASS",
+      "detail": "self-approval, wrong subject, parent, expiry, targets, budget and stale base rejected without writes",
+      "seconds": 52.85
+    },
+    {
+      "name": "manifest_policy_roundtrip_and_required_extension_gate",
+      "status": "PASS",
+      "detail": "MANIFEST_UNKNOWN_REQUIRED_EXTENSION",
+      "seconds": 0.079
+    },
+    {
+      "name": "development_release_equivalence",
+      "status": "PASS",
+      "detail": "development and bundled release contracts equivalent",
+      "seconds": 2.282
+    }
+  ],
+  "status": "PASS",
+  "passed": 9,
+  "total": 9
+}

@@ -1,0 +1,84 @@
+{
+  "as_of": "8363-12-02T12:00:00",
+  "version": "V14.42",
+  "source_members": 80,
+  "source_cold_archives": 20,
+  "source_archives_byte_identical": true,
+  "finance_equations": "PASS",
+  "fleet_counts_unchanged": true,
+  "RNG_state_unchanged_except_clock_baseline": true,
+  "new_research_rounds": [
+    {
+      "at": "8363-11-28T11:20:00",
+      "copies": 1203,
+      "gold": 54135,
+      "package_count": 97
+    },
+    {
+      "at": "8363-11-29T11:20:00",
+      "copies": 1122,
+      "gold": 50490,
+      "package_count": 97
+    },
+    {
+      "at": "8363-11-30T11:20:00",
+      "copies": 1184,
+      "gold": 53280,
+      "package_count": 97
+    },
+    {
+      "at": "8363-12-01T11:20:00",
+      "copies": 1095,
+      "gold": 49275,
+      "package_count": 97
+    },
+    {
+      "at": "8363-12-02T11:20:00",
+      "copies": 1181,
+      "gold": 53145,
+      "package_count": 97
+    }
+  ],
+  "new_research_copies": 5785,
+  "new_research_gold": 260325,
+  "current_balances": {
+    "ships": [
+      51,
+      9,
+      18
+    ],
+    "personnel": [
+      17203,
+      709,
+      6034
+    ],
+    "gold_copper": 529278750144573,
+    "grey": "5209377218.76",
+    "covert_copper": 6376963,
+    "shop_copper": 24530
+  },
+  "tasks": {
+    "active": 6,
+    "queued": 0,
+    "ids": [
+      "TSK-MIN-OPERATIONS",
+      "TSK-CALDER-INDUSTRIES-302",
+      "TSK-MKT-RESEARCH-DATA-SALES",
+      "TSK-SHADOW-XIANYUE-ASTEROID-PATROL",
+      "TSK-YUHUO-OPERATIONS",
+      "TSK-LOCAL-IVO-WHITESLEEP-REQUEST"
+    ]
+  },
+  "grenade_net_reconciliation": {
+    "parent_gross_field": 20,
+    "already_reported_historical_consumed": 3,
+    "parent_true_field": 17,
+    "new_consumed_flash": 1,
+    "current_field": 16,
+    "public_warehouse_unchanged": 24695,
+    "current_owned_net": 24711,
+    "reason": "原当前分布17与旧gross20同存；按已记录历史消耗纠正镜像，不制造额外动作或成本。"
+  },
+  "full_overlay_preserved": true,
+  "no_new_gameplay_during_save": true
+}

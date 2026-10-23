@@ -1,0 +1,73 @@
+{
+  "scope": "Superseded fixture attempts; not counted as current PASS. Runtime code unchanged.",
+  "corrections": [
+    "Missing cold-file exception is explicit refusal, not structured readiness.",
+    "Shop passive_event is a semantic entry; deterministic timing fixture uses industry00:20.",
+    "Hot receipt eviction now uses two real commits with max_receipts=1, not direct edits after a finalized commit.",
+    "Asset fixture chooses mapped records and supplies synthetic identity/unit only in memory; excluded food paths remain excluded."
+  ],
+  "attempts": [
+    {
+      "attempt": "policy_run/matrix/results.json",
+      "result": {
+        "status": "FAIL",
+        "tests": [
+          {
+            "name": "source_binding_and_missing_members",
+            "status": "PASS",
+            "detail": "valid source accepted; missing component, changed tools, changed materialized development rejected"
+          },
+          {
+            "name": "logical_history_damage_is_blocking",
+            "status": "FAIL",
+            "error": "[Errno 2] No such file or directory: '<STEP18_WORKSPACE>/audit/policy_run/matrix/cold_missing/archives/history_001809_001810_57478623250b.json.gz'",
+            "trace": "Traceback (most recent call last):\n  File \"<STEP18_WORKSPACE>/audit/policy_run/input/development/tests/step18/matrix.py\", line 9, in test\n    try:detail=fn();rows.append({'name':name,'status':'PASS','detail':detail})\n               ^^^^\n  File \"<STEP18_WORKSPACE>/audit/policy_run/input/development/tests/step18/matrix.py\", line 37, in history\n    assert a.readiness_report(r)['status']=='BLOCKED',name\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"<STEP18_WORKSPACE>/audit/policy_run/input/engine.py\", line 18909, in _snapshot_readiness\n    with SnapshotContext(base) as snapshot:return snapshot.validated_report()\n         ^^^^^^^^^^^^^^^^^^^^^\n  File \"<STEP18_WORKSPACE>/audit/policy_run/input/engine.py\", line 18839, in __enter__\n    self.fingerprint={n:_snapshot_sha_file(self.base/n) for n in dict.fromkeys(names)}\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<STEP18_WORKSPACE>/audit/policy_run/input/engine.py\", line 18884, in _snapshot_sha_file\n    return _batch_b_sha_file(path)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<STEP18_WORKSPACE>/audit/policy_run/input/engine.py\", line 459, in sha256_file\n    with path.open(\"rb\") as f:\n         ^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '<STEP18_WORKSPACE>/audit/policy_run/matrix/cold_missing/archives/history_001809_001810_57478623250b.json.gz'\n"
+          },
+          {
+            "name": "pricing_fixed_range_missing_unit_stale",
+            "status": "PASS",
+            "detail": {
+              "fixed_quote_no_authorization": true,
+              "unpriced_and_wrong_unit_rejected": true,
+              "old_time_quote_rejected": true,
+              "unagreed_reference_range": [
+                "PRICE-CARGO-130"
+              ]
+            }
+          },
+          {
+            "name": "second_boundaries_same_time_and_semantic_stop",
+            "status": "FAIL",
+            "error": "[]",
+            "trace": "Traceback (most recent call last):\n  File \"<STEP18_WORKSPACE>/audit/policy_run/input/development/tests/step18/matrix.py\", line 9, in test\n    try:detail=fn();rows.append({'name':name,'status':'PASS','detail':detail})\n               ^^^^\n  File \"<STEP18_WORKSPACE>/audit/policy_run/input/development/tests/step18/matrix.py\", line 55, in time_edges\n    s=a.read_json(BASE/'state.json');t=a.read_json(BASE/'tasks.json');now=a.parse_iso(s['game_time']);due=a.parse_iso('8363-12-02T23:20:00');queue=a.deterministic_task_queue(t,now,due,s);assert queue,queue\n                                                                                                                                                                                                  ^^^^^\nAssertionError: []\n"
+          },
+          {
+            "name": "idempotence_after_receipt_cache_eviction",
+            "status": "FAIL",
+            "error": "COMMIT_RECOVERY_FAILED:FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES",
+            "trace": "Traceback (most recent call last):\n  File \"<STEP18_WORKSPACE>/audit/policy_run/input/development/tests/step18/matrix.py\", line 9, in test\n    try:detail=fn();rows.append({'name':name,'status':'PASS','detail':detail})\n               ^^^^\n  File \"<STEP18_WORKSPACE>/audit/policy_run/input/development/tests/step18/matrix.py\", line 66, in cached_receipt\n    before={n:b.sha256_file(r/n) for n in b.COMPONENT_FILES};assert b.host_intent_command(r,e,'V14.50')['status']=='ALREADY_APPLIED';assert before=={n:b.sha256_file(r/n) for n in b.COMPONENT_FILES}\n                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<STEP18_WORKSPACE>/audit/policy_run/matrix/receipt_eviction/engine.py\", line 18485, in host_intent_command\n    try:return domain_command_packet(base,envelope['command'],version,'verified host user intent',dry_run)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<STEP18_WORKSPACE>/audit/policy_run/matrix/receipt_eviction/engine.py\", line 16475, in domain_command_packet\n    return _domain_command_packet_v2_unlocked(root,payload,version,scope,dry_run)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<STEP18_WORKSPACE>/audit/policy_run/matrix/receipt_eviction/engine.py\", line 16426, in _domain_command_packet_v2_unlocked\n    root=Path(root).resolve();guard(root,restore=True,restore_tool_files=False);ensure_source_ready(root,allow_cache=False)\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<STEP18_WORKSPACE>/audit/policy_run/matrix/receipt_eviction/engine.py\", line 14640, in guard\n    recovery=_native_recover_interrupted_commit(root)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<STEP18_WORKSPACE>/audit/policy_run/matrix/receipt_eviction/engine.py\", line 18524, in _reliable_native_recover_interrupted_commit\n    if errors:raise EngineError('COMMIT_RECOVERY_FAILED:'+','.join(errors))\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nm1792186719993498862.EngineError: COMMIT_RECOVERY_FAILED:FINALIZED_JOURNAL_UNKNOWN_CURRENT_BYTES\n"
+          }
+        ]
+      }
+    },
+    {
+      "attempt": "matrix_retry/domain_contracts/results.json",
+      "result": {
+        "status": "FAIL",
+        "tests": [
+          {
+            "name": "standing_grant_revocation_scope_and_consumption",
+            "status": "PASS",
+            "detail": "synthetic in-memory standing grant: exact active scope, revoked/inactive/expired/wrong actor/target/budget, one-use consumption"
+          },
+          {
+            "name": "asset_conservation_units_ownership_and_negative_stock",
+            "status": "FAIL",
+            "error": "ASSET_MAPPING_EXCLUDED:AUTHORITY_GAP:inventories.supply_inventory.fleets.voyager.food.value",
+            "trace": "Traceback (most recent call last):\n  File \"<STEP18_WORKSPACE>/audit/matrix_retry/input/development/tests/step18/domain_contracts.py\", line 11, in test\n    try:detail=fn();rows.append({'name':name,'status':'PASS','detail':detail})\n               ^^^^\n  File \"<STEP18_WORKSPACE>/audit/matrix_retry/input/development/tests/step18/domain_contracts.py\", line 28, in assets\n    row,rec,qty,_,role=a._asset_ledger_mapped_row(state,'state:'+path);records.append((rec,role,qty))\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<STEP18_WORKSPACE>/audit/matrix_retry/input/engine.py\", line 15283, in _asset_ledger_mapped_row\n    path=ref[6:];row=_asset_registry_quantity_guard(state,path)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<STEP18_WORKSPACE>/audit/matrix_retry/input/engine.py\", line 15274, in _asset_registry_quantity_guard\n    if 'reason_code' in row:raise EngineError('ASSET_MAPPING_EXCLUDED:'+str(row.get('reason_code'))+':'+canonical)\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ne.EngineError: ASSET_MAPPING_EXCLUDED:AUTHORITY_GAP:inventories.supply_inventory.fleets.voyager.food.value\n"
+          }
+        ]
+      }
+    }
+  ]
+}

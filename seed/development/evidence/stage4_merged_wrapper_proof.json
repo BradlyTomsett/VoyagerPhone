@@ -1,0 +1,15 @@
+{
+  "schema": "WRAPPER_MERGE_PROOF_V1",
+  "input_source_sha256": "c3aff5ebc0269ab74ad4425aeea0034e32598a2f5e51fc5da8e4fdcab286644c",
+  "input_functions": {
+    "_v130_layer_component_source_check_02": "def _v130_layer_component_source_check_02(root:Path=COMPONENT_ROOT,strict_fileset:bool=True)->dict:\n    out=_component_source_check_base(root,strict_fileset)\n    if out.get('status')=='PASS':\n        p=_native_current_protocol_integrity(Path(root))\n        if p.get('status')!='PASS':\n            out['status']='FAIL';out.setdefault('errors',[]).extend('NATIVE_PROTOCOL:'+x for x in p.get('errors',[]))\n        out['native_protocol']=p\n    return out",
+    "_v130_layer_component_source_check_04": "def _v130_layer_component_source_check_04(root:Path=COMPONENT_ROOT,strict_fileset:bool=True)->dict:\n    out=_component_source_check_base(root,strict_fileset)\n    if out.get('status')=='PASS':\n        p=_native_current_protocol_integrity(Path(root))\n        if p.get('status')!='PASS':out['status']='FAIL';out.setdefault('errors',[]).extend('NATIVE_PROTOCOL:'+x for x in p.get('errors',[]))\n        out['native_protocol']=p\n    return out"
+  },
+  "identical_body_sha256": "bc75cd9d304c275224c7ed75554163349900fc06185c8e82c36e3aa5f336ddd4",
+  "result": "04 is a compatibility alias to 02; protocol check and original captured base unchanged",
+  "tests": [
+    "stage4_acceptance explicit_dispatch_dependencies_and_development_parity",
+    "native selftest",
+    "stage4 snapshot actual bytes and recovery checks"
+  ]
+}

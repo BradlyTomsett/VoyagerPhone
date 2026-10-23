@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "reports": {
+    "player": {
+      "status": "COMPLETE",
+      "visible_facts": 10,
+      "gm_truth_exposed": false
+    },
+    "HANMER": {
+      "status": "COMPLETE",
+      "visible_facts": 9,
+      "gm_truth_exposed": false
+    },
+    "outsider": {
+      "status": "NOT_FOUND",
+      "visible_facts": 0,
+      "gm_truth_exposed": false
+    }
+  }
+}

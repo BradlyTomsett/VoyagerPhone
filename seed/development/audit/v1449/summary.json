@@ -1,0 +1,31 @@
+{
+  "schema": "V1449_BUGFIX_ACCEPTANCE_V1",
+  "status": "PASS_WITH_DECLARED_LIMITATIONS",
+  "save_set_id": "SAVESET-V14.49-cdf55a13d2da9684",
+  "parent_save_set_id": "SAVESET-V14.48-cdf55a13d2da9684",
+  "engine_version": "2.62.1",
+  "guard_version": "2.20.1",
+  "engine_sha256": "ac63c11ce36d993a93c7a789b956778740d3e7e7826815ba2a11bd63119d8c80",
+  "guard_sha256": "8feec5f087aba1c386d2bddf6ad23e8b15c74c6770fed6c1c92d61f800ee52fb",
+  "bug_reproduction_groups_before": 8,
+  "targeted_groups_after": 8,
+  "compatibility_suites": 14,
+  "compatibility_groups": 65,
+  "unchanged_old_files": 224,
+  "changed_old_files": [
+    "engine.py",
+    "guard.py",
+    "manifest.json",
+    "development/README.md",
+    "development/devsrc/00_prelude.py",
+    "development/devsrc/SOURCE_MANIFEST.json",
+    "development/devsrc/28_snapshot_service.py"
+  ],
+  "game_data_unchanged": true,
+  "new_game_events": 0,
+  "cold_archives_unchanged": 22,
+  "ui_and_image_files_unchanged": true,
+  "asset_policy_unchanged": true,
+  "rollback_declared_members": 231,
+  "scope": "Only reproduced source/cache/diagnostic bugs fixed; no UI/original-image feature upgrade or world-fact reconstruction. Final package receives independent cold verification."
+}

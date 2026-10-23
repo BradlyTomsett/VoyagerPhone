@@ -1,0 +1,13 @@
+{
+  "packet": "REFERENCE_INTEGRITY_V1",
+  "schema": "REFERENCE_GRAPH_V1",
+  "status": "PASS",
+  "errors": [],
+  "warnings": [],
+  "counts": {
+    "rules": 201,
+    "catalog_entities": 48,
+    "state_entities": 64,
+    "edges_checked": 5
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "VOYAGER_CONTENT_PACKAGE_V1",
+  "schema_version": 1,
+  "package_id": "voyager.reference.demo",
+  "namespace": "voyager.reference",
+  "version": "1.0.0",
+  "rule_version": "content_contract_v1",
+  "source": "Batch B definition-only integration fixture; not a discovered world fact",
+  "visibility": "definition_only",
+  "dependencies": {
+    "voyager.core.random": "1.0.0"
+  },
+  "definitions": [
+    {
+      "id": "voyager.reference:organization",
+      "kind": "organization",
+      "name": "资料包示例组织",
+      "epistemic": "definition_only"
+    },
+    {
+      "id": "voyager.reference:location",
+      "kind": "location",
+      "name": "资料包示例地点",
+      "epistemic": "definition_only"
+    },
+    {
+      "id": "voyager.reference:equipment",
+      "kind": "equipment",
+      "name": "资料包示例设备",
+      "unit": "台",
+      "ownership_effect": "definition_only"
+    },
+    {
+      "id": "voyager.reference:scene",
+      "kind": "scene_family",
+      "name": "资料包示例场景",
+      "epistemic": "definition_only",
+      "auto_start": false
+    },
+    {
+      "id": "voyager.reference:semantic",
+      "kind": "semantic_rule",
+      "implementation": "semantic_only",
+      "text": "该资料包只定义名词，不生成资产、人员或地点实例。"
+    }
+  ]
+}

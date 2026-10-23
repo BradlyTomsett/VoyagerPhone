@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "passed": 1,
+  "failed": 0,
+  "rows": [
+    {
+      "name": "module_loader_active_scene_and_full_integrity",
+      "status": "PASS",
+      "detail": {
+        "active_scene_module_release_parity": true,
+        "full_passed": 65,
+        "history_threshold_flag_matches_final_audit_bytes": true,
+        "source_files_unchanged": 476
+      },
+      "seconds": 2.311
+    }
+  ],
+  "scope": "Named active-scene module parity and full check only; independent actual-barrier fixture is saved separately"
+}

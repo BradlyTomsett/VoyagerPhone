@@ -1,0 +1,58 @@
+{
+  "suite": "policy",
+  "status": "PASS",
+  "returncode": 0,
+  "seconds": 18.12,
+  "script_sha256": "9a0cde53ca9ff6b43ffa6ca525667266c20b326968c5d23dd3cdbbb13ed5acd6",
+  "result": {
+    "status": "PASS",
+    "engine_sha256": "ac63c11ce36d993a93c7a789b956778740d3e7e7826815ba2a11bd63119d8c80",
+    "tests": [
+      {
+        "name": "canonical_Hawke_identity_preserves_proven_old_knowledge",
+        "status": "PASS",
+        "detail": {
+          "old_observer_knowledge_preserved_under_canonical_actor": 10,
+          "acquisition_times_and_sources_preserved": true
+        }
+      },
+      {
+        "name": "built_in_query_semantics_cannot_be_redefined_by_experience",
+        "status": "PASS",
+        "detail": "learning cannot redefine canonical cash/time/task/scene queries"
+      },
+      {
+        "name": "normal_exact_queries_do_not_expand_history_for_learning",
+        "status": "PASS",
+        "detail": {
+          "warm_exact_query_seconds": 0.037827262000064366,
+          "history_decodes": 0,
+          "learning_cache_not_needed_for_builtin_queries": true,
+          "metrics": {
+            "json_parses": 1,
+            "history_decodes": 0,
+            "sha_calls": 259,
+            "bytes_hashed": 15264218,
+            "semantic_cache_hits": 1,
+            "full_semantic_checks": 0,
+            "history_index_incremental": 0
+          }
+        }
+      },
+      {
+        "name": "private_context_gate_and_final_protection",
+        "status": "PASS",
+        "detail": {
+          "private_focus_metadata_denied_before_read": true,
+          "final_all_gameplay_facts_unchanged": true,
+          "fullcheck": "PASS"
+        }
+      }
+    ]
+  },
+  "groups": 4,
+  "tested_save_set_id": "SAVESET-V14.49-cdf55a13d2da9684",
+  "tested_manifest_sha256": "072d15a555565100d274bd02109bbb5210909fdcdbd83c0f95974a6f443bbf8e",
+  "tested_engine_sha256": "ac63c11ce36d993a93c7a789b956778740d3e7e7826815ba2a11bd63119d8c80",
+  "tested_guard_sha256": "8feec5f087aba1c386d2bddf6ad23e8b15c74c6770fed6c1c92d61f800ee52fb"
+}

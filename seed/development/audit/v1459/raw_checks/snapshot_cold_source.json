@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "manifest_sha256": "149adea27913431a572241d1e6be2ca6a56d45465c0f20fb30b37fd6294837e7",
+  "engine_sha256": "4a5f72d6cd19ec238f178ad5f221015742aa03a9a8ed0497baa618fa91ea0ef2",
+  "tests": [
+    {
+      "name": "batch_viewer_and_alias_isolation",
+      "status": "PASS",
+      "detail": {
+        "single_save_set": true,
+        "viewer_checked": true,
+        "public_return_isolated": true,
+        "internal_views_immutable": true
+      },
+      "seconds": 4.106432202000178
+    },
+    {
+      "name": "compact_full_contract_and_budget",
+      "status": "PASS",
+      "detail": {
+        "compact_full_domain_equivalence": true,
+        "final_bytes_exact": true,
+        "hard_constraints_not_truncated": true,
+        "version_bound_diagnostics": true
+      },
+      "seconds": 8.31799805200012
+    },
+    {
+      "name": "observer_diagnostics_do_not_leak_world_state",
+      "status": "PASS",
+      "detail": {
+        "observer_batch_compact_and_full_no_private_diagnostics": true,
+        "global_integrity_status_preserved": true,
+        "unscoped_player_routes_denied_to_observer": true
+      },
+      "seconds": 0.8279215520001344
+    },
+    {
+      "name": "zero_interval_report_and_legacy_coverage",
+      "status": "PASS",
+      "detail": {
+        "warm_zero_interval_no_cold_decodes": true,
+        "legacy_unknown_preserved": true
+      },
+      "seconds": 3.5901973129998623
+    },
+    {
+      "name": "development_release_parity",
+      "status": "PASS",
+      "detail": {
+        "release_development_main_and_services": true
+      },
+      "seconds": 6.533099056000083
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "suite": "story_faults",
+  "status": "PASS",
+  "returncode": 0,
+  "seconds": 125.568,
+  "upstream_script_sha256": "8e3503fb8a5b75421a58eee76c37c46917c07a7cdf5a17a0a41c5e3b692b0f1c",
+  "adapted_script_sha256": "c341e54c64ccf54eb802b606d22f02c044857a71b62ea73d0a1eb4f53749b556",
+  "result": {
+    "status": "PASS",
+    "engine_sha256": "3e5071ced725caef8ef10e1cbcfbe6b157cd3629b2d543b345bbfaaae27828c9",
+    "tests": [
+      {
+        "phase": "after_component",
+        "unknown": false,
+        "status": "PASS",
+        "detail": {
+          "atomic_outcome": "parent",
+          "no_partial_people_or_scenes": true,
+          "readiness": "READY_WITH_LIMITATIONS"
+        }
+      },
+      {
+        "phase": "after_manifest",
+        "unknown": false,
+        "status": "PASS",
+        "detail": {
+          "atomic_outcome": "target",
+          "no_partial_people_or_scenes": true,
+          "readiness": "READY_WITH_LIMITATIONS"
+        }
+      },
+      {
+        "phase": "after_component",
+        "unknown": true,
+        "status": "PASS",
+        "detail": {
+          "unknown_bytes_protected": true
+        }
+      }
+    ]
+  }
+}

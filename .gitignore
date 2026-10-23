@@ -1,0 +1,12 @@
+.qa/
+data/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+*.sqlite*
+*.zip
+node_modules/
+.voyager-runtime/
+*.bundle

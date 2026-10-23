@@ -1,0 +1,35 @@
+{
+  "status": "FAIL",
+  "engine_sha256": "4a5f72d6cd19ec238f178ad5f221015742aa03a9a8ed0497baa618fa91ea0ef2",
+  "manifest_sha256": "149adea27913431a572241d1e6be2ca6a56d45465c0f20fb30b37fd6294837e7",
+  "model_generation": "NOT_RUN",
+  "tests": [
+    {
+      "name": "actual_parent_conservation",
+      "status": "PASS",
+      "detail": {
+        "four_authority_JSON_and_Guard_byte_exact": true,
+        "old_logical_and_physical_history_byte_exact": 2616,
+        "maintenance_events": 1
+      },
+      "seconds": 2.9437110119999943
+    },
+    {
+      "name": "history_ownership",
+      "status": "PASS",
+      "detail": {
+        "no_scope_snapshot_transaction": true,
+        "mutable_public_results_isolated": true,
+        "private_metadata_and_readonly_nested_tree": true
+      },
+      "seconds": 19.091354383999942
+    },
+    {
+      "name": "development_release_parity",
+      "status": "FAIL",
+      "error": "",
+      "trace": "Traceback (most recent call last):\n  File \"/workspace/scratch/8da8f6aaa549/work/v1459/development/tests/batch2_followup_firstbatch.py\", line 13, in case\n    try:row={'name':name,'status':'PASS','detail':fn()}\n                                                  ^^^^\n  File \"/workspace/scratch/8da8f6aaa549/work/v1459/development/tests/batch2_followup_firstbatch.py\", line 138, in dev\n    d=h.load_api(source,'dev',True);assert d.round_context_packet(source)==a.round_context_packet(source);assert d.ENGINE_VERSION==a.ENGINE_VERSION=='2.69.0';return True\n                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "seconds": 1.2053497509998579
+    }
+  ]
+}

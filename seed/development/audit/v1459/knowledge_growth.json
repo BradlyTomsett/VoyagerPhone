@@ -1,0 +1,116 @@
+{
+  "schema": "BATCH2_FOLLOWUP_TARGETED_V1",
+  "status": "PASS",
+  "engine_sha256": "4a5f72d6cd19ec238f178ad5f221015742aa03a9a8ed0497baa618fa91ea0ef2",
+  "parent_engine_sha256": "3322a64a51356823b0a7d2176d8ada742526b20bfbb2d51eff8e2925e5190acb",
+  "manifest_sha256": "149adea27913431a572241d1e6be2ca6a56d45465c0f20fb30b37fd6294837e7",
+  "model_generation": "NOT_RUN",
+  "tests": [
+    {
+      "name": "legacy_alias_correction_growth_and_same_snapshot_reuse",
+      "status": "PASS",
+      "detail": [
+        {
+          "synthetic": true,
+          "scenes": 1,
+          "people": 1,
+          "legacy_facts": 100,
+          "disclosures": 200,
+          "learning": 20,
+          "viewers": 4,
+          "V1458_mutable_projection_seconds_n1": 0.01560951200008276,
+          "timing_scope": "in-memory knowledge projection; excludes source validation, JSON parsing, freeze and model",
+          "seconds_samples": [
+            0.017239330000393238,
+            0.0077972069998395455,
+            0.011115223000160768
+          ],
+          "median_seconds": 0.011115223000160768,
+          "counts": {
+            "json_parses": 0,
+            "history_decodes": 0,
+            "sha_calls": 399,
+            "bytes_hashed": 15361849,
+            "semantic_cache_hits": 0,
+            "full_semantic_checks": 0,
+            "history_index_incremental": 0,
+            "knowledge_alias_bindings_indexed": 1,
+            "knowledge_disclosures_indexed": 200,
+            "knowledge_learning_indexed": 20,
+            "knowledge_index_builds": 1,
+            "knowledge_rows_builds": 4,
+            "knowledge_rows_cache_hits": 2
+          },
+          "exact_V1458_semantics": true
+        },
+        {
+          "synthetic": true,
+          "scenes": 4,
+          "people": 4,
+          "legacy_facts": 1000,
+          "disclosures": 2000,
+          "learning": 200,
+          "viewers": 4,
+          "V1458_mutable_projection_seconds_n1": 0.2304677410002114,
+          "timing_scope": "in-memory knowledge projection; excludes source validation, JSON parsing, freeze and model",
+          "seconds_samples": [
+            0.05735388099992633,
+            0.07631793599966841,
+            0.05450007200033724
+          ],
+          "median_seconds": 0.05735388099992633,
+          "counts": {
+            "json_parses": 0,
+            "history_decodes": 0,
+            "sha_calls": 399,
+            "bytes_hashed": 15361849,
+            "semantic_cache_hits": 0,
+            "full_semantic_checks": 0,
+            "history_index_incremental": 0,
+            "knowledge_alias_bindings_indexed": 4,
+            "knowledge_disclosures_indexed": 2000,
+            "knowledge_learning_indexed": 200,
+            "knowledge_index_builds": 1,
+            "knowledge_rows_builds": 16,
+            "knowledge_rows_cache_hits": 2
+          },
+          "exact_V1458_semantics": true
+        },
+        {
+          "synthetic": true,
+          "scenes": 8,
+          "people": 16,
+          "legacy_facts": 4000,
+          "disclosures": 8000,
+          "learning": 800,
+          "viewers": 4,
+          "V1458_mutable_projection_seconds_n1": 1.5742180610000105,
+          "timing_scope": "in-memory knowledge projection; excludes source validation, JSON parsing, freeze and model",
+          "seconds_samples": [
+            0.2926849629998287,
+            0.3087221649998355,
+            0.2897077329998865
+          ],
+          "median_seconds": 0.2926849629998287,
+          "counts": {
+            "json_parses": 0,
+            "history_decodes": 0,
+            "sha_calls": 399,
+            "bytes_hashed": 15361849,
+            "semantic_cache_hits": 0,
+            "full_semantic_checks": 0,
+            "history_index_incremental": 0,
+            "knowledge_alias_bindings_indexed": 16,
+            "knowledge_disclosures_indexed": 8000,
+            "knowledge_learning_indexed": 800,
+            "knowledge_index_builds": 1,
+            "knowledge_rows_builds": 32,
+            "knowledge_rows_cache_hits": 2
+          },
+          "exact_V1458_semantics": true
+        }
+      ],
+      "seconds": 5.312670919000084
+    }
+  ]
+}

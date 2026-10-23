@@ -1,0 +1,130 @@
+{
+  "schema": "FAST_PLAY_PERFORMANCE_V1",
+  "measurement": "sequential unprofiled wall time; clone/setup excluded; Python JSON encoding included; page cache not flushed; same machine",
+  "real_AI_generation": "NOT_RUN",
+  "ChatGPT_tool_transport": "NOT_CONNECTED",
+  "versions": {
+    "V14.65": {
+      "engine_sha256": "dcb27f9fd7248ab87cd56e8e343c6fe78390d422eeff12796d087eea48f81e88",
+      "samples_ms": {
+        "cold_cli_prepare": [
+          5086.737
+        ],
+        "cold_cli_business": [
+          698.05
+        ],
+        "cli_prepare_overview_plan": [
+          3301.894,
+          2320.626,
+          2179.228
+        ],
+        "warm_api_prepare_overview_plan": [
+          605.813,
+          642.922,
+          600.977,
+          634.333,
+          662.764
+        ],
+        "advance_24h_commit": [
+          18055.286,
+          17298.871,
+          19576.805
+        ],
+        "warm_story_round_prepare_submit": [
+          17742.646,
+          16579.512,
+          16712.463
+        ]
+      },
+      "medians_ms": {
+        "cold_cli_prepare": 5086.737,
+        "cold_cli_business": 698.05,
+        "cli_prepare_overview_plan": 2320.626,
+        "warm_api_prepare_overview_plan": 634.333,
+        "advance_24h_commit": 18055.286,
+        "warm_story_round_prepare_submit": 16712.463
+      }
+    },
+    "V14.66": {
+      "engine_sha256": "863e8e448088f29668447b9fe3476df322142f317e168771349d3181b55bbbec",
+      "samples_ms": {
+        "cold_cli_prepare": [
+          4715.801
+        ],
+        "cold_cli_business": [
+          660.94
+        ],
+        "cli_prepare_overview_plan": [
+          2272.948,
+          637.724,
+          724.696
+        ],
+        "warm_api_prepare_overview_plan": [
+          169.922,
+          186.104,
+          169.673,
+          228.245,
+          197.887
+        ],
+        "advance_24h_commit": [
+          16600.161,
+          16172.864,
+          18015.706
+        ],
+        "warm_story_round_prepare_submit": [
+          14384.326,
+          12441.565,
+          13464.588
+        ]
+      },
+      "medians_ms": {
+        "cold_cli_prepare": 4715.801,
+        "cold_cli_business": 660.94,
+        "cli_prepare_overview_plan": 724.696,
+        "warm_api_prepare_overview_plan": 186.104,
+        "advance_24h_commit": 16600.161,
+        "warm_story_round_prepare_submit": 13464.588
+      }
+    }
+  },
+  "speedup": {
+    "cold_cli_prepare": {
+      "old_ms": 5086.737,
+      "new_ms": 4715.801,
+      "factor": 1.079,
+      "reduction_percent": 7.3
+    },
+    "cold_cli_business": {
+      "old_ms": 698.05,
+      "new_ms": 660.94,
+      "factor": 1.056,
+      "reduction_percent": 5.3
+    },
+    "cli_prepare_overview_plan": {
+      "old_ms": 2320.626,
+      "new_ms": 724.696,
+      "factor": 3.202,
+      "reduction_percent": 68.8
+    },
+    "warm_api_prepare_overview_plan": {
+      "old_ms": 634.333,
+      "new_ms": 186.104,
+      "factor": 3.408,
+      "reduction_percent": 70.7
+    },
+    "advance_24h_commit": {
+      "old_ms": 18055.286,
+      "new_ms": 16600.161,
+      "factor": 1.088,
+      "reduction_percent": 8.1
+    },
+    "warm_story_round_prepare_submit": {
+      "old_ms": 16712.463,
+      "new_ms": 13464.588,
+      "factor": 1.241,
+      "reduction_percent": 19.4
+    }
+  },
+  "final_delivery_engine_sha256": "c15344f8266d89a31cc8c879ca968b7559e61dd936a3c682055c7de4f851aa8a",
+  "post_benchmark_changes": "Cold-start presentation only: current guide read from manifest, duplicate float balance fields omitted in favor of exact five_balances, playcontext route prioritized, startup public budget <=3500 restored. Timed read/turn/settlement implementations unchanged; this final presentation adjustment not re-benchmarked."
+}

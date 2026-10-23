@@ -1,0 +1,43 @@
+{
+  "schema": "VOYAGER_COMPLETE_SAVE_VERIFICATION_V14_42",
+  "status": "CHECKPOINT_VERIFIED_WITH_HISTORICAL_TRANSACTION_PROOF_GAP",
+  "as_of_game_time": "8363-12-02T12:00:00",
+  "voyage_day": 683,
+  "game_time_advanced_by_save": false,
+  "save_set_id": "SAVESET-V14.42-8e623b38b1eb54e4",
+  "current_state_native_check": {
+    "status": "PASS",
+    "passed_count": 65,
+    "errors": 0,
+    "warnings": 0
+  },
+  "continuation_acceptance": {
+    "status": "PASS",
+    "passed_count": 149,
+    "errors": []
+  },
+  "source_and_reference_check": "PASS",
+  "source_cold_archives_preserved": 20,
+  "source_history_rows_preserved_exactly": 395,
+  "source_members_preserved": 80,
+  "new_reconciliation_events": 246,
+  "independent_financial_flows_checked": 97,
+  "visibility_check": "PASS",
+  "clean_directory_guard_check": "PASS",
+  "clean_directory_boot": "READY",
+  "clean_boot_authorities_unmodified": true,
+  "strict_parent_transaction_check": {
+    "status": "FAIL",
+    "errors": 95,
+    "families": [
+      "PRICE_INDEPENDENT_CASH_DELTA_MISMATCH",
+      "PRICE_NEW_ECONOMIC_FACT_REQUIRES_QUOTE"
+    ],
+    "explanation": "既有对话并未通过原生报价/受权价格结算入口；余火现金由独立流水97项中的相关行对平，但缺原生价格回执。新增历史金额字段也被严格比较器逐项要求报价。当前余额无变更，不把已接受对话改写成不存在的原生交易。完整失败结果原样保留。",
+    "financial_equations": "PASS",
+    "core_parent_append_only_time_seed_finance_coverage": "PASS",
+    "not_certified_as_native_transaction_chain": true
+  },
+  "external_image_policy": "Same as parent: original images external; all original index/gate/source-name records retained, not embedded.",
+  "resume_instructions": "Read development/CONTINUE_V14_42.md; run matching Guard --check then --resume; first response advances0; stop at WhiteSleep hatch decision."
+}

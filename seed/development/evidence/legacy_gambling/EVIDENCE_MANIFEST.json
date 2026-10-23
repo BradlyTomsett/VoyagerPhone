@@ -1,0 +1,9 @@
+{
+  "schema": "SEALED_HISTORICAL_UI_EVIDENCE_V1",
+  "policy": "read-only evidence; never execute to change accounts",
+  "files": {
+    "foundry-dice-preview.html.txt": "7c2de4034e3de79a3d953d7154bd302829908121da91421386b63b156ccfb29d",
+    "settle_dice.py.txt": "073c042b0e124e8a224366b53abbde62fc5be178b9595a655977b421bf604dc1",
+    "dice-client-config.json.txt": "ca3eb134211fe3722cc9b508ccdf97854446fc1574dad110aaa43bf2bb5f61ca"
+  }
+}
