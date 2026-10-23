@@ -19,10 +19,28 @@
 
 1. 登录有权访问此仓库的 GitHub 账号，创建一个 Codespace。第一次会自动安装依赖并启动 Python 后端。
 2. 运行任务“启动远航游戏”，或在终端执行 `python scripts/start_codespaces.py`，点击输出的私人游戏链接。该链接会自动填好游戏连接口令，不需要再手动输入服务器地址。
-3. 第一次打开会显示设置页。填写 API 地址、API Key、模型名及接口协议；保存后即可先问询舰队，再建立场景并行动。复核模型留空时使用同型号的另一次独立请求。
+3. 第一次打开会显示设置页，默认填好 DeepSeek 4.1 Flash 的地址、模型 ID 和 Responses 协议。填写你的 DeepSeek API Key 并保存，即可先问询舰队，再建立场景并行动。已有其他配置时，点击“使用 DeepSeek 4.1 Flash”切换。复核模型留空时使用同型号的另一次独立请求。
 4. 下次使用启动同一个 Codespace，重新点击私人游戏链接。已有存档和模型配置会继续使用。
 
-API 地址应为基础地址，例如 `https://api.openai.com/v1`，不是完整的 `/responses` 或 `/chat/completions` 地址。模型名必须是你自己的 API 账户实际支持的型号。本版要求提供商支持所选协议及严格 JSON Schema 输出。
+API 地址应为基础地址，例如 `https://api.deepseek.com`，不是完整的 `/responses` 或 `/chat/completions` 地址。模型名必须是你自己的 API 账户实际支持的型号。
+
+### 使用 DeepSeek 4.1 Flash
+
+| 设置 | 填写内容 |
+| --- | --- |
+| API 基础地址 | `https://api.deepseek.com` |
+| API Key | 你在 DeepSeek 控制台创建的密钥 |
+| 模型名称 | `deepseek-flash` |
+| 接口协议 | `Responses`（推荐） |
+| 复核模型 | 留空，使用同型号的独立请求 |
+
+官方当前将 `deepseek-flash` 对应到 DeepSeek-V4.1-Flash；界面显示名称不能代替接口模型 ID。游戏使用提供商默认的思考模式。保存设置不会消耗模型请求，发送游戏指令后才调用 API；有变更的草案另需一次独立复核调用。密钥只在游戏设置里填写，不需要发到聊天中。
+
+DeepSeek Responses 使用官方 JSON Schema 格式；Chat Completions 也已适配其 `max_tokens` 与 JSON 对象模式，并在提示中传入输出契约。两种协议都会在本地检查返回对象的字段、类型及枚举，之后继续经过原有复核和引擎校验。
+
+已经创建过 Codespace 时，先完成或放弃当前待确认草案，在终端执行 `git pull --ff-only`，再从 Codespaces 菜单停止并重新启动同一个 Codespace，让后端加载更新。重新运行 `python scripts/start_codespaces.py` 获取游戏链接并刷新网页即可；已有存档保留。
+
+官方参考：[模型与接口名称](https://api-docs.deepseek.com/quick_start/pricing/)、[Responses 参数](https://api-docs.deepseek.com/api/create-response/)、[Chat Completions 参数](https://api-docs.deepseek.com/api/create-chat-completion/)。
 
 新建 Codespace 的转发端口默认是 Private，请保留这一设置。启动程序会尝试确认 8000 为 Private，并生成额外的游戏访问口令。私人链接的 `#access=...` 部分用于网页自动登录，打开后会立即从地址栏移除；不要分享此链接。
 
@@ -58,7 +76,7 @@ python -c 'import secrets; print(secrets.token_urlsafe(32))'
 | `MODEL_PROTOCOL` | `responses`，或兼容严格 JSON Schema 的 `chat_completions` |
 | `VOYAGER_ALLOWED_ORIGINS` | 允许连接的网页完整源地址，多个用逗号分开 |
 
-不同服务商对模型参数、结构化输出和拒绝响应的约定可能不同。本版完整实现上述两种报文；不对任何声称兼容的服务商自动降级或跳过校验。接入时应先验证该提供商。
+不同服务商对模型参数、结构化输出和拒绝响应的约定可能不同。DeepSeek 官方域名使用上文的专用适配；其他提供商使用所选协议的标准 JSON Schema 报文，接入前需确认兼容性。所有提供商的输出都经过本地检查。
 
 ```bash
 docker compose up -d --build

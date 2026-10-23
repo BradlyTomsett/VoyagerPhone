@@ -3,6 +3,7 @@ import json
 import os
 import urllib.error
 import urllib.request
+from urllib.parse import urlsplit
 
 CRITERIA = ['living_prose', 'voice_and_knowledge', 'sensory_grounding', 'player_agency']
 WRAPPER = {'type': 'object', 'properties': {
@@ -18,6 +19,21 @@ REVIEW = {'type': 'object', 'properties': {
 class ModelError(Exception):
     pass
 
+def matches_output(value, schema):
+    """Validate the small object/array/string schemas used by this adapter."""
+    kind = schema['type']
+    if kind == 'object':
+        if not isinstance(value, dict): return False
+        fields = schema['properties']
+        return (all(k in value for k in schema.get('required', []))
+                and not (schema.get('additionalProperties') is False and set(value) - fields.keys())
+                and all(matches_output(v, fields[k]) for k, v in value.items() if k in fields))
+    if kind == 'array':
+        return isinstance(value, list) and all(matches_output(v, schema['items']) for v in value)
+    if kind == 'string':
+        return isinstance(value, str) and ('enum' not in schema or value in schema['enum'])
+    return False
+
 class ModelClient:
     def __init__(self, settings=None):
         settings = settings or {}
@@ -30,6 +46,7 @@ class ModelClient:
         self.timeout = int(os.environ.get('MODEL_TIMEOUT_SECONDS', '120'))
         if not self.base.startswith('https://'):
             raise ValueError('MODEL_BASE_URL_REQUIRES_HTTPS')
+        self.deepseek = urlsplit(self.base).hostname == 'api.deepseek.com'
 
     @property
     def configured(self):
@@ -45,12 +62,20 @@ class ModelClient:
         if self.protocol == 'responses':
             body = {'model': model, 'instructions': instruction, 'input': text,
                     'store': False, 'max_output_tokens': self.max_tokens, 'text': {'format': fmt}}
+            if self.deepseek:
+                # DeepSeek documents name/schema; responses are always stateless.
+                fmt.pop('strict')
+                body.pop('store')
             endpoint = '/responses'
         elif self.protocol == 'chat_completions':
             body = {'model': model, 'messages': [{'role': 'system', 'content': instruction},
                     {'role': 'user', 'content': text}], 'max_completion_tokens': self.max_tokens,
                     'response_format': {'type': 'json_schema', 'json_schema': {
                         'name': fmt['name'], 'strict': True, 'schema': schema}}}
+            if self.deepseek:
+                body['max_tokens'] = body.pop('max_completion_tokens')
+                body['response_format'] = {'type': 'json_object'}
+                body['messages'][0]['content'] += '\n只输出符合以下 JSON Schema 的 JSON 对象，不要 Markdown：\n' + json.dumps(schema, ensure_ascii=False)
             endpoint = '/chat/completions'
         else:
             raise ModelError('MODEL_PROTOCOL_UNSUPPORTED')
@@ -86,6 +111,8 @@ class ModelClient:
             raise ModelError('MODEL_JSON_INVALID') from None
         if not isinstance(result, dict):
             raise ModelError('MODEL_JSON_OBJECT_REQUIRED')
+        if not matches_output(result, schema):
+            raise ModelError('MODEL_SCHEMA_INVALID')
         return result, value.get('usage', {})
 
     def generate(self, packet):
