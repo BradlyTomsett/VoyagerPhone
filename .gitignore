@@ -7,6 +7,8 @@ __pycache__/
 *.pyc
 *.sqlite*
 *.zip
+!docs/engine-bundle.zip
+!docs/vendor/pyodide/python_stdlib.zip
 node_modules/
 .voyager-runtime/
 *.bundle

@@ -1,0 +1,2 @@
+# Engine and archive integrity depend on exact source bytes on every platform.
+seed/** -text
