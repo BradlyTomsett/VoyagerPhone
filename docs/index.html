@@ -16,9 +16,10 @@
       <button class="nav active" data-tab="command"><span class="nav-symbol">⌘</span><span>指挥台</span><small>01</small></button>
       <button class="nav" data-tab="fleet"><span class="nav-symbol">◇</span><span>舰队</span><small>02</small></button>
       <button class="nav" data-tab="tasks"><span class="nav-symbol">☷</span><span>任务</span><small id="task-badge">—</small></button>
-      <button class="nav" data-tab="log"><span class="nav-symbol">◷</span><span>航志</span><small>04</small></button>
+      <button class="nav" data-tab="library"><span class="nav-symbol">▤</span><span>资料库</span><small>04</small></button>
+      <button class="nav" data-tab="log"><span class="nav-symbol">◷</span><span>航志</span><small>05</small></button>
     </nav>
-    <div class="sidebar-bottom"><div class="vertical-rule"></div><p>群星之外，<br>故事仍在继续。</p><button class="text-button settings-open">游戏设置 <span>↗</span></button><span class="version">VOYAGER / PAGES 0.4</span></div>
+    <div class="sidebar-bottom"><div class="vertical-rule"></div><p>群星之外，<br>故事仍在继续。</p><button class="text-button settings-open">游戏设置 <span>↗</span></button><span class="version">VOYAGER / PAGES 0.5</span></div>
   </aside>
   <div class="workspace">
     <header class="topbar"><div class="mobile-brand"><img src="icon.svg" alt="">远航</div><div class="breadcrumbs">远航计划 <span>/</span> <b id="page-label">指挥台</b></div><div class="top-actions"><span id="connection" class="connection"><i></i>读取存档</span><button class="icon-button settings-open" aria-label="游戏设置">⚙</button></div></header>
@@ -44,6 +45,7 @@
       </section>
       <section id="fleet-view" class="view"><div class="section-intro"><h2>舰队总览</h2><p>从当前存档读取的舰船、人员与独立账户。</p></div><div id="fleet-cards" class="fleet-cards"></div><section class="panel account-panel"><div class="panel-heading"><h2>独立账户</h2></div><div id="accounts"></div></section></section>
       <section id="tasks-view" class="view"><div class="section-intro"><h2>执行中的计划</h2><p>查看任务状态与决策节点，或向 AI 询问更多信息。</p></div><div id="task-list" class="task-list"></div></section>
+      <section id="library-view" class="view"><div class="section-intro"><h2>每一段故事，都有来处。</h2><p>查阅原始存档中的人物、店铺、地区、舰队、世界设定、规则和历史；不消耗模型费用。</p></div><p id="library-coverage" class="source-coverage">等待引擎就绪…</p><p id="library-notice" class="notice"></p><div id="library-featured" class="source-featured"></div><form id="library-search" class="source-search panel"><label class="sr-only" for="library-query">搜索原始资料</label><input id="library-query" type="search" maxlength="300" placeholder="搜索名字、地点或内容，例如：余火、韩默、雷托、舰队、规则"><button type="submit" class="primary">查阅资料</button><label class="sr-only" for="library-category">资料类别</label><select id="library-category"><option value="all">全部资料</option><option value="current">当前存档与任务</option><option value="world">世界设定与规则</option><option value="history">历史参考</option></select><label class="source-history"><input id="library-history" type="checkbox"> 同时检索历史归档（首次稍慢）</label></form><p id="library-status" role="status"></p><div id="library-results" class="source-results"></div><button id="library-next" class="secondary" hidden>继续查看下一页 ↓</button></section>
       <section id="log-view" class="view"><div class="section-intro"><h2>每一步，都留下记录。</h2><p>这里保存网页回合的进展与提交状态。完整游戏历史包含在导出的存档中。</p></div><div id="log-list" class="log-list panel"></div></section>
       <footer class="page-footer"><span>VOYAGER · 自由意志，无垠宇宙</span><span id="source-label">V14.66 / 存档预览</span></footer>
     </main>

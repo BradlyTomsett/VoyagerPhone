@@ -1,4 +1,4 @@
-# VoyagerPhone · 远航浏览器版 0.4
+# VoyagerPhone · 远航浏览器版 0.5
 
 [打开游戏](https://bradlytomsett.github.io/VoyagerPhone/)
 
@@ -13,6 +13,12 @@ VOYAGER V14.66 的单人星际沙盒。网页、Python 引擎和运行资源全�
 5. 此后的“行动”先生成草案，再进行独立复核，由原引擎校验，最后等你确认。问询不推进游戏时间。
 
 人物与地点可以按名称选择，指挥官位于人物列表首位。选择人物本身不会改变存档；指挥官首次建立场景时，必要的身份登记与视角绑定随草案一起等待确认。
+
+## 原始资料与游戏记忆
+
+“资料库”直接读取当前存档、任务、世界设定、规则与事件记录，按人物、店铺、地区和关键词检索；每条保留原文位置与日期。余火、正式员工、雷托、熄炉-9、韩默、伊沃和马洛有可直接查看的摘要。查看资料无需 API Key，不推进时间，也不改写账户或资产。
+
+22 份原始冷归档可勾选“包含历史归档”后按需解码搜索。旧状态、未确认草案与经营模拟保留原始性质，不当作已发生的交易。AI 每轮根据问题检索相关原文，同时遵守现有视角与知情限制；指挥官资料不会自动成为 NPC 的记忆。检索受上下文大小限制，没有命中不等于原始存档不存在该信息。
 
 ## 进度、密钥与备份
 
@@ -34,6 +40,8 @@ VOYAGER V14.66 的单人星际沙盒。网页、Python 引擎和运行资源全�
 python scripts/build_browser.py
 node tests/browser_model.mjs
 node tests/browser_storage.mjs
+python -m unittest tests.test_source_library -v
+node tests/browser_sources.mjs
 node tests/browser_commander.mjs
 node tests/browser_wasm.mjs
 ```

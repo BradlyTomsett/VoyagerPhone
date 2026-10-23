@@ -23,6 +23,7 @@ from pathlib import Path
 from backend.app import GameService, ACTIVE, safe_error
 from backend.engine import EngineBridge, canonical, digest, module
 from backend.model import CRITERIA, WRAPPER, REVIEW, matches_output
+from backend.source_library import SourceLibrary
 
 COMMANDER_ID = 'PER-COMMANDER-01'
 
@@ -53,6 +54,18 @@ if sys.platform == 'emscripten':
 
 
 class BrowserBridge(EngineBridge):
+    def source_library(self):
+        identity = json.loads((self.root / 'manifest.json').read_bytes())['save_set_id']
+        if getattr(self, '_library_identity', None) != identity:
+            self._library = SourceLibrary(self.root)
+            self._library_identity = identity
+        return self._library
+
+    def context(self, intent='', scene_id=None, actor_id=None):
+        result = super().context(intent, scene_id, actor_id)
+        if intent.strip(): result['source_library'] = self.source_library().context(intent)
+        return result
+
     def contracts(self, kind):
         result = super().contracts(kind)
         if kind == 'setup':
@@ -261,6 +274,10 @@ class BrowserHost:
         if method=='state':return self.state()
         if method=='jobs':return self.jobs()
         if method=='choices':return self.choices()
+        if method=='library_summary':return self.game.bridge.source_library().summary()
+        if method=='library_search':return self.game.bridge.source_library().search(
+            data.get('query',''),data.get('offset',0),data.get('limit',16),
+            data.get('history') is True,data.get('category','all'))
         if method=='begin':return self.begin(data)
         if method=='plan':return self.accept_plan(data['id'],data['plan'],data.get('usage',{}))
         if method=='review':return self.accept_review(data['id'],data['verdict'],data.get('usage',{}))
