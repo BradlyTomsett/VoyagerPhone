@@ -24,7 +24,11 @@ for fleet,count,active in [('voyager',51,51),('jinchuan',9,9),('shadow',19,18)]:
  json.dumps([ship,inventory,records],ensure_ascii=False)
 assert '920m' in json.dumps(host.dispatch('fleet_ship',{'fleet':'voyager','vessel':'VES-QINFENG1'}),ensure_ascii=False)
 equipment=host.dispatch('fleet_equipment',{'query':'猎隼-4'})
-assert equipment['specifications'][0]['value']['immutable_specs']['g_range']==[1100,1300]
+assert any(r['value'].get('immutable_specs',{}).get('g_range')==[1100,1300] for r in equipment['specifications'])
+assert any(r['value'].get('完好名义航空A')==32.5 for r in equipment['specifications'])
+grenade=host.dispatch('fleet_equipment',{'query':'多功能手雷'})
+assert len(grenade['specifications'][0]['value']['现行多功能手雷模式'])==6
+assert len(host.dispatch('fleet_inventory',{'fleet':'voyager'})['weapons'])==12
 after={n:hashlib.sha256((root/n).read_bytes()).hexdigest() for n in before}
 assert before==after,'Fleet browsing must never write world facts'
 print('PASS: real WASM fleet RPCs; 51/9/19 named records, active/owned scopes, ship designs/armament, inventories, performance, all fields, read-only world')
