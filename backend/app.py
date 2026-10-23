@@ -18,6 +18,7 @@ import zipfile
 from .engine import EngineBridge, canonical, digest
 from .model import ModelClient, ModelError, CRITERIA
 from .settings import load_settings, save_settings, validated_settings, public_settings
+from .auth import OwnerAuth, LoginError, session_cookie
 
 BASE = Path(__file__).resolve().parents[1]
 ACTIVE = ('QUEUED', 'PREPARING', 'GENERATING', 'REVIEWING', 'AWAITING_CONFIRMATION', 'COMMITTING', 'RECOVERY_REQUIRED')
@@ -295,6 +296,42 @@ def safe_error(ex):
 
 _service = None
 _service_lock = threading.Lock()
+_owner_auth = None
+_owner_auth_path = None
+_owner_auth_fingerprint = None
+_auth_lock = threading.Lock()
+
+def login_auth():
+    global _owner_auth, _owner_auth_path, _owner_auth_fingerprint
+    configured = os.environ.get('VOYAGER_AUTH_FILE')
+    path = Path(configured or Path(os.environ.get('VOYAGER_DATA_DIR', str(BASE / 'data'))) / 'login.json')
+    if not path.exists():
+        if configured or os.environ.get('VOYAGER_REQUIRE_LOGIN') == '1':
+            raise APIError(503, 'SERVER_LOGIN_NOT_CONFIGURED')
+        return None
+    with _auth_lock:
+        stat = path.stat()
+        fingerprint = (stat.st_ino, stat.st_mtime_ns, stat.st_size)
+        if _owner_auth_path != str(path) or _owner_auth_fingerprint != fingerprint:
+            _owner_auth = OwnerAuth(path)
+            _owner_auth_path = str(path)
+            _owner_auth_fingerprint = fingerprint
+        return _owner_auth
+
+def read_json(environ):
+    try: length = int(environ.get('CONTENT_LENGTH','0') or 0)
+    except ValueError: raise APIError(400, 'CONTENT_LENGTH_INVALID')
+    if not 0 < length <= 131072: raise APIError(413, 'REQUEST_SIZE_INVALID')
+    if not environ.get('CONTENT_TYPE','').startswith('application/json'):
+        raise APIError(415, 'JSON_REQUIRED')
+    try: return json.loads(environ['wsgi.input'].read(length))
+    except ValueError: raise APIError(400, 'JSON_INVALID')
+
+def check_session_request(environ):
+    if (environ.get('HTTP_X_VOYAGER_REQUEST') != '1' or
+            environ.get('HTTP_SEC_FETCH_SITE') == 'cross-site'):
+        raise APIError(403, 'CSRF_REQUIRED')
+
 def service():
     global _service
     with _service_lock:
@@ -303,37 +340,59 @@ def service():
 
 def application(environ, start_response):
     headers = [('X-Content-Type-Options','nosniff'), ('Referrer-Policy','no-referrer'),
-               ('Cache-Control','no-store')]
+               ('Cache-Control','no-store'), ('X-Frame-Options','DENY')]
     origin = environ.get('HTTP_ORIGIN', '')
     allowed = {x.strip().rstrip('/') for x in os.environ.get('VOYAGER_ALLOWED_ORIGINS','').split(',') if x.strip()}
     same = environ.get('wsgi.url_scheme', 'http') + '://' + environ.get('HTTP_HOST', '')
     if origin and origin.rstrip('/') in allowed | {same}:
         headers += [('Access-Control-Allow-Origin', origin), ('Vary','Origin'),
-                    ('Access-Control-Allow-Headers','Authorization, Content-Type'),
+                    ('Access-Control-Allow-Headers','Authorization, Content-Type, X-Voyager-Request'),
                     ('Access-Control-Allow-Methods','GET, POST, OPTIONS')]
     try:
         method = environ.get('REQUEST_METHOD','GET'); path = environ.get('PATH_INFO','/')
         if origin and origin.rstrip('/') not in allowed | {same}:
             raise APIError(403, 'ORIGIN_NOT_ALLOWED')
+        owner = login_auth()
         if method == 'OPTIONS':
             status, body, mime = 204, b'', 'text/plain'
         elif path == '/api/health' and method == 'GET':
-            status, body, mime = 200, b'{"status":"ok"}', 'application/json'
+            status, body, mime = 200, canonical({'status':'ok', 'web_version':'0.3.0',
+                'login_required': owner is not None}).encode(), 'application/json'
+        elif path == '/api/auth/status' and method == 'GET':
+            signed_in = bool(owner and owner.authenticated(environ))
+            result = {'mode': 'password' if owner else 'token', 'authenticated': signed_in}
+            if signed_in: result['username'] = owner.credentials['username']
+            status, body, mime = 200, canonical(result).encode(), 'application/json'
+        elif path == '/api/auth/login' and method == 'POST' and owner:
+            check_session_request(environ)
+            try: session = owner.login(read_json(environ))
+            except LoginError as ex: raise APIError(ex.status, ex.code) from None
+            headers.append(('Set-Cookie', session_cookie(environ, session)))
+            status, body, mime = 200, b'{"authenticated":true}', 'application/json'
         else:
             protected = path.startswith('/api/') or path == '/snapshot.json'
             if protected:
-                token = os.environ.get('VOYAGER_ACCESS_TOKEN','')
-                supplied = environ.get('HTTP_AUTHORIZATION','')
-                if len(token) < 32:
-                    raise APIError(503, 'SERVER_ACCESS_TOKEN_NOT_CONFIGURED')
-                if not hmac.compare_digest(supplied, 'Bearer ' + token):
-                    raise APIError(401, 'AUTH_REQUIRED')
-            if path.startswith('/api/'):
+                if owner:
+                    if not owner.authenticated(environ): raise APIError(401, 'AUTH_REQUIRED')
+                    if method not in ('GET', 'HEAD'): check_session_request(environ)
+                else:
+                    token = os.environ.get('VOYAGER_ACCESS_TOKEN','')
+                    supplied = environ.get('HTTP_AUTHORIZATION','')
+                    if len(token) < 32:
+                        raise APIError(503, 'SERVER_ACCESS_TOKEN_NOT_CONFIGURED')
+                    if not hmac.compare_digest(supplied, 'Bearer ' + token):
+                        raise APIError(401, 'AUTH_REQUIRED')
+            if path == '/api/auth/logout' and method == 'POST' and owner:
+                owner.logout(environ)
+                headers.append(('Set-Cookie', session_cookie(environ, clear=True)))
+                status, body, mime = 200, b'{"authenticated":false}', 'application/json'
+            elif path.startswith('/api/'):
                 game = service()
                 if method == 'GET' and path == '/api/status':
                     result = {'model_configured': game.model.configured,
                               'model': game.model.model if game.model.configured else None,
-                              'engine': '2.74.0', 'web_version': '0.2.0', 'model_settings_supported': True}
+                              'engine': '2.74.0', 'web_version': '0.3.0', 'model_settings_supported': True,
+                              'login_required': owner is not None}
                 elif method == 'GET' and path == '/api/model-settings': result = game.model_settings()
                 elif method == 'GET' and path == '/api/state': result = game.bridge.state()
                 elif method == 'GET' and path == '/api/turns': result = [game.public(j) for j in reversed(game.store.list())]
@@ -342,13 +401,7 @@ def application(environ, start_response):
                     headers.append(('Content-Disposition','attachment; filename="VOYAGER_WEB_SAVE.zip"'))
                     result = None
                 elif method == 'POST':
-                    try: length = int(environ.get('CONTENT_LENGTH','0') or 0)
-                    except ValueError: raise APIError(400, 'CONTENT_LENGTH_INVALID')
-                    if not 0 < length <= 131072: raise APIError(413, 'REQUEST_SIZE_INVALID')
-                    if not environ.get('CONTENT_TYPE','').startswith('application/json'):
-                        raise APIError(415, 'JSON_REQUIRED')
-                    try: data = json.loads(environ['wsgi.input'].read(length))
-                    except ValueError: raise APIError(400, 'JSON_INVALID')
+                    data = read_json(environ)
                     if path == '/api/model-settings': result = game.configure_model(data)
                     elif path == '/api/turns': result = game.create(data)
                     else:
@@ -369,19 +422,22 @@ def application(environ, start_response):
             elif method == 'GET':
                 # Deliberate whitelist: seed, database, source code and env files are never served.
                 name = 'index.html' if path == '/' else path.removeprefix('/')
-                if name not in {'index.html','styles.css','app.js','manifest.webmanifest','sw.js','icon.svg','snapshot.json'}:
+                if owner and name in ('index.html','login'):
+                    name = 'index.html' if owner.authenticated(environ) else 'login.html'
+                if name not in {'index.html','login.html','login.js','styles.css','app.js','manifest.webmanifest','sw.js','icon.svg','snapshot.json'}:
                     raise APIError(404, 'NOT_FOUND')
                 file = BASE / 'dist' / name
                 if not file.is_file(): raise APIError(404, 'NOT_FOUND')
                 status, body = 200, file.read_bytes()
                 mime = mimetypes.guess_type(str(file))[0] or 'application/octet-stream'
-                if name == 'index.html':
+                if name in ('index.html','login.html'):
                     headers.append(('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https: http://localhost:* http://127.0.0.1:*; object-src 'none'; base-uri 'none'; frame-ancestors 'self'"))
             else: raise APIError(405, 'METHOD_NOT_ALLOWED')
     except APIError as ex:
         status, body, mime = ex.status, canonical({'error':ex.code,'detail':ex.detail}).encode(), 'application/json'
     except Exception as ex:
         status, body, mime = 500, canonical({'error':safe_error(ex)}).encode(), 'application/json'
-    labels = {200:'OK',204:'No Content',400:'Bad Request',401:'Unauthorized',403:'Forbidden',404:'Not Found',405:'Method Not Allowed',409:'Conflict',413:'Content Too Large',415:'Unsupported Media Type',500:'Internal Server Error',503:'Service Unavailable'}
+    if status == 429: headers.append(('Retry-After','300'))
+    labels = {200:'OK',204:'No Content',400:'Bad Request',401:'Unauthorized',403:'Forbidden',404:'Not Found',405:'Method Not Allowed',409:'Conflict',413:'Content Too Large',415:'Unsupported Media Type',429:'Too Many Requests',500:'Internal Server Error',503:'Service Unavailable'}
     start_response(f'{status} {labels.get(status,"Error")}', headers + [('Content-Type',mime),('Content-Length',str(len(body)))])
     return [body]

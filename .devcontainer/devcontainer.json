@@ -15,5 +15,8 @@
   "remoteUser": "vscode",
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "containerEnv": {
+    "VOYAGER_PORT_VISIBILITY": "public"
   }
 }

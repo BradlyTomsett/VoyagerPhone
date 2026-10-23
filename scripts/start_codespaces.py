@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Start a single owner game host and print its private, token-bearing launch URL."""
+"""Start the owner's game and optionally expose its password-protected port."""
+import argparse
 import fcntl
 import json
 import os
 from pathlib import Path
-import secrets
 import subprocess
 import sys
 import time
@@ -12,22 +12,26 @@ import urllib.error
 import urllib.request
 
 BASE = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(BASE))
+from backend.auth import create_credentials
+
 
 def write_private(path, text):
     fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
     with os.fdopen(fd, 'w') as stream:
         os.fchmod(stream.fileno(), 0o600); stream.write(text)
 
-def healthy(token):
-    request = urllib.request.Request('http://127.0.0.1:8000/api/status',
-        headers={'Authorization': 'Bearer ' + token})
+
+def healthy():
     try:
-        with urllib.request.urlopen(request, timeout=5) as response:
-            return json.load(response).get('web_version') == '0.2.0'
+        with urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=5) as response:
+            value = json.load(response)
+        return value.get('web_version') == '0.3.0' and value.get('login_required') is True
     except (OSError, ValueError):
         return False
 
-def launch_url(token):
+
+def launch_url():
     name = os.environ.get('CODESPACE_NAME')
     domain = os.environ.get('GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN', 'app.github.dev')
     if name:
@@ -36,32 +40,30 @@ def launch_url(token):
         origin = f'https://{name}-8000.{domain}'
     else:
         origin = 'http://127.0.0.1:8000'
-    return origin, origin + '/#access=' + token
+    return origin, origin + '/'
+
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--public', action='store_true',
+                        default=os.environ.get('VOYAGER_PORT_VISIBILITY') == 'public')
+    args = parser.parse_args()
     runtime = BASE / '.voyager-runtime'
     runtime.mkdir(mode=0o700, exist_ok=True); os.chmod(runtime, 0o700)
     with (runtime / 'startup.lock').open('a+') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX)
-        token_path = runtime / 'access-token'
-        token = token_path.read_text().strip() if token_path.exists() else secrets.token_urlsafe(32)
-        if len(token) < 32: raise ValueError('ACCESS_TOKEN_INVALID')
-        write_private(token_path, token)
-        origin, url = launch_url(token)
-        if not healthy(token):
-            if os.environ.get('CODESPACE_NAME'):
-                # New forwarded ports default to private. Some Codespaces tokens cannot
-                # manage port visibility; the application's separate owner token still
-                # protects all data and settings if this management call is unavailable.
-                try:
-                    result = subprocess.run(['gh','codespace','ports','visibility','8000:private',
-                        '-c',os.environ['CODESPACE_NAME']], capture_output=True, text=True, timeout=15)
-                    if result.returncode:
-                        print('端口可见性未自动核验，请保留 Ports 面板默认的 Private 设置。')
-                except (OSError, subprocess.TimeoutExpired):
-                    print('端口可见性未自动核验，请保留 Ports 面板默认的 Private 设置。')
-            env = {**os.environ, 'VOYAGER_ACCESS_TOKEN': token,
-                   'VOYAGER_DATA_DIR': str(runtime / 'data'), 'VOYAGER_ALLOWED_ORIGINS': origin}
+        data = runtime / 'data'
+        auth_file = data / 'login.json'
+        initial_password = create_credentials(auth_file)
+        if initial_password:
+            print('用户名：commander', flush=True)
+            print('初始密码（仅显示这一次）：' + initial_password, flush=True)
+            print('请自行妥善保存。服务器仅保存密码散列，不保存明文密码。', flush=True)
+        origin, url = launch_url()
+        if not healthy():
+            env = {**os.environ, 'VOYAGER_AUTH_FILE': str(auth_file), 'VOYAGER_REQUIRE_LOGIN': '1',
+                   'VOYAGER_DATA_DIR': str(data), 'VOYAGER_ALLOWED_ORIGINS': origin}
+            env.pop('VOYAGER_ACCESS_TOKEN', None)
             log_path = runtime / 'server.log'
             fd = os.open(log_path, os.O_WRONLY | os.O_CREAT | os.O_APPEND, 0o600)
             with os.fdopen(fd, 'a') as log:
@@ -69,17 +71,31 @@ def main():
                     '--workers','1','--threads','8','--timeout','240','backend.app:application'],
                     cwd=BASE, env=env, stdin=subprocess.DEVNULL, stdout=log, stderr=log,
                     start_new_session=True)
-            for _ in range(20):
-                if healthy(token): break
+            write_private(runtime / 'server.pid', str(child.pid))
+            for _ in range(40):
+                if healthy(): break
                 if child.poll() is not None:
                     print('游戏启动失败，请检查 .voyager-runtime/server.log。'); return 1
                 time.sleep(0.5)
             else:
                 print('后端仍在恢复存档，请稍后重新运行本命令。'); return 1
+        # Never expose the service until its password authentication is verified.
+        if args.public and os.environ.get('CODESPACE_NAME'):
+            try:
+                result = subprocess.run(['gh','codespace','ports','visibility','8000:public',
+                    '-c',os.environ['CODESPACE_NAME']], capture_output=True, text=True, timeout=15)
+                if result.returncode:
+                    print('游戏登录已启用。请在 Ports 面板将 8000 的可见性设为 Public。')
+            except (OSError, subprocess.TimeoutExpired):
+                print('游戏登录已启用。请在 Ports 面板将 8000 的可见性设为 Public。')
         write_private(runtime / 'game-url.txt', url + '\n')
-        print('\n远航游戏已启动。点击下面的私人链接，填写模型 API 后即可进入：\n')
+        print('\n远航游戏已启动。打开下面的地址，使用游戏账号登录：\n')
         print(url)
-        print('\n此链接包含游戏访问口令，仅供本人使用。API 密钥不会提交到 GitHub。\n')
+        print('\n用户名：commander')
+        if not initial_password:
+            print('使用你已保存的游戏密码。')
+        print('登录后在设置中填写模型 API Key。游戏和模型密钥不会提交到 GitHub。\n')
     return 0
+
 
 if __name__ == '__main__': raise SystemExit(main())

@@ -1,4 +1,4 @@
-# VoyagerPhone · VOYAGER 手机网页游戏 0.2
+# VoyagerPhone · VOYAGER 手机网页游戏 0.3
 
 这一版把 V14.66 的 Python 引擎接到手机网页与模型 API。原始引擎、Guard、规则和存档文件保存在 `seed/`，保持上传包的原始字节。第一次启动时复制到独立的持久目录，此后只修改这份游戏副本。
 
@@ -13,48 +13,39 @@
 
 本项目包含完整网页与 Python 后端。推荐通过下方 Codespaces 入口启动，在网页填写模型 API。也可使用后面的 Docker 方案部署到自己的服务器。GitHub Pages 无法运行这个依赖 Linux 文件与 `fcntl` 的原生引擎。
 
-## 手机上启动：GitHub Codespaces
+## 手机上启动：公开地址 + 游戏账号登录
 
-[**点击创建并启动 VoyagerPhone**](https://codespaces.new/BradlyTomsett/VoyagerPhone?quickstart=1)
+[**创建或恢复 VoyagerPhone**](https://codespaces.new/BradlyTomsett/VoyagerPhone?quickstart=1)
 
-1. 登录有权访问此仓库的 GitHub 账号，创建一个 Codespace。第一次会自动安装依赖并启动 Python 后端。
-2. 运行任务“启动远航游戏”，或在终端执行 `python scripts/start_codespaces.py`，点击输出的私人游戏链接。该链接会自动填好游戏连接口令，不需要再手动输入服务器地址。
-3. 第一次打开会显示设置页，默认填好 DeepSeek 4.1 Flash 的地址、模型 ID 和 Responses 协议。填写你的 DeepSeek API Key 并保存，即可先问询舰队，再建立场景并行动。已有其他配置时，点击“使用 DeepSeek 4.1 Flash”切换。复核模型留空时使用同型号的另一次独立请求。
-4. 下次使用启动同一个 Codespace，重新点击私人游戏链接。已有存档和模型配置会继续使用。
-
-API 地址应为基础地址，例如 `https://api.deepseek.com`，不是完整的 `/responses` 或 `/chat/completions` 地址。模型名必须是你自己的 API 账户实际支持的型号。
-
-### 使用 DeepSeek 4.1 Flash
-
-| 设置 | 填写内容 |
-| --- | --- |
-| API 基础地址 | `https://api.deepseek.com` |
-| API Key | 你在 DeepSeek 控制台创建的密钥 |
-| 模型名称 | `deepseek-flash` |
-| 接口协议 | `Responses`（推荐） |
-| 复核模型 | 留空，使用同型号的独立请求 |
-
-官方当前将 `deepseek-flash` 对应到 DeepSeek-V4.1-Flash；界面显示名称不能代替接口模型 ID。游戏使用提供商默认的思考模式。保存设置不会消耗模型请求，发送游戏指令后才调用 API；有变更的草案另需一次独立复核调用。密钥只在游戏设置里填写，不需要发到聊天中。
-
-DeepSeek Responses 使用官方 JSON Schema 格式；Chat Completions 也已适配其 `max_tokens` 与 JSON 对象模式，并在提示中传入输出契约。两种协议都会在本地检查返回对象的字段、类型及枚举，之后继续经过原有复核和引擎校验。
-
-已经创建过 Codespace 时，先完成或放弃当前待确认草案，在终端执行 `git pull --ff-only`，再从 Codespaces 菜单停止并重新启动同一个 Codespace，让后端加载更新。重新运行 `python scripts/start_codespaces.py` 获取游戏链接并刷新网页即可；已有存档保留。
-
-官方参考：[模型与接口名称](https://api-docs.deepseek.com/quick_start/pricing/)、[Responses 参数](https://api-docs.deepseek.com/api/create-response/)、[Chat Completions 参数](https://api-docs.deepseek.com/api/create-chat-completion/)。
-
-新建 Codespace 的转发端口默认是 Private，请保留这一设置。启动程序会尝试确认 8000 为 Private，并生成额外的游戏访问口令。私人链接的 `#access=...` 部分用于网页自动登录，打开后会立即从地址栏移除；不要分享此链接。
-
-API 密钥保存在 `.voyager-runtime/data/model-settings.json`，文件权限为 0600；网页只显示“已保存”，不会读回密钥。运行目录已加入 `.gitignore` 与 `.dockerignore`。游戏存档与网页回合数据库也保存在这个目录中，不会自动作为代码提交。
-
-Codespaces 会在闲置后停止，使用与存储受 GitHub 额度或计费规则约束。停止再启动同一个 Codespace 会保留文件；删除或自动清理 Codespace 会删除其本地数据，请定期使用网页“导出当前存档”保留备份。这不是永久在线托管服务。
-
-如果没有看到启动链接，在 Codespaces 中执行：
+首次创建会自动安装依赖、初始化单人游戏账号并启动后端。启动命令：
 
 ```bash
-python scripts/start_codespaces.py
+python scripts/start_codespaces.py --public
 ```
 
-首次安装失败时执行 `python -m pip install -r requirements.txt` 后再启动。脚本失败信息会指向本地日志，不会输出模型密钥。
+启动输出中会显示游戏地址、用户名 `commander` 和随机初始密码。**初始密码只显示一次，请自行保存。** 登录信息、模型密钥和存档都不会提交到 GitHub。服务器只保存密码的随机盐和 scrypt 散列；登录会话保存在服务器，浏览器使用有效期七天的 HttpOnly、Secure、SameSite Cookie。
+
+公开的 8000 端口只免去访客的 GitHub 登录步骤。访客首先看到游戏自己的用户名、密码登录页；全部游戏数据、API 设置和导出仍需游戏账号授权。旧的 `#access=...` 链接不再能够绕过游戏登录。账号初始化只在服务器执行，公众不能注册或抢先认领账号。
+
+新建环境会在验证密码认证已启用后尝试设置端口为 Public。如果 GitHub 不允许启动脚本管理端口，在 Codespaces 的 **Ports → 8000 → Port Visibility → Public** 中设置即可。不要在旧版没有账号登录的服务器上开放端口。
+
+已有 0.2 环境升级时，先完成或放弃待确认回合，执行 `git pull --ff-only`，停止旧的游戏服务再运行上面的启动命令。保留同一个 Codespace 和 `.voyager-runtime/data`，舰队、任务、历史、API 配置与已保存回合继续沿用。新的登录凭据独立保存于该数据目录。
+
+第一次进入游戏设置，已经预填 DeepSeek：
+
+| 设置 | 内容 |
+| --- | --- |
+| API 基础地址 | `https://api.deepseek.com` |
+| 模型名称 | `deepseek-flash` |
+| 接口协议 | `Responses` |
+| API Key | 在登录后的设置页填入自己的密钥 |
+| 复核模型 | 留空，使用同型号的独立请求 |
+
+保存设置不会发起模型调用。真实模型调用需要你的 API Key；先使用“问询”检查连接。展开剧情前仍需选定视角人物和地点，建立新场景。退出登录会立即撤销当前会话；不要向他人提供你的游戏密码。
+
+密码丢失可在 Codespaces 终端运行 `python scripts/reset_login.py`，按隐藏输入提示重设，再重启游戏。该操作保留游戏和模型配置，撤销所有旧会话。
+
+Codespaces 闲置后会自动暂停，使用与存储受 GitHub 额度约束。恢复同一个环境后账号与存档继续使用；删除环境可能丢失本地数据，请定期导出存档。
 
 ## 部署到自己的 Linux 服务器
 
