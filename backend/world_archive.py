@@ -4,13 +4,13 @@ import re
 from backend.source_library import LABELS, compact
 
 # Routing, storage and implementation metadata are not game information.
-INTERNAL = re.compile(r'(^\$|^_|schema|^version$|^revision$|^migration$|^manifest|^authority$|^authority_mode$|^implementation_status$|^lifecycle_status$|^scope$|^domain$|^asset_type_id$|^quantity_path$|^unit_status$|^managed_by$|^source_path$|^state_path$|^codec$|sha256|^compressed_|^uncompressed_|_refs?$|_ids?$|^refs?$|^id$|^entity_type$|^source_kind$|^visibility$|^knowledge_scope$)')
+INTERNAL = re.compile(r'(^\$|^_|schema|(?:^|_)version$|(?:^|_)revision$|^migration$|^manifest|^authority$|^authority_mode$|^implementation_status$|^lifecycle_status$|^scope$|^domain$|^asset_type_id$|^quantity_path$|^unit_status$|^managed_by$|^source_path$|^state_path$|^codec$|sha256|^compressed_|^uncompressed_|_refs?$|_ids?$|^refs?$|^id$|^entity_type$|^source_kind$|^visibility$|^knowledge_scope$)')
 MACHINE = re.compile(r'^(?:state|rules|catalog|tasks|engine|manifest)(?:\.json)?[:.#/]|^(?:archives|development)/|^[a-f0-9]{40,64}$|^(?:ASSET|RULE|SAVESET|CLM|EVT|CMD|TSK|LOC|PER|VES|ORG|CLS|EQP|FORCE)-[A-Z0-9_-]+$')
 STATUS = {'active':'生效','operational':'运行中','completed_operational':'已完工并投入使用',
  'commissioned':'已到岗','completed':'已完成','cancelled':'已取消','available':'可用',
  'active_standing_voyager_fleet_ground_mobile_force':'远航者常设地面机动力量',
  'available_for_base_defense_and_shadow_public_inventory':'可用于基地防卫及暗影公共库存',
- 'active_shadow_service':'暗影现役','semantic_only':None,'current_authority':None,'general':None}
+ 'gold':'金币','silver':'银币','copper':'铜币','grey':'灰币','new':'全新','unspecified':None,'active_shadow_service':'暗影现役','semantic_only':None,'current_authority':None,'general':None}
 OPAQUE = re.compile(r'^[A-Za-z][A-Za-z0-9]*(?:[_.][A-Za-z0-9]+)+$')
 
 def player_value(value, names=None):
