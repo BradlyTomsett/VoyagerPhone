@@ -24,6 +24,15 @@ from backend.app import GameService, ACTIVE, safe_error
 from backend.engine import EngineBridge, canonical, digest, module
 from backend.model import CRITERIA, WRAPPER, REVIEW, matches_output
 
+COMMANDER_ID = 'PER-COMMANDER-01'
+
+
+def commander_identity(state):
+    role = state.get('key_personnel_current_roles', {}).get(COMMANDER_ID)
+    if not isinstance(role, str) or not role.strip(): return None
+    return {'id': COMMANDER_ID, 'name': '指挥官', 'role': role,
+            'basis_ref': 'state:key_personnel_current_roles.' + COMMANDER_ID}
+
 
 # Guard uses one subprocess solely for its version binding gate. WebAssembly
 # has no processes: execute that same trusted engine source in an isolated module.
@@ -44,6 +53,26 @@ if sys.platform == 'emscripten':
 
 
 class BrowserBridge(EngineBridge):
+    def contracts(self, kind):
+        result = super().contracts(kind)
+        if kind == 'setup':
+            result['notes'].append('PER-COMMANDER-01 is the existing player commander in state:key_personnel_current_roles.PER-COMMANDER-01. If absent from the person registry, the browser prepends its exact identity registration to the reviewed setup. Do not emit entity_register yourself. Prepare life_profile, life_control and scene setup as usual; do not invent past experiences or physical location.')
+        return result
+
+    def normalize(self, plan, job, context):
+        payload = super().normalize(plan, job, context)
+        if plan['kind'] == 'setup' and job['request']['actor_id'] == COMMANDER_ID:
+            state = json.loads((self.root / 'state.json').read_text())
+            identity = commander_identity(state)
+            if identity and COMMANDER_ID not in state.get('entity_registry', {}).get('entities', {}):
+                if len(payload['actions']) >= 20: raise ValueError('SETUP_ACTIONS_INVALID')
+                # Exact existing identity only. This is reviewed and confirmed with
+                # the rest of the setup; choosing a name never mutates the save.
+                payload['actions'].insert(0, {'type': 'entity_register',
+                    'entity_id': COMMANDER_ID, 'name': identity['name'],
+                    'aliases': [], 'role': identity['role']})
+        return payload
+
     def recover(self):
         guard = module(self.root / 'guard.py', 'browser_trusted_guard')
         with guard.guard_lock(self.root):
@@ -87,9 +116,12 @@ class BrowserHost:
         for eid, rec in entities.items():
             if not isinstance(rec, dict): continue
             if rec.get('visibility') in ('gm', 'secret', 'hidden'): continue
-            item = {'id': eid, 'name': rec.get('canonical_name') or eid}
+            item = {'id': eid, 'name': rec.get('canonical_name') or ('未命名人物' if eid.startswith('PER-') else '未命名地点')}
             if eid.startswith('PER-'): actors.append(item)
             if eid.startswith(('LOC-', 'PLACE-', 'STA-', 'SYS-', 'REG-')): places.append(item)
+        commander = commander_identity(state)
+        if commander:
+            actors = [{'id': COMMANDER_ID, 'name': commander['name']}] + [a for a in actors if a['id'] != COMMANDER_ID]
         return {'actors': actors[:150], 'places': places[:200]}
 
     def begin(self, request):
@@ -101,6 +133,9 @@ class BrowserHost:
         stored.update(status='GENERATING', base_identity=context['prepare']['base_identity'])
         packet = {'mode':req['mode'], 'original_intent':req['intent'],
                   'selected_actor':req.get('actor_id'), 'context':context}
+        if req.get('actor_id') == COMMANDER_ID:
+            identity = commander_identity(json.loads((self.game.bridge.root / 'state.json').read_text()))
+            if identity: packet['selected_actor_identity'] = identity
         prior = [j for j in reversed(self.game.store.list()) if j['id'] != stored['id']][-6:]
         packet['recent_dialogue'] = [
             {'intent':j['request']['intent'][:1000], 'message':j.get('message','')[:1500],

@@ -12,7 +12,7 @@ VOYAGER V14.66 的单人星际沙盒。网页、Python 引擎和运行资源全�
 4. 原存档没有开放场景和玩家视角。选择视角人物与开场地点，点击“建立新的游玩场景”，补充 AI 需要的信息。查看草案，点击“执行这一回合”后才正式保存。
 5. 此后的“行动”先生成草案，再进行独立复核，由原引擎校验，最后等你确认。问询不推进游戏时间。
 
-人物与地点输入框提供已存在的公开 ID 选项。选择人物并不自动赋予玩家控制权，建立场景的草案仍需完成规则要求的视角绑定。
+人物与地点可以按名称选择，指挥官位于人物列表首位。选择人物本身不会改变存档；指挥官首次建立场景时，必要的身份登记与视角绑定随草案一起等待确认。
 
 ## 进度、密钥与备份
 
@@ -34,6 +34,7 @@ VOYAGER V14.66 的单人星际沙盒。网页、Python 引擎和运行资源全�
 python scripts/build_browser.py
 node tests/browser_model.mjs
 node tests/browser_storage.mjs
+node tests/browser_commander.mjs
 node tests/browser_wasm.mjs
 ```
 
