@@ -27,7 +27,11 @@ LABELS = {
  'entity_registry':'人物与地点登记','document_segments':'原文设定',
  'catalog_registry':'设定索引','rule_registry':'规则索引','simulation_current':'经营模拟',
  'family_settlement_current':'家庭安置','npc_personal_assets_current':'人物个人财产',
- 'recent_cases_current':'既有案件','handoff_83631210_2320':'最新交接记录'}
+ 'recent_cases_current':'既有案件','handoff_83631210_2320':'最新交接记录',
+ 'voyager_base_current':'远航基地','shadow_base_current':'暗影基地',
+ 'headquarters_support_current':'总部支援','farstar_army_current':'远星军',
+ 'staff_recruitment':'基地招募人员','armored_vehicle_pool':'基地装甲车辆',
+ 'combat_robot_pool':'基地防卫机器人','shadow_base_personnel_current':'暗影基地固定指挥与保障人员'}
 ALIASES = {
  '余火':['余火咖啡','hawke_commercial_cover','TSK-YUHUO','YUHUO','余火店'],
  '熄炉':['熄炉-9','freeport_xilu9_current','XILU9','LOC-FREEPORT-XILU9'],
@@ -38,7 +42,11 @@ ALIASES = {
  '员工':['local_employees','employee_background_current','employment_policy'],
  '面积':['shop_area_m2_approx','property','current_use_area_m2','expansion'],
  '库存':['inventory_current','current_inventory_exact','inventories'],
- '指挥官':['PER-COMMANDER-01','key_personnel_current_roles']}
+ '指挥官':['PER-COMMANDER-01','key_personnel_current_roles'],
+ '远星军':['farstar_army_current','farstar_army'],
+ '远航基地':['voyager_base_current','远航者基地'],
+ '暗影基地':['shadow_base_current','shadow_base_personnel_current','S-B5'],
+ '总部':['headquarters_support_current','headquarters']}
 
 
 def clean(value):

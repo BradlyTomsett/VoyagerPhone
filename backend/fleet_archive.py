@@ -18,7 +18,9 @@ MODEL_NAMES = {
  'small_caliber_railgun':'小口径电磁炮','small_em':'小口径电磁炮',
  'laser_ciws':'激光近防炮','light_shield':'轻型护盾','missile_system':'导弹系统',
  'missile_launcher_units':'导弹发射单元','engineering_explosives':'工程炸药',
- 'military_explosives_current':'军用炸药','scv_public':'SCV公共库存'}
+ 'military_explosives_current':'军用炸药','scv_public':'SCV公共库存',
+ 'industrial':'工业炸药','military':'军用炸药','shuttles_unassigned':'未配属穿梭机',
+ 'small_em_cannon':'小口径电磁炮'}
 WEAPON_DIRECTORY = ['步枪','手枪','霰弹枪','多功能手雷','一次性火箭筒','单兵导弹',
  '小口径激光炮','中口径激光炮','大口径激光炮','小口径等离子炮','中口径等离子炮','大口径等离子炮',
  '小口径电磁炮','中口径电磁炮','大口径电磁炮','激光近防炮','导弹发射单元',
@@ -30,6 +32,8 @@ GRENADE_RULE='RULE-MULTIFUNCTION-GRENADE-SIX-MODES-83631202'
 
 def model_name(name):
     key=re.sub(r'^external_', '', str(name))
+    vintage=re.fullmatch(r'(.+)_used_(\d+)y',key)
+    if vintage:return str(MODEL_NAMES.get(vintage[1],vintage[1]))+'（服役'+vintage[2]+'年）'
     return MODEL_NAMES.get(key, name)
 
 
@@ -134,7 +138,7 @@ class FleetArchive:
         if scale:records.append(scale)
         records+=item['records']
         return {'id':vessel,'name':d.get('name',vessel),'records':records,
-                'notice':'固定设计、武备审计和单舰原档分别列出；原档中的 planned、历史改装与旧任务字段保留追溯，不自动覆盖现行配装。'}
+                'notice':'固定设计、武备审计和单舰原档分别列出；原档中的计划配装、历史改装与旧任务保留追溯，不自动覆盖现行配装。'}
 
     def inventory(self,fleet):
         data=self._fleet(fleet);root='/'+FLEETS[fleet][1];groups=[]
@@ -192,6 +196,7 @@ class FleetArchive:
 
     def equipment(self,query,offset=0):
         query=str(query).strip()[:150];target=normal(model_name(query));records=[]
+        if query=='战机':target=normal('战斗机')
         ground=self.rules.get('runtime_rules',{}).get('combat_evaluation',{}).get('ground',{})
         for name,key in [('步枪','rifle'),('霰弹枪','shotgun'),('手枪','pistol')]:
             if name in query:
@@ -215,7 +220,7 @@ class FleetArchive:
         ship_base=self.catalog.get('static_catalog',{}).get('combat',{}).get('ship',{})
         for family,label in [('laser','激光炮'),('plasma','等离子炮'),('electromagnetic','电磁炮')]:
             for size,word in [('small','小口径'),('medium','中口径'),('heavy','大口径')]:
-                if word+label in query:
+                if word+label in query.replace('舰载',''):
                     records.append(self._record(word+label+' · 基础火力','/static_catalog/combat/ship/weapon_base/'+family,
                         {'基础火力参数':ship_base.get('weapon_base',{}).get(family,{}).get(size),
                          '说明':'单件基础参数，整舰航空A还包含来源／型号、完好率、护盾与固定航空等；不直接当作整舰A。'},'catalog.json','原档基础参数'))
@@ -242,9 +247,10 @@ class FleetArchive:
                 records.append(self._record(entity.get('name',eid),'/catalog_registry/entities/'+eid,entity,'catalog.json','型号设定；数量以当前存档为准'))
         scale=self._rule(SCALE_RULE)
         if scale:records.append(scale)
-        matches=self.library.search(str(model_name(query)),offset=offset,limit=16,category='world')
+        from backend.world_archive import WorldArchive
+        matches=WorldArchive(self.library).browse(str(model_name(query)),offset=offset,limit=16,category='world')
         return {'query':query,'specifications':records,'references':matches,
-                'notice':'现行口径只比较航空A／地面G，兼容字段C_final按整舰完整航空A解释；已经计入整舰A的固定舰载机不再次叠加。区间型号按现行规则显示玩家完好名义值，实际战损另算。旧价格和旧持有量不覆盖当前库存。'}
+                'notice':'现行口径只比较航空A／地面G，整舰航空A包含已封板的固定航空战力；已经计入整舰A的固定舰载机不再次叠加。区间型号按现行规则显示玩家完好名义值，实际战损另算。旧价格和旧持有量不覆盖当前库存。'}
 
     def records(self,fleet):
         data=self._fleet(fleet);root='/'+FLEETS[fleet][1]

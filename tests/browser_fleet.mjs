@@ -29,6 +29,17 @@ assert any(r['value'].get('完好名义航空A')==32.5 for r in equipment['speci
 grenade=host.dispatch('fleet_equipment',{'query':'多功能手雷'})
 assert len(grenade['specifications'][0]['value']['现行多功能手雷模式'])==6
 assert len(host.dispatch('fleet_inventory',{'fleet':'voyager'})['weapons'])==12
+topics=host.dispatch('library_topics',{})
+assert len(topics)==16
+bases=host.dispatch('fleet_domain',{'domain':'bases'})
+assert bases['highlights'][0]['metrics']['berths']==70
+army=host.dispatch('fleet_domain',{'domain':'army'})
+assert army['highlights'][0]['metrics']['人员（人）']==4234
+for query in ['远航基地','暗影基地','远星军','余火']:
+ result=host.dispatch('library_browse',{'query':query})
+ assert result['total']>0
+ assert all('value' in row for row in result['results'])
+ assert '"implementation_status"' not in json.dumps([r['value'] for r in result['results']])
 after={n:hashlib.sha256((root/n).read_bytes()).hexdigest() for n in before}
 assert before==after,'Fleet browsing must never write world facts'
 print('PASS: real WASM fleet RPCs; 51/9/19 named records, active/owned scopes, ship designs/armament, inventories, performance, all fields, read-only world')

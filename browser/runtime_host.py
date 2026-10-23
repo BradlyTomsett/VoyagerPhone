@@ -25,6 +25,7 @@ from backend.engine import EngineBridge, canonical, digest, module
 from backend.model import CRITERIA, WRAPPER, REVIEW, matches_output
 from backend.source_library import SourceLibrary
 from backend.fleet_archive import FleetArchive
+from backend.world_archive import WorldArchive
 
 COMMANDER_ID = 'PER-COMMANDER-01'
 
@@ -275,6 +276,15 @@ class BrowserHost:
         if method=='state':return self.state()
         if method=='jobs':return self.jobs()
         if method=='choices':return self.choices()
+        if method in ('library_topics','library_topic','library_browse','fleet_domain'):
+            library=self.game.bridge.source_library()
+            if getattr(self,'_world_library',None) is not library:
+                self._world_library=library;self._world_archive=WorldArchive(library)
+            world=self._world_archive
+            if method=='library_topics':return world.topics()
+            if method=='library_topic':return world.topic(data.get('topic'))
+            if method=='fleet_domain':return world.topic(data.get('domain'))
+            return world.browse(data.get('query',''),data.get('offset',0),data.get('limit',16),data.get('history') is True,data.get('category','all'))
         if method=='library_summary':return self.game.bridge.source_library().summary()
         if method=='library_search':return self.game.bridge.source_library().search(
             data.get('query',''),data.get('offset',0),data.get('limit',16),
