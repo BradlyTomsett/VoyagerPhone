@@ -33,6 +33,7 @@ VOYAGER V14.66 的单人星际沙盒。网页、Python 引擎和运行资源全�
 ```bash
 python scripts/build_browser.py
 node tests/browser_model.mjs
+node tests/browser_storage.mjs
 node tests/browser_wasm.mjs
 ```
 
