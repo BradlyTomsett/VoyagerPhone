@@ -1,5 +1,6 @@
 import {node,fmt,label,tree,recordView,quantityView,onEquipment,onPersonnel,highlights} from './dossier.js';
 import {equipmentFigures,equipmentLookup,equipmentImageQuery,equipmentSearchText} from './equipment-images.js';
+import {shipImage,shipFigure,shipViewTools} from './ship-images.js';
 import {uploadedEquipmentImages} from './equipment-upload-data.js';
 const names=['远航者舰队','金川舰队','暗影舰队'],keys=['voyager','jinchuan','shadow'];
 export class FleetView{
@@ -31,10 +32,10 @@ export class FleetView{
   body.append(node('p','fleet-count-note',`现役 ${fmt(data.active_count??'待核实')} 艘 · 单舰名册 ${data.record_count} 条`+(data.owned_count!=null?` · 原档持有总数 ${fmt(data.owned_count)} 艘`:'')));
 
   const grouped=new Map();for(const ship of data.ships){const key=ship.class_id||ship.class_name;if(!grouped.has(key))grouped.set(key,[]);grouped.get(key).push(ship);}
-  const list=node('div','vessel-list');for(const group of grouped.values()){
-   const first=group[0],classCard=node('details','vessel-card vessel-class');classCard.dataset.fleetSearch=JSON.stringify(group).toLocaleLowerCase();const summary=node('summary');summary.append(node('strong','class-quantity',`${group.length} 艘`),node('span','vessel-name',group.length===1?first.name:first.class_name));if(group.length===1&&first.name!==first.class_name)summary.append(node('span','vessel-class-caption',first.class_name));if(group.length>1)summary.append(node('span','vessel-roster-preview','舰名：'+group.map(ship=>ship.name).join('、')));summary.append(node('span','fleet-open-hint','展开本型舰名册、配置与性能 ↓'));classCard.append(summary);
+  const list=node('div','vessel-list');if(data.ships.some(shipImage))body.append(shipViewTools(list));for(const group of grouped.values()){
+   const first=group[0],classCard=node('details','vessel-card vessel-class');classCard.dataset.fleetSearch=JSON.stringify(group).toLocaleLowerCase();const summary=node('summary');summary.append(node('strong','class-quantity',`${group.length} 艘`),node('span','vessel-name',group.length===1?first.name:first.class_name));if(group.length===1&&first.name!==first.class_name)summary.append(node('span','vessel-class-caption',first.class_name));if(group.length>1)summary.append(node('span','vessel-roster-preview','舰名：'+group.map(ship=>ship.name).join('、')));summary.append(node('span','fleet-open-hint','展开本型舰名册、配置与性能 ↓'));const illustration=shipFigure(first,{scaled:true});if(illustration)summary.append(illustration);classCard.append(summary);
    let loaded=false;classCard.ontoggle=()=>{if(!classCard.open||loaded)return;loaded=true;const content=node('div','class-ships');for(const ship of group){const d=node('details','vessel-card individual-vessel');d.dataset.fleetSearch=JSON.stringify(ship).toLocaleLowerCase();const head=node('summary');head.append(node('span','vessel-name',ship.name),node('span','vessel-description',ship.length==='原文未单列'?'':ship.length),node('span','fleet-open-hint','展开单舰详情 ↓'));d.append(head);let loading=false;
-    d.ontoggle=async()=>{if(!d.open||loading)return;loading=true;const box=node('div','vessel-content','正在读取单舰档案…');d.append(box);try{const detail=await this.fetch('fleet_ship',{fleet,vessel:ship.id});box.replaceChildren(node('p','notice',detail.notice),...detail.records.map((r,i)=>recordView(r,i<2)).filter(Boolean));}catch(e){box.replaceChildren(node('p','error',this.error(e.message)));loading=false;}};content.append(d);}classCard.append(content);this.filter();};list.append(classCard);
+    d.ontoggle=async()=>{if(!d.open||loading)return;loading=true;const box=node('div','vessel-content','正在读取单舰档案…');d.append(box);try{const detail=await this.fetch('fleet_ship',{fleet,vessel:ship.id});box.replaceChildren(...[shipFigure(ship),node('p','notice',detail.notice),...detail.records.map((r,i)=>recordView({...r,shipImages:false},i<2))].filter(Boolean));}catch(e){box.replaceChildren(node('p','error',this.error(e.message)));loading=false;}};content.append(d);}classCard.append(content);this.filter();};list.append(classCard);
   }body.append(list);
  }
 

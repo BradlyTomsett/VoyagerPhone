@@ -1,4 +1,4 @@
-# VoyagerPhone · 远航浏览器版 0.8.15
+# VoyagerPhone · 远航浏览器版 0.8.16
 
 [打开游戏](https://bradlytomsett.github.io/VoyagerPhone/)
 
@@ -67,6 +67,7 @@ node tests/browser_model.mjs
 node tests/browser_storage.mjs
 node tests/browser_manual_save.mjs
 node tests/browser_briefing.mjs
+node tests/browser_ship_images.mjs
 node tests/browser_money.mjs
 node tests/browser_logistics_storage.mjs
 python -m unittest tests.test_logistics -v
@@ -96,3 +97,5 @@ WASM 测试在隔离副本中创建明确标为 SYNTHETIC 的场景，验证真�
 20 张原始装备海报及用户提供的 M1、先锋-2至先锋-5动力甲、自有步枪、自有手枪、外购军用步枪、外购军用手枪、民用步枪及民用手枪原图已按型号接入装备卡片、性能详情及资料库图册，涵盖机器人、无人机、装甲车辆和民用车辆。霍克组与余火配送的路狐-4分别对应各自图片。缩略图按需加载，点击查看无损原始 PNG；图片和网页资源独立存放，不写入游戏存档，不用海报文字覆盖现行库存或性能。图片导入脚本使用原始索引核对两个来源 ZIP 及包内 20 张 PNG 的 SHA-256。
 
 复杂战斗、多存档和语音尚未接入网页。未接入的机制不会由 AI 伪造为已执行。
+
+远航者舰队12种舰级均配有内置 image_gen 生成的舰型插图，尺寸与主用途按原始舰级介绍核对。舰级卡片默认按110至920米的舰长比例显示，可切换“放大细节”，单舰详情与舰级资料也可查看原图。探索者突出科研探测设备、巨钳突出机械臂、母巢突出坞舱、西湖突出补给结构。插图是外观示意，不改写实装、武备数量、性能或存档；原PNG与网页缩略图独立存放，生成提示词保存在 browser/assets/ships/prompts.md。
