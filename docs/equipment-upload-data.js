@@ -31,5 +31,21 @@ export const uploadedEquipmentImages = [
     "height": 1402,
     "sha256": "498b92c8b760a441c8742058adc4611e86ecfbda52df9061587b23c42376598c",
     "source": "用户提供并标注为先锋-5动力甲"
+  },
+  {
+    "name": "先锋-4动力甲",
+    "aliases": [
+      "先锋-4",
+      "先锋4",
+      "先锋4型动力甲",
+      "先锋-4型动力甲"
+    ],
+    "lookup": "先锋-4",
+    "original": "assets/equipment/original/pioneer_4_power_armor.png",
+    "preview": "assets/equipment/preview/pioneer_4_power_armor.webp",
+    "width": 1086,
+    "height": 1448,
+    "sha256": "d5ff335a34430d33f1103e4e3f5ae75e817c71d277cd9e08d384e716aa2f2fc1",
+    "source": "用户提供并标注为先锋-4动力甲"
   }
 ];
