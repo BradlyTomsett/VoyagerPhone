@@ -1,10 +1,12 @@
-import {equipmentImages} from './equipment-image-data.js';
+import {equipmentImages as sourceImages} from './equipment-image-data.js';
+import {uploadedEquipmentImages} from './equipment-upload-data.js';
+export const equipmentImages=[...sourceImages,...uploadedEquipmentImages];
 
 const normal=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/[\s·\-－—_]/g,'');
 export function matchingImages(query,context=''){
  const text=normal(query),owner=normal(query+' '+context);
  if(!text)return [];
- const contains=alias=>{const key=normal(alias);let at=text.indexOf(key);while(at>=0){if(!/\d/.test(key.at(-1))||!/[0-9]/.test(text[at+key.length]||''))return true;at=text.indexOf(key,at+1);}return false;};
+ const contains=alias=>{const key=normal(alias);let at=text.indexOf(key);while(at>=0){const before=text[at-1]||'',after=text[at+key.length]||'';if(!(/[a-z0-9]/.test(key[0])&&/[a-z0-9]/.test(before))&&(!/\d/.test(key.at(-1))||!/[0-9]/.test(after))&&(!/^[a-z]+\d+$/.test(key)||!/[a-z0-9]/.test(after)))return true;at=text.indexOf(key,at+1);}return false;};
  return equipmentImages.filter(image=>[image.name,...image.aliases].some(contains)).filter(image=>{
   if(!image.original.includes('roadfox4'))return true;
   if(owner.includes('余火')&&!owner.includes('霍克'))return image.original.includes('yuhuo_');
@@ -15,6 +17,7 @@ export function matchingImages(query,context=''){
 export function equipmentLookup(query){
  const images=matchingImages(query);if(!images.length)return query;
  // The source search tokenizes hyphens; avoid a bare "-4" matching unrelated models.
+ if(images[0].lookup)return images[0].lookup;
  return images[0].aliases.reduce((a,b)=>normal(a).length<=normal(b).length?a:b).replace(/[-－]/g,'');
 }
 function element(tag,cls,text){const el=document.createElement(tag);if(cls)el.className=cls;if(text)el.textContent=text;return el;}

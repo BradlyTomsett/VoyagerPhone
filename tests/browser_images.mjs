@@ -2,7 +2,8 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {equipmentImages} from '../browser/equipment-image-data.js';
-import {matchingImages,equipmentLookup} from '../browser/equipment-images.js';
+import {matchingImages,equipmentLookup,equipmentImages as allImages} from '../browser/equipment-images.js';
+import {uploadedEquipmentImages} from '../browser/equipment-upload-data.js';
 
 const source=JSON.parse(readFileSync(new URL('../seed/development/visual_assets/image_source_index.json',import.meta.url)));
 assert.equal(equipmentImages.length,20);
@@ -28,4 +29,9 @@ assert.equal(matchingImages('路狐4','余火咖啡').length,1);
 assert.ok(matchingImages('路狐4','余火咖啡')[0].original.includes('yuhuo_'));
 assert.equal(equipmentLookup('余火 · 路狐-4 配送摩托'),'路狐4');
 assert.equal(equipmentLookup('霍克组 · 林舟-4 轿车'),'林舟4');
+assert.equal(allImages.length,21);
+for(const image of uploadedEquipmentImages){for(const folder of ['browser','docs']){const bytes=readFileSync(new URL('../'+folder+'/'+image.original,import.meta.url));assert.equal(createHash('sha256').update(bytes).digest('hex'),image.sha256);assert.ok(readFileSync(new URL('../'+folder+'/'+image.preview,import.meta.url)).length<bytes.length/4);}}
+for(const query of ['M1','M-1','M１动力甲','M1型动力甲']){assert.equal(matchingImages(query).length,1,query);assert.equal(matchingImages(query)[0].name,'M1动力甲');}
+for(const query of ['M2动力甲','M10动力甲','XM1动力甲','M1A动力甲'])assert.equal(matchingImages(query).length,0,query);
+assert.equal(equipmentLookup('M1'),'M1动力甲');
 console.log('PASS: all 20 lossless originals match source checksums and published copies; aliases, numeric model boundaries and owner-specific variants map correctly.');
