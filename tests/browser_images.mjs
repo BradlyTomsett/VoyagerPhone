@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {equipmentImages} from '../browser/equipment-image-data.js';
-import {matchingImages,equipmentLookup,equipmentImages as allImages} from '../browser/equipment-images.js';
+import {matchingImages,equipmentLookup,equipmentImageQuery,equipmentImages as allImages} from '../browser/equipment-images.js';
 import {uploadedEquipmentImages} from '../browser/equipment-upload-data.js';
 
 const source=JSON.parse(readFileSync(new URL('../seed/development/visual_assets/image_source_index.json',import.meta.url)));
@@ -29,7 +29,7 @@ assert.equal(matchingImages('路狐4','余火咖啡').length,1);
 assert.ok(matchingImages('路狐4','余火咖啡')[0].original.includes('yuhuo_'));
 assert.equal(equipmentLookup('余火 · 路狐-4 配送摩托'),'路狐4');
 assert.equal(equipmentLookup('霍克组 · 林舟-4 轿车'),'林舟4');
-assert.equal(allImages.length,25);
+assert.equal(allImages.length,26);
 for(const image of uploadedEquipmentImages){for(const folder of ['browser','docs']){const bytes=readFileSync(new URL('../'+folder+'/'+image.original,import.meta.url));assert.equal(createHash('sha256').update(bytes).digest('hex'),image.sha256);assert.ok(readFileSync(new URL('../'+folder+'/'+image.preview,import.meta.url)).length<bytes.length/4);}}
 for(const query of ['M1','M-1','M１动力甲','M1型动力甲']){assert.equal(matchingImages(query).length,1,query);assert.equal(matchingImages(query)[0].name,'M1动力甲');}
 for(const query of ['M2动力甲','M10动力甲','XM1动力甲','M1A动力甲'])assert.equal(matchingImages(query).length,0,query);
@@ -49,4 +49,9 @@ for(const query of ['先锋-2','先锋2','先锋－２动力甲','先锋2型动�
 assert.equal(matchingImages('先锋-20动力甲').length,0);
 assert.equal(equipmentLookup('先锋-2动力甲'),'先锋-2');
 assert.notEqual(matchingImages('先锋-2')[0].sha256,matchingImages('先锋-3')[0].sha256);
+for(const query of ['自有步枪','自有制式步枪','自有军用步枪']){assert.equal(matchingImages(query).length,1,query);assert.equal(matchingImages(query)[0].name,'自有步枪');}
+for(const query of ['外购步枪','外部军用步枪','制式步枪','步枪'])assert.equal(matchingImages(query).length,0,query);
+assert.equal(equipmentImageQuery('制式步枪','自有公共装备与常设配属'),'自有制式步枪');
+assert.equal(equipmentImageQuery('制式步枪','外购装备当前产权'),'制式步枪');
+assert.equal(equipmentLookup('自有制式步枪'),'自有步枪');
 console.log('PASS: 20 archived posters and all player-supplied images preserve original hashes; model aliases, number boundaries and owner variants map correctly.');

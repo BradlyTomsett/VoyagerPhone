@@ -14,6 +14,10 @@ export function matchingImages(query,context=''){
   return true;
  });
 }
+export function equipmentImageQuery(query,context=''){
+ if(normal(query)==='制式步枪'&&context.includes('自有'))return '自有制式步枪';
+ return query;
+}
 export function equipmentLookup(query){
  const images=matchingImages(query);if(!images.length)return query;
  // The source search tokenizes hyphens; avoid a bare "-4" matching unrelated models.

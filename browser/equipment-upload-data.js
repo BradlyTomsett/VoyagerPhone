@@ -79,5 +79,20 @@ export const uploadedEquipmentImages = [
     "height": 1448,
     "sha256": "fb06425f2c3edfe420ec9d4dd4041c01cd640544b5c7c0701a822633a9c1e959",
     "source": "用户提供并标注为先锋-2动力甲"
+  },
+  {
+    "name": "自有步枪",
+    "aliases": [
+      "自有制式步枪",
+      "自有军用步枪",
+      "自制步枪"
+    ],
+    "lookup": "自有步枪",
+    "original": "assets/equipment/original/self_owned_rifle.png",
+    "preview": "assets/equipment/preview/self_owned_rifle.webp",
+    "width": 1448,
+    "height": 1086,
+    "sha256": "09eafa4029d9915dfea0a252c8e833d3d307ed8873dc4ef684662f51ebdaa4e5",
+    "source": "用户提供并标注为自有步枪"
   }
 ];
