@@ -15,5 +15,21 @@ export const uploadedEquipmentImages = [
     "height": 1402,
     "sha256": "78dc5abcf38658de50b9bb34c7dddb9039f0e3772072255ab8f0ffaa05c0c110",
     "source": "用户提供并标注为M1动力甲"
+  },
+  {
+    "name": "先锋-5动力甲",
+    "aliases": [
+      "先锋-5",
+      "先锋5",
+      "先锋5型动力甲",
+      "先锋-5型动力甲"
+    ],
+    "lookup": "先锋-5",
+    "original": "assets/equipment/original/pioneer_5_power_armor.png",
+    "preview": "assets/equipment/preview/pioneer_5_power_armor.webp",
+    "width": 1122,
+    "height": 1402,
+    "sha256": "498b92c8b760a441c8742058adc4611e86ecfbda52df9061587b23c42376598c",
+    "source": "用户提供并标注为先锋-5动力甲"
   }
 ];
