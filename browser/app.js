@@ -1,6 +1,7 @@
 import {BrowserGame} from './client.js';
 import {SourceLibraryView} from './library.js';
 import {FleetView} from './fleet.js';
+import {LogisticsView} from './logistics.js';
 import {formatAccount} from './money.js';
 import {modelCall,validateSettings} from './model.js';
 'use strict';
@@ -18,6 +19,7 @@ async function refreshSelections(){selectionChoices=await game.rpc('choices');re
 const game=new BrowserGame(message=>{$('#boot-status').textContent=message;},()=>refresh());
 const libraryView=new SourceLibraryView((method,data)=>game.rpc(method,data),errorText);
 const fleetView=new FleetView((method,data)=>game.rpc(method,data),errorText,query=>{selectTab('library');libraryView.query=query;libraryView.offset=0;$('#library-query').value=query;libraryView.search();});
+const logisticsView=new LogisticsView(game,errorText,async()=>{renderState(await api('/api/state'));await refreshSelections();toast('内部调动已保存。');});
 function modelConfig(){return {...config,api_key:token};}
 const activeStates=['QUEUED','PREPARING','GENERATING','REVIEWING','COMMITTING','AWAITING_CONFIRMATION','RECOVERY_REQUIRED'];
 const labels={QUEUED:'等待处理',PREPARING:'正在读取场景',GENERATING:'AI 正在构思',REVIEWING:'正在复核剧情',AWAITING_CONFIRMATION:'待你确认',COMMITTING:'正在保存',SAVED:'已提交存档',ANSWERED:'问询已完成',NEEDS_INFORMATION:'需要补充信息',BLOCKED:'未通过校验',FAILED:'本轮未完成',INTERRUPTED:'生成已中断',STALE:'存档已变化',CANCELLED:'草案已放弃',RECOVERY_REQUIRED:'需要恢复原回合'};

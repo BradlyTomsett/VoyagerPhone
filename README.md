@@ -34,6 +34,14 @@ VOYAGER V14.66 的单人星际沙盒。网页、Python 引擎和运行资源全�
 
 性能按现行航空 A／地面 G 口径解释，旧 C_final 字段作为整舰航空 A 的兼容名称保留。玩家完好区间型号按当前封板规则列出本型号上限名义值；原始区间仍可查看。多功能手雷六种模式沿用最新规则。
 
+## 内部调动（无需 AI）
+
+在“舰队 → 内部调动”中选择物资、人员或整舰转隶，选调出方、接收方与数量，核对前后数量后执行。支持舰船、三舰队公共库存、总部、基地、远星军、快反部队及自行建立的空仓库；有明确当前数量的物资才进入可调清单，历史采购和未交付计划不成为额外存货。军用/工业爆破物分开，以 kg 调拨；按件装备使用整数。
+
+人员按人数与 T 分组转移，保持原 T，不自动修改具名人物的岗位或故事位置；整舰转隶携带已登记随舰人员和装备，保留舰名、性能和物理位置，不模拟航行。舰级模板保持原文，调动后的实装优先展示。首次登记采用明确的实物记录或原舰级固定编制，未单列型号的保持泛型；不把重复汇总当新库存。
+
+工具使用独立的确定性调动账本，映射现有库存与编制字段，检查数量守恒并经原生暂存与原子保存提交；不会调用模型。浏览器扩展支持转隶后保留原舰名与序号空缺，身份依据仍绑定原始舰船登记。先持久保存确认意图，再提交与保存结果；关闭后使用原编号恢复。调动记录随存档导出和导入，原始 seed 文件不变。
+
 ## 进度、密钥与备份
 
 - 进度自动保存在当前浏览器的 IndexedDB，包含网页回合航志和校验值；存储事务完成后才报告保存成功。
@@ -55,6 +63,9 @@ python scripts/build_browser.py
 node tests/browser_model.mjs
 node tests/browser_storage.mjs
 node tests/browser_money.mjs
+node tests/browser_logistics_storage.mjs
+python -m unittest tests.test_logistics -v
+node tests/browser_logistics.mjs
 python -m unittest tests.test_fleet_archive tests.test_world_archive -v
 node tests/browser_fleet.mjs
 python -m unittest tests.test_source_library -v

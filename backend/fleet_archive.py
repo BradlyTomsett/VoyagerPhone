@@ -111,6 +111,12 @@ class FleetArchive:
         ships=self._ships(fleet)
         if vessel not in ships:raise ValueError('VESSEL_NOT_FOUND')
         item=ships[vessel];d=item['data'];data=self._fleet(fleet);records=[]
+        if d.get('internal_logistics_current'):
+            value=d['internal_logistics_current']
+            records.append(self._record('调动后现行人员与实装','/'+FLEETS[fleet][1],{'记录时间':value['as_of'],'当前在舰人员':value['personnel'],
+                '人员T分组':[{'人数':r['quantity'],'每人T':r.get('T'),'口径':r.get('basis')} for r in value['personnel_cohorts']],
+                '当前装备':{k:{'数量':v['quantity'],'单位':v['unit']} for k,v in value['assets'].items() if v['quantity']},
+                '说明':'当前实装优先于下方永久设计与此前配装；调动不改变舰级性能参数。'}))
         class_id=d.get('class_id');design=self.entities.get(class_id,{})
         if design:
             records.append(self._record('舰级固定设计','/catalog_registry/entities/'+class_id,design,'catalog.json','永久设计；不代表当前实装'))
@@ -191,6 +197,13 @@ class FleetArchive:
             for vid,ship in self._ships(fleet).items():
                 if ship['data'].get('weapons_defense'):
                     weapons.append(self._record(ship['data'].get('name',vid)+' · 武器与防护',root+'/vessels/'+vid+'/weapons_defense',ship['data']['weapons_defense']))
+        if self.state.get('engine_runtime',{}).get('internal_logistics_v1'):
+            from backend.logistics import Logistics, jsonnum
+            service=Logistics(self.library);book=service.book();groups=[]
+            for lid,location in book['locations'].items():
+                if location['fleet']!=fleet:continue
+                rows=[{'name':book['items'][key]['name'],'key':key,'value':{'qty':jsonnum(row['quantity']),'unit':book['items'][key]['unit'],'note':row['basis']},'as_of':self.state['game_time']} for key,row in book['stock'][lid].items() if float(row['quantity'])>0]
+                if rows:groups.append({'title':location['name']+' · 当前实物','rows':rows,'as_of':self.state['game_time']})
         return {'groups':groups,'models':sorted(models),'weapons':weapons,
                 'notice':'各表按产权、位置、用途和日期分别列示，不跨表相加。总量、可用、配属、待修、领用与在仓保留各自口径。普通子弹、普通舰炮炮弹与普通舰载导弹不独立计库存；手雷、一次性火箭筒和单兵导弹按实际使用扣减。'}
 

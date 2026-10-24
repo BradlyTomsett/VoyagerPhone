@@ -18,7 +18,7 @@ if sys.platform == 'emscripten':
         os.link=unavailable_link
     os.environ['VOYAGER_DISABLE_SNAPSHOT_DEDUP'] = '1'
 
-import copy, hashlib, io, json, shutil, sqlite3, time, uuid, zipfile
+import copy, hashlib, io, json, re, shutil, sqlite3, time, uuid, zipfile
 from pathlib import Path
 from backend.app import GameService, ACTIVE, safe_error
 from backend.engine import EngineBridge, canonical, digest, module
@@ -26,6 +26,7 @@ from backend.model import CRITERIA, WRAPPER, REVIEW, matches_output
 from backend.source_library import SourceLibrary
 from backend.fleet_archive import FleetArchive
 from backend.world_archive import WorldArchive
+from backend.logistics import Logistics, commit as commit_transfer, KEY as LOGISTICS_KEY, install_naming_extension
 
 COMMANDER_ID = 'PER-COMMANDER-01'
 
@@ -56,6 +57,10 @@ if sys.platform == 'emscripten':
 
 
 class BrowserBridge(EngineBridge):
+    def __init__(self,*args,**kwargs):
+        super().__init__(*args,**kwargs)
+        install_naming_extension(self.host._engine(),Path(__file__).resolve().parents[1]/'seed')
+
     def source_library(self):
         identity = json.loads((self.root / 'manifest.json').read_bytes())['save_set_id']
         if getattr(self, '_library_identity', None) != identity:
@@ -66,6 +71,12 @@ class BrowserBridge(EngineBridge):
     def context(self, intent='', scene_id=None, actor_id=None):
         result = super().context(intent, scene_id, actor_id)
         if intent.strip(): result['source_library'] = self.source_library().context(intent)
+        if LOGISTICS_KEY in json.loads((self.root/'state.json').read_bytes()).get('engine_runtime',{}):
+            service=Logistics(self.source_library());book=service.book()
+            changed={key for receipt in book['receipts'].values() for key in (receipt['request'].get('source'),receipt['request'].get('destination'),receipt['request'].get('vessel'))}
+            result['commander_internal_logistics']={'notice':'以下是已由指挥官确认并正式保存的现行调动。优先于较早固定编制或历史计划；不重复计数。',
+                'locations':[service.contents(key) for key in changed if key in book['locations']],
+                'recent_receipts':[r['preview'] for r in list(book['receipts'].values())[-8:]]}
         return result
 
     def contracts(self, kind):
@@ -118,10 +129,62 @@ class BrowserHost:
         self.prepared = {}
         # A durable COMMITTING intent is replayed only under its original ID.
         for job in self.game.store.list():
-            if job['status'] == 'COMMITTING': self.game.commit(job)
+            if job['status'] == 'COMMITTING':
+                if job.get('kind')=='internal_transfer':self.transfer_commit(job['id'])
+                else:self.game.commit(job)
 
     def state(self): return self.game.bridge.state()
-    def jobs(self): return [self.game.public(j) for j in reversed(self.game.store.list())]
+    def jobs(self): return [self.game.public(j) for j in reversed(self.game.store.list()) if j.get('kind')!='internal_transfer']
+
+    def transfer_preview(self, request):
+        plan=Logistics(self.game.bridge.source_library()).plan(request)
+        public={k:plan[k] for k in ('preview','request','base_save_set_id')}
+        return {**public,'preview_hash':digest(public)}
+
+    def transfer_prepare(self,data):
+        if not isinstance(data,dict) or not re.fullmatch(r'MOVE-[A-Za-z0-9-]{8,100}',str(data.get('id',''))):raise ValueError('TRANSFER_ID_INVALID')
+        existing=self.game.store.get(data.get('id'))
+        if existing:
+            if existing.get('kind')!='internal_transfer' or existing.get('transfer_input')!=data:raise ValueError('TRANSFER_ID_REUSED')
+            return {'id':existing['id'],'status':existing['status']}
+        public=self.transfer_preview(data['request'])
+        if public['base_save_set_id']!=data.get('base_save_set_id') or public['preview_hash']!=data.get('preview_hash'):raise ValueError('TRANSFER_STALE_PREVIEW')
+        job,_=self.game.store.create({'client_id':data['id'],'mode':'internal_transfer','intent':'内部调动：'+public['preview']['description']})
+        # Persist the confirmed command, not a JSON-reordered copy of the world.
+        # Some native journals preserve meaningful insertion order in their rows.
+        job.update(kind='internal_transfer',status='COMMITTING',confirmed_at=time.time(),transfer_input=data,transfer_preview=public['preview'])
+        self.game.store.save(job)
+        return {'id':job['id'],'status':job['status']}
+
+    def transfer_commit(self,job_id):
+        job=self.game.store.get(job_id)
+        if not job or job.get('kind')!='internal_transfer':raise ValueError('TRANSFER_NOT_FOUND')
+        if job['status']=='SAVED':return {'id':job_id,'status':'SAVED','result':job['result']}
+        if job['status'] not in ('COMMITTING','RECOVERY_REQUIRED'):raise ValueError('TRANSFER_NOT_RECOVERABLE')
+        try:
+            self.game.bridge.recover()
+            service=Logistics(self.game.bridge.source_library());request=job['transfer_input']['request']
+            receipt=service.state.get('engine_runtime',{}).get(LOGISTICS_KEY,{}).get('receipts',{}).get(job_id)
+            if receipt:plan={'request_hash':digest(request)}
+            else:
+                if service.library.manifest['save_set_id']!=job['transfer_input']['base_save_set_id']:raise ValueError('TRANSFER_STALE_PREVIEW')
+                plan=service.plan(request)
+                public={k:plan[k] for k in ('preview','request','base_save_set_id')}
+                if digest(public)!=job['transfer_input']['preview_hash']:raise ValueError('TRANSFER_STALE_PREVIEW')
+            result=commit_transfer(self.game.bridge,plan,job_id)
+            self.game.bridge.recover()
+            job.update(status='SAVED',result=result);job.pop('error',None)
+        except Exception as ex:
+            # Keep the exact intent and ID until recovery resolves whether the
+            # native commit crossed its commit point. Never create a second move.
+            job.update(status='FAILED' if ex.__class__.__name__=='TransactionNotCommitted' or str(ex)=='TRANSFER_STALE_PREVIEW' else 'RECOVERY_REQUIRED',error=getattr(ex,'code',safe_error(ex)))
+        self.game.store.save(job)
+        return {'id':job_id,'status':job['status'],'result':job.get('result'),'error':job.get('error')}
+
+    def transfer_history(self):
+        book=Logistics(self.game.bridge.source_library()).book()
+        return {'receipts':list(reversed(list(book['receipts'].values())))[:100],
+            'pending':[{'id':j['id'],'preview':j['transfer_preview'],'error':j.get('error')} for j in self.game.store.list() if j.get('kind')=='internal_transfer' and j['status'] in ('COMMITTING','RECOVERY_REQUIRED')]}
 
     def choices(self):
         state = json.loads((self.game.bridge.root / 'state.json').read_text())
@@ -276,6 +339,12 @@ class BrowserHost:
         if method=='state':return self.state()
         if method=='jobs':return self.jobs()
         if method=='choices':return self.choices()
+        if method=='transfer_catalog':return Logistics(self.game.bridge.source_library()).catalogue()
+        if method=='transfer_contents':return Logistics(self.game.bridge.source_library()).contents(data.get('location'))
+        if method=='transfer_preview':return self.transfer_preview(data)
+        if method=='transfer_prepare':return self.transfer_prepare(data)
+        if method=='transfer_commit':return self.transfer_commit(data['id'])
+        if method=='transfer_history':return self.transfer_history()
         if method in ('library_topics','library_topic','library_browse','fleet_domain','fleet_personnel'):
             library=self.game.bridge.source_library()
             if getattr(self,'_world_library',None) is not library:

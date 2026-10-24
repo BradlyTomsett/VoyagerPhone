@@ -4,8 +4,8 @@ import re
 from backend.source_library import LABELS, compact
 
 # Routing, storage and implementation metadata are not game information.
-INTERNAL = re.compile(r'(^\$|^_|schema|(?:^|_)version$|(?:^|_)revision$|^migration$|^manifest|^authority$|^authority_mode$|^implementation_status$|^lifecycle_status$|^scope$|^domain$|^asset_type_id$|^quantity_path$|^unit_status$|^managed_by$|^source_path$|^state_path$|^codec$|sha256|^compressed_|^uncompressed_|_refs?$|_ids?$|^refs?$|^id$|^entity_type$|^source_kind$|^visibility$|^knowledge_scope$)')
-MACHINE = re.compile(r'^(?:state|rules|catalog|tasks|engine|manifest)(?:\.json)?[:.#/]|^(?:archives|development)/|^[a-f0-9]{40,64}$|^(?:ASSET|RULE|SAVESET|CLM|EVT|CMD|TSK|LOC|PER|VES|ORG|CLS|EQP|FORCE)-[A-Z0-9_-]+$')
+INTERNAL = re.compile(r'(^internal_logistics_current$|^internal_transfer_current$|^\$|^_|schema|(?:^|_)version$|(?:^|_)revision$|^migration$|^manifest|^authority$|^authority_mode$|^implementation_status$|^lifecycle_status$|^scope$|^domain$|^asset_type_id$|^quantity_path$|^unit_status$|^managed_by$|^source_path$|^state_path$|^codec$|sha256|^compressed_|^uncompressed_|_refs?$|_ids?$|^refs?$|^id$|^entity_type$|^source_kind$|^visibility$|^knowledge_scope$)')
+MACHINE = re.compile(r'^ITEM-[a-f0-9]+$|^(?:state|rules|catalog|tasks|engine|manifest)(?:\.json)?[:.#/]|^(?:archives|development)/|^[a-f0-9]{40,64}$|^(?:ASSET|RULE|SAVESET|CLM|EVT|CMD|TSK|LOC|PER|VES|ORG|CLS|EQP|FORCE)-[A-Z0-9_-]+$')
 STATUS = {'active':'生效','operational':'运行中','completed_operational':'已完工并投入使用',
  'commissioned':'已到岗','completed':'已完成','cancelled':'已取消','available':'可用',
  'active_standing_voyager_fleet_ground_mobile_force':'远航者常设地面机动力量',
@@ -176,10 +176,18 @@ class WorldArchive:
             exception='远航者与远星军的T=100封板不覆盖暗影快反编制。'
         else:raise ValueError('PERSONNEL_NOT_FOUND')
         if not isinstance(t,(int,float)) or isinstance(t,bool):t=None
+        book=self.state.get('engine_runtime',{}).get('internal_logistics_v1',{})
+        cohorts=book.get('people',{}).get('farstar' if subject=='farstar' else 'qrf')
+        if cohorts is not None:
+            values={r.get('T') for r in cohorts if r['quantity']}
+            t=next(iter(values)) if len(values)==1 else None
         value={'所属舰队':parent,'编制':title,'人数（人）':force.get('personnel'),
                '基础人员战斗力T（每人）':t,'适用人群':scope,'T值记录日期':as_of,
                '编制人数记录日期':force.get('as_of'),'人员计数口径':note,'适用边界':exception}
         if t is None:value['T值说明']='当前记录未给出该编制统一的人员T值。'
+        if cohorts is not None:
+            value['调动后人员T分组']=[{'人数':r['quantity'],'每人T':r.get('T'),'口径':r.get('basis')} for r in cohorts if r['quantity']]
+            value['T值说明']='调入人员保留原T记录；不同T分别列示，未记录的保持未知。'
         record={'title':'人员与现行T值','value':value,'ref':'state.json#'+source,'as_of':as_of,'kind':'现行人员口径'}
         return {'title':title+' · 人员与战斗力T','parent':parent,'personnel':force.get('personnel'),'T':t,
                 'as_of':as_of,'records':[record],

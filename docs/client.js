@@ -7,6 +7,13 @@ export class BrowserGame{
  async init(){await takeLock();this.store=new SaveStore();await this.store.open();this.contract=await (await fetch('./model-contract.json')).json();let rec;try{rec=await this.store.read();}catch(e){this.backupAvailable=!!await this.store.read('previous');throw e;}this.makeWorker();await this.rpc('init',{snapshot:rec?.bytes});await this.checkpoint();navigator.storage?.persist?.().catch(()=>{});return this.rpc('state');}
  async checkpoint(){try{const bytes=await this.rpc('snapshot');this.saved=await this.store.write(bytes);await this.rpc('ack');this.frozen=false;}catch{this.frozen=true;throw Error('STORAGE_WRITE_FAILED');}}
  mutate(fn){const result=this.serial.then(async()=>{if(this.frozen)throw Error('STORAGE_WRITE_FAILED');return fn();});this.serial=result.catch(()=>{});return result;}
+ async transfer(preview,id='MOVE-'+crypto.randomUUID()){return this.mutate(async()=>{
+  await this.rpc('transfer_prepare',{id,request:preview.request,base_save_set_id:preview.base_save_set_id,preview_hash:preview.preview_hash});
+  await this.checkpoint(); // Durable user intent precedes the native mutation.
+  const result=await this.rpc('transfer_commit',{id});await this.checkpoint();
+  this.onchange();if(result.status!=='SAVED')throw Error(result.status==='FAILED'?'TRANSFER_VALIDATION_FAILED':'TRANSFER_RECOVERY_REQUIRED');return result;
+ });}
+ async recoverTransfer(id){return this.mutate(async()=>{const result=await this.rpc('transfer_commit',{id});await this.checkpoint();if(result.status!=='SAVED')throw Error('TRANSFER_RECOVERY_REQUIRED');return result;});}
  async generation(id,packet,config){try{let p=await modelCall(config,this.contract.generation,packet);const r=await this.mutate(async()=>{const r=await this.rpc('plan',{id,plan:p.result,usage:p.usage});await this.checkpoint();return r;});this.onchange();if(r.review_packet){const v=await modelCall(config,this.contract.review,r.review_packet,true);await this.mutate(async()=>{await this.rpc('review',{id,verdict:v.result,usage:v.usage});await this.checkpoint();});this.onchange();}}catch(e){if(!this.frozen){await this.mutate(async()=>{await this.rpc('fail',{id,code:/^[A-Z0-9_]+$/.test(e.message)?e.message:'MODEL_REQUEST_FAILED'});await this.checkpoint();}).catch(()=>{});}this.onchange();}}
  async api(path,options={}){
   if(path==='/api/state')return this.rpc('state');if(path==='/api/turns'&&!options.method)return this.rpc('jobs');
