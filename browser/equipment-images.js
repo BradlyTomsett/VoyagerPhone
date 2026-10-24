@@ -21,6 +21,7 @@ export function equipmentImageQuery(query,context=''){
  // The material ledger retains the self-owned item name 手枪; purchased pistols use 外购手枪.
  if(normal(query)==='手枪'&&(context.includes('自有')||context.endsWith(' · 当前实物')))return '自有手枪';
  if(normal(query)==='外购步枪'&&context.includes('民用'))return '外购民用步枪';
+ if(/^外购手枪(?:物理在仓)?$/.test(normal(query))&&context.includes('民用'))return query.replace('外购','外购民用');
  return query;
 }
 export function equipmentLookup(query){

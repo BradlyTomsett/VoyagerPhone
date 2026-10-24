@@ -128,5 +128,24 @@ export const uploadedEquipmentImages = [
     "height": 1696,
     "sha256": "c8d21df20782161314c9d947f899473de1ece71aa89d4352579b500f81a82828",
     "source": "用户提供并标注为自有手枪"
+  },
+  {
+    "name": "外购军用手枪",
+    "aliases": [
+      "外购手枪",
+      "外购手枪物理在仓",
+      "外购制式手枪",
+      "外购军用制式手枪",
+      "外部军用手枪",
+      "外部军用制式手枪"
+    ],
+    "lookup": "外购军用手枪",
+    "scope": "external_military",
+    "original": "assets/equipment/original/purchased_military_pistol.png",
+    "preview": "assets/equipment/preview/purchased_military_pistol.webp",
+    "width": 2560,
+    "height": 1696,
+    "sha256": "982c32bbc5cd92657f336c962e2891c1e08fdef42991a8ae70dff4f819b13690",
+    "source": "用户提供并标注为外购军用手枪"
   }
 ];
