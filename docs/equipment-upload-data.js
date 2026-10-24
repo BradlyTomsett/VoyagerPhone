@@ -147,5 +147,37 @@ export const uploadedEquipmentImages = [
     "height": 1696,
     "sha256": "982c32bbc5cd92657f336c962e2891c1e08fdef42991a8ae70dff4f819b13690",
     "source": "用户提供并标注为外购军用手枪"
+  },
+  {
+    "name": "民用步枪",
+    "aliases": [
+      "外购民用步枪",
+      "外部民用步枪",
+      "民用制式步枪"
+    ],
+    "lookup": "民用步枪",
+    "scope": "civilian",
+    "original": "assets/equipment/original/civilian_rifle.png",
+    "preview": "assets/equipment/preview/civilian_rifle.webp",
+    "width": 2848,
+    "height": 1600,
+    "sha256": "e1154633bf344c3781949505132f39a090a8cee925f18a7669f7c64c4084e151",
+    "source": "用户提供并标注为民用步枪"
+  },
+  {
+    "name": "民用手枪",
+    "aliases": [
+      "外购民用手枪",
+      "外部民用手枪",
+      "民用制式手枪"
+    ],
+    "lookup": "民用手枪",
+    "scope": "civilian",
+    "original": "assets/equipment/original/civilian_pistol.png",
+    "preview": "assets/equipment/preview/civilian_pistol.webp",
+    "width": 2848,
+    "height": 1600,
+    "sha256": "aa02cc4b86888f3138e2aa9a0394d752c4f415e137fcc7b745fe6b7a3b66d88a",
+    "source": "用户提供并标注为民用手枪"
   }
 ];

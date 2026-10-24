@@ -4,11 +4,11 @@ export const equipmentImages=[...sourceImages,...uploadedEquipmentImages];
 
 const normal=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/[\s·\-－—_]/g,'');
 export function matchingImages(query,context=''){
- const text=normal(query),owner=normal(query+' '+context);
+ const text=normal(equipmentImageQuery(query,context)),owner=normal(query+' '+context),civilian=normal(query).includes('民用')||(context.includes('民用')&&!context.endsWith(' · 当前实物'));
  if(!text)return [];
  const contains=alias=>{const key=normal(alias);let at=text.indexOf(key);while(at>=0){const before=text[at-1]||'',after=text[at+key.length]||'';if(!(/[a-z0-9]/.test(key[0])&&/[a-z0-9]/.test(before))&&(!/\d/.test(key.at(-1))||!/[0-9]/.test(after))&&(!/^[a-z]+\d+$/.test(key)||!/[a-z0-9]/.test(after)))return true;at=text.indexOf(key,at+1);}return false;};
  return equipmentImages.filter(image=>[image.name,...image.aliases].some(contains)).filter(image=>{
-  if(image.scope==='external_military'&&owner.includes('民用'))return false;
+  if(image.scope==='external_military'&&civilian&&!text.includes('军用'))return false;
   if(!image.original.includes('roadfox4'))return true;
   if(owner.includes('余火')&&!owner.includes('霍克'))return image.original.includes('yuhuo_');
   if(owner.includes('霍克')&&!owner.includes('余火'))return image.original.includes('hawk_team_');
@@ -17,11 +17,12 @@ export function matchingImages(query,context=''){
 }
 export function equipmentSearchText(query){return [query,...matchingImages(query).flatMap(image=>[image.name,...image.aliases])].join(' ').toLocaleLowerCase();}
 export function equipmentImageQuery(query,context=''){
- if(normal(query)==='制式步枪'&&context.includes('自有'))return '自有制式步枪';
+ const text=normal(query),marked=text.match(/^(外购|外部|外来|自有)?(步枪|手枪)(物理在仓)?\(民用\)$/);
+ if(marked)return (marked[1]||'')+'民用'+marked[2]+(marked[3]||'');
+ if(context.includes('民用')&&!context.endsWith(' · 当前实物')){const model=text.match(/^(外购|外部|外来|自有)?(?:制式)?(步枪|手枪)(物理在仓)?$/);if(model)return (model[1]||'')+'民用'+model[2]+(model[3]||'');}
+ if(text==='制式步枪'&&context.includes('自有'))return '自有制式步枪';
  // The material ledger retains the self-owned item name 手枪; purchased pistols use 外购手枪.
- if(normal(query)==='手枪'&&(context.includes('自有')||context.endsWith(' · 当前实物')))return '自有手枪';
- if(normal(query)==='外购步枪'&&context.includes('民用'))return '外购民用步枪';
- if(/^外购手枪(?:物理在仓)?$/.test(normal(query))&&context.includes('民用'))return query.replace('外购','外购民用');
+ if(text==='手枪'&&(context.includes('自有')||context.endsWith(' · 当前实物')))return '自有手枪';
  return query;
 }
 export function equipmentLookup(query){
