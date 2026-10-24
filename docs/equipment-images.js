@@ -8,14 +8,17 @@ export function matchingImages(query,context=''){
  if(!text)return [];
  const contains=alias=>{const key=normal(alias);let at=text.indexOf(key);while(at>=0){const before=text[at-1]||'',after=text[at+key.length]||'';if(!(/[a-z0-9]/.test(key[0])&&/[a-z0-9]/.test(before))&&(!/\d/.test(key.at(-1))||!/[0-9]/.test(after))&&(!/^[a-z]+\d+$/.test(key)||!/[a-z0-9]/.test(after)))return true;at=text.indexOf(key,at+1);}return false;};
  return equipmentImages.filter(image=>[image.name,...image.aliases].some(contains)).filter(image=>{
+  if(image.scope==='external_military'&&owner.includes('民用'))return false;
   if(!image.original.includes('roadfox4'))return true;
   if(owner.includes('余火')&&!owner.includes('霍克'))return image.original.includes('yuhuo_');
   if(owner.includes('霍克')&&!owner.includes('余火'))return image.original.includes('hawk_team_');
   return true;
  });
 }
+export function equipmentSearchText(query){return [query,...matchingImages(query).flatMap(image=>[image.name,...image.aliases])].join(' ').toLocaleLowerCase();}
 export function equipmentImageQuery(query,context=''){
  if(normal(query)==='制式步枪'&&context.includes('自有'))return '自有制式步枪';
+ if(normal(query)==='外购步枪'&&context.includes('民用'))return '外购民用步枪';
  return query;
 }
 export function equipmentLookup(query){

@@ -94,5 +94,24 @@ export const uploadedEquipmentImages = [
     "height": 1086,
     "sha256": "09eafa4029d9915dfea0a252c8e833d3d307ed8873dc4ef684662f51ebdaa4e5",
     "source": "用户提供并标注为自有步枪"
+  },
+  {
+    "name": "外购军用步枪",
+    "aliases": [
+      "外购步枪",
+      "外购制式步枪",
+      "外购军用制式步枪",
+      "外部军用步枪",
+      "外部军用制式步枪",
+      "外来制式步枪"
+    ],
+    "lookup": "外购军用步枪",
+    "scope": "external_military",
+    "original": "assets/equipment/original/purchased_military_rifle.png",
+    "preview": "assets/equipment/preview/purchased_military_rifle.webp",
+    "width": 1448,
+    "height": 1086,
+    "sha256": "b2f17d8497e4825816769403a358068cb60f401c0357f002ddff814de41cb769",
+    "source": "用户提供并标注为外购军用步枪"
   }
 ];
