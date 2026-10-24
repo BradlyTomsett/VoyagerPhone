@@ -4,7 +4,7 @@ import unittest
 from decimal import Decimal
 from pathlib import Path
 from backend.source_library import SourceLibrary
-from backend.logistics import Logistics, KEY, at, ships
+from backend.logistics import Logistics, KEY, QRF_GROUP, at, ships, family
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -49,7 +49,7 @@ class LogisticsTests(unittest.TestCase):
         self.assertEqual(p['state']['summary']['personnel']['voyager'],17193);self.assertEqual(p['state']['summary']['personnel']['shadow'],6044)
         self.assertEqual(p['book']['people']['qrf'][-1]['T'],100);self.accept(p)
         p=self.service.plan({'kind':'personnel','source':'qrf','destination':'farstar','quantity':'10','personnel_group':'100'})
-        self.assertEqual(sum(c['quantity'] for c in p['book']['people']['qrf']),2653)
+        self.assertEqual(sum(c['quantity'] for lid in family(p['book'],'qrf') for c in p['book']['people'][lid]),2653)
         self.assertEqual({c['T'] for c in p['book']['people']['qrf']},{70})
     def test_vessel_roundtrip_rebinds_shifted_roster_and_preserves_attributes(self):
         vid='VES-EXPLORER1';before=ships(self.service.state)[vid][1]
@@ -66,5 +66,54 @@ class LogisticsTests(unittest.TestCase):
         p=self.service.plan({'kind':'warehouse','name':'测试仓','fleet':'shadow'})
         row=next(l for l in p['book']['locations'].values() if l['name']=='测试仓')
         self.assertEqual(p['book']['stock'][row['id']],{})
+
+    def test_dark1_group_splits_existing_allocations_without_double_counting(self):
+        group=self.service.contents(QRF_GROUP);parent=self.service.contents('qrf')
+        self.assertEqual(group['location']['parent'],'qrf')
+        self.assertEqual((group['personnel'],parent['personnel']),(460,2193))
+        self.assertEqual({c['T'] for c in group['cohorts']},{70})
+        counts={r['name']:r['quantity'] for r in group['items']}
+        for name,n in [('堡垒-5','657'),('猎隼-2','118'),('赤原-4','80'),('工蜂-11','80'),('南燕-4','6'),('先锋-4','460'),('外购步枪','460')]:self.assertEqual(counts[name],n)
+        self.assertEqual(next(r['quantity'] for r in parent['items'] if r['name']=='堡垒-5'),'670')
+        self.assertEqual(sum(c['quantity'] for rows in self.service.book()['people'].values() for c in rows),23946)
+
+    def test_dark1_transfer_updates_subgroup_and_force_totals_once(self):
+        p=self.move(QRF_GROUP,'shadow:warehouse','堡垒-5',7);q=p['state']['shadow_fleet']['quick_reaction_force_current']
+        self.assertEqual(q['deployed_group_current']['equipment']['堡垒-5'],650)
+        self.assertEqual((q['equipment']['堡垒-5']['usable'],q['equipment']['堡垒-5']['physical_total']),(1320,1320))
+        self.assertEqual(q['equipment']['堡垒-5']['allocation'],{'S-B5':670,'暗反1组':650})
+        self.accept(p);self.assertEqual(next(r['quantity'] for r in self.service.contents(QRF_GROUP)['items'] if r['name']=='堡垒-5'),'650')
+        p=self.move('shadow:warehouse',QRF_GROUP,'堡垒-5',7);self.assertEqual(p['state']['shadow_fleet']['quick_reaction_force_current']['equipment']['堡垒-5']['usable'],1327)
+        self.accept(p);p=self.move(QRF_GROUP,'shadow:warehouse','工蜂-11',3)
+        eng=p['state']['shadow_fleet']['engineering_robot_inventory_current']['工蜂-11']
+        self.assertEqual((eng['total'],eng['S-B5_public_support'],eng['暗反1组']),(492,415,77))
+
+    def test_legacy_book_upgrade_preserves_prior_transfers_and_is_idempotent(self):
+        class Legacy(Logistics):
+            def ensure_qrf_group(self,*args):pass
+        legacy=Legacy(self.library)
+        item=next(r['id'] for r in legacy.contents('qrf')['items'] if r['name']=='堡垒-5')
+        old=legacy.plan({'kind':'items','source':'qrf','destination':'voyager:warehouse','item':item,'quantity':'1000'})
+        self.service.state=old['state'];book=self.service.book()
+        self.assertEqual(book['stock']['qrf'][item]['quantity'],'0')
+        self.assertEqual(book['stock'][QRF_GROUP][item]['quantity'],'327')
+        self.assertEqual(book['stock']['voyager:warehouse'][item]['quantity'],'1000')
+        self.service.state['engine_runtime'][KEY]=book
+        # Persisted migration's authority fields are normalized on actual commit.
+        self.service.sync(self.service.state,book,copy.deepcopy(book))
+        again=self.service.book();self.assertEqual(self.service.totals(again,self.service.state),self.service.totals(book,self.service.state))
+
+    def test_native_group_change_is_not_applied_twice_to_the_parent(self):
+        p=self.move(QRF_GROUP,'shadow:warehouse','堡垒-5',1);self.accept(p)
+        q=self.service.state['shadow_fleet']['quick_reaction_force_current'];q['equipment']['堡垒-5']['usable']-=1;q['deployed_group_current']['equipment']['堡垒-5']-=1
+        rows=self.service.book()['stock'];item=self.item(QRF_GROUP,'堡垒-5')
+        self.assertEqual((rows['qrf'][item]['quantity'],rows[QRF_GROUP][item]['quantity']),('670','655'))
+
+    def test_dark1_personnel_transfer_preserves_fleet_and_parent_accounting(self):
+        p=self.service.plan({'kind':'personnel','source':QRF_GROUP,'destination':'farstar','quantity':'10','personnel_group':'70'})
+        q=p['state']['shadow_fleet']['quick_reaction_force_current']
+        self.assertEqual((q['personnel'],q['deployed_group_current']['qrf_personnel']),(2643,450))
+        self.assertEqual(p['book']['people']['farstar'][-1]['T'],70)
+        self.assertEqual(p['state']['summary']['personnel']['total_player_active'],23946)
 
 if __name__=='__main__':unittest.main()

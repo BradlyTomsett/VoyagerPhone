@@ -17,6 +17,9 @@ from backend.engine import canonical, digest
 from backend.fleet_archive import FleetArchive, FLEETS, model_name, table_rows
 
 KEY='internal_logistics_v1'
+QRF_GROUP='qrf:dark1'
+QRF_PATH=['shadow_fleet','quick_reaction_force_current']
+GROUP_PATH=QRF_PATH+['deployed_group_current']
 FLEET_NAMES={k:v[0] for k,v in FLEETS.items()}
 PERSON_KEYS={'voyager':'current_personnel','jinchuan':'personnel_total','shadow':'personnel_total'}
 SKIP={'as_of','status','note','source','authority','scope_note','unit','precision','condition','condition_pct','total','physical_total','assigned_total','total_owned','nominal_ground_combat_power_each','added_ground_G','scientific_personnel','marines','crew','personnel'}
@@ -154,6 +157,19 @@ def quantity(value):
             if isinstance(value.get(key),(int,float)) and not isinstance(value[key],bool):return value[key],[key]
     return None,None
 
+def family(book,parent):
+    return [lid for lid,location in book['locations'].items() if lid==parent or location.get('parent')==parent]
+
+def take_batches(row,amount):
+    remaining=number(amount);moved=[]
+    for batch in row.setdefault('batches',[{'quantity':row['quantity'],'properties':{},'basis':row['basis']}]):
+        n=min(number(batch['quantity']),remaining)
+        if n:moved.append({**copy.deepcopy(batch),'quantity':textnum(n)});batch['quantity']=textnum(number(batch['quantity'])-n);remaining-=n
+    if remaining:raise ValueError('TRANSFER_STOCK_SOURCE_CONFLICT')
+    row['batches']=[b for b in row['batches'] if number(b['quantity'])]
+    row['quantity']=textnum(number(row['quantity'])-number(amount))
+    return moved
+
 class Logistics:
     def __init__(self,library):
         # Display sources are redacted. Mutation must retain the complete trusted
@@ -163,7 +179,7 @@ class Logistics:
     def book(self,state=None):
         state=state or self.state
         if KEY in state.get('engine_runtime',{}):
-            book=copy.deepcopy(state['engine_runtime'][KEY]);self.reconcile(book,state);return book
+            book=copy.deepcopy(state['engine_runtime'][KEY]);self.reconcile(book,state);self.ensure_qrf_group(book,state);return book
         return self.initial(state)
 
     def initial(self,state):
@@ -302,16 +318,83 @@ class Logistics:
                 for lid in ('voyager:warehouse','farstar'):
                     for batch in stock[lid].get(item,{}).get('batches',[]):batch['pool']=item
         book['personnel_totals_last']={f:state[FLEETS[f][1]][PERSON_KEYS[f]] for f in FLEETS}
+        self.ensure_qrf_group(book,state)
         return book
 
+    def ensure_qrf_group(self,book,state):
+        """Upgrade old books by splitting the existing QRF allocation, once.
+
+        The group's 460 QRF personnel exclude the 507 separately counted crew.
+        Existing transfers are retained: an allocation cannot exceed its pool.
+        """
+        if QRF_GROUP in book['locations']:return
+        group=at(state,GROUP_PATH)
+        if group.get('name')!='暗反1组':return
+        book['locations'][QRF_GROUP]={'id':QRF_GROUP,'name':'暗反1组（快反部队下属）','fleet':'shadow','kind':'force','parent':'qrf'}
+        book['locations']['qrf']['name']='暗影快反部队 · 本部及其他编组'
+        book['stock'][QRF_GROUP]={};book['people'][QRF_GROUP]=[]
+        for raw_name,count in group.get('equipment',{}).items():
+            if not isinstance(count,(int,float)) or isinstance(count,bool):continue
+            name=ALIASES.get(raw_name,str(model_name(raw_name)))
+            item=next((k for k,v in book['items'].items() if v['name']==name),None)
+            if item is None:continue
+            source=book['stock']['qrf'].get(item)
+            if source and not source.get('bindings'):source=None
+            # Workbee engineering support is a separate recorded pool, not
+            # included in the old QRF equipment list or ship fixed complements.
+            if source is None and name!='工蜂-11':continue
+            amount=min(number(count),number(source['quantity'])) if source else number(count)
+            batches=take_batches(source,amount) if source else [{'quantity':textnum(amount),'properties':{},'basis':'暗反1组现行工程配属'}]
+            child={'quantity':textnum(amount),'basis':'暗反1组现行配属；已从快反总量中分列','batches':batches,'bindings':[]}
+            def bind(path):
+                try:value=at(state,path)
+                except (KeyError,TypeError,IndexError):return
+                if isinstance(value,(int,float)) and not isinstance(value,bool):child['bindings'].append({'path':path,'scale':'1','last':textnum(value)})
+            bind(GROUP_PATH+['equipment',raw_name])
+            if source:
+                # Only the primary field is the whole-force total; allocation
+                # mirrors for S-B5 represent the exclusive remainder.
+                source['bindings'][0]['include_locations']=[QRF_GROUP]
+                base=at(state,source['bindings'][0]['path'][:-1])
+                if isinstance(base,dict):
+                    for key,value in base.get('allocation',{}).items():
+                        path=source['bindings'][0]['path'][:-1]+['allocation',key]
+                        if key=='暗反1组':bind(path)
+                        elif key in ('S-B5','S-B5_QRF'):source['bindings'].append({'path':path,'scale':'1','last':textnum(value)})
+            if name=='工蜂-11':
+                for root in (['shadow_fleet','engineering_robot_inventory_current','工蜂-11'],['shadow_fleet','inventory_summary_current','engineering_support','工蜂-11']):bind(root+['暗反1组'])
+                public=book['stock']['shadow:warehouse'].get(item)
+                if public:
+                    for path in (['shadow_fleet','engineering_robot_inventory_current','工蜂-11','S-B5_public_support'],['shadow_fleet','inventory_summary_current','engineering_support','工蜂-11','S-B5']):
+                        if not any(b['path']==path for b in public['bindings']):public['bindings'].append({'path':path,'scale':'1','last':textnum(at(state,path))})
+            if source:
+                path=['shadow_fleet','armored_vehicle_inventory_current','models',name,'allocation','S-B5_QRF']
+                try:value=at(state,path)
+                except KeyError:value=None
+                if isinstance(value,(int,float)):source['bindings'].append({'path':path,'scale':'1','last':textnum(value)})
+            for root,field in [(['shadow_fleet','armored_vehicle_inventory_current','models',name],'allocation'),(['shadow_fleet','equipment_audit_override_current','robots',name],'task_allocation'),(['shadow_fleet','equipment_audit_override_current','robots',name],'qrf_allocation'),(['shadow_fleet','equipment_audit_override_current','uav_reference',name],'task_allocation'),(['shadow_fleet','equipment_audit_override_current','armored_vehicles',name],'task_allocation'),(['shadow_fleet','equipment_audit_override_current','engineering_robots',name],'task_allocation')]:bind(root+[field,'暗反1组'])
+            book['stock'][QRF_GROUP][item]=child
+        remaining=min(int(group.get('qrf_personnel',0)),sum(r['quantity'] for r in book['people']['qrf']))
+        for row in book['people']['qrf']:
+            n=min(row['quantity'],remaining)
+            if n:book['people'][QRF_GROUP].append({**copy.deepcopy(row),'quantity':n});row['quantity']-=n;remaining-=n
+        book['people']['qrf']=[r for r in book['people']['qrf'] if r['quantity']]
+        book['qrf_group_revision']=1
+
     def reconcile(self,book,state):
-        for rows in book['stock'].values():
+        deltas={}
+        for lid,rows in book['stock'].items():
             for item,row in rows.items():
                 if not row.get('bindings'):continue
                 binding=row['bindings'][0]
                 try:now=number(at(state,binding['path']))
                 except (KeyError,IndexError,TypeError):continue
-                delta=(now-number(binding['last']))*number(binding['scale'])
+                deltas[(lid,item)]=(now-number(binding['last']))*number(binding['scale'])
+        for lid,rows in book['stock'].items():
+            for item,row in rows.items():
+                if (lid,item) not in deltas:continue
+                binding=row['bindings'][0]
+                delta=deltas[(lid,item)]-sum((deltas.get((child,item),Decimal(0)) for child in binding.get('include_locations',[])),Decimal(0))
                 row['quantity']=textnum(number(row['quantity'])+delta)
                 batches=row.setdefault('batches',[])
                 if delta>0:
@@ -324,7 +407,7 @@ class Logistics:
                         n=min(number(batch['quantity']),remaining);batch['quantity']=textnum(number(batch['quantity'])-n);remaining-=n
                     if remaining:raise ValueError('TRANSFER_STOCK_SOURCE_CONFLICT')
                 row['batches']=[b for b in batches if number(b['quantity'])]
-                binding['last']=textnum(now)
+                binding['last']=textnum(at(state,binding['path']))
         def adjust_people(lid,count):
             delta=count-sum(r['quantity'] for r in book['people'][lid]);rows=book['people'][lid]
             if delta>0:rows.append({'quantity':delta,'T':None,'basis':'后续引擎人员增量；T未单列'})
@@ -343,7 +426,12 @@ class Logistics:
                 detail=data.get('personnel') or data.get('personnel_complement') or {}
                 if isinstance(detail,dict):raw=next((detail[k] for k in ('current_onboard','total','total_final') if isinstance(detail.get(k),int)),None)
             if isinstance(raw,int) and data.get('active_service') is not False:adjust_people(vid,raw)
-        for lid,path in [('farstar',['voyager_fleet','farstar_army_current','personnel']),('qrf',['shadow_fleet','quick_reaction_force_current','personnel']),('shadow:base',['shadow_fleet','shadow_base_personnel_current','personnel'])]:adjust_people(lid,at(state,path))
+        if QRF_GROUP in book['locations']:adjust_people(QRF_GROUP,at(state,GROUP_PATH+['qrf_personnel']))
+        for lid,path in [('farstar',['voyager_fleet','farstar_army_current','personnel']),('qrf',QRF_PATH+['personnel']),('shadow:base',['shadow_fleet','shadow_base_personnel_current','personnel'])]:
+            children=sum(r['quantity'] for child in family(book,lid) if child!=lid for r in book['people'][child])
+            count=at(state,path)-children
+            if count<0:raise ValueError('TRANSFER_PERSONNEL_SOURCE_CONFLICT')
+            adjust_people(lid,count)
         # A later native turn can change totals. Account for its remaining delta
         # explicitly without recreating the pre-transfer cached pools.
         for fleet in FLEETS:
@@ -354,7 +442,9 @@ class Logistics:
             book.setdefault('personnel_totals_last',{})[fleet]=total
 
     def catalogue(self):
-        book=self.book();return {'save_set_id':self.library.manifest['save_set_id'],'locations':list(book['locations'].values()),'items':list(book['items'].values()),
+        book=self.book();locations=[row for lid,row in book['locations'].items() if lid!=QRF_GROUP]
+        if QRF_GROUP in book['locations']:locations.insert(next(i for i,row in enumerate(locations) if row['id']=='qrf')+1,book['locations'][QRF_GROUP])
+        return {'save_set_id':self.library.manifest['save_set_id'],'locations':locations,'items':list(book['items'].values()),
           'vessels':[{'id':vid,'name':d.get('name',vid),'fleet':f,'active':d.get('active_service') is not False} for vid,(f,d,p) in ships(self.state).items()],
           'notice':'内部调动立即调整编制和库存，不推进游戏时间，不调用AI。先核对调出/接收数量，再执行。'}
 
@@ -507,11 +597,12 @@ class Logistics:
 
     def sync(self,state,book,baseline):
         for rows in book['stock'].values():
-            for row in rows.values():
+            for item,row in rows.items():
                 for binding in row['bindings']:
                     try:at(state,binding['path'])
                     except (KeyError,IndexError,TypeError):continue
-                    value=number(row['quantity'])/number(binding['scale']);old=number(at(state,binding['path']));delta=value-old
+                    amount=number(row['quantity'])+sum((number(book['stock'].get(child,{}).get(item,{}).get('quantity',0)) for child in binding.get('include_locations',[])),Decimal(0))
+                    value=amount/number(binding['scale']);old=number(at(state,binding['path']));delta=value-old
                     put(state,binding['path'],jsonnum(value));binding['last']=textnum(value)
                     parent=at(state,binding['path'][:-1])
                     # Native inventory identity: owned = available + allocated + reserved.
@@ -542,7 +633,14 @@ class Logistics:
                 mirror=state.get('inventories',{}).get('weapon_inventory',{}).get('self_owned',{}).get(mirrors.get(name))
                 if mirror:mirror['value']=jsonnum(total)
         army=state['voyager_fleet'].get('farstar_army_current',{});army['personnel']=sum(p['quantity'] for p in book['people']['farstar'])
-        qrf=state['shadow_fleet'].get('quick_reaction_force_current',{});qrf['personnel']=sum(p['quantity'] for p in book['people']['qrf'])
+        qrf=state['shadow_fleet'].get('quick_reaction_force_current',{});qrf['personnel']=sum(p['quantity'] for lid in family(book,'qrf') for p in book['people'][lid])
+        if QRF_GROUP in book['locations']:
+            group=qrf['deployed_group_current'];count=sum(p['quantity'] for p in book['people'][QRF_GROUP]);old_count=group['qrf_personnel']
+            group['qrf_personnel']=count;group['total_personnel']=group.get('ship_personnel',0)+count
+            if old_count!=count:
+                status=group.get('personnel_status',{})
+                if 'combat_ready' in status:status['combat_ready']=min(status['combat_ready'],count)
+                group['personnel_distribution_note']='编制人数已由内部调动更新；原有舰上与外派岗位明细保留此前记录，不重复计数。'
         base=state['shadow_fleet'].get('shadow_base_personnel_current',{});base['personnel']=sum(p['quantity'] for p in book['people']['shadow:base'])
         public=state['shadow_fleet'].get('inventory_summary_current',{}).get('public',{})
         armory=state['shadow_fleet'].get('general_armory',{})
@@ -553,10 +651,29 @@ class Logistics:
             if original and isinstance(public[original],(int,float)):public[original]=jsonnum(number(public[original])+delta)
             key=armory_keys.get(name)
             if key in armory and isinstance(armory[key],(int,float)):armory[key]=jsonnum(number(armory[key])+delta)
-        for item,row in book['stock']['qrf'].items():
+        qrf_items={item for lid in family(book,'qrf') for item in book['stock'][lid]}
+        for item in qrf_items:
+            amount=sum((number(book['stock'][lid].get(item,{}).get('quantity',0)) for lid in family(book,'qrf')),Decimal(0))
+            before=sum((number(baseline['stock'][lid].get(item,{}).get('quantity',0)) for lid in family(baseline,'qrf')),Decimal(0))
             name=book['items'][item]['name']
             for key in ('robots','uavs'):
-                if name in qrf.get(key,{}):qrf[key][name]=jsonnum(row['quantity'])
+                if name in qrf.get(key,{}):qrf[key][name]=jsonnum(amount)
+            for raw_name,record in qrf.get('equipment',{}).items():
+                if ALIASES.get(raw_name,str(model_name(raw_name)))!=name or not isinstance(record,dict):continue
+                if 'usable' in record and 'physical_total' in record:record['physical_total']=record['usable']+record.get('repair',0)
+                if 'assigned' in record and 'total_controlled' in record:record['total_controlled']=record['assigned']+record.get('reserve_usable',0)
+            summary=state['shadow_fleet'].get('inventory_summary_current',{}).get('qrf',{})
+            if isinstance(summary.get(name),(int,float)):summary[name]=jsonnum(number(summary[name])+amount-before)
+            armored=state['shadow_fleet'].get('armored_vehicle_inventory_current',{}).get('models',{}).get(name)
+            if armored and 'qrf' in armored:
+                delta=amount-number(armored['qrf']);armored['qrf']=jsonnum(amount)
+                if 'total' in armored:armored['total']=jsonnum(number(armored['total'])+delta)
+        # Workbee support is the public/group pool; ship fixed engineering is
+        # separately registered and never added to this pool.
+        for root,left in [(['shadow_fleet','engineering_robot_inventory_current','工蜂-11'],'S-B5_public_support'),(['shadow_fleet','inventory_summary_current','engineering_support','工蜂-11'],'S-B5')]:
+            try:record=at(state,root)
+            except KeyError:continue
+            if 'total' in record:record['total']=record.get(left,0)+record.get('暗反1组',0)
         equipped=qrf.get('power_armor_current',{}).get('equipped',{})
         if equipped:equipped['total']=sum(v for k,v in equipped.items() if k!='total' and isinstance(v,(int,float)))
         military=state['shadow_fleet'].get('explosives_inventory_current',{}).get('military',{})

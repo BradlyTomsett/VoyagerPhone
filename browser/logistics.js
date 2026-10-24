@@ -31,7 +31,7 @@ export class LogisticsView{
   this.options(src,rows,src.value);this.options(dst,this.catalog.locations.map(r=>({...r,name:names[r.fleet]+' / '+r.name})),dst.value||'jinchuan:warehouse');this.contents();
  }
  vessels(){const fleet=this.$('move-source').value;this.options(this.$('move-vessel'),this.catalog.vessels.filter(r=>r.fleet===fleet&&r.active).map(r=>({...r,name:r.name+(r.active?'':'（非现役）')})),this.$('move-vessel').value);this.$('move-status').textContent='整舰转隶会携带已登记的随舰人员与物资；当前位置、舰名、性能和历史记录保留。';}
- async contents(){this.clearPreview();if(this.$('move-kind').value==='vessels'){this.vessels();return;}const location=this.$('move-source').value,generation=++this.serial;this.source=null;
+ async contents(){this.clearPreview();if(this.$('move-kind').value==='vessels'){this.vessels();return;}const location=this.$('move-source').value,generation=++this.serial;this.source=null;this.available=0;this.$('move-item').replaceChildren();this.$('move-cohort').replaceChildren();this.$('move-quantity').max='0';this.$('move-available').textContent='正在读取这个位置的资源…';
   if(!location){this.$('move-status').textContent='没有匹配的调出方，请调整筛选。';return;}
   try{const data=await this.game.rpc('transfer_contents',{location});if(generation!==this.serial)return;this.source=data;
    this.options(this.$('move-item'),data.items.filter(r=>Number(r.quantity)>0).sort((a,b)=>a.name.localeCompare(b.name,'zh-CN')).map(r=>({id:r.id,name:r.name+' · '+fmt(r.quantity)+' '+r.unit})),this.$('move-item').value);

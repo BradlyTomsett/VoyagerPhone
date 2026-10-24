@@ -19,7 +19,7 @@
       <button class="nav" data-tab="library"><span class="nav-symbol">▤</span><span>资料库</span><small>04</small></button>
       <button class="nav" data-tab="log"><span class="nav-symbol">◷</span><span>航志</span><small>05</small></button>
     </nav>
-    <div class="sidebar-bottom"><div class="vertical-rule"></div><p>群星之外，<br>故事仍在继续。</p><button class="text-button settings-open">游戏设置 <span>↗</span></button><span class="version">VOYAGER / PAGES 0.8.1</span></div>
+    <div class="sidebar-bottom"><div class="vertical-rule"></div><p>群星之外，<br>故事仍在继续。</p><button class="text-button settings-open">游戏设置 <span>↗</span></button><span class="version">VOYAGER / PAGES 0.8.2</span></div>
   </aside>
   <div class="workspace">
     <header class="topbar"><div class="mobile-brand"><img src="icon.svg" alt="">远航</div><div class="breadcrumbs">远航计划 <span>/</span> <b id="page-label">指挥台</b></div><div class="top-actions"><span id="connection" class="connection"><i></i>读取存档</span><button class="icon-button settings-open" aria-label="游戏设置">⚙</button></div></header>
@@ -65,7 +65,7 @@
  <div id="move-warehouse-fields" hidden><label for="move-warehouse-fleet">所属舰队</label><select id="move-warehouse-fleet"><option value="voyager">远航者舰队</option><option value="jinchuan">金川舰队</option><option value="shadow">暗影舰队</option></select><label for="move-warehouse-name">新仓库名称</label><input id="move-warehouse-name" maxlength="50" placeholder="例如：秦锋备用仓"></div>
  <label for="move-note">备注（可选）</label><input id="move-note" maxlength="300" placeholder="例如：调整驻防物资"><button id="move-check" type="submit" class="secondary">核对调动</button></fieldset></form>
  <p id="move-status" role="status"></p><div id="move-preview"></div><button id="move-execute" type="button" class="primary" hidden>确认并执行调动</button>
- <details class="move-help"><summary>数量与调动口径</summary><p>只调动当前已明确数量的资源。公共库存、编制配属和单舰固定装备分别记账，历史采购与计划不增加可用量。舰级固定配置用作首次登记基准，未注明型号的仍保持原泛型。战舰转隶保留当前位置与历史任务，不模拟航行。</p><p>人员按人数和原T分组调动，不自动改写具名人物的岗位或故事位置。原档未单列数量或归属的资料仍可在舰队档案中查阅。新建仓库初始为空，从既有位置调入后才有库存。</p></details>
+ <details class="move-help"><summary>数量与调动口径</summary><p>只调动当前已明确数量的资源。公共库存、编制配属和单舰固定装备分别记账，历史采购与计划不增加可用量。舰级固定配置用作首次登记基准，未注明型号的仍保持原泛型。战舰转隶保留当前位置与历史任务，不模拟航行。</p><p>暗反1组从快反部队总数中分列；“快反本部及其他编组”只列剩余数量。同组随行舰员仍在各舰记账，避免重复计数。人员按人数和原T分组调动，不自动改写具名人物的岗位或故事位置。原档未单列数量或归属的资料仍可在舰队档案中查阅。新建仓库初始为空，从既有位置调入后才有库存。</p></details>
  <h3 class="directory-heading">调动记录</h3><div id="move-history"></div>
 </dialog>
 <div id="toast" role="status" class="toast" hidden></div>

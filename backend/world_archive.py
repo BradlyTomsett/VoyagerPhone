@@ -191,6 +191,8 @@ class WorldArchive:
         if not isinstance(t,(int,float)) or isinstance(t,bool):t=None
         book=self.state.get('engine_runtime',{}).get('internal_logistics_v1',{})
         cohorts=book.get('people',{}).get('farstar' if subject=='farstar' else 'qrf')
+        if cohorts is not None and subject=='shadow_qrf':
+            cohorts=cohorts+[row for lid,location in book.get('locations',{}).items() if location.get('parent')=='qrf' for row in book.get('people',{}).get(lid,[])]
         if cohorts is not None:
             values={r.get('T') for r in cohorts if r['quantity']}
             t=next(iter(values)) if len(values)==1 else None
