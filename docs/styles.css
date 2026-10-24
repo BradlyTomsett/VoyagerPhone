@@ -31,3 +31,6 @@ dialog select{display:block;width:100%;background:#111a14;color:var(--text);bord
 
 /* Ship names remain visible while class cards are collapsed. */
 .vessel-class>summary>.vessel-name{display:block;margin-right:76px;line-height:1.6;overflow-wrap:anywhere}.vessel-class-caption,.vessel-roster-preview{display:block;margin-top:6px;font-size:13px;line-height:1.7;overflow-wrap:anywhere}.vessel-class-caption{color:var(--muted)}.vessel-roster-preview{color:var(--accent)}
+
+.save-panel>.save-game{display:block;width:calc(100% - 40px);margin:14px 20px 7px;font-size:14px;padding:10px 15px}.save-panel>.save-status{font-size:12px;line-height:1.7;margin:0 20px 12px;color:var(--accent)}.save-panel>.save-status.error{color:var(--red)}
+.save-panel>[hidden]{display:none!important}

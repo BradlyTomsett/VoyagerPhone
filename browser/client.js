@@ -5,8 +5,11 @@ export class BrowserGame{
  rpc(method,data){const id=++this.next;return new Promise((resolve,reject)=>{this.waiting.set(id,{resolve,reject});this.worker.postMessage({id,method,data});});}
  makeWorker(){this.worker=new Worker(new URL('./worker.js',import.meta.url),{type:'module'});this.worker.onmessage=({data})=>{if(data.progress){this.onprogress(data.progress);return;}const p=this.waiting.get(data.id);if(!p)return;this.waiting.delete(data.id);data.error?p.reject(Error(data.error)):p.resolve(data.result);};this.worker.onerror=()=>{for(const p of this.waiting.values())p.reject(Error('WORKER_LOAD_FAILED'));this.waiting.clear();};}
  async init(){await takeLock();this.store=new SaveStore();await this.store.open();this.contract=await (await fetch('./model-contract.json')).json();let rec;try{rec=await this.store.read();}catch(e){this.backupAvailable=!!await this.store.read('previous');throw e;}this.makeWorker();await this.rpc('init',{snapshot:rec?.bytes});await this.checkpoint();navigator.storage?.persist?.().catch(()=>{});return this.rpc('state');}
- async checkpoint(){try{const bytes=await this.rpc('snapshot');this.saved=await this.store.write(bytes);await this.rpc('ack');this.frozen=false;}catch{this.frozen=true;throw Error('STORAGE_WRITE_FAILED');}}
- mutate(fn){const result=this.serial.then(async()=>{if(this.frozen)throw Error('STORAGE_WRITE_FAILED');return fn();});this.serial=result.catch(()=>{});return result;}
+ async checkpoint(){try{const bytes=await this.rpc('snapshot');const saved=await this.store.write(bytes);await this.rpc('ack');this.saved=saved;this.frozen=false;}catch{this.frozen=true;throw Error('STORAGE_WRITE_FAILED');}}
+ mutate(fn,{allowFrozen=false}={}){const result=this.serial.then(async()=>{if(!allowFrozen){if(this.frozen)throw Error('STORAGE_WRITE_FAILED');if(this.needsReload)throw Error('STORAGE_RELOAD_REQUIRED');}return fn();});this.serial=result.catch(()=>{});return result;}
+ // A manual checkpoint joins the mutation queue without submitting any draft.
+ // It can retry persistence after a storage failure; ordinary mutations stay blocked.
+ async save(){return this.mutate(async()=>{const interrupted=this.frozen;await this.checkpoint();if(interrupted)this.needsReload=true;return {savedAt:this.saved.savedAt,reloadRequired:!!this.needsReload};},{allowFrozen:true});}
  async transfer(preview,id='MOVE-'+crypto.randomUUID()){return this.mutate(async()=>{
   await this.rpc('transfer_prepare',{id,request:preview.request,base_save_set_id:preview.base_save_set_id,preview_hash:preview.preview_hash});
   await this.checkpoint(); // Durable user intent precedes the native mutation.

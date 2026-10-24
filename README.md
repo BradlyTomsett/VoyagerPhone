@@ -1,4 +1,4 @@
-# VoyagerPhone · 远航浏览器版 0.7.2
+# VoyagerPhone · 远航浏览器版 0.8.15
 
 [打开游戏](https://bradlytomsett.github.io/VoyagerPhone/)
 
@@ -46,7 +46,8 @@ VOYAGER V14.66 的单人星际沙盒。网页、Python 引擎和运行资源全�
 
 ## 进度、密钥与备份
 
-- 进度自动保存在当前浏览器的 IndexedDB，包含网页回合航志和校验值；存储事务完成后才报告保存成功。
+- 进度自动保存在当前浏览器的 IndexedDB，包含网页回合航志和校验值；也可点击“保存游戏”立即保存，并查看最近保存时间。写入和引擎确认完成后才显示成功；失败可重试保存或导出备份。手动保存不推进游戏时间，也不确认未执行的草案。
+- 指挥官问询采用舰队汇报口吻，正文不展示来源文件路径、内部编号与资料日期标签。现有回复显示时也会清理这类标注，真实行动日期、数量与未核实情况仍保留；内部证据与行动校验数据不变。
 - 同一存档只允许一个标签页写入。出现“游戏已在另一个标签页打开”时，关闭另一个游戏页再刷新。
 - 定期点击“导出当前存档”。换设备时使用“导入游戏存档”；导入会替换当前进度，请先导出备份。清除网站数据、移除浏览器配置或丢失设备可能丢失本机进度。
 - API Key 默认只保留在本次标签页会话中；只有主动勾选才在本机长期记住。导出文件不含密钥。不要把密钥提交到仓库。
@@ -64,6 +65,8 @@ VOYAGER V14.66 的单人星际沙盒。网页、Python 引擎和运行资源全�
 python scripts/build_browser.py
 node tests/browser_model.mjs
 node tests/browser_storage.mjs
+node tests/browser_manual_save.mjs
+node tests/browser_briefing.mjs
 node tests/browser_money.mjs
 node tests/browser_logistics_storage.mjs
 python -m unittest tests.test_logistics -v

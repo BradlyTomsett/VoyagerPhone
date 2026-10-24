@@ -18,7 +18,7 @@ def main():
         capture['review' if review else 'generation']={'instructions':instruction,'schema':schema}
         return ({'status':'PASS','reasons':[]} if review else {}),{}
     client.call=call;client.generate({});client.review({}, {}, '', 'setup')
-    (out/'model-contract.json').write_text(json.dumps(capture,ensure_ascii=False,separators=(',',':')))
+    (out/'model-contract.json').write_text(json.dumps(capture,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
     with zipfile.ZipFile(out/'engine-bundle.zip','w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
         for folder in ('seed','backend'):
             for p in sorted((ROOT/folder).rglob('*')):
@@ -31,8 +31,8 @@ def main():
     if not (runtime/'pyodide.asm.wasm').exists():raise SystemExit('Pinned Pyodide runtime missing; restore docs/vendor/pyodide or .qa/pyodide.')
     for p in runtime.iterdir():
         if p.is_file() and p.resolve()!=(vendor/p.name).resolve():shutil.copy2(p,vendor/p.name)
-    (out/'.nojekyll').write_text('')
+    (out/'.nojekyll').write_text('',encoding='utf-8')
     files={str(p.relative_to(out)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(out.rglob('*')) if p.is_file() and p.name!='asset-manifest.json'}
-    (out/'asset-manifest.json').write_text(json.dumps({'app_version':'0.8.14','pyodide_version':'0.27.7','files':files},separators=(',',':')))
+    (out/'asset-manifest.json').write_text(json.dumps({'app_version':'0.8.15','pyodide_version':'0.27.7','files':files},separators=(',',':')),encoding='utf-8')
     print(json.dumps({'files':len(files),'bundle_bytes':(out/'engine-bundle.zip').stat().st_size,'output':str(out)}))
 if __name__=='__main__':main()
