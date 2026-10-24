@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {narrativeText} from '../browser/narrative.js';
+const scene='店门外，旧货运轨道传来沉闷的金属摩擦声。\n\nQ3走进后仓，托马把同一只货箱登记了两次。\n“这箱先放着。”';
+const old='人物资料：尚未向视角角色透露的家人背景。\n\n**现场开场（8363-12-11 08:00，后仓）**\n'+scene+'\n\n**提交内容**\n- scene_id=SCENE-TEST，location_ref=LOC-TEST。\n一处需要你或宿主确认的技术面。';
+assert.equal(narrativeText(old),scene);
+assert.equal(narrativeText(scene),scene);
+assert.equal(narrativeText(scene+'\n\n**技术面确认**\n这里是实现字段'),scene);
+assert.equal(narrativeText('门上写着“提交内容请交前台”。'),'门上写着“提交内容请交前台”。');
+assert.equal(narrativeText('**托马**抬起头。'),'托马抬起头。');
+assert.equal(narrativeText(undefined),'');
+console.log('PASS scene-only rendering: observed prose and dialogue preserved; legacy background dump, technical checklist and Markdown markers excluded');

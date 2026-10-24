@@ -15,7 +15,7 @@ import threading
 import time
 import uuid
 import zipfile
-from .engine import EngineBridge, canonical, digest
+from .engine import EngineBridge, SubmissionNotCommitted, canonical, digest
 from .model import ModelClient, ModelError, CRITERIA
 from .settings import load_settings, save_settings, validated_settings, public_settings
 from .auth import OwnerAuth, LoginError, session_cookie
@@ -171,7 +171,17 @@ class GameService:
     def public(self, job):
         return {k: v for k, v in job.items() if k in {
             'id','request','status','created_at','updated_at','message','choices','payload',
-            'plan_hash','error','review','usage','result','base_identity','kind','validation'}}
+            'plan_hash','error','review','usage','result','base_identity','kind','validation','uncommitted'}}
+
+    def reject_unchanged_setup(self, job):
+        """Call only after successful guard recovery; migrate known old failures."""
+        if (job.get('status') == 'RECOVERY_REQUIRED' and job.get('kind') == 'setup'
+                and job.get('error') in {'STORY_ENTITY_UNAVAILABLE', 'STORY_LOCATION_REFERENCE_INVALID', 'SETUP_REFERENCE_UNAVAILABLE'}
+                and job.get('base_identity') == self.bridge.identity()):
+            job.update(status='BLOCKED', uncommitted=True)
+            self.store.save(job)
+            return True
+        return False
 
     def confirm(self, job_id, plan_hash):
         with self.transition_lock:
@@ -250,6 +260,7 @@ class GameService:
         result = self.bridge.submit(job)
         if result.get('status') in ('SAVED','ALREADY_APPLIED'):
             job.update(status='SAVED', result=result)
+            job.pop('error', None); job.pop('uncommitted', None)
         elif result.get('status') == 'COMMITTED_REPORT_REQUIRES_REREAD':
             # Never regenerate/reexecute. Keep the exact envelope for explicit recovery.
             job.update(status='RECOVERY_REQUIRED', error='COMMITTED_REPORT_REQUIRES_REREAD')
@@ -264,8 +275,10 @@ class GameService:
             elif job['status'] == 'QUEUED': self.generate(job)
         except Exception as ex:
             # Keep uncertain commits recoverable; never re-plan their mechanical actions.
-            job.update(status='RECOVERY_REQUIRED' if was_commit else 'FAILED',
+            rejected = was_commit and isinstance(ex, SubmissionNotCommitted)
+            job.update(status='BLOCKED' if rejected else 'RECOVERY_REQUIRED' if was_commit else 'FAILED',
                        error=safe_error(ex))
+            if rejected: job['uncommitted'] = True
             self.store.save(job)
 
     def worker(self):
@@ -414,7 +427,9 @@ def application(environ, start_response):
                                 job = game.store.get(match[1])
                                 if not job or job['status'] != 'RECOVERY_REQUIRED' or not job.get('envelope'):
                                     raise APIError(409, 'TURN_NOT_RECOVERABLE')
-                                job['status'] = 'COMMITTING'; game.store.save(job); game.signal.set()
+                                game.bridge.recover()
+                                if not game.reject_unchanged_setup(job):
+                                    job['status'] = 'COMMITTING'; game.store.save(job); game.signal.set()
                                 result = game.public(job)
                 else: raise APIError(404, 'NOT_FOUND')
                 if result is not None:

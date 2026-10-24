@@ -68,6 +68,14 @@ class BrowserBridge(EngineBridge):
             self._library_identity = identity
         return self._library
 
+    def setup_entities(self):
+        entities = super().setup_entities()
+        state = json.loads((self.root / 'state.json').read_bytes())
+        identity = commander_identity(state)
+        if identity and COMMANDER_ID not in entities:
+            entities[COMMANDER_ID] = {'canonical_name': identity['name'], 'entity_type': 'person'}
+        return entities
+
     def context(self, intent='', scene_id=None, actor_id=None):
         result = super().context(intent, scene_id, actor_id)
         if intent.strip(): result['source_library'] = self.source_library().context(intent)
@@ -131,7 +139,9 @@ class BrowserHost:
         for job in self.game.store.list():
             if job['status'] == 'COMMITTING':
                 if job.get('kind')=='internal_transfer':self.transfer_commit(job['id'])
-                else:self.game.commit(job)
+                else:self.game.process(job)
+            elif job['status'] == 'RECOVERY_REQUIRED':
+                self.game.reject_unchanged_setup(job)
 
     def state(self): return self.game.bridge.state()
     def jobs(self): return [self.game.public(j) for j in reversed(self.game.store.list()) if j.get('kind')!='internal_transfer']
@@ -288,7 +298,8 @@ class BrowserHost:
         if not job or job['status']!='RECOVERY_REQUIRED' or not job.get('envelope'):
             raise ValueError('TURN_NOT_RECOVERABLE')
         self.game.bridge.recover()
-        job['status']='COMMITTING';self.game.store.save(job)
+        if not self.game.reject_unchanged_setup(job):
+            job['status']='COMMITTING';self.game.store.save(job)
         return self.game.public(job)
 
     def snapshot(self):

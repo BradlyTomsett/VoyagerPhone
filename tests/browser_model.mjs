@@ -13,6 +13,9 @@ assert.equal(captured.options.credentials,'omit');assert.equal(captured.options.
 assert.equal(body.max_tokens,10000);assert.deepEqual(body.response_format,{type:'json_object'});
 assert(!captured.options.body.includes(config.api_key));assert.equal(JSON.stringify(packet).includes(config.api_key),false);
 assert(contract.instructions.includes('指挥官问询使用舰队汇报口吻'));
+assert(contract.instructions.includes('普通探索、交谈、开场和剧情推进采用小说式叙述'));
+assert(contract.instructions.includes('不写全知旁白'));
+assert(contract.instructions.includes('不要求玩家填写内部ID'));
 assert(!contract.instructions.includes('回答既有设定时注明来源文件与资料日期'));
 assert(contract.instructions.includes('内部 payload_json 的结构、标识及证据引用仍严格按契约填写'));
 assert(captured.options.body.includes('state.json#/synthetic'),'Internal evidence still reaches the model');

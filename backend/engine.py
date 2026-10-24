@@ -4,6 +4,7 @@ import hashlib
 import importlib.util
 import json
 import os
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -24,6 +25,12 @@ def module(path, name):
 
 SETUP_TYPES = {'scene_open', 'scene_phase', 'scene_focus_v2', 'scene_join',
                'life_place', 'life_profile', 'life_control', 'life_position'}
+
+class SubmissionNotCommitted(Exception):
+    """The guard recovered and verified the exact pre-submit save identity."""
+    def __init__(self, code):
+        self.code = code if re.fullmatch(r'[A-Z][A-Z0-9_]{2,100}', str(code)) else 'NATIVE_SUBMIT_REJECTED'
+        super().__init__(self.code)
 
 class EngineBridge:
     def __init__(self, root, authorize, reviewer):
@@ -69,12 +76,19 @@ class EngineBridge:
                         'game_time': m['game_time'], 'core': core, 'tasks': tasks,
                         'accounts': accounts, 'scenes': scenes, 'source': 'verified_engine'}
 
+    def setup_entities(self):
+        state = json.loads((self.root / 'state.json').read_bytes())
+        return {eid: row for eid, row in state.get('entity_registry', {}).get('entities', {}).items()
+                if isinstance(row, dict) and row.get('visibility') not in ('gm', 'secret', 'hidden')}
+
     def contracts(self, kind):
         schema = json.loads((self.root / 'development/schemas/story_turn_v3.json').read_text())
         if kind == 'turn':
             return schema
         a = self.host._engine()
-        return {'allowed_types': sorted(SETUP_TYPES), 'notes': [
+        return {'allowed_types': sorted(SETUP_TYPES),
+            'existing_entities': [{'id': eid, 'name': row.get('canonical_name', eid), 'type': row.get('entity_type')}
+                                  for eid, row in self.setup_entities().items()], 'notes': [
             'scene_open: scene_id, task_id(null allowed), family=conversation, title, location_ref(existing), participants, presence_mode(remote or present), visible_to',
             'scene_phase: scene_id, phase=open; scene_focus_v2: scene_id',
             'life_control: entity_id, operation=take, reason; only the selected actor',
@@ -104,9 +118,22 @@ class EngineBridge:
                 raise ValueError('SETUP_ACTIONS_INVALID')
             state = json.loads((self.root / 'state.json').read_text())
             profiles = state['engine_runtime']['living_world_v1']['profiles']
+            entities = self.setup_entities()
+            if entities.get(actor, {}).get('entity_type') != 'person':
+                raise ValueError('SETUP_REFERENCE_UNAVAILABLE')
             for act in actions:
                 if act.get('type') not in SETUP_TYPES:
                     raise ValueError('SETUP_TYPE_UNSUPPORTED')
+                references = [act[k] for k in ('entity_id', 'location_ref') if k in act]
+                if act['type'] == 'scene_open':
+                    participants = act.get('participants')
+                    if not isinstance(participants, list): raise ValueError('SETUP_REFERENCE_UNAVAILABLE')
+                    references.extend(participants)
+                if any(not isinstance(ref, str) or ref not in entities for ref in references):
+                    raise ValueError('SETUP_REFERENCE_UNAVAILABLE')
+                if act['type'] == 'scene_open' and entities.get(act.get('location_ref'), {}).get('entity_type') not in (
+                        'location', 'independent_station', 'independent_planet', 'mining_site', 'independent_agricultural_planet'):
+                    raise ValueError('STORY_LOCATION_REFERENCE_INVALID')
                 if act['type'] == 'life_control' and (act.get('entity_id') != actor or act.get('operation') != 'take'):
                     raise ValueError('SETUP_CONTROL_SCOPE')
                 if act['type'] == 'life_profile':
@@ -143,7 +170,22 @@ class EngineBridge:
     def submit(self, job):
         with self.lock:
             method = self.host.submit if job['kind'] == 'turn' else self.host.setup
-            return method(job['envelope'], job['next_version'])
+            before = self.identity()
+            try:
+                return method(job['envelope'], job['next_version'])
+            except Exception as error:
+                try:
+                    # A validation exception is not an uncertain commit if the
+                    # guard verifies that every authoritative file still belongs
+                    # to the exact original manifest. A changed/invalid save stays
+                    # recoverable under the original command ID.
+                    self.recover()
+                    unchanged = self.identity() == before and before == job.get('base_identity')
+                except Exception:
+                    unchanged = False
+                if unchanged:
+                    raise SubmissionNotCommitted(getattr(error, 'code', str(error).split(':')[0])) from error
+                raise
 
     def next_version(self):
         version = json.loads((self.root / 'manifest.json').read_text())['save_version']
