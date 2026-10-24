@@ -1,0 +1,37 @@
+import {equipmentImages} from './equipment-image-data.js';
+
+const normal=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/[\s·\-－—_]/g,'');
+export function matchingImages(query,context=''){
+ const text=normal(query),owner=normal(query+' '+context);
+ if(!text)return [];
+ const contains=alias=>{const key=normal(alias);let at=text.indexOf(key);while(at>=0){if(!/\d/.test(key.at(-1))||!/[0-9]/.test(text[at+key.length]||''))return true;at=text.indexOf(key,at+1);}return false;};
+ return equipmentImages.filter(image=>[image.name,...image.aliases].some(contains)).filter(image=>{
+  if(!image.original.includes('roadfox4'))return true;
+  if(owner.includes('余火')&&!owner.includes('霍克'))return image.original.includes('yuhuo_');
+  if(owner.includes('霍克')&&!owner.includes('余火'))return image.original.includes('hawk_team_');
+  return true;
+ });
+}
+export function equipmentLookup(query){
+ const images=matchingImages(query);if(!images.length)return query;
+ return images[0].aliases.reduce((a,b)=>normal(a).length<=normal(b).length?a:b);
+}
+function element(tag,cls,text){const el=document.createElement(tag);if(cls)el.className=cls;if(text)el.textContent=text;return el;}
+function figure(image,compact=false){
+ const box=element('figure','equipment-figure'+(compact?' equipment-figure-compact':'')),link=element('a','equipment-image-link');
+ link.href=new URL(image.original,import.meta.url).href;link.target='_blank';link.rel='noopener';link.setAttribute('aria-label','查看'+image.name+'高清原图');
+ const img=element('img');img.src=new URL(image.preview,import.meta.url).href;img.alt=image.name+'装备海报';img.width=image.width;img.height=image.height;img.loading='lazy';img.decoding='async';
+ img.onerror=()=>{link.hidden=true;caption.textContent=image.name+' · 查看高清原图';caption.href=new URL(image.original,import.meta.url).href;};
+ const caption=element('a','equipment-image-caption',image.name+' · 查看原图 ↗');caption.href=link.href;caption.target='_blank';caption.rel='noopener';link.append(img);box.append(link,caption);return box;
+}
+export function equipmentFigures(query,{compact=false,context=''}={}){
+ const images=matchingImages(query,context);if(!images.length)return null;
+ const out=element('div','equipment-illustrations'+(compact?' equipment-illustrations-compact':''));out.append(...images.map(image=>figure(image,compact)));return out;
+}
+export function equipmentGallery(onSelect){
+ const section=element('details','equipment-gallery'),summary=element('summary','','装备图册 · '+equipmentImages.length+' 张原图');section.append(summary);
+ let loaded=false;section.ontoggle=()=>{if(!section.open||loaded)return;loaded=true;
+  section.append(element('p','source-date','按型号查看图片，点击可打开高清原图。图册不表示持有数量；配属与性能以当前存档为准。'));
+  const grid=element('div','equipment-gallery-grid');for(const image of equipmentImages){const card=element('article','equipment-gallery-card');card.append(figure(image,true));const button=element('button','equipment-link','查看'+image.name+'资料 ↗');button.type='button';button.onclick=()=>onSelect(image.name);card.append(button);grid.append(card);}section.append(grid);
+ };return section;
+}

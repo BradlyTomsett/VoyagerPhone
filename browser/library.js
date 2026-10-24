@@ -1,7 +1,9 @@
-import {node,label,fmt,visible,recordView,highlights} from './dossier.js';
+import {node,label,fmt,visible,recordView,highlights,openEquipment} from './dossier.js';
+import {equipmentFigures,equipmentGallery} from './equipment-images.js';
 function preview(value){const lines=[];function walk(v,key='',depth=0){if(lines.length>=7||depth>5)return;if(v&&typeof v==='object'){for(const [k,x]of Object.entries(v))walk(x,k,depth+1);}else if(v!==undefined)lines.push((/^\d+$/.test(key)?'':label(key)+'：')+fmt(v));}walk(visible(value));return lines.join('；').slice(0,550);}
 export class SourceLibraryView{
  constructor(rpc,error){this.rpc=rpc;this.error=error;this.loaded=false;this.busy=false;this.query='';this.offset=0;this.next=null;this.topicGeneration=0;
+  document.querySelector('#library-images').replaceChildren(equipmentGallery(openEquipment));
   document.querySelector('#library-search').onsubmit=e=>{e.preventDefault();this.query=document.querySelector('#library-query').value.trim();this.offset=0;this.search();};
   document.querySelector('#library-next').onclick=()=>{if(this.next!==null){this.offset=this.next;this.search();}};
   document.querySelector('#library-category').onchange=()=>{this.offset=0;this.search();};
@@ -22,7 +24,7 @@ export class SourceLibraryView{
  async search(){if(this.busy){this.pending=true;return;}this.busy=true;const status=document.querySelector('#library-status');status.textContent='正在查阅存档记录…';document.querySelector('#library-next').disabled=true;
   try{this.result=await this.rpc('library_browse',{query:this.query,offset:this.offset,limit:16,history:document.querySelector('#library-history').checked,category:document.querySelector('#library-category').value});this.next=this.result.next_offset;
    const cards=this.result.results.map(record=>{const card=node('article','source-record'),head=node('div','source-record-heading');const title=record.value?.name||record.value?.title||label(record.label);head.append(node('h3','',title),node('span','source-kind',record.kind));card.append(head,node('small','source-date','记录日期：'+record.as_of),node('p','source-excerpt',preview(record.value)));
-    const detail=recordView({title:'展开详细内容',value:record.value});if(detail)card.append(detail);return card;});
+    const pictures=equipmentFigures(title,{compact:true});if(pictures)card.append(pictures);const detail=recordView({title:'展开详细内容',value:record.value,images:false});if(detail)card.append(detail);return card;});
    document.querySelector('#library-results').replaceChildren(...cards);status.textContent=this.result.total?`找到 ${this.result.total.toLocaleString('zh-CN')} 条，显示第 ${this.result.offset+1}—${Math.min(this.result.offset+16,this.result.total)} 条。`:'未找到匹配记录，可换用人物、地点或勾选历史归档。';document.querySelector('#library-next').hidden=this.next===null;document.querySelector('#library-next').disabled=false;
   }catch(e){status.textContent=this.error(e.message);}finally{this.busy=false;if(this.pending){this.pending=false;this.search();}}
  }

@@ -11,6 +11,7 @@ def main():
     for name in ('index.html','styles.css','icon.svg','manifest.webmanifest'):
         shutil.copy2(ROOT/'browser'/name if (ROOT/'browser'/name).exists() else ROOT/'dist'/name,out/name)
     for p in (ROOT/'browser').glob('*.js'):shutil.copy2(p,out/p.name)
+    shutil.copytree(ROOT/'browser/assets',out/'assets',dirs_exist_ok=True)
     capture={}
     client=ModelClient({'api_key':'BUILD_FIXTURE_NEVER_PUBLISHED','model_id':'build'})
     def call(instruction,data,schema,review=False):
@@ -32,6 +33,6 @@ def main():
         if p.is_file() and p.resolve()!=(vendor/p.name).resolve():shutil.copy2(p,vendor/p.name)
     (out/'.nojekyll').write_text('')
     files={str(p.relative_to(out)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(out.rglob('*')) if p.is_file() and p.name!='asset-manifest.json'}
-    (out/'asset-manifest.json').write_text(json.dumps({'app_version':'0.8.2','pyodide_version':'0.27.7','files':files},separators=(',',':')))
+    (out/'asset-manifest.json').write_text(json.dumps({'app_version':'0.8.3','pyodide_version':'0.27.7','files':files},separators=(',',':')))
     print(json.dumps({'files':len(files),'bundle_bytes':(out/'engine-bundle.zip').stat().st_size,'output':str(out)}))
 if __name__=='__main__':main()
