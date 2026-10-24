@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {equipmentImages} from '../browser/equipment-image-data.js';
-import {matchingImages} from '../browser/equipment-images.js';
+import {matchingImages,equipmentLookup} from '../browser/equipment-images.js';
 
 const source=JSON.parse(readFileSync(new URL('../seed/development/visual_assets/image_source_index.json',import.meta.url)));
 assert.equal(equipmentImages.length,20);
@@ -26,4 +26,6 @@ assert.equal(matchingImages('余火路狐4')[0].name,'余火 · 路狐-4 配送�
 assert.equal(matchingImages('霍克组路狐4').length,1);
 assert.equal(matchingImages('路狐4','余火咖啡').length,1);
 assert.ok(matchingImages('路狐4','余火咖啡')[0].original.includes('yuhuo_'));
+assert.equal(equipmentLookup('余火 · 路狐-4 配送摩托'),'路狐4');
+assert.equal(equipmentLookup('霍克组 · 林舟-4 轿车'),'林舟4');
 console.log('PASS: all 20 lossless originals match source checksums and published copies; aliases, numeric model boundaries and owner-specific variants map correctly.');

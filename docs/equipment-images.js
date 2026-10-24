@@ -14,7 +14,8 @@ export function matchingImages(query,context=''){
 }
 export function equipmentLookup(query){
  const images=matchingImages(query);if(!images.length)return query;
- return images[0].aliases.reduce((a,b)=>normal(a).length<=normal(b).length?a:b);
+ // The source search tokenizes hyphens; avoid a bare "-4" matching unrelated models.
+ return images[0].aliases.reduce((a,b)=>normal(a).length<=normal(b).length?a:b).replace(/[-－]/g,'');
 }
 function element(tag,cls,text){const el=document.createElement(tag);if(cls)el.className=cls;if(text)el.textContent=text;return el;}
 function figure(image,compact=false){
