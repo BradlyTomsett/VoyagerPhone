@@ -1,4 +1,4 @@
-# VoyagerPhone · 远航浏览器版 0.8.16
+# VoyagerPhone · 远航浏览器版 0.8.17
 
 [打开游戏](https://bradlytomsett.github.io/VoyagerPhone/)
 
