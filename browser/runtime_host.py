@@ -276,14 +276,18 @@ class BrowserHost:
         if method=='state':return self.state()
         if method=='jobs':return self.jobs()
         if method=='choices':return self.choices()
-        if method in ('library_topics','library_topic','library_browse','fleet_domain'):
+        if method in ('library_topics','library_topic','library_browse','fleet_domain','fleet_personnel'):
             library=self.game.bridge.source_library()
             if getattr(self,'_world_library',None) is not library:
                 self._world_library=library;self._world_archive=WorldArchive(library)
             world=self._world_archive
             if method=='library_topics':return world.topics()
             if method=='library_topic':return world.topic(data.get('topic'))
-            if method=='fleet_domain':return world.topic(data.get('domain'))
+            if method=='fleet_personnel':return world.personnel(data.get('subject'))
+            if method=='fleet_domain':
+                domain=data.get('domain')
+                if domain in ('army','qrf'):return world.force(data.get('fleet','voyager' if domain=='army' else 'shadow'),domain)
+                return world.topic(domain)
             return world.browse(data.get('query',''),data.get('offset',0),data.get('limit',16),data.get('history') is True,data.get('category','all'))
         if method=='library_summary':return self.game.bridge.source_library().summary()
         if method=='library_search':return self.game.bridge.source_library().search(

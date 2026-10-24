@@ -55,4 +55,27 @@ class WorldArchiveTests(unittest.TestCase):
         self.assertIs(self.library.rows,rows);self.assertEqual(len(rows),count)
         self.assertEqual(hashlib.sha256((ROOT/'state.json').read_bytes()).hexdigest(),before)
 
+    def test_force_ownership_and_current_personnel_seals(self):
+        farstar=self.world.force('voyager','army')
+        qrf=self.world.force('shadow','qrf')
+        self.assertEqual(farstar['parent_fleet'],'voyager')
+        self.assertEqual(qrf['parent_fleet'],'shadow')
+        self.assertEqual(qrf['highlights'][0]['metrics']['人员（人）'],2653)
+        for fleet,unit in [('shadow','army'),('voyager','qrf'),('jinchuan','army')]:
+            with self.assertRaises(ValueError):self.world.force(fleet,unit)
+        for subject,t,count,parent in [('farstar',100,4234,'远航者舰队'),('shadow_qrf',70,2653,'暗影舰队')]:
+            data=self.world.personnel(subject)
+            self.assertEqual((data['T'],data['personnel'],data['parent']),(t,count,parent))
+            self.assertIn('每名人员',data['notice'])
+        self.assertEqual(self.world.personnel('farstar')['as_of'],'8363-11-12T17:28:00')
+        self.assertIn('不覆盖暗影快反',self.world.personnel('farstar')['records'][0]['value']['适用边界'])
+        with self.assertRaises(ValueError):self.world.personnel('unknown')
+
+    def test_missing_personnel_t_is_not_invented_or_replaced_with_old_rule(self):
+        library=SourceLibrary(ROOT)
+        del library.documents['state']['commander_runtime_rules']['parameters']['farstar_voyager_personnel_T_100_v1439']['base_personal_T']
+        data=WorldArchive(library).personnel('farstar')
+        self.assertIsNone(data['T'])
+        self.assertIn('未给出',data['records'][0]['value']['T值说明'])
+
 if __name__=='__main__':unittest.main()

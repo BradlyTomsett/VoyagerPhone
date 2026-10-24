@@ -35,6 +35,13 @@ bases=host.dispatch('fleet_domain',{'domain':'bases'})
 assert bases['highlights'][0]['metrics']['berths']==70
 army=host.dispatch('fleet_domain',{'domain':'army'})
 assert army['highlights'][0]['metrics']['人员（人）']==4234
+assert army['parent_fleet']=='voyager'
+qrf=host.dispatch('fleet_domain',{'fleet':'shadow','domain':'qrf'})
+assert qrf['parent_fleet']=='shadow'
+assert qrf['highlights'][0]['metrics']['人员（人）']==2653
+for subject,t,count in [('farstar',100,4234),('shadow_qrf',70,2653)]:
+ detail=host.dispatch('fleet_personnel',{'subject':subject})
+ assert detail['T']==t and detail['personnel']==count
 for query in ['远航基地','暗影基地','远星军','余火']:
  result=host.dispatch('library_browse',{'query':query})
  assert result['total']>0

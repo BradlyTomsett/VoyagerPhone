@@ -56,7 +56,7 @@ def player_value(value, names=None):
 
 TOPICS = [
  ('bases','基地与总部','远航基地、暗影基地、基地人员、防卫与支援'),
- ('army','远星军','人员编制、常设装备、调派与战损口径'),
+ ('army','远航者舰队 · 远星军','所属人员编制、常设装备、调派与战损口径'),
  ('people','人物与岗位','舰队负责人、人物关系与身份记录'),
  ('xilu','熄炉与余火','店铺、员工、经营、家庭、社区及本地案件'),
  ('industry','产业与采矿','多国产业、矿业、打捞、资源储备及收入'),
@@ -132,7 +132,7 @@ class WorldArchive:
         w=self.state.get('world_state_overrides',{}).get('fleet_and_logistics',{})
         if topic=='army':
             army=self.state.get('voyager_fleet',{}).get('farstar_army_current',{})
-            highlights=[{'title':'远星军','as_of':army.get('as_of'),'metrics':{'人员（人）':army.get('personnel'),**army.get('standard_personal_equipment',{}),**army.get('organic_assets',{})},'note':army.get('personnel_accounting')}]
+            highlights=[{'title':'远星军','parent':'远航者舰队直属地面部队','personnel_subject':'farstar','as_of':army.get('as_of'),'metrics':{'人员（人）':army.get('personnel'),**army.get('standard_personal_equipment',{}),**army.get('organic_assets',{})},'note':army.get('personnel_accounting')}]
         elif topic=='bases':
             for key,title,fields in [('voyager_base_current','远航基地',['berths','full_service_repair_bays','normal_population_capacity','emergency_capacity','high_security_detention_capacity','medical_bays']),('shadow_base_current','暗影基地',['staff_recruitment','armored_vehicle_pool','combat_robot_pool'])]:
                 base=w.get(key,{})
@@ -141,8 +141,49 @@ class WorldArchive:
                     staff=base.get('staff_recruitment',{})
                     metrics={'招募工作人员（人）':staff.get('staff'),'招募武装警卫（人）':staff.get('armed_guards'),'招募合计（人）':staff.get('total'), '边盾-6（辆）':base.get('armored_vehicle_pool',{}).get('边盾-6')}
                 highlights.append({'title':title,'as_of':base.get('as_of'),'metrics':metrics,'note':base.get('idle_homeport_rule') or base.get('note')})
-        return {'title':spec[1],'highlights':highlights,'records':[self.display_record(r) for r in self.entries() if r['topic']==topic and player_value(r['value'],self.names) is not None],
+        return {'title':spec[1],'parent_fleet':'voyager' if topic=='army' else None,'highlights':highlights,'records':[self.display_record(r) for r in self.entries() if r['topic']==topic and player_value(r['value'],self.names) is not None],
                 'notice':'按原档日期分别列出。旧快照、历史案件和已取消事项保留原状态；不以旧值覆盖最新存档。'}
+
+    def force(self,fleet,unit):
+        if fleet=='voyager' and unit=='army':return self.topic('army')
+        if fleet!='shadow' or unit!='qrf':raise ValueError('FORCE_NOT_FOUND')
+        qrf=self.state.get('shadow_fleet',{}).get('quick_reaction_force_current',{})
+        metrics={'人员（人）':qrf.get('personnel')}
+        metrics.update(qrf.get('robots',{}));metrics.update(qrf.get('uavs',{}))
+        return {'title':'暗影舰队 · 快反部队','parent_fleet':'shadow',
+                'highlights':[{'title':'快反部队','parent':'暗影舰队所属地面机动力量','personnel_subject':'shadow_qrf',
+                    'as_of':qrf.get('as_of'),'metrics':metrics,
+                    'note':'快反人员包含在暗影舰队总人数内；霍克五人和暗反1组属于快反编制，按当前分组记录查看，不重复加总。'}],
+                'records':[self.display_record({'title':'快反部队现状','value':qrf,'ref':'state.json#/shadow_fleet/quick_reaction_force_current','as_of':qrf.get('as_of'),'kind':'当前存档记录'})],
+                'notice':'快反部队隶属暗影舰队。编制总数、分组、外派人员和所属装备分别列示；同一人员与资产不重复计数。'}
+
+    def personnel(self,subject):
+        params=self.state.get('commander_runtime_rules',{}).get('parameters',{})
+        if subject=='farstar':
+            force=self.state.get('voyager_fleet',{}).get('farstar_army_current',{})
+            rule=params.get('farstar_voyager_personnel_T_100_v1439',{})
+            title='远星军';parent='远航者舰队';t=rule.get('base_personal_T')
+            scope=rule.get('scope');as_of=rule.get('issued_game_time')
+            source='/commander_runtime_rules/parameters/farstar_voyager_personnel_T_100_v1439'
+            note=force.get('personnel_accounting');exception=rule.get('exclude')
+        elif subject=='shadow_qrf':
+            force=self.state.get('shadow_fleet',{}).get('quick_reaction_force_current',{})
+            title='快反部队';parent='暗影舰队'
+            t=force.get('training',{}).get('external_armed_personal_combat_power')
+            scope='暗影快反编制；霍克、Q2、Q3、Q4、Q5继续按各自现行封板T=70。'
+            as_of=force.get('as_of');source='/shadow_fleet/quick_reaction_force_current/training'
+            note='人数已包含在暗影舰队总人数内；当前小组、舰上分队与本地潜伏人员按配属记录查看。'
+            exception='远航者与远星军的T=100封板不覆盖暗影快反编制。'
+        else:raise ValueError('PERSONNEL_NOT_FOUND')
+        if not isinstance(t,(int,float)) or isinstance(t,bool):t=None
+        value={'所属舰队':parent,'编制':title,'人数（人）':force.get('personnel'),
+               '基础人员战斗力T（每人）':t,'适用人群':scope,'T值记录日期':as_of,
+               '编制人数记录日期':force.get('as_of'),'人员计数口径':note,'适用边界':exception}
+        if t is None:value['T值说明']='当前记录未给出该编制统一的人员T值。'
+        record={'title':'人员与现行T值','value':value,'ref':'state.json#'+source,'as_of':as_of,'kind':'现行人员口径'}
+        return {'title':title+' · 人员与战斗力T','parent':parent,'personnel':force.get('personnel'),'T':t,
+                'as_of':as_of,'records':[record],
+                'notice':'T表示每名人员的基础战斗力；有效人员战力另按实际主武器、装备完好率和动力甲计算。人数保持原存档口径。'}
 
     def display_record(self,record):
         return {**record,'value':player_value(record['value'],self.names)}
