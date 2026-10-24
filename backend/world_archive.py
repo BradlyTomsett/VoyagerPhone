@@ -55,7 +55,7 @@ def player_value(value, names=None):
     return value
 
 TOPICS = [
- ('bases','基地与总部','远航基地、暗影基地、基地人员、防卫与支援'),
+ ('bases','舰队基地与总部支援','远航者舰队的远航基地、暗影舰队的暗影基地，以及总部支援'),
  ('army','远航者舰队 · 远星军','所属人员编制、常设装备、调派与战损口径'),
  ('people','人物与岗位','舰队负责人、人物关系与身份记录'),
  ('xilu','熄炉与余火','店铺、员工、经营、家庭、社区及本地案件'),
@@ -140,9 +140,22 @@ class WorldArchive:
                 if key=='shadow_base_current':
                     staff=base.get('staff_recruitment',{})
                     metrics={'招募工作人员（人）':staff.get('staff'),'招募武装警卫（人）':staff.get('armed_guards'),'招募合计（人）':staff.get('total'), '边盾-6（辆）':base.get('armored_vehicle_pool',{}).get('边盾-6')}
-                highlights.append({'title':title,'as_of':base.get('as_of'),'metrics':metrics,'note':base.get('idle_homeport_rule') or base.get('note')})
+                fleet='voyager' if key=='voyager_base_current' else 'shadow'
+                parent='远航者舰队' if fleet=='voyager' else '暗影舰队'
+                highlights.append({'title':title,'parent':parent+'下属基地','parent_fleet':fleet,'as_of':base.get('as_of'),'metrics':metrics,'note':base.get('idle_homeport_rule') or base.get('note')})
         return {'title':spec[1],'parent_fleet':'voyager' if topic=='army' else None,'highlights':highlights,'records':[self.display_record(r) for r in self.entries() if r['topic']==topic and player_value(r['value'],self.names) is not None],
-                'notice':'按原档日期分别列出。旧快照、历史案件和已取消事项保留原状态；不以旧值覆盖最新存档。'}
+                'notice':('远航基地属于远航者舰队，暗影基地属于暗影舰队；总部支援资料另列。' if topic=='bases' else '')+'按原档日期分别列出。旧快照、历史案件和已取消事项保留原状态；不以旧值覆盖最新存档。'}
+
+    def base(self,fleet):
+        if fleet not in ('voyager','shadow'):raise ValueError('FLEET_BASE_NOT_FOUND')
+        parent,title,key=('远航者舰队','远航基地','voyager_base_current') if fleet=='voyager' else ('暗影舰队','暗影基地','shadow_base_current')
+        directory=self.topic('bases')
+        refs={'state.json#/world_state_overrides/fleet_and_logistics/'+key}
+        if fleet=='shadow':refs.add('state.json#/shadow_fleet/shadow_base_personnel_current')
+        records=[{**r,'title':parent+' · '+LABELS.get(r['title'],r['title'])} for r in directory['records'] if r['ref'] in refs]
+        return {'title':parent+' · '+title,'parent_fleet':fleet,
+                'highlights':[r for r in directory['highlights'] if r['parent_fleet']==fleet],
+                'records':records,'notice':title+'是'+parent+'内部的基地。这里只显示本舰队基地资料；不同日期的人员与设施记录分别保留，不重复加总。'}
 
     def force(self,fleet,unit):
         if fleet=='voyager' and unit=='army':return self.topic('army')

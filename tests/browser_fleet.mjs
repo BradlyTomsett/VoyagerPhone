@@ -33,6 +33,12 @@ topics=host.dispatch('library_topics',{})
 assert len(topics)==16
 bases=host.dispatch('fleet_domain',{'domain':'bases'})
 assert bases['highlights'][0]['metrics']['berths']==70
+for fleet,parent,base,other in [('voyager','远航者舰队','远航基地','shadow_base'),('shadow','暗影舰队','暗影基地','voyager_base')]:
+ scoped=host.dispatch('fleet_domain',{'domain':'bases','fleet':fleet})
+ assert scoped['parent_fleet']==fleet
+ assert len(scoped['highlights'])==1 and scoped['highlights'][0]['title']==base
+ assert scoped['highlights'][0]['parent']==parent+'下属基地'
+ assert all(other not in r['ref'] for r in scoped['records'])
 army=host.dispatch('fleet_domain',{'domain':'army'})
 assert army['highlights'][0]['metrics']['人员（人）']==4234
 assert army['parent_fleet']=='voyager'

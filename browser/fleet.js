@@ -3,7 +3,7 @@ const names=['远航者舰队','金川舰队','暗影舰队'],keys=['voyager','j
 export class FleetView{
  constructor(rpc,error,library){this.rpc=rpc;this.error=error;this.library=library;this.cache=new Map();this.fleet=null;this.generation=0;onEquipment(query=>this.equipment(query));onPersonnel(subject=>this.personnel(subject));
   document.querySelector('#fleet-close').onclick=()=>{document.querySelector('#fleet-detail').hidden=true;document.querySelector(`[data-fleet="${this.fleet}"]`)?.focus();};
-  document.querySelector('#fleet-filter').oninput=()=>this.filter();document.querySelectorAll('[data-domain]').forEach(b=>b.onclick=()=>this.open('voyager',b.dataset.domain));
+  document.querySelector('#fleet-filter').oninput=()=>this.filter();
   document.querySelectorAll('[data-fleet-pane]').forEach(b=>b.onclick=()=>this.pane(b.dataset.fleetPane));
   document.querySelector('#equipment-close').onclick=()=>document.querySelector('#equipment-details').close();
  }
@@ -13,10 +13,11 @@ export class FleetView{
   card.append(node('div','eyebrow',['VOYAGER FLEET','JINCHUAN FLEET','SHADOW FLEET'][i]),node('h3','',data.display_name||names[i]));
   const stats=node('div','fleet-stat');for(const [value,title]of [[data.ships,'在役舰船 / 艘'],[data.personnel,'舰队人员 / 人']]){const box=node('div');box.append(node('strong','',fmt(value??'—')),node('span','',title));stats.append(box);}card.append(stats,node('span','fleet-open-hint','查看舰船、装备与武器档案 ↗'));card.onclick=()=>this.open(key);group.append(card);
   if(key==='voyager'||key==='shadow'){const unit=key==='voyager'?'army':'qrf',name=key==='voyager'?'远星军':'快反部队',button=node('button','fleet-subunit');button.type='button';button.dataset.fleetUnit=unit;button.append(node('small','',names[i]+'下属部队'),node('strong','',name+' ↗'),node('span','','人员编制、战斗力 T 与常设装备'));button.onclick=()=>this.open(key,unit);group.append(button);}
+  if(key==='voyager'||key==='shadow'){const name=key==='voyager'?'远航基地':'暗影基地',button=node('button','fleet-subunit');button.type='button';button.dataset.fleetBase=key;button.append(node('small','',names[i]+'下属基地'),node('strong','',name+' ↗'),node('span','','设施容量、基地人员与防卫资料'));button.onclick=()=>this.open(key,'bases');group.append(button);}
   return group;
  }));}
  async fetch(method,data={}){const key=method+JSON.stringify(data);if(!this.cache.has(key))this.cache.set(key,this.rpc(method,data).catch(e=>{this.cache.delete(key);throw e;}));return this.cache.get(key);}
- async open(fleet,initialPane='ships'){this.fleet=fleet;this.generation++;document.querySelector('#fleet-detail').hidden=false;document.querySelector('#fleet-detail-title').textContent=names[keys.indexOf(fleet)]+' · 详细档案';document.querySelector('#fleet-detail').scrollIntoView({behavior:'smooth',block:'start'});document.querySelector('[data-fleet-pane=army]').hidden=fleet!=='voyager';document.querySelector('[data-fleet-pane=qrf]').hidden=fleet!=='shadow';await this.pane(initialPane);}
+ async open(fleet,initialPane='ships'){this.fleet=fleet;this.generation++;document.querySelector('#fleet-detail').hidden=false;document.querySelector('#fleet-detail-title').textContent=names[keys.indexOf(fleet)]+' · 详细档案';document.querySelector('#fleet-detail').scrollIntoView({behavior:'smooth',block:'start'});document.querySelector('[data-fleet-pane=army]').hidden=fleet!=='voyager';document.querySelector('[data-fleet-pane=qrf]').hidden=fleet!=='shadow';const base=document.querySelector('[data-fleet-pane=bases]');base.hidden=fleet==='jinchuan';base.textContent=fleet==='shadow'?'暗影基地':'远航基地';await this.pane(initialPane);}
  async pane(pane){if(!this.fleet)return;const generation=++this.generation,fleet=this.fleet;this.activePane=pane;
   document.querySelectorAll('[data-fleet-pane]').forEach(b=>{b.classList.toggle('active',b.dataset.fleetPane===pane);b.setAttribute('aria-pressed',String(b.dataset.fleetPane===pane));});
   const body=document.querySelector('#fleet-detail-body');body.replaceChildren(node('p','empty','正在读取当前存档…'));document.querySelector('#fleet-filter').value='';document.querySelector('#fleet-detail-status').textContent='';

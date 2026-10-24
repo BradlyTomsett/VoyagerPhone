@@ -356,6 +356,7 @@ class BrowserHost:
             if method=='fleet_domain':
                 domain=data.get('domain')
                 if domain in ('army','qrf'):return world.force(data.get('fleet','voyager' if domain=='army' else 'shadow'),domain)
+                if domain=='bases' and data.get('fleet'):return world.base(data['fleet'])
                 return world.topic(domain)
             return world.browse(data.get('query',''),data.get('offset',0),data.get('limit',16),data.get('history') is True,data.get('category','all'))
         if method=='library_summary':return self.game.bridge.source_library().summary()

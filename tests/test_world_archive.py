@@ -36,6 +36,19 @@ class WorldArchiveTests(unittest.TestCase):
             else:self.assertEqual(next(e['value'] for e in entries if e['ref']==root),value)
         for topic in self.world.topics():self.assertTrue(self.world.topic(topic['id'])['records'])
 
+    def test_base_ownership_is_scoped_to_its_fleet(self):
+        for fleet,parent,title,other in [('voyager','远航者舰队','远航基地','shadow_base'),('shadow','暗影舰队','暗影基地','voyager_base')]:
+            data=self.world.base(fleet)
+            self.assertEqual(data['parent_fleet'],fleet)
+            self.assertEqual(len(data['highlights']),1)
+            self.assertEqual(data['highlights'][0]['title'],title)
+            self.assertEqual(data['highlights'][0]['parent'],parent+'下属基地')
+            self.assertTrue(data['records'])
+            self.assertTrue(all(other not in r['ref'] and 'headquarters' not in r['ref'] for r in data['records']))
+            self.assertTrue(all(r['title'].startswith(parent+' · ') for r in data['records']))
+        self.assertEqual({r['parent_fleet'] for r in self.world.topic('bases')['highlights']},{'voyager','shadow'})
+        with self.assertRaisesRegex(ValueError,'FLEET_BASE_NOT_FOUND'):self.world.base('jinchuan')
+
     def test_presentation_omits_empty_and_internal_data_but_keeps_zero(self):
         value=player_value({'qty':0,'active':False,'empty':{},'array':[],'none':None,'asset_id':'ASSET-123','owner_ref':'state:x','implementation_status':'semantic_only','title':'手雷','parameters':{'modes':['催泪','照明']}})
         self.assertEqual(value,{'qty':0,'active':False,'title':'手雷','parameters':{'modes':['催泪','照明']}})
