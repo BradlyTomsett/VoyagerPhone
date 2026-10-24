@@ -18,6 +18,8 @@ export function matchingImages(query,context=''){
 export function equipmentSearchText(query){return [query,...matchingImages(query).flatMap(image=>[image.name,...image.aliases])].join(' ').toLocaleLowerCase();}
 export function equipmentImageQuery(query,context=''){
  if(normal(query)==='制式步枪'&&context.includes('自有'))return '自有制式步枪';
+ // The material ledger retains the self-owned item name 手枪; purchased pistols use 外购手枪.
+ if(normal(query)==='手枪'&&(context.includes('自有')||context.endsWith(' · 当前实物')))return '自有手枪';
  if(normal(query)==='外购步枪'&&context.includes('民用'))return '外购民用步枪';
  return query;
 }

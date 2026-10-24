@@ -33,6 +33,6 @@ def main():
         if p.is_file() and p.resolve()!=(vendor/p.name).resolve():shutil.copy2(p,vendor/p.name)
     (out/'.nojekyll').write_text('')
     files={str(p.relative_to(out)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(out.rglob('*')) if p.is_file() and p.name!='asset-manifest.json'}
-    (out/'asset-manifest.json').write_text(json.dumps({'app_version':'0.8.11','pyodide_version':'0.27.7','files':files},separators=(',',':')))
+    (out/'asset-manifest.json').write_text(json.dumps({'app_version':'0.8.12','pyodide_version':'0.27.7','files':files},separators=(',',':')))
     print(json.dumps({'files':len(files),'bundle_bytes':(out/'engine-bundle.zip').stat().st_size,'output':str(out)}))
 if __name__=='__main__':main()

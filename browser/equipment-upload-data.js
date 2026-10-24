@@ -113,5 +113,20 @@ export const uploadedEquipmentImages = [
     "height": 1086,
     "sha256": "b2f17d8497e4825816769403a358068cb60f401c0357f002ddff814de41cb769",
     "source": "用户提供并标注为外购军用步枪"
+  },
+  {
+    "name": "自有手枪",
+    "aliases": [
+      "自有制式手枪",
+      "自有军用手枪",
+      "自制手枪"
+    ],
+    "lookup": "自有手枪",
+    "original": "assets/equipment/original/self_owned_pistol.png",
+    "preview": "assets/equipment/preview/self_owned_pistol.webp",
+    "width": 2560,
+    "height": 1696,
+    "sha256": "c8d21df20782161314c9d947f899473de1ece71aa89d4352579b500f81a82828",
+    "source": "用户提供并标注为自有手枪"
   }
 ];
