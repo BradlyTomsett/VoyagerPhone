@@ -21,10 +21,9 @@ request={'client_id':'WEB-synthetic-preflight','mode':'action','intent':'SYNTHET
 packet=host.begin(request)
 assert packet['packet']['native_schema']['existing_entities']
 bad={'actions':[{'type':'scene_open','scene_id':'SCENE-SYNTHETIC-INVALID','task_id':None,'family':'conversation','title':'SYNTHETIC invalid scene','location_ref':'LOC-FREEPORT-XILU9-SEVENDOCK','participants':['PER-SYNTHETIC-MISSING',actor],'presence_mode':'remote','visible_to':['player']}]}
-try:host.accept_plan(request['client_id'],{'kind':'setup','message':'SYNTHETIC draft','payload_json':json.dumps(bad),'choices':[]},{})
-except ValueError as error:assert str(error)=='SETUP_REFERENCE_UNAVAILABLE',error
-else:raise AssertionError('Unknown participant passed setup preflight')
-host.fail(request['client_id'],'SETUP_REFERENCE_UNAVAILABLE')
+rejected=host.accept_plan(request['client_id'],{'kind':'setup','message':'SYNTHETIC draft','payload_json':json.dumps(bad),'choices':[]},{})
+assert rejected['job']['status']=='FAILED' and rejected['review_packet'] is None,rejected
+assert rejected['job']['reference_issues'][0]['kind']=='person',rejected
 assert host.jobs()[-1]['status']=='FAILED'
 # Bypass the new preflight solely to reproduce the native failure produced by old clients.
 request['client_id']='WEB-synthetic-legacy-setup'

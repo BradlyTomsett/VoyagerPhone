@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {setupReferenceText} from '../browser/setup-feedback.js';
+const failed={status:'FAILED',reference_issues:[{kind:'person',name:'托马',reason:'missing'}]};
+assert(setupReferenceText(failed).includes('参与者“托马”'));
+assert(setupReferenceText(failed).includes('不表示你选定的视角人物有误'));
+assert(setupReferenceText(failed).includes('没有执行'));
+assert(!setupReferenceText({...failed,status:'RECOVERY_REQUIRED'}).includes('没有执行'));
+assert(setupReferenceText({...failed,status:'RECOVERY_REQUIRED'}).includes('核对这次提交'));
+assert(setupReferenceText({status:'BLOCKED',uncommitted:true}).includes('其他参与者'));
+console.log('PASS setup feedback distinguishes selected actor, cast, locations and uncertain submissions');

@@ -134,6 +134,7 @@ mode=query 时只能 answer 或 needs_information，不推进时间，不声称�
 mode=action 时可提出 setup/turn 草案；任何变更均等玩家确认并由引擎提交。
 没有开放场景时不能复活旧事件，使用全新 scene_id，缺少人物/地点信息时询问玩家。
 setup 的 payload_json 为 {"actions":[...]}; 只使用提供的 setup 契约。人物和地点必须从 native_schema.existing_entities 匹配，不能凭名称猜造内部编号，也不能把故事背景中提到的人直接当成已登记参与者。
+native_schema.source_people 是原存档已有、由宿主接入的人物，使用其提供的确切身份即可；不要自行生成 entity_register，不重复创造他们的身世、位置、知情或资产。使用有歧义的短名前先核对全名。
 现有人物或地点无法匹配时返回 needs_information，用名字向玩家询问必要的视角或地点，不要求玩家填写内部ID，不把尚未完成的核对写成小说中已发生的情节。
 新编人物背景与场景感官在结构化设定中明确标为创作草案，不能伪称已核实的过去；界面会统一标明草案未执行，故事正文保持连贯，不插入审计、创作声明或技术检查清单。
 turn 的 payload_json 为 STORY_TURN_PROPOSAL_V3。严格遵循 native_schema，包含 experience。

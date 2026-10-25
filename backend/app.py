@@ -171,7 +171,7 @@ class GameService:
     def public(self, job):
         return {k: v for k, v in job.items() if k in {
             'id','request','status','created_at','updated_at','message','choices','payload',
-            'plan_hash','error','review','usage','result','base_identity','kind','validation','uncommitted'}}
+            'plan_hash','error','review','usage','result','base_identity','kind','validation','uncommitted','reference_issues'}}
 
     def reject_unchanged_setup(self, job):
         """Call only after successful guard recovery; migrate known old failures."""

@@ -10,6 +10,7 @@ import shutil
 import subprocess
 import sys
 import threading
+from backend.setup_references import resolve_setup
 
 def canonical(value):
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':'))
@@ -119,6 +120,8 @@ class EngineBridge:
             state = json.loads((self.root / 'state.json').read_text())
             profiles = state['engine_runtime']['living_world_v1']['profiles']
             entities = self.setup_entities()
+            payload = resolve_setup(payload, actor, entities)
+            actions = payload['actions']
             if entities.get(actor, {}).get('entity_type') != 'person':
                 raise ValueError('SETUP_REFERENCE_UNAVAILABLE')
             for act in actions:

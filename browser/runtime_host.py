@@ -23,6 +23,7 @@ from pathlib import Path
 from backend.app import GameService, ACTIVE, safe_error
 from backend.engine import EngineBridge, canonical, digest, module
 from backend.model import CRITERIA, WRAPPER, REVIEW, matches_output
+from backend.setup_references import source_people, SetupReferenceError, resolve_setup
 from backend.source_library import SourceLibrary
 from backend.fleet_archive import FleetArchive
 from backend.world_archive import WorldArchive
@@ -71,6 +72,7 @@ class BrowserBridge(EngineBridge):
     def setup_entities(self):
         entities = super().setup_entities()
         state = json.loads((self.root / 'state.json').read_bytes())
+        entities.update(source_people(state))
         identity = commander_identity(state)
         if identity and COMMANDER_ID not in entities:
             entities[COMMANDER_ID] = {'canonical_name': identity['name'], 'entity_type': 'person'}
@@ -90,11 +92,26 @@ class BrowserBridge(EngineBridge):
     def contracts(self, kind):
         result = super().contracts(kind)
         if kind == 'setup':
+            state = json.loads((self.root / 'state.json').read_bytes())
+            result['source_people'] = [{'id': eid, 'name': row['canonical_name'], 'basis_ref': row['basis_ref']}
+                                       for eid, row in source_people(state).items()]
+            result['notes'].append('Some existing people are recorded in source_people. Use their exact IDs from existing_entities. The browser stages only the referenced source-backed identities before the reviewed setup; do not generate entity_register. Registration adds no biography, movement, crew, assets or knowledge. Prefer full names; ambiguous names require clarification.')
             result['notes'].append('PER-COMMANDER-01 is the existing player commander in state:key_personnel_current_roles.PER-COMMANDER-01. If absent from the person registry, the browser prepends its exact identity registration to the reviewed setup. Do not emit entity_register yourself. Prepare life_profile, life_control and scene setup as usual; do not invent past experiences or physical location.')
         return result
 
     def normalize(self, plan, job, context):
         payload = super().normalize(plan, job, context)
+        if plan['kind'] == 'setup':
+            state = json.loads((self.root / 'state.json').read_bytes())
+            needed = {job['request']['actor_id']}
+            for action in payload['actions']:
+                needed.add(action.get('entity_id'))
+                needed.update(action.get('participants', []))
+            registrations = [{'type': 'entity_register', 'entity_id': eid, 'name': row['canonical_name'],
+                              'aliases': [], 'role': row['role']}
+                             for eid, row in source_people(state).items() if eid in needed]
+            if len(payload['actions']) + len(registrations) > 20: raise ValueError('SETUP_ACTIONS_INVALID')
+            payload['actions'] = registrations + payload['actions']
         if plan['kind'] == 'setup' and job['request']['actor_id'] == COMMANDER_ID:
             state = json.loads((self.root / 'state.json').read_text())
             identity = commander_identity(state)
@@ -144,7 +161,16 @@ class BrowserHost:
                 self.game.reject_unchanged_setup(job)
 
     def state(self): return self.game.bridge.state()
-    def jobs(self): return [self.game.public(j) for j in reversed(self.game.store.list()) if j.get('kind')!='internal_transfer']
+    def jobs(self):
+        result = []
+        for job in reversed(self.game.store.list()):
+            if job.get('kind') == 'internal_transfer': continue
+            # Diagnose old rejected drafts without retrying or altering their payload.
+            if job.get('kind') == 'setup' and job.get('error') in ('STORY_ENTITY_UNAVAILABLE', 'SETUP_REFERENCE_UNAVAILABLE', 'STORY_LOCATION_REFERENCE_INVALID') and job.get('payload') and not job.get('reference_issues'):
+                try: resolve_setup(job['payload'], job['request'].get('actor_id'), super(BrowserBridge, self.game.bridge).setup_entities())
+                except SetupReferenceError as error: job['reference_issues'] = error.issues
+            result.append(self.game.public(job))
+        return result
 
     def transfer_preview(self, request):
         plan=Logistics(self.game.bridge.source_library()).plan(request)
@@ -198,15 +224,15 @@ class BrowserHost:
 
     def choices(self):
         state = json.loads((self.game.bridge.root / 'state.json').read_text())
-        entities = state.get('entity_registry', {}).get('entities', {})
+        entities = self.game.bridge.setup_entities()
         # Names/IDs from public registry metadata; no GM profiles or hidden facts.
         actors, places = [], []
         for eid, rec in entities.items():
             if not isinstance(rec, dict): continue
             if rec.get('visibility') in ('gm', 'secret', 'hidden'): continue
             item = {'id': eid, 'name': rec.get('canonical_name') or ('未命名人物' if eid.startswith('PER-') else '未命名地点')}
-            if eid.startswith('PER-'): actors.append(item)
-            if eid.startswith(('LOC-', 'PLACE-', 'STA-', 'SYS-', 'REG-')): places.append(item)
+            if rec.get('entity_type') == 'person': actors.append(item)
+            if rec.get('entity_type') in ('location','independent_station','independent_planet','mining_site','independent_agricultural_planet'): places.append(item)
         commander = commander_identity(state)
         if commander:
             actors = [{'id': COMMANDER_ID, 'name': commander['name']}] + [a for a in actors if a['id'] != COMMANDER_ID]
@@ -250,7 +276,12 @@ class BrowserHost:
             self.prepared.pop(job_id, None)
             packet = None
         else:
-            job['payload'] = self.game.bridge.normalize(plan, job, context)
+            try:
+                job['payload'] = self.game.bridge.normalize(plan, job, context)
+            except SetupReferenceError as error:
+                job.update(status='FAILED', error='SETUP_REFERENCE_UNAVAILABLE', reference_issues=error.issues, uncommitted=True)
+                self.game.store.save(job); self.prepared.pop(job_id, None)
+                return {'job': self.game.public(job), 'review_packet': None}
             job['status'] = 'REVIEWING'
             packet = {'context':context,'exact_payload':job['payload'],
                       'original_intent':job['request']['intent'],'kind':kind}
