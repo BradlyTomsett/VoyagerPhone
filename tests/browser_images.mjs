@@ -29,7 +29,7 @@ assert.equal(matchingImages('路狐4','余火咖啡').length,1);
 assert.ok(matchingImages('路狐4','余火咖啡')[0].original.includes('yuhuo_'));
 assert.equal(equipmentLookup('余火 · 路狐-4 配送摩托'),'路狐4');
 assert.equal(equipmentLookup('霍克组 · 林舟-4 轿车'),'林舟4');
-assert.equal(allImages.length,32);
+assert.equal(allImages.length,34);
 for(const image of uploadedEquipmentImages){for(const folder of ['browser','docs']){const bytes=readFileSync(new URL('../'+folder+'/'+image.original,import.meta.url));assert.equal(createHash('sha256').update(bytes).digest('hex'),image.sha256);assert.ok(readFileSync(new URL('../'+folder+'/'+image.preview,import.meta.url)).length<bytes.length/4);}}
 for(const query of ['M1','M-1','M１动力甲','M1型动力甲']){assert.equal(matchingImages(query).length,1,query);assert.equal(matchingImages(query)[0].name,'M1动力甲');}
 for(const query of ['M10动力甲','XM1动力甲','M1A动力甲'])assert.equal(matchingImages(query).length,0,query);
@@ -89,4 +89,12 @@ assert.equal(matchingImages('外购步枪','民用仓库 · 当前实物')[0].na
 assert.equal(matchingImages('手枪','民用仓库 · 当前实物')[0].name,'自有手枪');
 assert.equal(matchingImages('外购民用步枪','军用仓库 · 当前实物')[0].name,'民用步枪');
 assert.equal(new Set(['自有步枪','外购军用步枪','民用步枪','自有手枪','外购军用手枪','民用手枪'].map(query=>matchingImages(query)[0].sha256)).size,6);
+for(const query of ['SCV','scv','ＳＣＶ工程机器人','SCV工程机器人','SCV工程机甲']){assert.equal(matchingImages(query).length,1,query);assert.equal(matchingImages(query)[0].name,'SCV工程机器人');}
+assert.equal(matchingImages('XSCV工程机器人').length,0);
+assert.equal(equipmentLookup('SCV'),'SCV工程机器人');
+for(const query of ['工蜂-11','工蜂11','工蜂－１１工程机器人','工蜂11型工程机器人']){assert.equal(matchingImages(query).length,1,query);assert.equal(matchingImages(query)[0].name,'工蜂-11');}
+assert.equal(matchingImages('工蜂-110').length,0);
+assert.equal(equipmentLookup('工蜂-11'),'工蜂11');
+assert.equal(matchingImages('SCV')[0].sha256,'aec674defa3a7ba6934bbeab3ac0cd7135c1b605c0d85b397c0a33825c5bc7aa');
+assert.equal(matchingImages('工蜂-11')[0].sha256,'3fcb9a448480055af5fb04ef18994d3579b042cb3562f62da24c1dc67d11fa56');
 console.log('PASS: 20 archived posters and all player-supplied images preserve original hashes; model aliases, number boundaries and owner variants map correctly.');

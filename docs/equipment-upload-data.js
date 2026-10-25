@@ -195,5 +195,34 @@ export const uploadedEquipmentImages = [
     "height": 1600,
     "sha256": "aa02cc4b86888f3138e2aa9a0394d752c4f415e137fcc7b745fe6b7a3b66d88a",
     "source": "用户提供并标注为民用手枪"
+  },
+  {
+    "name": "SCV工程机器人",
+    "aliases": [
+      "SCV",
+      "SCV工程机甲"
+    ],
+    "lookup": "SCV工程机器人",
+    "original": "assets/equipment/original/scv_engineering_robot.png",
+    "preview": "assets/equipment/preview/scv_engineering_robot.webp",
+    "width": 1122,
+    "height": 1402,
+    "sha256": "aec674defa3a7ba6934bbeab3ac0cd7135c1b605c0d85b397c0a33825c5bc7aa",
+    "source": "用户提供并标注为SCV工程机器人"
+  },
+  {
+    "name": "工蜂-11",
+    "aliases": [
+      "工蜂11",
+      "工蜂11型工程机器人",
+      "工蜂-11工程机器人"
+    ],
+    "lookup": "工蜂11",
+    "original": "assets/equipment/original/worker_bee_11_engineering_robot.png",
+    "preview": "assets/equipment/preview/worker_bee_11_engineering_robot.webp",
+    "width": 1122,
+    "height": 1402,
+    "sha256": "3fcb9a448480055af5fb04ef18994d3579b042cb3562f62da24c1dc67d11fa56",
+    "source": "用户提供并标注为工蜂-11"
   }
 ];
