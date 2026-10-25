@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
-import {shipImages,shipImage,shipScale,maxShipLength} from '../browser/ship-images.js';
+import {shipImage,shipScale,maxShipLength} from '../browser/ship-images.js';
+import {shipImages} from '../browser/ship-image-data.js';
 
 const json=path=>JSON.parse(readFileSync(new URL('../'+path,import.meta.url)));
 const catalog=json('seed/catalog.json').catalog_registry.entities;

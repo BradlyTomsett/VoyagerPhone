@@ -1,17 +1,21 @@
-import {shipImages} from './ship-image-data.js';
-export {shipImages};
-const byId=new Map(shipImages.map(image=>[image.id,image]));
-const byName=new Map(shipImages.map(image=>[image.name,image]));
+import {shipImages as voyagerShipImages} from './ship-image-data.js';
+import {shadowShipImages} from './shadow-ship-image-data.js';
+export const shipImages=[...voyagerShipImages,...shadowShipImages];
+const byId=new Map(voyagerShipImages.map(image=>[image.id,image]));
+const byName=new Map(voyagerShipImages.map(image=>[image.name,image]));
+const byVesselId=new Map(shadowShipImages.map(image=>[image.vessel_id,image]));
 export const maxShipLength=Math.max(...shipImages.map(image=>image.length));
 export function shipImage(ship){
  if(!ship||typeof ship!=='object')return null;
+ // Individual hull identity survives transfers and takes precedence over class names.
+ const vessel=byVesselId.get(ship.vessel_id||ship.id||ship.entity_id);if(vessel)return vessel;
  const id=ship.class_id||ship.entity_id;
  // An unknown class must never inherit artwork just because its name overlaps.
  return id?byId.get(id)||null:byName.get(ship.class_name||ship.name)||null;
 }
 export function shipScale(ship){const image=shipImage(ship);return image?image.length/maxShipLength:null;}
 function node(tag,cls,text){const element=document.createElement(tag);if(cls)element.className=cls;if(text)element.textContent=text;return element;}
-export function shipFigure(ship,{scaled=false}={}){
+export function shipFigure(ship,{scaled=false,lengthLabel}={}){
  const image=shipImage(ship);if(!image)return null;
  const figure=node('figure','ship-figure'+(scaled?' ship-figure-scaled':''));
  figure.dataset.shipClass=image.id;figure.dataset.shipLength=String(image.length);
@@ -21,7 +25,7 @@ export function shipFigure(ship,{scaled=false}={}){
  const img=node('img','ship-art-image');img.src=new URL(image.preview,import.meta.url).href;
  img.alt=image.name+'，舰长'+image.length+'米，'+image.features;img.width=image.width;img.height=image.height;
  img.loading='lazy';img.decoding='async';
- const caption=node('figcaption','ship-art-caption'),enlarge=node('a','ship-enlarge','点图放大 ↗');enlarge.href=link.href;enlarge.target='_blank';enlarge.rel='noopener';caption.append(node('strong','',image.length+' 米'),node('span','',image.role),enlarge);
+ const caption=node('figcaption','ship-art-caption'),enlarge=node('a','ship-enlarge','点图放大 ↗');enlarge.href=link.href;enlarge.target='_blank';enlarge.rel='noopener';caption.append(node('strong','',lengthLabel||image.length+' 米'),node('span','',image.role),enlarge);
  img.onerror=()=>{link.hidden=true;caption.append(node('span','','图片暂未载入，可点击查看原图。'));};
  link.append(img);figure.append(link,caption);return figure;
 }

@@ -1,0 +1,374 @@
+{
+  "schema": "VOYAGER_SHADOW_SHIP_ARTWORK_V1",
+  "generator": "built-in image_gen",
+  "basis": "unchanged shadow_fleet vessel records and armament_audit_current; visual interpretation only",
+  "artwork_count": 18,
+  "vessel_count": 19,
+  "artworks": [
+    {
+      "slug": "chenxiang3",
+      "role": "货运与工程支援",
+      "features": "货运舱、工程服务结构、小型作业臂与人员支援舱",
+      "frame_height": 880,
+      "original": "./assets/ships/shadow/chenxiang3.png",
+      "preview": "./assets/ships/shadow/chenxiang3.webp",
+      "width": 1536,
+      "height": 1024,
+      "name": "沉箱-3 · 通用货运/工程支援舰",
+      "vessels": [
+        {
+          "id": "VES-CHENXIANG3",
+          "name": "沉箱-3",
+          "length": 241
+        }
+      ],
+      "original_sha256": "ebc6cef3d9134a49259e6c40d6dbf3d54e4a4d9d3a27796a456b7d74513d8f7e",
+      "preview_sha256": "1da57b2acb9c2aecdb4dcbf60861316a9c5adac2018765912ddcc260c39e3ed2"
+    },
+    {
+      "slug": "anya1",
+      "role": "护卫与武装巡逻",
+      "features": "紧凑巡逻舰体、观察舰桥和轻型自卫武装",
+      "frame_height": 740,
+      "original": "./assets/ships/shadow/anya1.png",
+      "preview": "./assets/ships/shadow/anya1.webp",
+      "width": 1536,
+      "height": 1024,
+      "name": "暗鸦1号 · 护卫/武装巡逻舰",
+      "vessels": [
+        {
+          "id": "VES-ANYA1",
+          "name": "暗鸦1号",
+          "length": 143
+        }
+      ],
+      "original_sha256": "b9166d279314593a947e89b77d8237299bf32eee63a3cc58ec71d49c2bb0fbe0",
+      "preview_sha256": "021123ec80278b1c87706089602e369d53d8c1800ef6ef861bcb855c252b31ae"
+    },
+    {
+      "slug": "anya2",
+      "role": "武装护航",
+      "features": "护航舰装甲舰艏、轻型炮位和紧凑机库",
+      "frame_height": 740,
+      "original": "./assets/ships/shadow/anya2.png",
+      "preview": "./assets/ships/shadow/anya2.webp",
+      "width": 1536,
+      "height": 1024,
+      "name": "暗鸦2号 · 武装护航舰",
+      "vessels": [
+        {
+          "id": "VES-ANYA2",
+          "name": "暗鸦2号",
+          "length": 142
+        }
+      ],
+      "original_sha256": "92847997e47aea5b9e96fc53a0c3fd31ac27218969455236f284556fca91125a",
+      "preview_sha256": "9e42fb13a434ee248caa2c9de88805292809a2eb3bc591e7fa9b2108632ead20"
+    },
+    {
+      "slug": "chenxiang1",
+      "role": "轻型货运与人员支援",
+      "features": "民用货舱、装卸接口、生活支援舱和低调自卫炮位",
+      "frame_height": 760,
+      "original": "./assets/ships/shadow/chenxiang1.png",
+      "preview": "./assets/ships/shadow/chenxiang1.webp",
+      "width": 1536,
+      "height": 1024,
+      "name": "沉箱1 · 轻型货船",
+      "vessels": [
+        {
+          "id": "VES-CHENXIANG1",
+          "name": "沉箱1",
+          "length": 158
+        }
+      ],
+      "original_sha256": "f480f60071c531baeee691aadff5f50ec87a8a0b121301ca867aa17dddc4cffd",
+      "preview_sha256": "18a825b5dbe848922794f28837c1dde2a6b05aaad5590683d42a95583917d8e4"
+    },
+    {
+      "slug": "chenxiang2",
+      "role": "高速通信与轻货运",
+      "features": "细长信使舰体、紧凑货舱、通信天线和高速推进结构",
+      "frame_height": 740,
+      "original": "./assets/ships/shadow/chenxiang2.png",
+      "preview": "./assets/ships/shadow/chenxiang2.webp",
+      "width": 1536,
+      "height": 1024,
+      "name": "沉箱2号 · 快速信使/轻货运舰",
+      "vessels": [
+        {
+          "id": "VES-CHENXIANG2",
+          "name": "沉箱2号",
+          "length": 132
+        }
+      ],
+      "original_sha256": "b002872063431898847c1a1c2ff181a8b67ef0e4022c09a3163147e0c5b69b27",
+      "preview_sha256": "478e94a3570ef828f239ca7d93380ea2fb93a626f8118a65b11fd940fded9237"
+    },
+    {
+      "slug": "anya3",
+      "role": "近距护航与登舰支援",
+      "features": "小型旧式护航舰体、侧面登舰接口和轻型炮位",
+      "frame_height": 740,
+      "original": "./assets/ships/shadow/anya3.png",
+      "preview": "./assets/ships/shadow/anya3.webp",
+      "width": 1536,
+      "height": 1024,
+      "name": "暗鸦3号 · 旧式武装护航舰",
+      "vessels": [
+        {
+          "id": "VES-ANYA3",
+          "name": "暗鸦3号",
+          "length": 91
+        }
+      ],
+      "original_sha256": "0590d36a6cc211faaa8c53edadb9aa52e26ae542215d8cf9dc77e2ee7fcd66b5",
+      "preview_sha256": "caac553cbed268299180168ba6b2d2b1c6abadd59b19f8d0a0ab2af79aaaea86"
+    },
+    {
+      "slug": "chenxiang4",
+      "role": "商务伪装接触与人员运输",
+      "features": "民用商务艇外形、客舱舷窗、客运舱门和低调通信设备",
+      "frame_height": 740,
+      "original": "./assets/ships/shadow/chenxiang4.png",
+      "preview": "./assets/ships/shadow/chenxiang4.webp",
+      "width": 1536,
+      "height": 1024,
+      "name": "沉箱4号 · 民用商务艇",
+      "vessels": [
+        {
+          "id": "VES-CHENXIANG4",
+          "name": "沉箱4号",
+          "length": 118
+        }
+      ],
+      "original_sha256": "96edcdedb11854ace78ebbaf3e82be716b857f6076a3a745ec19e93e0d74c4ef",
+      "preview_sha256": "989eedada5892141e662d10e8bcd6cabb0658c19fefa92eb8099dd301caab51b"
+    },
+    {
+      "slug": "anya4",
+      "role": "武装护航与突入支援",
+      "features": "紧凑护航舰体、中型电磁炮位和侧面登舰舱",
+      "frame_height": 740,
+      "original": "./assets/ships/shadow/anya4.png",
+      "preview": "./assets/ships/shadow/anya4.webp",
+      "width": 1536,
+      "height": 1024,
+      "name": "暗鸦4号 · 武装护航舰",
+      "vessels": [
+        {
+          "id": "VES-ANYA4",
+          "name": "暗鸦4号",
+          "length": 104
+        }
+      ],
+      "original_sha256": "5334cc561fe9f80462eb08df94dab7e89cce404090cad5f60905a1e8bfbdbf7a",
+      "preview_sha256": "15b418fa76088725982c93f71af9c324f23ce84635d9a2ce5cd8286c95758ee0"
+    },
+    {
+      "slug": "anya5",
+      "role": "私人安保护航与登舰支援",
+      "features": "私人安保舰外形、加固舰桥、登舰准备舱和轻型炮位",
+      "frame_height": 760,
+      "original": "./assets/ships/shadow/anya5.png",
+      "preview": "./assets/ships/shadow/anya5.webp",
+      "width": 1536,
+      "height": 1024,
+      "name": "暗鸦5号 · 私人安保舰",
+      "vessels": [
+        {
+          "id": "VES-ANYA5",
+          "name": "暗鸦5号",
+          "length": 158
+        }
+      ],
+      "original_sha256": "086208167d414e1b2551f1ebb0678be34490197978a6d1bce77c9b46e55f9a84",
+      "preview_sha256": "2e280408729f6c11c93f7fee58e13cc6b2924c8f4402fd896518522d0f5d8fee"
+    },
+    {
+      "slug": "chenxiang5",
+      "role": "高速物流、通信与人员撤离",
+      "features": "轻巧高速舰体、安全货舱、数据中继设备与人员舱门",
+      "frame_height": 740,
+      "original": "./assets/ships/shadow/chenxiang5.png",
+      "preview": "./assets/ships/shadow/chenxiang5.webp",
+      "width": 1536,
+      "height": 1024,
+      "name": "沉箱5号 · 高速物流联络舰",
+      "vessels": [
+        {
+          "id": "VES-CHENXIANG5",
+          "name": "沉箱5号",
+          "length": 96
+        }
+      ],
+      "original_sha256": "bfec8b11640c06110a359f72cd3675a40e9db62523ce7581c1dbfaf06b0b6b98",
+      "preview_sha256": "8f885d4e474029b266cd73e63a5d1bd89ef03de53008fbff666103ad07c5c2cb"
+    },
+    {
+      "slug": "anya6",
+      "role": "旧式护卫与导弹护航",
+      "features": "旧式护卫舰轮廓、中型激光炮和封闭导弹发射舱",
+      "frame_height": 740,
+      "original": "./assets/ships/shadow/anya6.png",
+      "preview": "./assets/ships/shadow/anya6.webp",
+      "width": 1536,
+      "height": 1024,
+      "name": "暗鸦6号 · 旧式护卫舰",
+      "vessels": [
+        {
+          "id": "VES-ANYA6",
+          "name": "暗鸦6号",
+          "length": 154
+        }
+      ],
+      "original_sha256": "eacde4a3546539e22caa6a247c01488146dfb764902f8cd3eb0df89c9fb8cba9",
+      "preview_sha256": "232b5e7a505927870370054be63b157e75bca52f165b757470cab102437ccd49"
+    },
+    {
+      "slug": "anya7",
+      "role": "轻型驱逐、截击与火力支援",
+      "features": "轻型驱逐舰体、等离子与激光炮位、导弹舱及指挥模块",
+      "frame_height": 760,
+      "original": "./assets/ships/shadow/anya7.png",
+      "preview": "./assets/ships/shadow/anya7.webp",
+      "width": 1536,
+      "height": 1024,
+      "name": "暗鸦7号 · 轻型驱逐舰",
+      "vessels": [
+        {
+          "id": "VES-ANYA7",
+          "name": "暗鸦7号",
+          "length": 202
+        }
+      ],
+      "original_sha256": "6e1c2531d730a99c362ef4ccd9f59d5636881f9d66bc6aff4de266aa64c6d302",
+      "preview_sha256": "46d6945223ca398c7e73a51c7db247c841064befc87dd3cd3da3fb93c6cf90e7"
+    },
+    {
+      "slug": "prison1",
+      "role": "无动力拘押驳船",
+      "features": "封闭拘押舱、生命维持模块、接驳口和拖带挂点，无推进器",
+      "frame_height": 800,
+      "original": "./assets/ships/shadow/prison1.png",
+      "preview": "./assets/ships/shadow/prison1.webp",
+      "width": 1536,
+      "height": 1024,
+      "name": "监狱1 · 无动力拘押驳船",
+      "vessels": [
+        {
+          "id": "VES-PRISON1",
+          "name": "监狱1",
+          "length": 54
+        }
+      ],
+      "original_sha256": "3c257e32e17a06896a74783f5f871ced870c727c814bafdcf24cbaab91cdeaa6",
+      "preview_sha256": "b2c4379a35b338a545c94cd0673a447213f77b65533e099606a1d61c397d214f"
+    },
+    {
+      "slug": "anya10",
+      "role": "重型驱逐与火力支援",
+      "features": "大型重装甲舰体、等离子与激光炮群、导弹舱和机库",
+      "frame_height": 800,
+      "original": "./assets/ships/shadow/anya10.png",
+      "preview": "./assets/ships/shadow/anya10.webp",
+      "width": 1536,
+      "height": 1024,
+      "name": "暗鸦10号 · 重型驱逐舰",
+      "vessels": [
+        {
+          "id": "VES-ANYA10",
+          "name": "暗鸦10号",
+          "length": 529
+        }
+      ],
+      "original_sha256": "a1ba7f6e6dd569da2e9c410f98cfc18b33d9bb35ac1b8015a042e4085010f124",
+      "preview_sha256": "d37cc18b95c50406fff1ec0c5acc4ff6e21863d1fc0e7ad572dfa666edce67c1"
+    },
+    {
+      "slug": "anya8",
+      "role": "M-41型制式驱逐舰",
+      "features": "制式驱逐舰轮廓、整齐炮位、导弹发射舱和航空机库",
+      "frame_height": 780,
+      "original": "./assets/ships/shadow/anya8.png",
+      "preview": "./assets/ships/shadow/anya8.webp",
+      "width": 1536,
+      "height": 1024,
+      "name": "暗鸦8号 · M-41型制式驱逐舰",
+      "vessels": [
+        {
+          "id": "VES-ANYA8",
+          "name": "暗鸦8号",
+          "length": 397
+        }
+      ],
+      "original_sha256": "e3b2f66c750620220774a1f6149232c9c1adc709d63f26bb44c4d1debc388bc9",
+      "preview_sha256": "2a86f6d275d269cc524c2252d0cc00c60bed91e72fc0b0918a5d9f0db7e5c7ba"
+    },
+    {
+      "slug": "anya9",
+      "role": "C-17型重型驱逐／轻巡",
+      "features": "长大巡洋舰体、重型激光与等离子炮、密集导弹舱和航空机库",
+      "frame_height": 820,
+      "original": "./assets/ships/shadow/anya9.png",
+      "preview": "./assets/ships/shadow/anya9.webp",
+      "width": 1536,
+      "height": 1024,
+      "name": "暗鸦9号 · C-17型重型驱逐/轻巡",
+      "vessels": [
+        {
+          "id": "VES-ANYA9",
+          "name": "暗鸦9号",
+          "length": 624
+        }
+      ],
+      "original_sha256": "94ac447a70539ceb8248f938b6dba1c245a595912afaad9a4bf976c3a5f05c2d",
+      "preview_sha256": "564df35f6d3fa5215de02a458bfc694f8762c890293a89ced0add81640e3119f"
+    },
+    {
+      "slug": "mugou-escort",
+      "role": "中型护航",
+      "features": "中型护航舰体、激光与等离子炮位、封闭导弹舱和小型机库",
+      "frame_height": 780,
+      "original": "./assets/ships/shadow/mugou-escort.png",
+      "preview": "./assets/ships/shadow/mugou-escort.webp",
+      "width": 1536,
+      "height": 1024,
+      "name": "中型护航舰 · 暗鸦11号与12号",
+      "vessels": [
+        {
+          "id": "VES-ANYA11",
+          "name": "暗鸦11号",
+          "length": 294
+        },
+        {
+          "id": "VES-ANYA12",
+          "name": "暗鸦12号",
+          "length": 289
+        }
+      ],
+      "original_sha256": "ddb153ec26467993a9a1e11f47ea2f0fadcb76adb0a68064ff317cf213092271",
+      "preview_sha256": "5761d46700d0da8555b3946ca3a15af420ea5cabcdabaed2727cbd321d2bb61b"
+    },
+    {
+      "slug": "anya13",
+      "role": "指挥与支援",
+      "features": "指挥支援舰体、通信阵列、指挥舱和支援机库",
+      "frame_height": 880,
+      "original": "./assets/ships/shadow/anya13.png",
+      "preview": "./assets/ships/shadow/anya13.webp",
+      "width": 1536,
+      "height": 1024,
+      "name": "暗鸦13号 · 指挥/支援舰",
+      "vessels": [
+        {
+          "id": "VES-ANYA13",
+          "name": "暗鸦13号",
+          "length": 326
+        }
+      ],
+      "original_sha256": "7bd2c6b9b26362e085a307c088af9ae9af55f7e0c9d32bc2a3c65a0e109868b3",
+      "preview_sha256": "94dedbb0a4976135715709a0b2a0c68cb6d2219ea0663163ac9cefb45ce98dbd"
+    }
+  ]
+}
