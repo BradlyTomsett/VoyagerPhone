@@ -17,6 +17,22 @@ export const uploadedEquipmentImages = [
     "source": "用户提供并标注为M1动力甲"
   },
   {
+    "name": "M2动力甲",
+    "aliases": [
+      "M2",
+      "M-2",
+      "M2型动力甲",
+      "M-2动力甲"
+    ],
+    "lookup": "M2动力甲",
+    "original": "assets/equipment/original/m2_power_armor.png",
+    "preview": "assets/equipment/preview/m2_power_armor.webp",
+    "width": 1122,
+    "height": 1402,
+    "sha256": "78dc5abcf38658de50b9bb34c7dddb9039f0e3772072255ab8f0ffaa05c0c110",
+    "source": "用户提供并标注为M2动力甲"
+  },
+  {
     "name": "先锋-5动力甲",
     "aliases": [
       "先锋-5",

@@ -29,11 +29,15 @@ assert.equal(matchingImages('路狐4','余火咖啡').length,1);
 assert.ok(matchingImages('路狐4','余火咖啡')[0].original.includes('yuhuo_'));
 assert.equal(equipmentLookup('余火 · 路狐-4 配送摩托'),'路狐4');
 assert.equal(equipmentLookup('霍克组 · 林舟-4 轿车'),'林舟4');
-assert.equal(allImages.length,31);
+assert.equal(allImages.length,32);
 for(const image of uploadedEquipmentImages){for(const folder of ['browser','docs']){const bytes=readFileSync(new URL('../'+folder+'/'+image.original,import.meta.url));assert.equal(createHash('sha256').update(bytes).digest('hex'),image.sha256);assert.ok(readFileSync(new URL('../'+folder+'/'+image.preview,import.meta.url)).length<bytes.length/4);}}
 for(const query of ['M1','M-1','M１动力甲','M1型动力甲']){assert.equal(matchingImages(query).length,1,query);assert.equal(matchingImages(query)[0].name,'M1动力甲');}
-for(const query of ['M2动力甲','M10动力甲','XM1动力甲','M1A动力甲'])assert.equal(matchingImages(query).length,0,query);
+for(const query of ['M10动力甲','XM1动力甲','M1A动力甲'])assert.equal(matchingImages(query).length,0,query);
 assert.equal(equipmentLookup('M1'),'M1动力甲');
+for(const query of ['M2','M-2','M２动力甲','M2型动力甲','M-2动力甲']){assert.equal(matchingImages(query).length,1,query);assert.equal(matchingImages(query)[0].name,'M2动力甲');}
+for(const query of ['M20动力甲','M21动力甲','XM2动力甲','M2A动力甲'])assert.equal(matchingImages(query).length,0,query);
+assert.equal(equipmentLookup('M2'),'M2动力甲');
+assert.notEqual(matchingImages('M1')[0].original,matchingImages('M2')[0].original);
 for(const query of ['先锋-5','先锋5','先锋－５动力甲','先锋5型动力甲']){assert.equal(matchingImages(query).length,1,query);assert.equal(matchingImages(query)[0].name,'先锋-5动力甲');}
 for(const query of ['先锋-50动力甲'])assert.equal(matchingImages(query).length,0,query);
 assert.equal(equipmentLookup('先锋-5动力甲'),'先锋-5');
