@@ -1,5 +1,5 @@
-import {shipImages as voyagerShipImages} from './ship-image-data.js';
-import {shadowShipImages} from './shadow-ship-image-data.js';
+import {shipImages as voyagerShipImages} from './ship-image-data.js?v=0.8.23';
+import {shadowShipImages} from './shadow-ship-image-data.js?v=0.8.23';
 export const shipImages=[...voyagerShipImages,...shadowShipImages];
 const byId=new Map(voyagerShipImages.map(image=>[image.id,image]));
 const byName=new Map(voyagerShipImages.map(image=>[image.name,image]));

@@ -1,5 +1,5 @@
-import {equipmentImages as sourceImages} from './equipment-image-data.js';
-import {uploadedEquipmentImages} from './equipment-upload-data.js';
+import {equipmentImages as sourceImages} from './equipment-image-data.js?v=0.8.23';
+import {uploadedEquipmentImages} from './equipment-upload-data.js?v=0.8.23';
 export const equipmentImages=[...sourceImages,...uploadedEquipmentImages];
 
 const normal=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/[\s·\-－—_]/g,'');

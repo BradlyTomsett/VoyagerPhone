@@ -8,8 +8,8 @@ async function dispatch(method,data){
   progress('载入浏览器引擎，首次约需下载 20 MB…');
   py=await loadPyodide({indexURL:new URL('./vendor/pyodide/',import.meta.url).href});
   await py.loadPackage(['sqlite3','lzma']);
-  const manifest=await (await fetch('./asset-manifest.json')).json();
-  const raw=new Uint8Array(await (await fetch('./engine-bundle.zip')).arrayBuffer());
+  const manifest=await (await fetch('./asset-manifest.json',{cache:'no-store'})).json();
+  const raw=new Uint8Array(await (await fetch('./engine-bundle.zip?sha='+encodeURIComponent(manifest.files['engine-bundle.zip']))).arrayBuffer());
   const hash=[...new Uint8Array(await crypto.subtle.digest('SHA-256',raw))].map(x=>x.toString(16).padStart(2,'0')).join('');
   if(hash!==manifest.files['engine-bundle.zip'])throw Error('BUNDLE_INTEGRITY_FAILED');
   py.unpackArchive(raw,'zip',{extractDir:'/app'});

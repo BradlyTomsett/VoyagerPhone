@@ -137,8 +137,15 @@ class GameService:
             raise APIError(400, 'INTENT_INVALID')
         if data['mode'] == 'action' and not re.fullmatch(r'PER-[A-Za-z0-9_.:-]+', data.get('actor_id', '')):
             raise APIError(400, 'ACTION_REQUIRES_ACTOR')
-        if data.get('scene_id') is not None and not re.fullmatch(r'[A-Za-z0-9_.:-]{1,160}', data['scene_id']):
-            raise APIError(400, 'SCENE_ID_INVALID')
+        if data.get('scene_id') is not None:
+            if not isinstance(data['scene_id'], str):
+                raise APIError(400, 'SCENE_ID_INVALID')
+            # An unfilled optional scene means "use the current scene". Keep
+            # explicit IDs strict, and normalize before durable request hashing.
+            scene_id = data['scene_id'].strip() or None
+            if scene_id is not None and not re.fullmatch(r'[A-Za-z0-9_.:-]{1,160}', scene_id):
+                raise APIError(400, 'SCENE_ID_INVALID')
+            data = {**data, 'scene_id': scene_id}
         with self.transition_lock:
             job, created = self.store.create(data)
         self.signal.set()

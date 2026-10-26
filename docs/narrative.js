@@ -1,4 +1,4 @@
-import {briefingText} from './briefing.js';
+import {briefingText} from './briefing.js?v=0.8.23';
 // Old drafts sometimes mixed a scene with an implementation checklist. Display
 // the scene without rewriting stored evidence or inventing replacement prose.
 export function narrativeText(value){

@@ -1,5 +1,5 @@
-import {node,label,fmt,visible,recordView,highlights,openEquipment} from './dossier.js';
-import {equipmentFigures,equipmentGallery} from './equipment-images.js';
+import {node,label,fmt,visible,recordView,highlights,openEquipment} from './dossier.js?v=0.8.23';
+import {equipmentFigures,equipmentGallery} from './equipment-images.js?v=0.8.23';
 function preview(value){const lines=[];function walk(v,key='',depth=0){if(lines.length>=7||depth>5)return;if(v&&typeof v==='object'){for(const [k,x]of Object.entries(v))walk(x,k,depth+1);}else if(v!==undefined)lines.push((/^\d+$/.test(key)?'':label(key)+'：')+fmt(v));}walk(visible(value));return lines.join('；').slice(0,550);}
 export class SourceLibraryView{
  constructor(rpc,error){this.rpc=rpc;this.error=error;this.loaded=false;this.busy=false;this.query='';this.offset=0;this.next=null;this.topicGeneration=0;

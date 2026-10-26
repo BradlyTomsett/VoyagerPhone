@@ -1,7 +1,7 @@
-import {node,fmt,label,tree,recordView,quantityView,onEquipment,onPersonnel,highlights} from './dossier.js';
-import {equipmentFigures,equipmentLookup,equipmentImageQuery,equipmentSearchText} from './equipment-images.js';
-import {shipImage,shipFigure,shipViewTools} from './ship-images.js';
-import {uploadedEquipmentImages} from './equipment-upload-data.js';
+import {node,fmt,label,tree,recordView,quantityView,onEquipment,onPersonnel,highlights} from './dossier.js?v=0.8.23';
+import {equipmentFigures,equipmentLookup,equipmentImageQuery,equipmentSearchText} from './equipment-images.js?v=0.8.23';
+import {shipImage,shipFigure,shipViewTools} from './ship-images.js?v=0.8.23';
+import {uploadedEquipmentImages} from './equipment-upload-data.js?v=0.8.23';
 const names=['远航者舰队','金川舰队','暗影舰队'],keys=['voyager','jinchuan','shadow'];
 export class FleetView{
  constructor(rpc,error,library){this.rpc=rpc;this.error=error;this.library=library;this.cache=new Map();this.fleet=null;this.generation=0;onEquipment(query=>this.equipment(query));onPersonnel(subject=>this.personnel(subject));

@@ -1,8 +1,10 @@
-# VoyagerPhone · 远航浏览器版 0.8.22
+# VoyagerPhone · 远航浏览器版 0.8.23
 
 [打开游戏](https://bradlytomsett.github.io/VoyagerPhone/)
 
 VOYAGER V14.66 的单人星际沙盒。网页、Python 引擎和运行资源全部由 GitHub Pages 的 `docs/` 提供；引擎在浏览器 Web Worker 内通过 Pyodide 运行，无需游戏服务器、Codespaces 或 Docker。原始 `seed/` 保持不变。
+
+0.8.23 修复旧场景设置导致发送指令立即出现 SCENE_ID_INVALID：移除手填场景编号，发送时由引擎选取当前场景；浏览器升级只移除过时的 scene_id 偏好，保留人物、开场地点、模型设置、密钥与存档。可选场景参数的空白值也按未指定处理。页面及模块引用带发布版本，模型契约和引擎清单重新校验，引擎压缩包按内容摘要加载，避免新页面混用旧发送脚本。
 
 ## 开始游玩
 
